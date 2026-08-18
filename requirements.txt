@@ -1,0 +1,7 @@
+PyMuPDF
+pix2tex
+latex2mathml
+lxml
+Flask
+pywebview
+pythonnet

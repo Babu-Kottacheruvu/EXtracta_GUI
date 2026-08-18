@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" article-type="proceedings">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>6f77cfda71e04636afb865a1afe35c05.pdf</article-title>
+      </title-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>AN TOBAR</title>
+      <p>
+        <styled-content style="color:#b08c45">
+          <bold>Budget Calculation Methodology</bold>
+        </styled-content>
+         
+      </p>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>A step-by-step explanation of how the </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>€</italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>75,000 RFT ceiling was translated into the three-year cost model, including the </italic>
+        </styled-content>
+      </p>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>exact basis for every figure.</italic>
+        </styled-content>
+         
+      </p>
+      <p>Nothing in this budget is built on an hourly rate. Every cost is built on day rates: Role × Estimated Days × Daily Rate. This document walks through, in order, exactly how the €75,000 ceiling was turned into the three-year, category-by-category budget in the main proposal. </p>
+      <p>
+        <styled-content style="color:#1f3764">
+          <bold>Step 1 — Split the </bold>
+        </styled-content>
+        <styled-content style="color:#1f3764">
+          <bold>€</bold>
+        </styled-content>
+        <styled-content style="color:#1f3764">
+          <bold>75,000 ceiling into net budget and VAT</bold>
+        </styled-content>
+        <styled-content style="color:#2e73b4"> </styled-content>
+      </p>
+      <p>The RFT states €75,000 is VAT inclusive, so the first calculation finds out how much is actually available to spend before VAT is deducted: </p>
+      <p>Net budget = 75,000 ÷ 1.23 = 60,975.61​VAT        = 75,000 − 60,975.61 = 14,024.39 </p>
+      <p>€60,975.61 is the real number the entire project has to fit inside. Every subsequent calculation works within this ceiling, not the headline €75,000. </p>
+      <p>
+        <styled-content style="color:#1f3764">
+          <bold>Step 2 — Allocate the net budget across the 3 contract years</bold>
+        </styled-content>
+        <styled-content style="color:#2e73b4"> </styled-content>
+      </p>
+      <p>The RFT structure is 1 year of development followed by 2 years of maintenance. The €60,975.61 net budget was split across the three years as a judgement call (not a formula) — maintenance years get a smaller, roughly equal slice since the heavy cost sits in Year 1: </p>
+      <table-wrap>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <bold>Year</bold>
+                 
+              </td>
+              <td>
+                <bold>Net Allocation (</bold>
+                <bold>€</bold>
+                <bold>)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td>Year 1 — Development </td>
+              <td>36,000.00 </td>
+            </tr>
+            <tr>
+              <td>Year 2 — Maintenance </td>
+              <td>12,500.00 </td>
+            </tr>
+            <tr>
+              <td>Year 3 — Maintenance </td>
+              <td>12,475.61 </td>
+            </tr>
+            <tr>
+              <td>Total </td>
+              <td>60,975.61 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>These three figures are the year-by-year targets that every subsequent role/day-rate build has to land within. </p>
+      <p>
+        <styled-content style="color:#1f3764">
+          <bold>Step 3 — Build Year 1 bottom-up: Role × Days × Day Rate</bold>
+        </styled-content>
+        <styled-content style="color:#2e73b4"> </styled-content>
+      </p>
+      <p>This is where the actual day-rate calculation happens. Each role was assigned an estimated number of days and a day rate reflecting Irish (PM/accessibility) or nearshore/EU (design, development, QA) contractor market rates: </p>
+      <table-wrap>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <bold>Role</bold>
+                 
+              </td>
+              <td>
+                <bold>Days</bold>
+                 
+              </td>
+              <td>
+                <bold>Day Rate (</bold>
+                <bold>€</bold>
+                <bold>)</bold>
+                 
+              </td>
+              <td>
+                <bold>Cost (</bold>
+                <bold>€</bold>
+                <bold>)</bold>
+                 
+              </td>
+              <td>
+                <bold>Calculation</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td>Ireland PM / Liaison </td>
+              <td>15 </td>
+              <td>500 </td>
+              <td>7,500 </td>
+              <td>15 × 500 </td>
+            </tr>
+            <tr>
+              <td>Business Analyst </td>
+              <td>8 </td>
+              <td>200 </td>
+              <td>1,600 </td>
+              <td>8 × 200 </td>
+            </tr>
+            <tr>
+              <td>UX/UI Designer </td>
+              <td>15 </td>
+              <td>220 </td>
+              <td>3,300 </td>
+              <td>15 × 220 </td>
+            </tr>
+            <tr>
+              <td>Frontend Developer </td>
+              <td>30 </td>
+              <td>200 </td>
+              <td>6,000 </td>
+              <td>30 × 200 </td>
+            </tr>
+            <tr>
+              <td>Backend / Full-Stack Developer </td>
+              <td>34.5 </td>
+              <td>200 </td>
+              <td>6,900 </td>
+              <td>34.5 × 200 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <table-wrap>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <bold>Role</bold>
+                 
+              </td>
+              <td>
+                <bold>Days</bold>
+                 
+              </td>
+              <td>
+                <bold>Day Rate (</bold>
+                <bold>€</bold>
+                <bold>)</bold>
+                 
+              </td>
+              <td>
+                <bold>Cost (</bold>
+                <bold>€</bold>
+                <bold>)</bold>
+                 
+              </td>
+              <td>
+                <bold>Calculation</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td>Bilingual QA / Content Support </td>
+              <td>10 </td>
+              <td>200 </td>
+              <td>2,000 </td>
+              <td>10 × 200 </td>
+            </tr>
+            <tr>
+              <td>QA / Test Engineer </td>
+              <td>10 </td>
+              <td>180 </td>
+              <td>1,800 </td>
+              <td>10 × 180 </td>
+            </tr>
+            <tr>
+              <td>Accessibility Specialist </td>
+              <td>5 </td>
+              <td>400 </td>
+              <td>2,000 </td>
+              <td>5 × 400 </td>
+            </tr>
+            <tr>
+              <td>DevOps / Deployment </td>
+              <td>5 </td>
+              <td>220 </td>
+              <td>1,100 </td>
+              <td>5 × 220 </td>
+            </tr>
+            <tr>
+              <td>Technical Writer / Trainer </td>
+              <td>4 </td>
+              <td>250 </td>
+              <td>1,000 </td>
+              <td>4 × 250 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>Labour subtotal = 33,200. Adding one-time infrastructure setup (€1,200 for hosting, domain, SSL, dev tooling) and re-splitting a small amount into a standalone Security line brings the costed subtotal to €32,727 (this regrouping is explained in Step 5). </p>
+      <p>
+        <styled-content style="color:#b08c45">
+          <bold>Contingency is calculated as a residual, not a fixed input</bold>
+        </styled-content>
+         
+      </p>
+      <p>Contingency is not added as a percentage first — it is whatever is left once every other line is costed, checked afterwards against a roughly 10% sanity target: </p>
+      <p>Year 1 target total   = 36,000​Costed subtotal        = 32,727​Contingency             = 36,000 − 32,727 = 3,273  (≈10.0%) </p>
+      <p>
+        <styled-content style="color:#1f3764">
+          <bold>Step 4 — Build Year 2 and Year 3 the same way, but leaner</bold>
+        </styled-content>
+        <styled-content style="color:#2e73b4"> </styled-content>
+      </p>
+      <p>Maintenance years don't need an itemised staffing table — they use a retainer model: a block of estimated days per year rather than day-by-day allocation. </p>
+      <table-wrap>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <bold>Category</bold>
+                 
+              </td>
+              <td>
+                <bold>Basis</bold>
+                 
+              </td>
+              <td>
+                <bold>Year 2 (</bold>
+                <bold>€</bold>
+                <bold>)</bold>
+                 
+              </td>
+              <td>
+                <bold>Year 3 (</bold>
+                <bold>€</bold>
+                <bold>)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td>PM oversight </td>
+              <td>~6 days @ €500 </td>
+              <td>3,000 </td>
+              <td>3,000 </td>
+            </tr>
+            <tr>
+              <td>Nearshore retainer </td>
+              <td>~25 days @ €180 </td>
+              <td>4,500 </td>
+              <td>4,500 </td>
+            </tr>
+            <tr>
+              <td>Infrastructure </td>
+              <td>Recurring hosting / SSL / monitoring </td>
+              <td>2,000 </td>
+              <td>2,000 </td>
+            </tr>
+            <tr>
+              <td>Accessibility </td>
+              <td>Annual NDA prep, ~2–3 days </td>
+              <td>900 </td>
+              <td>900 </td>
+            </tr>
+            <tr>
+              <td>Security </td>
+              <td>Patching / monitoring subscription </td>
+              <td>800 </td>
+              <td>800 </td>
+            </tr>
+            <tr>
+              <td>Subtotal </td>
+              <td> </td>
+              <td>11,200 </td>
+              <td>11,200 </td>
+            </tr>
+            <tr>
+              <td>Contingency (residual) </td>
+              <td>Target − subtotal </td>
+              <td>1,300 </td>
+              <td>1,275.61 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>Same logic as Year 1: the known work is costed first, and whatever remains under that year's target becomes the contingency line: </p>
+      <p>Year 2 contingency = 12,500 − 11,200 = 1,300​Year 3 contingency = 12,475.61 − 11,200 = 1,275.61 </p>
+      <p>
+        <styled-content style="color:#1f3764">
+          <bold>Step 5 — Regroup roles into the RFT's requested budget categories</bold>
+        </styled-content>
+        <styled-content style="color:#2e73b4"> </styled-content>
+      </p>
+      <p>The staffing-table roles are relabelled into the categories the RFT's budget structure requires (Project Management, Business Analysis, UX/UI, Development, QA, Accessibility, Security, Infrastructure, Training, Maintenance). For example, the Year 1 'Development' figure of €13,800 = Frontend (€6,000) + Backend (€6,900) + a small rounding adjustment, with €500 of Backend reassigned to its own 'Security' line. This is a relabelling exercise on top of the same day-rate numbers from Step 3 — no new calculation is introduced. </p>
+      <p>Year 1: 36,000.00 × 1.23 = 44,280.00​Year 2: 12,500.00 × 1.23 = 15,375.00​Year 3: 12,475.61 × 1.23 = 15,345.00​                   Total = 75,000.00   ✓ exactly the RFT ceiling </p>
+      <p>
+        <styled-content style="color:#1f3764">
+          <bold>Summary — the formula used throughout</bold>
+        </styled-content>
+        <styled-content style="color:#2e73b4"> </styled-content>
+      </p>
+      <p>Role / Category × Estimated Days × Day Rate = Cost​(summed per year, with Contingency = Year Target − Costed Subtotal) </p>
+      <p>This combines a top-down constraint (the €75,000 ceiling → net budget → three year targets) with a bottom-up build (roles × days × rates), with contingency used to reconcile the two. The day-rate table came first; contingency absorbs the gap to each year's pre-set target — nothing was hourly, and nothing was reverse-engineered after the fact to force a match. </p>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>If actual quoted contractor day rates or different day counts become available, every downstream figure — category totals, </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>VAT, milestones, and the feasibility assessment — can be re-run through this same chain.</italic>
+        </styled-content>
+         
+      </p>
+    </sec>
+  </body>
+</article>

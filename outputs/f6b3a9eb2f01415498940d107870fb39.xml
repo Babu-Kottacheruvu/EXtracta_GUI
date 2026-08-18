@@ -1,0 +1,2075 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" article-type="proceedings">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>eb8745104fc14d49a3eaf9b69df838a1.pdf</article-title>
+      </title-group>
+    </article-meta>
+  </front>
+  <body>
+    <fig>
+      <graphic xlink:href="image_p1_211_311.jpg"/>
+    </fig>
+    <fig>
+      <graphic xlink:href="image_p1_211_311.jpg"/>
+    </fig>
+    <p>
+      Page 
+      <styled-content style="color:#2b569a">1</styled-content>
+       of 
+      <styled-content style="color:#2b569a">26</styled-content>
+       
+    </p>
+    <p>
+      <bold>Scope of Work </bold>
+    </p>
+    <p>
+       NABARD seeks an Enterprise KYC/AML Solution to integrate with existing NABARD applications and implement a complete digital KYC, KYB, and CKYC workflow through CKYCRR (CERSAI). The Bidder shall be responsible for design, supply, configuration, customization, integration, testing, deployment, security hardening, and ongoing support of the solution.  The solution shall provide due diligence capabilities including customer acceptance, customer identification procedure, customer due diligence, beneficial owner identification (for entities), ongoing due diligence triggers, automated regulatory compliance flows, and audit ready evidence and reporting as per regulatory and Bank’s KYC/AML policy.  
+      <bold>1.</bold>
+      <bold> </bold>
+      <bold>Standards based Integration: </bold>
+       
+    </p>
+    <p>
+      The Bidder shall provide API/Web-SDK or other applicable standards based integration so that NABARD applications (web portals, internal systems, and authentication services such as Active Directory/SSO where applicable) can invoke KYC/KYB/CKYC services. Integration shall support initiation, status retrieval, decision outcomes, evidence retrieval, and master record updates. 
+      <bold>1.1.</bold>
+      <bold> </bold>
+      The solution shall adhere to enterprise architecture principles including 
+    </p>
+    <p>modularity, scalability, interoperability, and reusability across NABARD systems. </p>
+    <p>
+      The solution shall be implemented as a shared enterprise service layer consumable by multiple NABARD applications 
+      <bold>1.2.</bold>
+      <bold> </bold>
+    </p>
+    <p>
+      The solution shall enforce separation of concerns across presentation, business logic, integration, and data layers. 
+      <bold>1.3.</bold>
+      <bold> </bold>
+    </p>
+    <sec>
+      <title>2.   Objectives</title>
+      <p>
+        Bidder shall implement workflows and controls aligned with NABARD policy and applicable regulator directions, including registry interactions wherever applicable. Bidder shall implement a system enforcing NABARD KYC Policy and Operational Guidelines as the primary rulebook.  
+        <bold>2.1.</bold>
+        <bold> </bold>
+        <bold>Regulatory-aligned KYC/AML/CFT compliance enablement</bold>
+        : The 
+      </p>
+      <p>
+        <bold>2.2.</bold>
+        <bold> </bold>
+        <bold>Unified KYC/KYB onboarding across applications</bold>
+        : The Bidder 
+      </p>
+      <p>shall deliver a reusable KYC/KYB layer integrated with multiple NABARD applications with consistent decisioning and audit trails. </p>
+      <p>
+        <bold>2.3.</bold>
+        <bold> </bold>
+        <bold>Faster onboarding with verifiable checks</bold>
+        : The Bidder shall reduce 
+      </p>
+      <p>turnaround time via automated validations and structured approval workflows. </p>
+      <p>
+        <bold>2.4.</bold>
+        <bold> </bold>
+        <bold>Stronger risk management and fraud controls</bold>
+        : The Bidder shall 
+      </p>
+      <p>support risk categorization of clients, screening, mismatch detection and exception handling, as applicable. Generate alerts and notifications for Re-KYC as per extant regulatory guidelines. </p>
+      <p>
+        <bold>2.5.</bold>
+        <bold> </bold>
+        <bold>Automated compliance &amp; reporting</bold>
+        : The Bidder shall generate and 
+      </p>
+      <p>manage compliance tasks, submissions, acknowledgements, and evidence for UIDAI (Aadhaar vault compliance), CKYC operational flows, and RBI aligned </p>
+      <fig>
+        <graphic xlink:href="image_p2_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p2_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">2</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>KYC/AML reporting obligations (as applicable) while complying with statutes applicable on KYC/AML data and operations. </p>
+      <p>
+        <bold>2.6.</bold>
+        <bold> </bold>
+        <bold>Audit ready evidence and governance</bold>
+        : The Bidder shall produce 
+      </p>
+      <p>complete evidence packs per case and implement privacy and data governance controls including secure vaulting/tokenization of sensitive identifiers. </p>
+    </sec>
+    <sec>
+      <title>3.   Broad Requirements:</title>
+      <p>
+        An API-first, reusable platform integrated with CBS and other NABARD applications.
+        <bold>3.1.</bold>
+        <bold> </bold>
+        <bold> </bold>
+      </p>
+      <p>
+        The platform shall be implemented using microservices-based 
+        <bold>3.2.</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        architecture with clearly defined service boundaries such as KYC/KYB services, AML services, CKYC integration services, risk engines, document services, workflow/orchestration, and vault integrations. Each service shall be independently deployable and scalable.
+        <bold> </bold>
+      </p>
+      <p>
+        Individual KYC and Entity KYB onboarding, including beneficial owner 
+        <bold>3.3.</bold>
+        <bold> </bold>
+      </p>
+      <p>identification.  </p>
+      <p>
+        CKYC lifecycle through CKYCRR (search, download, upload/update; 
+        <bold>3.4.</bold>
+        <bold> </bold>
+      </p>
+      <p>single and bulk modes) as per the timelines mandated in regulatory or NABARD policy/guidelines.  </p>
+      <p>
+        Digital document capture, validation, secure storage, and masking of 
+        <bold>3.5.</bold>
+        <bold> </bold>
+      </p>
+      <p>sensitive identifiers.  </p>
+      <p>
+        Risk-based KYC, Re-KYC with periodic refresh, Enhanced Due Diligence 
+        <bold>3.6.</bold>
+        <bold> </bold>
+      </p>
+      <p>(EDD) alerts, and exceptions.  </p>
+      <p>
+        Workflow controls (maker–checker, RBAC), enterprise integrations, 
+        <bold>3.7.</bold>
+        <bold> </bold>
+      </p>
+      <p>audit/MIS, security, deployment, go-live, and support. </p>
+      <p>
+        The solution shall provide a centralized Customer/Entity Master (golden 
+        <bold>3.8.</bold>
+        <bold> </bold>
+      </p>
+      <p>record) with de-duplication, versioning, and consistent data sharing across NABARD applications. </p>
+    </sec>
+    <sec>
+      <title>4.   Functional Requirements</title>
+    </sec>
+    <sec>
+      <title>4.1   User Management &amp; Access Control</title>
+      <p>
+        <bold>4.1.1</bold>
+        <bold> </bold>
+        The Bidder shall implement role-based access with defined user types 
+      </p>
+      <p>
+        (initiator/maker-checker, compliance reviewer, administrator, auditor, view only).
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.1.2</bold>
+        <bold> </bold>
+        The Bidder shall implement configurable maker-checker workflows for 
+      </p>
+      <p>
+        actions with configurable approval hierarchies and escalation paths.
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.1.3</bold>
+        <bold> </bold>
+        The Bidder shall ensure immutable audit trails for creation, modification, 
+      </p>
+      <p>
+        approval/rejection, overrides, and record access.
+        <bold> </bold>
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.2   Integration with NABARD Systems</title>
+      <p>
+        <bold>4.2.1</bold>
+        <bold> </bold>
+        The Bidder shall integrate the solution through APIs/SDKs with 
+      </p>
+      <p>NABARD applications and portals for initiation, status retrieval, and posting of verified KYC/KYB/CKYC outcomes. </p>
+      <p>
+        <bold>4.2.2</bold>
+        <bold> </bold>
+        The Bidder shall support integration with NABARD employee 
+      </p>
+      <p>authentication services (e.g., directory-based authentication/SSO) and role management, as applicable. </p>
+      <p>
+        <bold>4.2.3</bold>
+        <bold> </bold>
+        The Bidder shall integrate with NABARD SMS and Email gateways 
+      </p>
+      <p>(provided by NABARD) for OTPs, alerts, and transactional notifications. </p>
+      <fig>
+        <graphic xlink:href="image_p3_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p3_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">3</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        <bold>4.2.4</bold>
+        <bold> </bold>
+        The Bidder shall provide the capability to generate a KYC session via API 
+      </p>
+      <p>call and create a URL/QR code to launch the KYC journey; the journey shall be resumable later and on another supported device or browser session. </p>
+      <p>
+        <bold>4.2.5</bold>
+        <bold> </bold>
+        The Bidder shall expose all integration APIs through a secured API 
+      </p>
+      <p>gateway layer (provided by NABARD), with enforced authentication, authorization, request validation, and protection against common API threats.  </p>
+      <p>
+        APIs shall adhere to open standards and be documented using Open API/Swagger specifications to ensure interoperability and avoid vendor lock-in. 
+        <bold>4.2.5.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.2.5.2</bold>
+        <bold> </bold>
+        The Bidder shall implement explicit API security controls for all 
+      </p>
+      <p>internal and external APIs, services, connectors, SDK interfaces, and integration interfaces forming part of the solution.  </p>
+      <p>
+        <bold>4.2.5.3</bold>
+        <bold> </bold>
+        Such controls shall include authentication, authorization, request 
+      </p>
+      <p>and payload validation, schema validation, encryption in transit, rate limiting, throttling, abuse protection, secure error handling, replay protection where applicable, and comprehensive logging and monitoring.  </p>
+      <p>
+        <bold>4.2.5.4</bold>
+        <bold> </bold>
+        These controls shall apply, inter alia, to integrations with 
+      </p>
+      <p>CKYCRR/CERSAI, sanctions/watchlist screening services, </p>
+      <p>verification utilities, and all NABARD internal and external system interfaces. </p>
+      <p>
+        <bold>4.2.6</bold>
+        <bold> </bold>
+        Without prejudice to the API security controls set out above, the Bidder 
+      </p>
+      <p>shall specifically ensure that rate-limiting, throttling, and abuse protection controls are enforced for sensitive and high-volume API endpoints, including session creation, status calls, evidence retrieval, and bulk/batch operations. </p>
+      <p>
+        <bold>4.2.7</bold>
+        <bold> </bold>
+        The Bidder shall ensure secure system-to-system communication 
+      </p>
+      <p>between NABARD applications and the solution using TLS encryption; where applicable, mutual authentication (mTLS) shall be supported for trusted applications/services. </p>
+      <p>
+        <bold>4.2.8</bold>
+        <bold> </bold>
+        The Bidder shall ensure that API requests and responses do not log or 
+      </p>
+      <p>expose sensitive identifiers (e.g., Aadhaar, PAN) in raw form; masking/redaction shall be enforced for logs, exports, and diagnostics. </p>
+      <p>
+        <bold>4.2.9</bold>
+        <bold> </bold>
+        The Bidder shall provide versioned APIs/SDKs with a defined versioning 
+      </p>
+      <p>approach to support upgrades without disruption to NABARD consuming applications. </p>
+      <p>
+        <bold>4.2.10</bold>
+        <bold> </bold>
+        The Bidder shall support asynchronous status updates through secure 
+      </p>
+      <p>callbacks/webhooks (where required) for long-running operations (e.g., CKYC fetch, batch processing, verification outcomes), along with retry and failure handling. </p>
+      <p>
+        <bold>4.2.10.1</bold>
+        <bold> </bold>
+        The solution shall support event-driven architecture by 
+      </p>
+      <p>publishing key lifecycle events (e.g., KYC completion, CKYC updates, risk category changes, Re-KYC triggers) through an enterprise messaging/event streaming platform. </p>
+      <fig>
+        <graphic xlink:href="image_p4_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p4_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">4</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        The Bidder shall provide an integration kit for NABARD applications, including API specifications, sample payloads, error codes, and sandbox/UAT enablement artefacts for integration testing. 
+        <bold>4.2.11</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.2.12</bold>
+        <bold> </bold>
+        The Bidder shall ensure that access (digital or physical) by vendor 
+      </p>
+      <p>personnel, if any, is KYC compliant. </p>
+      <p>
+        <bold>4.2.13</bold>
+        <bold> </bold>
+        All external integrations (CKYCRR, UIDAI, MCA, etc.) shall be 
+      </p>
+      <p>
+        implemented using an adapter-based integration pattern to ensure loose coupling and ease of replacement. 
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.3   KYC/KYB Onboarding Journeys</title>
+      <p>
+        <bold>4.3.1</bold>
+        <bold> </bold>
+        The Bidder shall provide configurable onboarding journeys for both 
+      </p>
+      <p>individual customers (KYC) and business entities (KYB). The solution shall support the design and modification of onboarding workflows in alignment with NABARD’s business requirements, regulatory </p>
+      <p>obligations, and operational processes, without requiring significant code-level changes. </p>
+      <p>
+        The solution shall incorporate dynamic and configurable data capture forms that automatically adapt based on the customer type, product category, and assigned risk classification. The forms shall enable conditional field display, validation rules, document requirements, and workflow routing, ensuring that relevant information is collected efficiently and in compliance with applicable regulatory guidelines. 
+        <bold>4.3.1.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.3.2</bold>
+        <bold> </bold>
+        The Bidder shall support assisted and self-serve modes with configurable 
+      </p>
+      <p>intake channels, including web-based and mobile-responsive browser-based access, as well as assisted desk operations. </p>
+      <p>
+        <bold>4.3.3</bold>
+        <bold> </bold>
+        The proposed KYC/AML solution is expected to support onboarding and 
+      </p>
+      <p>due diligence workflows for a diverse set of client/customer categories handled by NABARD, including but not limited to individuals, proprietary concerns, partnership firms, companies (public/private), trusts, societies, NGOs/NPOs, Government and Government-owned entities, banks, NBFCs, co-operative institutions, SHGs/JLGs, farmer groups, universities, and other juridical persons. </p>
+      <p>
+        <bold>4.3.4</bold>
+        <bold> </bold>
+        The Bidder shall implement a comprehensive KYB authentication 
+      </p>
+      <p>framework for non-individual entities, including Companies, Firms, NGOs, Co-operatives, SHGs/JLGs, Government bodies, and other similar entities, ensuring multi-level authentication at the entity, authorized signatory, and Beneficial Ownership levels. The solution shall support validation of key identifiers such as PAN, GSTIN (including PAN–GST mapping and status verification), and Legal Entity Identifier (LEI), along with lifecycle management, through authorized and verifiable sources. The solution shall further enable authentication of authorized signatories through individual KYC mechanisms, validation of authorization documents (such as Board Resolutions and mandate/Power of Attorney), and establishment of linkage with verified Beneficial Owners. Category-specific authentication workflows shall be supported, including NGO Darpan validation, registrar-based verification, and assisted authentication mechanisms for SHGs/JLGs and other rural entities. The </p>
+      <fig>
+        <graphic xlink:href="image_p5_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p5_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">5</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>solution shall ensure comprehensive audit trails, consent capture (where applicable), and end-to-end traceability of all authentication activities, in alignment with NABARD’s extant policies and applicable regulatory guidelines. </p>
+      <p>
+        <bold>4.3.5</bold>
+        <bold> </bold>
+        The solution shall generate Unique Customer Identification Code (UCIC) 
+      </p>
+      <p>and perform deduplication at enterprise level.  </p>
+      <p>
+        solution shall enforce prohibition of onboarding 
+        <bold>4.3.6</bold>
+        <bold> </bold>
+        The 
+      </p>
+      <p>anonymous/fictitious/benami customers and rejection logic based on Customer Due Diligence (CDD) failure. </p>
+      <p>
+        <bold>4.3.7</bold>
+        <bold> </bold>
+        The solution shall capture purpose of relationship &amp; expected activity 
+      </p>
+      <p>profiling. </p>
+      <p>
+        <bold>4.3.8</bold>
+        <bold> </bold>
+        The solution shall support multilingual user interfaces for customer-
+      </p>
+      <p>facing onboarding journeys, including at a minimum English and Hindi, with the ability to configure and add additional Indian languages as required by NABARD. </p>
+      <p>
+        <bold>4.3.9</bold>
+        <bold> </bold>
+        The solution shall maintain a relationship model linking entity, 
+      </p>
+      <p>authorized signatories, directors / partners / trustees / office bearers, beneficial owners, and associated facilities / accounts, and such relationships shall be consumable by onboarding, screening, risk scoring, Re-KYC, and AML investigation workflows. </p>
+      <p>
+        <bold>4.3.10</bold>
+        <bold> </bold>
+        For the purpose of customer identification and due diligence, the 
+      </p>
+      <p>solution shall support verification of documents and information as per prevailing guidelines. The onboarding process may typically involve verification of a combination of documents such as Officially Valid Documents (OVDs) (as defined under RBI Master Direction on KYC) for identity and address proof, Permanent Account Number (PAN) or equivalent declarations, and such other documents as may be required to establish legal existence, business activity, ownership structure, and financial profile of the customer/entity. </p>
+      <p>
+        For non-individual entities, onboarding may further include verification of entity-specific documents such as registration/incorporation 
+        <bold>4.3.11</bold>
+        <bold> </bold>
+      </p>
+      <p>certificates, constitutional documents (e.g., partnership deed, </p>
+      <p>memorandum/articles, trust deed), authorization documents, and identification of beneficial owners and authorized signatories, along with their individual KYC verification through officially valid documents. </p>
+      <p>
+        <bold>4.3.12</bold>
+        <bold> </bold>
+        From a functional perspective, bidders may note that a single successful 
+      </p>
+      <p>onboarding may typically involve verification of multiple document types (identity, address, business/registration, authorization, and beneficial ownership-related documents), depending on the category and risk profile of the customer. The solution should be capable of supporting both individual and entity-level document verification workflows, including API-based validation with authoritative sources wherever applicable (e.g., PAN, Aadhaar, GSTIN, CKYC registry, etc.). </p>
+      <p>
+        <bold>4.3.13</bold>
+        <bold> </bold>
+        The above description provides an indicative and abstract understanding 
+      </p>
+      <p>of customer categories and document verification requirements. The exact set, number, and type of documents to be collected and verified for onboarding shall be governed by the applicable RBI Master Directions on </p>
+      <fig>
+        <graphic xlink:href="image_p6_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p6_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">6</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>KYC NABARD’s policy, guidelines, and regulatory instructions issued from time to time.  </p>
+      <p>
+        <bold>4.3.14</bold>
+        <bold> </bold>
+        The bidder’s solution shall be configurable and scalable to accommodate 
+      </p>
+      <p>changes in regulatory guidelines, document requirements, onboarding workflows, and verification mechanisms, without significant </p>
+      <p>redevelopment effort. </p>
+      <p>
+        <bold>4.3.15</bold>
+        <bold> </bold>
+        The bidder may note that the number of documents required to be 
+      </p>
+      <p>verified for completion of KYC/KYB onboarding may vary depending on the type and risk profile of the customer. Indicatively, in case of individual customers under simplified or CKYC-based onboarding, the process may involve verification of minimum 2 to 3 document types (including Officially Valid Documents (OVDs), PAN/Form 60, or CKYC Identifier). In contrast, for non-individual entities such as companies, partnership firms, trusts, NGOs, Government bodies, and other juridical persons, the onboarding process may involve verification of multiple document categories, typically ranging up to 8–12 document types, including entity-level documents, authorization records, and KYC documents of beneficial owners and authorized signatories. </p>
+      <p>
+        <bold>4.3.16</bold>
+        <bold> </bold>
+        These numbers are indicative for estimation purposes only and are based 
+      </p>
+      <p>on NABARD’s policy, guidelines and RBI Master Directions on KYC. The actual number and type of documents required for onboarding shall depend on the applicable regulatory requirements, risk categorization, and nature of the customer/entity, and may vary from case to case. The bidder’s solution shall therefore be capable of configuring variable document sets dynamically and supporting verification of multiple documents through digital/manual and API-based mechanisms as required. NABARD reserves the right to modify document requirements in line with changes in internal policy or regulatory guidelines, and the solution shall accommodate such changes without significant </p>
+      <p>redevelopment. </p>
+      <p>
+        The bidder shall note that while the solution is expected to support integration with authoritative sources and enable API-based or digital verification of documents wherever feasible (e.g., PAN, Aadhaar, CKYC, GSTIN, etc.), all documents involved in the onboarding process may not be digitally verifiable through trusted sources or APIs. Certain documents, particularly entity-level, authorization, or supporting documents (e.g., constitutional documents, resolutions, declarations, or project-related documents), may require manual verification or assisted validation workflows. Accordingly, the bidder’s solution shall be capable of supporting both digital/API-based verification and manual/assisted verification mechanisms, including document upload, review workflows, maker-checker controls, and audit trail generation, without restricting onboarding flows only to digitally verifiable documents.  
+        <bold>4.3.17</bold>
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.4   Risk Profiling, Categorization &amp; Periodic Update</title>
+      <p>
+        <bold>4.4.1</bold>
+        <bold> </bold>
+        The solution shall support capture and maintenance of KYC risk 
+      </p>
+      <p>categorization for customers/entities (e.g., Low/Medium/High and other policy driven categories such as “Not Required” where applicable) and </p>
+      <fig>
+        <graphic xlink:href="image_p7_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p7_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">7</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>shall expose the risk category for workflow routing, approvals, alerts and reporting. </p>
+      <p>
+        <bold>4.4.2</bold>
+        <bold> </bold>
+        The solution shall support risk-based ongoing due diligence, including 
+      </p>
+      <p>configurable periodic KYC update, Re-KYC schedules and triggers based on risk category, profile changes, document expiry, and policy updates, with system-generated alerts, tasks and exception handling. </p>
+      <p>
+        <bold>4.4.3</bold>
+        <bold> </bold>
+        The solution shall provide configurable and transparent risk-scoring 
+      </p>
+      <p>capabilities. For each risk classification assigned to a customer or entity, the solution shall provide an auditable explanation identifying the key factors contributing to the risk rating, including but not limited to customer profile, geography, beneficial ownership structure, PEP status, screening outcomes, and other configured risk parameters. </p>
+    </sec>
+    <sec>
+      <title>4.4.3.1   Enhanced  Due  Diligence  for  PEP  Cases:</title>
+      <p>The Bidder shall ensure that the proposed solution provides specific controls for customers identified as Politically Exposed Persons (PEPs), including family members and close associates, as per applicable policy/regulatory requirements. The solution shall facilitate enhanced due diligence by enabling mandatory PEP flagging, collection of additional customer information and source-related details wherever required, routing for approval by the designated competent authority, enhanced and ongoing transaction monitoring, risk-based review at defined intervals, and generation of alerts/reports for compliance oversight. The solution shall preserve complete logs and audit trails of all PEP-related checks, approvals, status changes, reviews, and monitoring actions. </p>
+      <p>
+        <bold>4.4.4</bold>
+        <bold> </bold>
+        The solution should be capable of integrating with third-party credit 
+      </p>
+      <p>bureaus and external risk data providers, if required by NABARD, for supplementary risk assessment and due diligence activities. </p>
+      <p>
+        <bold>4.4.5</bold>
+        <bold> </bold>
+        The solution shall support separate workflows for “No change” and 
+      </p>
+      <p>“Change” cases during periodic update, including capture of self-declaration / confirmation from the customer or legal entity through registered email/mobile/letter or authorized communication. </p>
+      <p>
+        <bold>4.4.6</bold>
+        <bold> </bold>
+        For customers other than individuals (legal entities), the solution shall 
+      </p>
+      <p>support obtaining no-change declarations through authorized </p>
+      <p>communication (e.g., letter/board resolution as applicable) and shall ensure that Beneficial Ownership (BO) information is reviewed and updated where required during Re-KYC. </p>
+      <p>
+        <bold>4.4.7</bold>
+        <bold> </bold>
+        The solution shall provide dashboards/MIS for risk distribution, 
+      </p>
+      <p>due/overdue periodic update cases, and exceptions to support audit/inspection needs. </p>
+      <p>
+        <bold>4.4.8</bold>
+        <bold> </bold>
+        The solution shall support multi-layer Beneficial Ownership (UBO) 
+      </p>
+      <p>tracing, including recursive identification of ultimate natural persons based on configurable ownership thresholds. </p>
+      <p>
+        solution shall provide systemized periodic (e.g., Half 
+        <bold>4.4.9</bold>
+        <bold> </bold>
+        The 
+      </p>
+      <p>Year/annual/need based) risk review mechanism with advanced intimation and reminders. </p>
+      <fig>
+        <graphic xlink:href="image_p8_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p8_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">8</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        <bold>4.4.10</bold>
+        <bold> </bold>
+        The solution shall provide mechanism to freeze/cease operations if KYC 
+      </p>
+      <p>not updated as per the defined criteria.  </p>
+      <p>
+        The solution shall maintain effective-dated version control for KYC / AML rules, document requirements, workflows, and exception rules. Each customer / entity case, alert, and decision shall retain the rule version applicable at the time of processing, and the solution shall support audit-ready replay / reconstruction of the decision basis as on the original processing date. 
+        <bold>4.4.11</bold>
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.5   Document Capture, Extraction &amp; Validation</title>
+      <p>
+        <bold>4.5.1</bold>
+        <bold> </bold>
+        The Bidder shall provide capture and management of KYC/KYB 
+      </p>
+      <p>documents with OCR/extraction and validation (AI/ML capability). </p>
+      <p>
+        <bold>4.5.2</bold>
+        <bold> </bold>
+        The Bidder shall support proof-of-identity and proof-of-address 
+      </p>
+      <p>workflows with configurable document sets per customer/entity type. </p>
+      <p>
+        <bold>4.5.3</bold>
+        <bold> </bold>
+        The Bidder shall enforce masking/redaction for sensitive identifiers in 
+      </p>
+      <p>documents and UI where applicable (e.g., Aadhaar masking). </p>
+      <p>
+        <bold>4.5.4</bold>
+        <bold> </bold>
+        The Bidder shall provide AI assisted extraction/processing to reduce 
+      </p>
+      <p>manual data entry and improve customer experience </p>
+    </sec>
+    <sec>
+      <title>4.5.5   Data Protection, Masking, and Secure Migration Handling :</title>
+      <p>Bidder shall ensure masking, tokenization, anonymization, or equivalent protection of personal and sensitive data used in non-production environments. Any extraction, staging, migration, transformation, transport, backup, archival, or disposal of datasets during </p>
+      <p>implementation, testing, migration, cutover, rollback, stabilization, or support activities shall be carried out securely using encryption, controlled access, traceable handling, retention controls, and secure deletion procedures. The Bidder shall maintain documented controls for migration dataset handling and shall make such controls and audit evidence available to NABARD on request.  </p>
+    </sec>
+    <sec>
+      <title>4.5.6   Online Verification of Customer-Submitted Documents from</title>
+      <p>
+        customer-submitted KYC/KYB documents and identifiers, wherever feasible and legally permissible, through online validation using authoritative repositories/portals and/or officially supported interfaces. Such verification shall include (as applicable) validation of Aadhaar-related details through approved mechanisms, PAN validation through permitted channels, entity/registration validation through the Registrar of Companies portal, NGO identity validation through the NGO Darpan portal, and negative/fraud screening inputs such as Red-Flagged Accounts/Declared Fraud information through available official sources. 
+        <bold>Authoritative Sources</bold>
+        : The Bidder shall provide capability to verify 
+      </p>
+      <p>
+        <bold>4.5.7</bold>
+        <bold> </bold>
+        The Bidder shall ensure that all such validations are performed only using 
+      </p>
+      <p>approved/official mechanisms, with requisite consent, secure </p>
+      <p>authentication, audit logging, and configurable workflow outcomes (clear/review/reject), and shall provide fallback workflows for manual verification wherever online verification is not available or not permitted. </p>
+      <fig>
+        <graphic xlink:href="image_p9_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p9_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">9</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        <bold>4.5.8</bold>
+        <bold> </bold>
+        The solution shall enforce a canonical enterprise data model for 
+      </p>
+      <p>
+        KYC/KYB data to ensure consistency across applications and integrations. 
+        <bold> </bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.6</bold>
+        <bold> </bold>
+        <bold>CKYC Search &amp; Download, Update &amp; Upload using KYC </bold>
+        <bold>Identifier / CKYC No through CKYCRR (CERSAI) as applicable </bold>
+        <bold>in NABARD ecosystem </bold>
+         
+      </p>
+      <p>
+        <bold>4.6.1</bold>
+        <bold> </bold>
+        <bold>Search &amp; Download</bold>
+        : The Bidder shall enable CKYC identification 
+      </p>
+      <p>using the CKYC Identifier allotted by CKYCRR/CERSAI (and other permitted search parameters, as applicable) through approved interfaces/mechanisms. If a CKYC record is found, the Bidder shall retrieve the CKYC record and perform validations including name match and data corroboration, as per configured rules. Successful retrieval of outcomes shall be posted to NABARD applications, and the KYC verification process shall be completed for such cases. The Bidder shall provide bulk CKYC search and bulk download/verification in batch mode. </p>
+    </sec>
+    <sec>
+      <title>4.6.2   Upload (New CKYC Generation – when record is not available) :</title>
+      <p>Where a CKYC record is not available / not registered in CKYCRR/CERSAI for the subject, the Bidder shall facilitate CKYC upload (new CKYC generation) using the approved CKYCRR/CERSAI interfaces, as required by NABARD’s operational model. </p>
+    </sec>
+    <sec>
+      <title>4.6.3   Update  (Existing  CKYC  –  when  changes/additional</title>
+      <p>
+        modification due to change/difference in information or receipt of additional KYC information, the Bidder shall facilitate CKYC update using the approved CKYCRR/CERSAI interfaces, as required by NABARD’s operational model. 
+        <bold>information arise):</bold>
+         Where a CKYC record exists but requires 
+      </p>
+      <p>
+        <bold>4.6.4</bold>
+        <bold> </bold>
+        <bold>Single &amp; Bulk/Batched Processing</bold>
+        : The Bidder shall support single 
+      </p>
+      <p>and bulk/batch upload/update processing, including preparation of submission packets, pre-submission validations, and automated checks to reduce rejections. The Bidder shall support acknowledgements and end-to-end status tracking for uploads/updates, including error handling, re-submission workflows, and reconciliation reporting. </p>
+      <p>
+        <bold>4.6.5</bold>
+        <bold> </bold>
+        <bold>Auditability &amp; Evidence</bold>
+        : All upload/update activities shall be fully 
+      </p>
+      <p>
+        auditable and included in evidence packs, with masking of sensitive identifiers by default. 
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.7   Aadhaar eKYC / Digi Locker / Offline Aadhaar XML (and other  sources where applicable)</title>
+      <p>
+        <bold>4.7.1</bold>
+        <bold> </bold>
+        The Bidder shall support Aadhaar information fetch/authentication flows 
+      </p>
+      <p>through Digi Locker authorization, Offline Aadhaar XML upload, and other approved online eKYC sources as applicable to NABARD’s ecosystem. </p>
+      <p>
+        <bold>4.7.2</bold>
+        <bold> </bold>
+        The Bidder shall support Aadhaar masking in downloaded/uploaded 
+      </p>
+      <p>documents wherever Aadhaar is present, according to applicable regulations and internal policy. </p>
+      <fig>
+        <graphic xlink:href="image_p10_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p10_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">10</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        <bold>4.7.3</bold>
+        <bold> </bold>
+        Wherever NABARD avails AUA/KUA services, the Bidder shall support 
+      </p>
+      <p>
+        integration with such AUA/KUA services for real-time verification. 
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.8   Aadhaar Vault Integration APIs (Tokenization + Masking  Services)</title>
+      <p>
+        <bold>4.8.1</bold>
+        <bold> </bold>
+        The Bidder shall be responsible for providing an API based integration 
+      </p>
+      <p>layer (adapters/SDKs and integration patterns) to enable existing NABARD applications to consume Aadhaar Vault (ADV) services for tokenization (Reference Key generation), authorized detokenization, and masking services.  </p>
+      <p>
+        <bold>4.8.2</bold>
+        <bold> </bold>
+        The Bidder shall ensure all Aadhaar number handling occurs only via the 
+      </p>
+      <p>ADV APIs/microservices; NABARD applications shall store and use only Reference Keys/tokens, and shall not store Aadhaar numbers or connected Aadhaar data outside the ADV. </p>
+      <p>
+        <bold>4.8.3</bold>
+        <bold> </bold>
+        The Bidder shall provide a masking service integration option, so 
+      </p>
+      <p>consuming applications can request masked outputs (e.g., only last digits) for UI display, logs, and exports, while ensuring raw Aadhaar is never exposed by default. </p>
+      <p>
+        <bold>4.8.4</bold>
+        <bold> </bold>
+        The Bidder shall implement end-to-end auditability for vault API calls, 
+      </p>
+      <p>including who/what system invoked tokenization/ de-</p>
+      <p>tokenization/masking, timestamps, purpose/context, and outcome. </p>
+      <p>
+        <bold>4.8.5</bold>
+        <bold> </bold>
+        The Bidder shall integrate Aadhaar vault services through trusted secure 
+      </p>
+      <p>communication channels and secure APIs/microservices, with </p>
+      <p>authenticated and authorized access and complete logging and monitoring. </p>
+      <p>
+        <bold>4.8.6</bold>
+        <bold> </bold>
+        The Bidder shall ensure de-tokenization (or any access that reveals raw 
+      </p>
+      <p>Aadhaar) is permitted only for explicitly authorized roles and approved applications, with maker-checker (where applicable) and full audit logging of purpose/context and outcome. </p>
+      <p>
+        <bold>4.8.7</bold>
+        <bold> </bold>
+        The Bidder shall ensure that masked identifiers are the default response 
+      </p>
+      <p>
+        for UI display, logs, and exports; raw identifier access (if permitted) shall be exception-based, monitored, and audit-ready. 
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.9   PAN Vault (Tokenization &amp; Controlled Access)</title>
+      <p>
+        <bold>4.9.1</bold>
+        <bold> </bold>
+        The Bidder shall provide a secure PAN vault capability enabling 
+      </p>
+      <p>tokenization/aliasing, so downstream applications can reference tokens instead of storing raw PAN, with strict access controls and audit logging. </p>
+      <p>
+        <bold>4.9.2</bold>
+        <bold> </bold>
+        The Bidder shall enforce masking policies in UI/exports and maintain 
+      </p>
+      <p>
+        audit logs for any access to raw PAN. 
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.10   OVD Capture, Verification &amp; Quality Checks</title>
+      <p>
+        The Bidder shall support OVD capture and reupload for acceptable documents (e.g., Aadhaar (masked), Driving License, Passport, Voter ID and other allowed documents as per applicable guidelines). 
+        <bold>4.10.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.10.2</bold>
+        <bold> </bold>
+        The Bidder shall implement OCR and QR Code extraction, quality 
+      </p>
+      <p>checks, and document classification to minimize manual data entry and improve customer experience. </p>
+      <fig>
+        <graphic xlink:href="image_p11_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p11_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">11</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        <bold>4.10.3</bold>
+        <bold> </bold>
+        The Bidder shall enable administrators to configure/enable/disable 
+      </p>
+      <p>accepted document types per application/product requirement. </p>
+      <p>
+        <bold>4.10.4</bold>
+        <bold> </bold>
+        The Bidder shall support verification of statutory identifiers and digitally 
+      </p>
+      <p>verifiable documents, including GST number verification from the issuing authority’s verification facility where available, and digital signature verification for equivalent electronic documents in accordance with applicable law and NABARD policy. </p>
+      <p>
+        <bold>4.10.5</bold>
+        <bold> </bold>
+        Where applicable for NGO/NPO / charitable / trust / society customers, 
+      </p>
+      <p>the Bidder shall support capture and maintenance of DARPAN registration details/records and related documentary evidence in accordance with NABARD policy and applicable guidelines, along with retention and retrieval of such records for audit and compliance purposes. </p>
+    </sec>
+    <sec>
+      <title>4.11   Name Match &amp; Data Corroboration (CKYC data retrieved from</title>
+      <p>
+        <bold>CKYCRR vs submitted data) </bold>
+      </p>
+      <p>
+        <bold>4.11.1</bold>
+        <bold> </bold>
+        The Bidder shall provide name match validation between CKYC data and 
+      </p>
+      <p>customer submitted data with phonetic matching and Indian name variation handling (prefix handling, word order changes, abbreviations, etc.). </p>
+      <p>
+        The Bidder shall provide configurable match scoring and allow NABARD to set acceptance thresholds (Approve/Review/Reject). 
+        <bold>4.11.2</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        The Bidder shall corroborate customer PII extracted from CKYC documents/records with the submitted information and highlight mismatches for review.  
+        <bold>4.11.3</bold>
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.12   Conflict Resolution Dashboard (Probable Match Handling)</title>
+      <p>
+        The Bidder shall provide a conflict resolution dashboard for probable match cases returned by CKYCRR (CERSAI) after de-duplication 
+        <bold>4.12.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.12.2</bold>
+        <bold> </bold>
+        The dashboard shall present side by side data submitted vs CKYC 
+      </p>
+      <p>returned data to enable informed decisions (No match / Confirmed match). </p>
+      <p>
+        <bold>4.12.3</bold>
+        <bold> </bold>
+        The Bidder shall support automated reupload/update based on 
+      </p>
+      <p>resolution outcomes and maintain full audit trails. </p>
+      <p>
+        <bold>4.12.4</bold>
+        <bold> </bold>
+        The solution shall support event-driven triggers for Re-KYC based on 
+      </p>
+      <p>external updates such as changes in ownership, directors, or regulatory status. </p>
+      <p>
+        <bold>4.12.5</bold>
+        <bold> </bold>
+        The Bidder shall support customer-level unique identification and 
+      </p>
+      <p>deduplication logic aligned with NABARD’s UCIC/customer master approach, so that where an existing KYC-compliant customer avails a new facility, duplicate KYC creation is avoided, and prior compliant identification records may be reused subject to applicable policy and workflow controls.   </p>
+    </sec>
+    <sec>
+      <title>4.13   Form 60 Capture</title>
+      <p>
+        <bold>The Bidder shall provide Form 60 capture and handling where </bold>
+        <bold>PAN is not available and where required by applicable </bold>
+        <bold>guidelines and NABARD process. </bold>
+      </p>
+      <fig>
+        <graphic xlink:href="image_p12_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p12_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">12</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>4.14   Ongoing Due Diligence (ODD) &amp; Refresh</title>
+      <p>
+        The Bidder shall support risk-based periodic review and KYC refresh / Re-KYC workflows in alignment with NABARD policy, including periodic update as per defined policy, along with six-monthly review/intensified monitoring for high-risk accounts, and configurable triggers such as document/OVD expiry, change in risk category, profile or Beneficial Ownership updates, adverse screening outcomes (where configured), and policy/regulatory updates, with defined routing and approvals as per NABARD policy. 
+        <bold>4.14.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.14.2</bold>
+        <bold> </bold>
+        The Bidder shall generate system driven alerts and tasks for due/overdue 
+      </p>
+      <p>
+        refresh actions, maintain complete and immutable audit trails for all refresh related activities (creation, review, approval, overrides), and provide dashboard/MIS visibility for monitoring and audit/inspection requirements.
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.15    AML/CFT Screening, Monitoring &amp; Regulatory Reporting (as</title>
+      <p>
+        <bold>applicable)</bold>
+         
+      </p>
+      <p>
+        The Bidder shall provide AML/CFT controls to support ongoing due diligence through screening, monitoring, alerting, investigation 
+        <bold>4.15.1</bold>
+        <bold> </bold>
+      </p>
+      <p>workflow, and audit-ready outputs aligned with applicable regulatory directions (including RBI’s Master Direction on KYC), the Prevention of Money Laundering Act, 2002 (PMLA), and FIU-IND reporting obligations, as applicable to NABARD’s operational model. The solution shall also ensure maintenance and preservation of customer and transaction records in accordance with Rule 3 of the PML (Maintenance of Records) Rules, with audit-ready retrieval capabilities. </p>
+      <p>
+        <bold>4.15.2</bold>
+        <bold> </bold>
+        The solution shall include a transaction monitoring engine capable of 
+      </p>
+      <p>detecting suspicious transaction patterns based on configurable rules and scenarios, integrated with NABARD’s CBS or transaction systems. </p>
+      <p>
+        <bold>4.15.3</bold>
+        <bold> </bold>
+        The Bidder shall support screening of individuals, legal entities, 
+      </p>
+      <p>Beneficial Owners and key persons (as captured in KYB) against configurable sanctions/watchlists/PEP lists and internal blacklists, with configurable thresholds, and disposition outcomes (clear/review/reject) captured with full audit trail. </p>
+      <p>
+        <bold>4.15.4</bold>
+        <bold> </bold>
+        The Bidder shall support periodic and trigger-based rescreening (e.g., 
+      </p>
+      <p>risk category change, KYC profile updates, BO updates, Re-KYC, periodic updation, and watchlist updates) with system-generated tasks/alerts and maker-checker controls for closures/overrides, where configured. </p>
+      <p>
+        The Bidder shall provide an AML alert workflow and case management capability, including alert severity classification, assignment, 
+        <bold>4.15.5</bold>
+        <bold> </bold>
+      </p>
+      <p>investigation notes, evidence attachments/links (including KYC/KYB documents and screening results), escalation, and maker-checker approvals for closure, with complete auditability. The solution shall support role-based internal escalation workflows, including routing to designated compliance authorities such as the Principal Officer for regulatory reporting. </p>
+      <p>
+        <bold>4.15.5.1</bold>
+        <bold> </bold>
+        The solution shall support role-based workflow visibility, 
+      </p>
+      <p>reporting access, and oversight views for designated compliance </p>
+      <fig>
+        <graphic xlink:href="image_p13_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p13_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">13</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>functionaries, including the Principal Officer and such senior authority / Designated Director as may be nominated by NABARD, for purposes of regulatory reporting oversight, approvals, exception review, and audit readiness. </p>
+      <p>
+        <bold>4.15.6</bold>
+        <bold> </bold>
+        The transaction monitoring system shall support rule-based, threshold-
+      </p>
+      <p>based, and behavioral pattern detection with alert generation and integration into AML case management workflows. </p>
+      <p>
+         The Bidder shall support linkage of AML screening/monitoring outcomes with risk categorization and EDD workflows, including routing to additional review/approval steps and exception handling registers as per configured NABARD policy 
+        <bold>4.15.7</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.15.8</bold>
+        <bold> </bold>
+        The Bidder shall support generation of AML/CFT reporting outputs and 
+      </p>
+      <p>evidence packages for regulatory inspection/audit purposes and enable exports in NABARD-approved formats to support reporting to FIU-IND (e.g., STR/CTR and other applicable reports), including maker-checker approvals and reporting history retention. The solution shall ensure monitoring of reporting timelines, alerts for due submissions, and escalation mechanisms for delays or rectification of mis-reported transactions in line with regulatory requirements. </p>
+      <p>
+        <bold>4.15.9</bold>
+        <bold> </bold>
+        The solution shall support timeline controls such that identified 
+      </p>
+      <p>
+        suspicious transactions can be processed through the defined workflow and supported for reporting to FIU-IND suspicious, in line with applicable regulatory requirements. 
+        <bold>promptly and not later than </bold>
+        <bold>seven working days</bold>
+         from satisfaction that the transaction is 
+      </p>
+      <p>
+        <bold>4.15.9.1</bold>
+        <bold> </bold>
+        The solution shall support controlled and role-based sharing of 
+      </p>
+      <p>AML/KYC information within NABARD or authorized group-wide compliance/control functions for purposes of customer due diligence, risk management, and analysis of unusual activity, with safeguards to preserve confidentiality and prevent tipping-off. </p>
+      <p>
+        The Bidder shall ensure strict confidentiality of STR-related 
+        <bold>4.15.10</bold>
+        <bold> </bold>
+      </p>
+      <p>information, with role-based access controls and safeguards to prevent unauthorized disclosure or tipping-off, while ensuring that no restriction on customer/account operations is imposed solely on account of STR filing unless mandated through regulatory or authorized decision workflows. </p>
+      <p>
+        <bold>4.15.11</bold>
+        The Bidder shall ensure all AML screening inputs/outputs, monitoring 
+      </p>
+      <p>alerts, investigation actions, approvals/overrides, and report generation activities are captured in immutable/tamper-resistant audit logs, with masking/tokenization controls applied so that sensitive identifiers are not exposed in logs/exports by default. </p>
+      <p>
+        The Bidder shall support integration/consumption of fraud-
+        <bold>4.15.12</bold>
+        <bold> </bold>
+      </p>
+      <p>negative inputs, including screening against Red-Flagged </p>
+      <p>Accounts/Declared Fraud information, wherever such access is available through authorized mechanisms, and shall ensure maker-checker controls, investigation workflow, and audit-ready evidence for disposition of such alerts. </p>
+      <p>
+        The Bidder shall provide fuzzy logic based approximate matching 
+        <bold>4.15.13</bold>
+        <bold> </bold>
+      </p>
+      <p>capabilities within the AML solution to identify potential matches and </p>
+      <fig>
+        <graphic xlink:href="image_p14_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p14_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">14</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>suspicious patterns where customer, entity, beneficial owner, key person, watchlist, adverse media, or transaction data contains variations, inconsistencies, transliterations, spelling differences, aliases, </p>
+      <p>abbreviations, word-order changes, incomplete data, or other partial similarities. The solution shall provide configurable matching rules, similarity scores, thresholds, match explanations, and disposition workflows to support review, approval, rejection, escalation, and auditability of fuzzy match outcomes. </p>
+      <p>
+        <bold>4.15.13.1</bold>
+        <bold> </bold>
+        <bold>Customer onboarding and name validation:</bold>
+         The solution 
+      </p>
+      <p>shall use approximate matching techniques to identify potential customer, entity, beneficial owner, and keyperson matches during onboarding, including variations arising from spelling errors, phonetic similarities, transliteration, initials, aliases, </p>
+      <p>abbreviations, prefixes/suffixes, and Indian name-order </p>
+      <p>variations, so that relevant matches are not missed due to exact-match limitations. </p>
+      <p>
+        The solution shall support fuzzy screening against sanctions lists, PEP lists, internal watchlists / blacklists, adverse media sources, and other AML/CFT screening data sources configured by NABARD. The solution shall generate match scores, risk indicators, and explainable match rationale to enable compliance users to assess probable matches and reduce the risk of missed high-risk individuals or entities. 
+        <bold>4.15.13.2</bold>
+        <bold> </bold>
+        <bold>Sanctions, PEP, watchlist and adverse media screening:</bold>
+         
+      </p>
+      <p>
+        solution shall apply fuzzy logic based approximate matching and pattern detection logic to identify suspicious or unusual transaction patterns where data may be inconsistent, incomplete, fragmented, or not exactly comparable. Such capability shall support identification of structuring, linked transactions, repeated partial similarities, related-party patterns, and other indicators of potential money laundering or financial crime, subject to rules, scenarios, thresholds, and review workflows configured by NABARD. 
+        <bold>4.15.13.3</bold>
+        <bold> </bold>
+        <bold>Transaction monitoring and pattern detection:</bold>
+         The 
+      </p>
+      <p>
+        The Bidder shall ensure that all sanctions lists, PEP lists, 
+        <bold>4.15.14</bold>
+        <bold> </bold>
+      </p>
+      <p>watchlists, internal blacklists, and other screening datasets used by the solution are sourced only from genuine sources/providers. The solution shall maintain source-wise metadata including source name, file/version, refresh timestamp, record counts / control totals, load status, and exception details. Any failed, delayed, or partial list refresh shall trigger immediate alerts, maintain audit evidence, and support re-screening of impacted customers / entities / beneficial owners / key persons after successful refresh, as per NABARD-configured policy. </p>
+      <p>
+        The solution shall support controlled suppression / whitelisting / 
+        <bold>4.15.15</bold>
+        <bold> </bold>
+      </p>
+      <p>disposition governance for repeat false-positive screening and monitoring alerts, with maker-checker approval, mandatory reason capture, validity/expiry date, periodic review, and full audit trail. Suppression or whitelisting shall not be permanent by default and shall </p>
+      <fig>
+        <graphic xlink:href="image_p15_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p15_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">15</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>be subject to re-validation upon change in customer profile, beneficial ownership, watchlist refresh, risk category, or policy / rule changes. </p>
+    </sec>
+    <sec>
+      <title>4.16   Evidence Pack &amp; Audit Outputs</title>
+      <p>
+        The Bidder shall generate an evidence pack per KYC/KYB case containing submitted documents, extracted fields, verification responses, screening outputs, approvals, risk decisioning and timestamps. 
+        <bold>4.16.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.16.2</bold>
+        <bold> </bold>
+        The Bidder shall ensure evidence packs reference vault tokens for 
+      </p>
+      <p>Aadhaar/PAN and reveal masked identifiers by default; raw identifiers shall be accessible only to authorized roles with audit logging. </p>
+      <p>
+        <bold>4.16.3</bold>
+        <bold> </bold>
+        The Bidder shall provide exportable audit reports and role-based access 
+      </p>
+      <p>for auditors/compliance reviewers. </p>
+      <p>
+        <bold>4.16.4</bold>
+        <bold> </bold>
+        The Bidder shall ensure retention of evidence packs, customer 
+      </p>
+      <p>identification/KYC/KYB records, verification outputs, approvals, and related audit records for at least five years after the end of the business relationship, or such longer period as may be prescribed by NABARD / applicable law, with swift retrieval capability for audit, inspection, or competent authority requests. </p>
+    </sec>
+    <sec>
+      <title>4.17   Automated Compliance Flows</title>
+      <p>
+        <bold>4.17.1</bold>
+        <bold> </bold>
+        The Bidder shall provide a compliance calendar and automated tasking 
+      </p>
+      <p>for statutory/regulatory actions (e.g., periodic KYC updation, CKYC upload/update, and internal exception handling registers), with maker- checker approval, where required. </p>
+      <p>
+        The Bidder shall support automated CKYC compliance flows: track upload/update obligations, acknowledgements/status, and support retrieval of updated KYC records when notified; record all actions and exceptions. 
+        <bold>4.17.2</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        The Bidder shall support RBI aligned KYC/AML reporting workflows by generating required compliance reports and evidence packages and enabling exports for regulatory inspection/audit purposes, including AML/CFT reporting needs where applicable. 
+        <bold>4.17.3</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.17.4</bold>
+        The Bidder shall support UIDAI ADV compliance reporting by producing 
+      </p>
+      <p>vault access logs, tokenization usage metrics, HSM/crypto control attestations and hosting/DR evidence packs for compliance reviews. </p>
+      <p>
+        The solution shall support an effective-dated regulatory / policy obligation library for compliance tasks and workflows, so that changes in regulator directions, NABARD policy, or approved operational timelines can be parameterized with effective dates, approval history, and impact traceability on impacted workflows / alerts / reports. 
+        <bold>4.17.5</bold>
+        <bold> </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>4.18   Monitoring, Dashboards, Logs &amp; API Usage</title>
+      <p>
+         The Bidder shall provide an online interactive dashboard for operational visibility, including onboarding volumes, TAT, failure reasons, CKYC status, and conflict resolution queues. The Bidder shall monitor API performance/usage and expose API analytics as required. 
+        <bold>4.18.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.18.2</bold>
+        <bold> </bold>
+        The solution shall support real-time or near real-time integration with 
+      </p>
+      <p>NABARD’s SIEM / SOC or such centralized monitoring environment as may be prescribed by NABARD. The Bidder shall ensure forwarding and availability of relevant application logs, API logs, database activity logs, administrative logs, system logs, security event logs, and privileged </p>
+      <fig>
+        <graphic xlink:href="image_p16_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p16_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">16</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>activity logs in a format and manner acceptable to NABARD. The Bidder shall also ensure that log collection, retention, correlation, searchability, and audit retrieval capabilities are available for operational, security, forensic, and compliance purposes. </p>
+      <p>
+        <bold>4.18.3</bold>
+        <bold> </bold>
+        The solution shall provide full observability including logs, metrics, and 
+      </p>
+      <p>distributed tracing for end-to-end monitoring. </p>
+      <p>
+        <bold>4.18.4</bold>
+        <bold> </bold>
+        The Bidder shall maintain logs for all transactions and system actions for 
+      </p>
+      <p>audit purposes; reporting shall be integrated with the dashboard module. </p>
+      <p>
+        <bold>4.18.5</bold>
+        <bold> </bold>
+        The Bidder shall ensure audit logs are immutable/tamper-resistant and 
+      </p>
+      <p>available for compliance inspection and forensic review, including exportable formats as required by NABARD auditors. </p>
+      <p>
+        <bold>4.18.6</bold>
+        <bold> </bold>
+        The Bidder shall implement log redaction/masking controls so that raw 
+      </p>
+      <p>Aadhaar/PAN and other sensitive identifiers are not recorded in logs by default; access to any sensitive diagnostic data (if permitted) shall be restricted to authorized roles with audit trails. </p>
+      <p>
+        <bold>4.18.7</bold>
+        <bold> </bold>
+        The Bidder shall implement security monitoring and alerting for 
+      </p>
+      <p>unauthorized access attempts, repeated authentication/authorization failures, suspicious API traffic patterns, abnormal download/export activities, and unusual access timings for sensitive operations. </p>
+      <p>
+        <bold>4.18.8</bold>
+        <bold> </bold>
+        The Bidder shall provide monitoring views and alerts for Aadhaar vault 
+      </p>
+      <p>(ADV) tokenization/de-tokenization/masking activity anomalies, </p>
+      <p>including spikes in access, repeated failures, and unusual usage patterns, with visibility through dashboards and audit logs for compliance review. </p>
+      <p>
+        <bold>4.18.9</bold>
+        <bold> </bold>
+        The Bidder shall provide configurable alert severity and notification 
+      </p>
+      <p>mechanisms (email/SMS/integration hooks where required) for operational and security events, including escalation workflows for critical incidents. </p>
+      <p>
+        The Bidder shall support integration of logs/alerts with enterprise 
+        <bold>4.18.10</bold>
+        <bold> </bold>
+      </p>
+      <p>monitoring and SIEM systems where required, in line with NABARD security and operations practices. </p>
+      <p>
+        The Bidder shall support log retention and archival in alignment 
+        <bold>4.18.11</bold>
+        <bold> </bold>
+      </p>
+      <p>with NABARD’s audit and record-retention requirements, including secure storage and retrieval for audit review. </p>
+      <p>
+        The Bidder shall ensure retention of transaction logs and related 
+        <bold>4.18.12</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        records for at least archival/retrieval in secure and searchable form for audit, inspection, forensic review, and regulatory purposes, in line with NABARD policy and applicable law. 
+        <bold>five years from the date of transaction</bold>
+        , and 
+      </p>
+      <p>
+        The solution shall support configurable session management 
+        <bold>4.18.13</bold>
+        <bold> </bold>
+      </p>
+      <p>controls, including automatic session timeout after a defined period of inactivity and re-authentication requirements for continued access to the application. </p>
+      <p>
+        The Bidder shall ensure time synchronization of all applications, 
+        <bold>4.18.14</bold>
+        <bold> </bold>
+      </p>
+      <p>API, database, middleware, operating system, security, and </p>
+      <p>infrastructure components forming part of the solution using a NABARD-approved standard time source, and all logs / events / alerts / audit records shall carry consistent timestamps and time zone information suitable for forensic reconstruction and correlation. </p>
+      <fig>
+        <graphic xlink:href="image_p17_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p17_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">17</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>4.19   V-CIP / Video KYC (Optional – Future Enablement) : NABARD is</title>
+      <p>not presently undertaking Video-based Customer Identification Process (V-CIP) / Video KYC.  </p>
+      <p>
+        The proposed KYC solution shall be architected to support V-CIP as an optional, modular capability for future enablement, subject to NABARD’s decision and legal/regulatory permissibility; the capability shall remain disabled by default and be activated only on NABARD’s written instruction/change request.  
+        <bold>4.19.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.19.2</bold>
+        <bold> </bold>
+        If enabled, the Bidder shall ensure API/SDK integration readiness, 
+      </p>
+      <p>audit/evidence generation, and security/privacy controls consistent with the core platform and shall clearly indicate whether V-CIP is included/complimentary or available as a separately priced add-on. </p>
+      <p>
+        <bold>4.19.3</bold>
+        <bold> </bold>
+        When V-CIP is enabled in future, the Bidder shall ensure compliance 
+      </p>
+      <p>with RBI's Video-based Customer Identification Process guidelines, including secure encrypted video session, live photograph capture with geo-tagging, OTP-based consent, concurrent live verification, tamper-proof storage of video recording for a minimum of 2 years, and integration with existing AML screening and evidence pack workflows. </p>
+    </sec>
+    <sec>
+      <title>4.20   Documentation, SOPs, Training, Runbooks &amp; UAT Artefacts</title>
+      <p>
+        <bold>4.20.1</bold>
+        <bold> </bold>
+        The Bidder shall provide API and SDK documentation, SOPs, technical 
+      </p>
+      <p>and functional documentation, configuration documents, reference manuals, and FAQs. </p>
+      <p>
+        The Bidder shall provide role-based training material and quick 
+        <bold>4.20.2</bold>
+        <bold> </bold>
+      </p>
+      <p>reference guides. </p>
+      <p>
+        The Bidder shall provide test cases, UAT artefacts, and Go-Live runbooks 
+        <bold>4.20.3</bold>
+        <bold> </bold>
+      </p>
+      <p>for each rollout wave </p>
+      <p>
+        The Bidder shall provide technical support as per agreed SLA, including 
+        <bold>4.20.4</bold>
+        <bold> </bold>
+      </p>
+      <p>issue tracking and RCA for major incidents. </p>
+      <p>
+        <bold>4.20.5</bold>
+        <bold> </bold>
+        All documentation (user manuals, API docs, SOPs, runbooks) shall be 
+      </p>
+      <p>maintained in a version-controlled repository with NABARD having perpetual read access; documentation shall be updated within 15 business days of any product release or configuration change. </p>
+      <p>
+        <bold>4.20.6</bold>
+        <bold> </bold>
+        <bold>Train-the-Trainer (Master Trainer) Program:</bold>
+         The Bidder shall 
+      </p>
+      <p>conduct structured Train-the-Trainer sessions for NABARD-nominated Master Trainers to enable cascade training across the organization. The Bidder shall conduct 3 initial instructor-led batches of up to 25 participants each, covering key functional workflows, exception handling, maker-checker operations, compliance / AML processes, administration, MIS / reporting, and SOPs. </p>
+    </sec>
+    <sec>
+      <title>4.21   Custom Development Handover and Escrow Enablement:  Where</title>
+      <p>the solution includes any custom-developed components, adapters, connectors, scripts, workflows, configurations, interfaces, utilities, reports, or other bespoke artefacts created specifically for NABARD, the Bidder shall maintain, update, and securely preserve the complete and current source materials, build and deployment instructions, technical </p>
+      <p>documentation, dependency details, and version history for such custom developments. NABARD shall have a perpetual, irrevocable, enterprise-wide right to use, maintain, modify, and get maintained such custom-</p>
+      <fig>
+        <graphic xlink:href="image_p18_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p18_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">18</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        developed artefacts for its internal business purposes. Where specifically required under the contract or where custom development is material to service continuity, the Bidder shall deposit the then-current source code and associated technical materials for such custom developments with an escrow agent or under another contractually agreed custody / release arrangement and shall update the same at least quarterly and on every major release.
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>4.22</bold>
+        <bold> </bold>
+        <bold>Environments: </bold>
+        The Bidder shall provide and maintain separate 
+      </p>
+      <p>Development, Test, UAT, Pre-Production, and Production environments, with appropriate environment parity as required for integration testing, regression validation, release assurance, and deployment readiness. The Bidder shall ensure strict segregation of these environments and controlled promotion of code, configurations, and releases across environments in accordance with approved change and release management procedures. </p>
+      <p>
+        CKYC workflow compliance by enabling CKYCRR/CERSAI search and retrieval via SDK/API, performing name-match validation with defined 
+        <bold>5</bold>
+        <bold> </bold>
+        <bold>Compliance with Desired CKYC Process Flows: </bold>
+        The solution shall ensure 
+      </p>
+      <p>scoring/thresholds, and posting successful outcomes to NABARD applications to complete KYC.  </p>
+      <p>
+        support for the solution (uptime, response/resolution times, maintenance windows, escalation matrix) and provide performance reports through dashboards and periodic reports. 
+        <bold>6</bold>
+        <bold> </bold>
+        <bold>Service Level Agreement (SLA): </bold>
+        The Bidder shall provide SLA backed 
+      </p>
+    </sec>
+    <sec>
+      <title>7   Non-Functional Requirements</title>
+      <p>
+        model aligns with NABARD policy and India data residency for storage/processing where mandated.  
+        <bold>7.1</bold>
+        <bold> </bold>
+        <bold>Deployment &amp; data residency</bold>
+        : The Bidder shall ensure the deployment 
+      </p>
+      <p>
+        <bold>7.1.1</bold>
+        <bold> </bold>
+        The solution shall be cloud-ready and deployed using containerization 
+      </p>
+      <p>technologies (e.g., Docker, Kubernetes or equivalent). </p>
+      <p>
+        <bold>7.1.2</bold>
+        <bold> </bold>
+        The deployment should be on-premises in NABARD’s data centers.  
+      </p>
+      <p>
+        capture where applicable; purpose limitation; retention and deletion controls; subject access support as applicable; masking/redaction for sensitive identifiers; secure deletion workflows. 
+        <bold>7.2</bold>
+        <bold> </bold>
+        <bold> Privacy &amp; data protection</bold>
+        : The Bidder shall implement consent 
+      </p>
+      <p>
+        <bold>7.2.1</bold>
+        <bold> </bold>
+        The Bidder shall comply with the Digital Personal Data Protection Act, 
+      </p>
+      <p>2023, the Information Technology Act, 2000, applicable RBI directions / guidelines, CERT-In directions, and all other applicable laws, regulations, and regulatory instructions relating to privacy, data protection, cyber security, record retention, and lawful processing of personal data. </p>
+      <p>
+        All personal data processed under this engagement shall be processed only for specified, lawful, and contractually permitted 
+        <bold>7.2.1.1</bold>
+        <bold> </bold>
+      </p>
+      <fig>
+        <graphic xlink:href="image_p19_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p19_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">19</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>purposes, and shall be subject to purpose limitation, access control, masking, tokenization, encryption, and secure retention / deletion controls. Such personal data shall be stored, processed, and retained only within India, unless otherwise expressly approved in writing by NABARD and permitted under applicable law. </p>
+      <p>
+        Any personal data breach, security incident, data leak, or unauthorized access affecting NABARD data or customer / entity data shall be notified to NABARD within six (6) hours of the Bidder becoming aware of such incident, and a detailed incident report containing the nature and extent of the breach, affected systems / data, likely impact, containment measures, root cause analysis available at that stage, corrective actions taken / planned, and regulatory reporting status shall be submitted within seventy-two (72) hours of such awareness.  
+        <bold>7.2.1.2</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        The Bidder shall be solely liable for any data breach or regulatory violation and shall indemnify NABARD against all losses. 
+        <bold>7.2.1.3</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        The Bidder shall cooperate fully with NABARD in investigation, containment, remediation, audit, and implementation of corrective and preventive actions. 
+        <bold>7.2.1.4</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>7.2.2</bold>
+        <bold> </bold>
+        The Bidder shall integrate the solution with NABARD's enterprise 
+      </p>
+      <p>Consent Management Platform (CMP) to enable capture of customer consent during KYC/KYB processes and transmission of such consent records to the CMP for centralized consent lifecycle management, including storage, validation, retrieval, revocation, and auditability, in accordance with the provisions of the Digital Personal Data Protection Act, 2023. </p>
+      <p>
+        <bold>7.2.3</bold>
+        <bold> </bold>
+        The Bidder shall support tracked workflows for data principal requests 
+      </p>
+      <p>(as applicable) including access/correction/erasure and grievance handling, with status tracking and audit trails for actions taken. </p>
+      <p>
+        <bold>7.2.4</bold>
+        <bold> </bold>
+        The Bidder shall ensure retention and deletion controls are enforceable 
+      </p>
+      <p>and auditable, including secure deletion workflows and evidence of deletion where required for compliance review. </p>
+      <p>
+        for privileged roles, encryption in transit and at rest, centralized key management, secrets vault, immutable audit logs; and security testing (e.g., VAPT) pre-Go Live and periodically thereafter with remediation tracking. 
+        <bold>7.3</bold>
+        <bold> </bold>
+        <bold>Security &amp; auditability</bold>
+        : The Bidder shall implement RBAC/ABAC, MFA 
+      </p>
+      <p>
+        <bold>7.3.1</bold>
+        <bold> </bold>
+         The Bidder shall ensure secure configuration and hardening of the 
+      </p>
+      <p>
+        solution components and shall address security vulnerabilities identified through thereafter, with remediation tracking and closure evidence. 
+        <bold>VAPT </bold>
+        and security reviews prior to Go-Live and periodically 
+      </p>
+      <p>
+        <bold>7.3.2</bold>
+        <bold> </bold>
+        The Bidder shall provide vulnerability remediation status reporting and 
+      </p>
+      <p>ensure that identified critical/high vulnerabilities are addressed within agreed timelines, with re-testing evidence as applicable. </p>
+      <fig>
+        <graphic xlink:href="image_p20_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p20_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">20</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        <bold>7.3.3</bold>
+        <bold> </bold>
+        The Bidder shall comply with NABARD’s IT and Information Security 
+      </p>
+      <p>(IS) policies and must ensure that the solution is protected against vulnerabilities identified in the OWASP framework. </p>
+      <p>
+        <bold>7.3.4</bold>
+        <bold> </bold>
+        The Bidder shall follow a Secure Software Development Lifecycle (Secure 
+      </p>
+      <p>SDLC) for all design, development, configuration, customization, integration, testing, deployment, and change activities under the project. The Secure SDLC shall, at a minimum, include threat modelling, secure design review, secure coding practices, code review, Software Composition Analysis (SCA), Static Application Security Testing (SAST), Dynamic Application Security Testing (DAST), vulnerability remediation, and documented security sign-off prior to Go-Live. </p>
+      <p>
+        <bold>7.3.5</bold>
+        <bold> </bold>
+        The Bidder shall implement strong privileged access governance for the 
+      </p>
+      <p>solution, including role-based access control, least privilege, maker-checker controls for critical activities, and monitoring and recording of privileged sessions wherever applicable. The Bidder shall ensure strict segregation of development, testing, UAT, pre-production, and production environments. Production data shall not be used in any non-production environment except with prior written approval of NABARD and subject to masking, anonymization, tokenization, or such additional controls as may be prescribed by NABARD. </p>
+      <p>
+        <bold>7.3.6</bold>
+        <bold> </bold>
+        <bold>Cryptographic Controls:</bold>
+         The Bidder shall implement and maintain 
+      </p>
+      <p>appropriate cryptographic controls for the solution and all associated integrations, including encryption of data in transit and at rest, secure key generation, storage, rotation, revocation, archival, and destruction, certificate issuance and lifecycle management, and protection of cryptographic secrets. All cryptographic controls shall be aligned with NABARD’s information security requirements and applicable regulatory and statutory requirements. </p>
+      <p>
+        <bold>7.3.7</bold>
+        <bold> </bold>
+        <bold>Third-party Security and Risk Management</bold>
+        : Where the Bidder 
+      </p>
+      <p>relies on third-party products, services, OEM components, connectors, data providers, hosting arrangements, subcontractors, or external service dependencies for delivery of the solution or any part thereof, the Bidder shall conduct and maintain appropriate security due diligence, periodic risk assessment, compliance validation, and security review for such third parties. The Bidder shall remain responsible for the security, confidentiality, integrity, availability, and regulatory compliance of all third-party and subcontracted components and services used in connection with the solution. </p>
+      <p>
+        <bold>7.3.8</bold>
+        <bold> </bold>
+        <bold>Security Validation and Go-Live Sign-off:</bold>
+         Go-Live and production 
+      </p>
+      <p>rollout shall be subject to security validation and approval by NABARD. The Bidder shall ensure closure, mitigation, or formal disposition of identified vulnerabilities and security gaps, readiness of logging and monitoring integrations, implementation of privileged access controls, environment hardening, and such other security controls as may be prescribed by NABARD before production deployment. The Bidder shall provide security test reports, remediation status, and supporting evidence as part of Go-Live sign-off documentation. </p>
+      <fig>
+        <graphic xlink:href="image_p21_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p21_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">21</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        establish, maintain, and operate a formal Cyber Security Incident Response Framework for the proposed solution, covering detection, logging, triage, classification, escalation, eradication, recovery, evidence preservation, stakeholder notification, and post-incident review.  
+        <bold>7.4</bold>
+        <bold> </bold>
+        <bold>Cyber Security Incident Response Framework</bold>
+        : The Bidder shall 
+      </p>
+      <p>
+        All incidents shall be categorized, at a minimum, as Critical, High, Medium, or Low severity, based on impact on confidentiality, integrity, availability, regulatory compliance, customer / entity data, operations, and reputational risk. 
+        <bold>7.4.1.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        Critical incidents shall be reported to NABARD within fifteen (15) minutes of confirmation / classification, containment action shall be initiated immediately and, in any case, not later than one (1) hour from such classification, service restoration / workaround timelines shall be governed by the applicable SLA, and an interim root cause analysis report shall be submitted within twenty-four (24) hours, followed by a final RCA within the period specified in the SLA.  
+        <bold>7.4.1.2</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        The Bidder shall maintain complete incident records and shall provide such logs, evidence, and reports to NABARD upon demand. 
+        <bold>7.4.1.3</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        The Bidder shall ensure forensic readiness for the solution, including preservation of relevant logs, audit trails, memory / system snapshots where applicable, chain-of-custody records for collected evidence, and documented procedures for supporting NABARD, auditors, CERT-In reporting, and law-enforcement / competent authority requirements, as applicable. 
+        <bold>7.4.1.4</bold>
+        <bold> </bold>
+      </p>
+      <p>
+         defined availability targets; implement in country DR with RPO/RTO; automated backups; and periodic restore/DR drills (including vault and CKYC integration components). 
+        <bold>7.5</bold>
+        <bold> </bold>
+        <bold>Availability, DR &amp; business continuity</bold>
+        : The Bidder shall meet 
+      </p>
+      <p>
+         times for onboarding workflows, verification calls, CKYC fetch/validation, dashboards, and reports under peak load; and support horizontal scaling as volumes grow. 
+        <bold>7.6</bold>
+        <bold> </bold>
+        <bold>Performance &amp; scalability</bold>
+        : The Bidder shall meet agreed response 
+      </p>
+      <p>
+        <bold>7.6.1</bold>
+        <bold> </bold>
+        The Bidder shall define and meet measurable performance benchmarks 
+      </p>
+      <p>including API response times, batch processing throughput, and concurrent user capacity. </p>
+      <p>
+        logs/metrics/traces; monitoring/alerts; runbooks; SIEM integration where required; and monitoring for vault access anomalies. 
+        <bold>7.7</bold>
+        <bold> </bold>
+        <bold>Observability &amp; operations</bold>
+        : The Bidder shall implement centralized 
+      </p>
+      <p>
+        <bold>7.7.1</bold>
+        <bold> </bold>
+        The solution shall provide correlation of logs, metrics, and traces through 
+      </p>
+      <p>a unified observability framework. </p>
+      <p>
+        standards-based exchange; import/export of records, evidence packs (Documents/Including masked IDs/Tokens) and compliance reports; and avoid vendor lock-in. 
+        <bold>7.8</bold>
+        <bold> </bold>
+        <bold>Interoperability &amp; portability</bold>
+        : The Bidder shall support API first and 
+      </p>
+      <p>
+        <bold>7.8.1</bold>
+        <bold> </bold>
+        The solution shall adhere to open standards and avoid proprietary 
+      </p>
+      <p>dependencies. </p>
+      <fig>
+        <graphic xlink:href="image_p22_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p22_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">22</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+        <bold>7.8.2</bold>
+        <bold> </bold>
+        The Bidder shall provide a vendor exit strategy with complete data 
+      </p>
+      <p>portability in open formats. </p>
+      <p>
+        capture/import; exception dashboards and correction workflows; and continuous monitoring for critical KYC/KYB fields and CKYC 
+        <bold>7.9</bold>
+        <bold> </bold>
+        <bold> Data quality governance</bold>
+        : The Bidder shall implement validation at 
+      </p>
+      <p>reconciliation outcomes. </p>
+      <p>
+        <bold>7.9.1</bold>
+        <bold> </bold>
+        The solution shall support data lineage tracking for key KYC/KYB data 
+      </p>
+      <p>elements. </p>
+      <p>
+        <bold>7.10</bold>
+        <bold> </bold>
+        <bold> Environment segregation &amp; release governance</bold>
+        : The Bidder shall 
+      </p>
+      <p>support Dev/UAT/Pre-Prod/Prod with controlled promotion; version control, change tracking, release notes. </p>
+      <p>
+        The Bidder shall implement controlled release, rollback, and patch governance for application code, rules, integrations, and configurations. 
+        <bold>7.10.1</bold>
+        <bold> </bold>
+      </p>
+      <p>
+        <bold>7.10.2</bold>
+        <bold> </bold>
+        Every production release shall have an approved deployment plan, 
+      </p>
+      <p>rollback plan, release evidence, and post-implementation validation. </p>
+      <p>
+        <bold>7.10.3</bold>
+        <bold> </bold>
+        Security patches and vulnerability fixes shall be applied within 
+      </p>
+      <p>NABARD-approved timelines based on severity and risk. </p>
+      <p>
+        <bold>7.10.4</bold>
+        <bold> </bold>
+        The solution shall support CI/CD pipelines and automated deployment 
+      </p>
+      <p>mechanisms. </p>
+      <p>
+         provide secure offline capture with encrypted local storage and controlled synchronization. 
+        <bold>7.11</bold>
+        <bold> </bold>
+        <bold>Offline resilience</bold>
+         (if required for assisted channels): The Bidder shall 
+      </p>
+      <p>
+        <bold>7.12</bold>
+        <bold> </bold>
+        <bold>Vault API security &amp; monitoring</bold>
+        : The Bidder shall route all access to 
+      </p>
+      <p>the Aadhaar vault (ADV) through authenticated applications with authorization and robust audit logging; monitoring/alerting shall detect and prevent unauthorized access; anomalies shall be visible through monitoring dashboards and audit logs for compliance review. </p>
+      <p>
+        <bold>7.13</bold>
+        <bold> </bold>
+        <bold>Exit and Transition Obligations: </bold>
+        Upon expiry, termination, non-
+      </p>
+      <p>renewal, transition to another vendor, or NABARD’s written direction for exit support, the Bidder shall provide comprehensive exit and transition assistance to ensure orderly, secure, and uninterrupted transfer of services. Such assistance shall include full portability and handover of configurations, interfaces, APIs, integration artefacts, workflow </p>
+      <p>definitions, reports, logs, audit trails, metadata, documentation, runbooks, SOPs, knowledge repositories, and all NABARD-owned data and deliverables, in structured, industry-standard, and machine-readable formats. The Bidder shall provide such exit support for a minimum period of six (6) months from the effective date of transition / termination, or until successful completion of transition, whichever is later, at the rates agreed in the contract; provided that any additional support required solely due to the Bidder’s failure, delay, inadequate documentation, or deficient transition assistance shall be provided at no additional cost to NABARD.  </p>
+      <p>
+        <bold>7.13.1</bold>
+        <bold> </bold>
+        The Bidder shall not withhold any deliverable, data, access detail, 
+      </p>
+      <p>configuration item, or documentation required for transition on account of any dispute, save where prohibited by law or ordered by a competent authority. </p>
+      <p>
+        <bold>7.14</bold>
+        <bold> </bold>
+        The Bidder shall ensure that sensitive personal data and identifiers are not 
+      </p>
+      <p>replicated or exposed outside approved storage patterns. The solution and </p>
+      <fig>
+        <graphic xlink:href="image_p23_211_311.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p23_211_311.jpg"/>
+      </fig>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">23</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>associated implementation / support processes shall include controls to detect and prevent presence of raw sensitive data in logs, temporary files, caches, search indexes, message queues, file shares, backups, screenshots, and non-production environments, with periodic review and remediation evidence. </p>
+      <p>
+        <bold>7.15</bold>
+        <bold> </bold>
+        The bidder shall ensure integration of the solution with existing security 
+      </p>
+      <p>and backup infrastructure of NABARD.  </p>
+      <table-wrap>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <bold>Term </bold>
+              </td>
+              <td>
+                <bold>Definition </bold>
+              </td>
+            </tr>
+            <tr>
+              <td>ABAC </td>
+              <td>Attribute-Based Access Control. </td>
+            </tr>
+            <tr>
+              <td>ADV </td>
+              <td>Aadhaar Vault (ADV). </td>
+            </tr>
+            <tr>
+              <td>AI/ML </td>
+              <td>Artificial Intelligence / Machine Learning. </td>
+            </tr>
+            <tr>
+              <td>AML </td>
+              <td>Anti-Money Laundering. </td>
+            </tr>
+            <tr>
+              <td>API </td>
+              <td>Application Programming Interface. </td>
+            </tr>
+            <tr>
+              <td>AUA/KUA </td>
+              <td>Authentication User Agency / KYC User Agency (Aadhaar ecosystem roles). </td>
+            </tr>
+            <tr>
+              <td>BO </td>
+              <td>Beneficial Owner / Beneficial Ownership. </td>
+            </tr>
+            <tr>
+              <td>CBS </td>
+              <td>Core Banking System. </td>
+            </tr>
+            <tr>
+              <td>CERSAI </td>
+              <td>Central Registry of Securitizations Asset Reconstruction and Security Interest of India. </td>
+            </tr>
+            <tr>
+              <td>CFT </td>
+              <td>Countering the Financing of Terrorism. </td>
+            </tr>
+            <tr>
+              <td>CKYC </td>
+              <td>Central Know Your Customer (Central KYC). </td>
+            </tr>
+            <tr>
+              <td>CKYCRR </td>
+              <td>Central KYC Records Registry (registry entity abbreviation as used in the document context). </td>
+            </tr>
+            <tr>
+              <td>CTR </td>
+              <td>Cash Transaction Report; monthly report to FIU-IND for cash transactions above prescribed thresholds, including integrally connected transactions, as applicable. </td>
+            </tr>
+            <tr>
+              <td>Dev </td>
+              <td>Development environment. </td>
+            </tr>
+            <tr>
+              <td>DPDP </td>
+              <td>Digital Personal Data Protection (India) </td>
+            </tr>
+            <tr>
+              <td>DR </td>
+              <td>Disaster Recovery. </td>
+            </tr>
+            <tr>
+              <td>EDD </td>
+              <td>Enhanced Due Diligence. </td>
+            </tr>
+            <tr>
+              <td>eKYC </td>
+              <td>Electronic Know Your Customer. </td>
+            </tr>
+            <tr>
+              <td>FAQ  </td>
+              <td>Frequently Asked Questions. </td>
+            </tr>
+            <tr>
+              <td>FIU-IND </td>
+              <td>Financial Intelligence Unit–India; the central national agency that receives, processes, analyses and disseminates information relating to suspect financial transactions  </td>
+            </tr>
+            <tr>
+              <td>Go-Live </td>
+              <td>Production launch / cutover to live operations. </td>
+            </tr>
+            <tr>
+              <td>HSM </td>
+              <td>Hardware Security Module. </td>
+            </tr>
+            <tr>
+              <td>IAM </td>
+              <td>Identity and Access Management. </td>
+            </tr>
+            <tr>
+              <td>ID </td>
+              <td>Identification document </td>
+            </tr>
+            <tr>
+              <td>KYB </td>
+              <td>Know Your Business. </td>
+            </tr>
+            <tr>
+              <td>KYC </td>
+              <td>Know Your Customer. </td>
+            </tr>
+            <tr>
+              <td>LEI </td>
+              <td>Legal Entity Identifier </td>
+            </tr>
+            <tr>
+              <td>MFA </td>
+              <td>Multi-Factor Authentication. </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">24</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <p>
+         
+        <bold>Glossary of Terms </bold>
+      </p>
+      <table-wrap>
+        <table>
+          <tbody>
+            <tr>
+              <td>MIS </td>
+              <td>Management Information System (dashboards / reports). </td>
+            </tr>
+            <tr>
+              <td>mTLS </td>
+              <td>Mutual authentication (mutual TLS). </td>
+            </tr>
+            <tr>
+              <td>NABARD </td>
+              <td>National Bank for Agriculture and Rural Development. </td>
+            </tr>
+            <tr>
+              <td>OCR </td>
+              <td>Optical Character Recognition. </td>
+            </tr>
+            <tr>
+              <td>ODD </td>
+              <td>Ongoing Due Diligence. </td>
+            </tr>
+            <tr>
+              <td>OWASP </td>
+              <td>Open Worldwide Application Security Project(OWASP refers to the Open Worldwide Application Security Project, an internationally recognized open framework for application security best practices and common vulnerability awareness.) </td>
+            </tr>
+            <tr>
+              <td>OTP  </td>
+              <td>One-Time Password. </td>
+            </tr>
+            <tr>
+              <td>OVD </td>
+              <td>Officially Valid Document. </td>
+            </tr>
+            <tr>
+              <td>PAN </td>
+              <td>Permanent Account Number. </td>
+            </tr>
+            <tr>
+              <td>PEP </td>
+              <td>Politically Exposed Person(s); used for risk screening as part of AML checks. </td>
+            </tr>
+            <tr>
+              <td>PII </td>
+              <td>Personally Identifiable Information. </td>
+            </tr>
+            <tr>
+              <td>Pre-Prod </td>
+              <td>Pre-Production environment (staging environment before production). </td>
+            </tr>
+            <tr>
+              <td>Principal Officer </td>
+              <td>The Principal Officer shall be responsible for ensuring compliance, monitoring transactions, and sharing and reporting information as required under the law/regulations. </td>
+            </tr>
+            <tr>
+              <td>Prod </td>
+              <td>Production environment. </td>
+            </tr>
+            <tr>
+              <td>QR </td>
+              <td>Quick Response (code). </td>
+            </tr>
+            <tr>
+              <td>RBAC </td>
+              <td>Role-Based Access Control. </td>
+            </tr>
+            <tr>
+              <td>RBAC/ABAC </td>
+              <td>Role-Based Access Control / Attribute-Based Access Control (combined reference). </td>
+            </tr>
+            <tr>
+              <td>RBI </td>
+              <td>Reserve Bank of India. </td>
+            </tr>
+            <tr>
+              <td>RCA </td>
+              <td>Root Cause Analysis. </td>
+            </tr>
+            <tr>
+              <td>Re-KYC </td>
+              <td>Periodic KYC updation / refresh. </td>
+            </tr>
+            <tr>
+              <td>RPO </td>
+              <td>Recovery Point Objective. </td>
+            </tr>
+            <tr>
+              <td>RTO </td>
+              <td>Recovery Time Objective. </td>
+            </tr>
+            <tr>
+              <td>Sanctions / Watchlists  </td>
+              <td>Lists used for compliance screening (e.g., sanctions list, internal blacklists, watchlists) to identify restricted/high-risk persons/entities.  </td>
+            </tr>
+            <tr>
+              <td>SDK </td>
+              <td>Software Development Kit. </td>
+            </tr>
+            <tr>
+              <td>SIEM </td>
+              <td>Security Information and Event Management. </td>
+            </tr>
+            <tr>
+              <td>SLA </td>
+              <td>Service Level Agreement. </td>
+            </tr>
+            <tr>
+              <td>SMS </td>
+              <td>Short Message Service. </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">25</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+      <table-wrap>
+        <table>
+          <tbody>
+            <tr>
+              <td>SOP / SOPs </td>
+              <td>Standard Operating Procedure(s). </td>
+            </tr>
+            <tr>
+              <td>SSO </td>
+              <td>Single Sign-On. </td>
+            </tr>
+            <tr>
+              <td>STR </td>
+              <td>Suspicious Transaction Report; report filed to FIU-IND for suspicious transactions (including attempted transactions), with “no tipping off” expectations. </td>
+            </tr>
+            <tr>
+              <td>TAT </td>
+              <td>Turnaround Time. </td>
+            </tr>
+            <tr>
+              <td>TLS </td>
+              <td>Transport Layer Security. </td>
+            </tr>
+            <tr>
+              <td>UAT </td>
+              <td>User Acceptance Testing. </td>
+            </tr>
+            <tr>
+              <td>UI </td>
+              <td>User Interface. </td>
+            </tr>
+            <tr>
+              <td>UIDAI </td>
+              <td>Unique Identification Authority of India. </td>
+            </tr>
+            <tr>
+              <td>URL </td>
+              <td>Uniform Resource Locator. </td>
+            </tr>
+            <tr>
+              <td>VAPT </td>
+              <td>Vulnerability Assessment and Penetration Testing. </td>
+            </tr>
+            <tr>
+              <td>XML </td>
+              <td>eXtensible Markup Language. </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        Page 
+        <styled-content style="color:#2b569a">26</styled-content>
+         of 
+        <styled-content style="color:#2b569a">26</styled-content>
+         
+      </p>
+    </sec>
+  </body>
+</article>

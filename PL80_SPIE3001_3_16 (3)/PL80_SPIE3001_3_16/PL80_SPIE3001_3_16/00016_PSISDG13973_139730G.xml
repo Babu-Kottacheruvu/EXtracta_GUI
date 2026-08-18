@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<?xml-stylesheet type="text/xsl" href="jats-html.xsl"?>
+<article article-type="proceedings" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table">
+<front>
+<journal-meta>
+<journal-id journal-id-type="publisher-id"/>
+<journal-title-group>
+<journal-title>Journal of Optical Fiber Sensing and Measurement</journal-title>
+</journal-title-group>
+<issn pub-type="epub">0277-786X</issn>
+<publisher>
+<publisher-name>Optical Society</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1117/12.3089577</article-id>
+<title-group>
+<article-title>Application of rapid chromatic dispersion measurement technology of fiber using asymmetric sagnac interferometer in intelligent optical fiber sensing</article-title>
+</title-group> 
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Bingshuo</given-names>
+</name>
+<xref ref-type="aff" rid="aff1"><sup>1</sup></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Ren</surname>
+<given-names>Hanyi</given-names>
+</name>
+<xref ref-type="aff" rid="aff2"><sup>2</sup></xref>
+<xref ref-type="corresp" rid="cor1"><sup>*</sup></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Lan</given-names>
+</name>
+<xref ref-type="aff" rid="aff3"><sup>3</sup></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>Qian</given-names>
+</name>
+<xref ref-type="aff" rid="aff4"><sup>4</sup></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Yu</surname>
+<given-names>Ning</given-names>
+</name>
+<xref ref-type="aff" rid="aff5"><sup>5</sup></xref>
+<xref ref-type="corresp" rid="cor1"><sup>*</sup></xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hu</surname>
+<given-names>Jian</given-names>
+</name>
+<xref ref-type="aff" rid="aff6"><sup>6</sup></xref>
+</contrib>
+<aff id="aff1"><label><sup>1</sup></label>School of Optical and Electronic Information, Huazhong University of Science and Technology, Wuhan, Hubei, 430074, China;</aff>
+<aff id="aff2"><label><sup>2</sup></label>North Alabama International College of Engineering and Technology, Guizhou University, Guiyang, Guizhou 550025, China;</aff>
+<aff id="aff3"><label><sup>3</sup></label>Senior Department of General Surgery, the First Medical Center of Chinese PLA General Hospital, Beijing, 100853, China;</aff>
+<aff id="aff4"><label><sup>4</sup></label>Computing & Science Laboratory, Mitomed Technology Co., Ltd., Beijing, 100000, China;</aff>
+<aff id="aff5"><label><sup>5</sup></label>Senior Department of Otolaryngology-head and Neck Surgery, the Sixth Medical Center Chinese PLA General Hospital, Beijing, 100048, China;</aff>
+<aff id="aff6"><label><sup>6</sup></label>Senior Department of Ophthalmology, the Third Medical Center of Chinese PLA General Hospital, Beijing, 100039, China;</aff>
+</contrib-group>
+<pub-date>
+<day>15</day>
+<month>11</month>
+<year>2025</year>
+</pub-date>
+<volume>13973</volume>
+<issue>139730G</issue>
+<isbn content-type="conf-proc">978-1-5106-9890-1</isbn>
+<fpage>139730G-1</fpage>
+<lpage>139730G-10</lpage>
+<permissions>
+<copyright-statement>COPYRIGHT SPIE. Downloading of the abstract is permitted for personal use only.</copyright-statement>
+<copyright-year>2025</copyright-year>
+</permissions>
+<self-uri content-type="pdf" xlink:href="139730G.pdf"/>
+<abstract>
+<title>ABSTRACT</title>
+<p>Chromatic dispersion measurement is critical for ensuring accuracy in intelligent optical fiber sensing systems, yet conventional methods suffer from slow speed and environmental sensitivity. This study presents a rapid dispersion measurement technique utilizing an asymmetric Sagnac interferometer (ASI), which exploits wavelength-dependent phase shifts to achieve high-resolution characterization without complex calibration. Experimental results demonstrate a 40% improvement in measurement speed (50 ms per channel) and a resolution of 0.1 ps/(nm&#x00B7;km), outperforming time-of-flight and phase-shift approaches. The system's robustness is validated through real-time temperature (&#x00B1;0.1&#x00B0;C) and strain (&#x00B1;2 &#x03BC;s) monitoring in 50 km distributed sensing networks, as well as a 50% reduction in bit error rates for 500 km optical communication links. Applications extend to smart infrastructure fault detection with <2 m localization accuracy and photovoltaic performance monitoring via dispersion-correlated efficiency analysis. Future work aims to scale the technology for multi-parameter sensing and industrial adoption, addressing challenges in hardware miniaturization and adaptive AI integration.</p>
+</abstract>
+<kwd-group kwd-group-type="author">
+<title>Keywords:</title>
+<kwd>Asymmetric Sagnac interferometer</kwd>
+<kwd>Chromatic dispersion measurement</kwd>
+<kwd>Intelligent optical fiber sensing</kwd>
+</kwd-group>
+<author-notes>
+<author-notes>
+<corresp id="cor1">
+<label>a</label>
+<p>Email: U202314782@hust.edu.cn</p>
+</corresp>
+<corresp id="cor2">
+<label>b</label>
+<p>Email: naie.hyren23@gzu.edu.cn</p>
+</corresp>
+<corresp id="cor3">
+<label>c</label>
+<p>Email: zhanglan301@163.com</p>
+</corresp>
+<corresp id="cor4">
+<label>d</label>
+<p>Email: qianli301@126.com</p>
+</corresp>
+<corresp id="cor5">
+<label>e</label>
+<p>Email: yuning@301hospital.org</p>
+</corresp>
+<corresp id="cor6">
+<label>f</label>
+<p>Email: hujian301@126.com</p>
+</corresp>
+</author-notes>
+<corresp id="cor7">
+<label>*</label>
+<p>Authors to whom any correspondence should be addressed.</p>
+</corresp>
+<fn fn-type="other">
+<p>These authors contributed equally to this work.</p>
+</fn>
+</author-notes>
+</article-meta>
+</front>
+<body>
+<sec id="s1">
+<label>1.</label>
+<title>INTRODUCTION</title>
+<p>Intelligent optical fiber sensing has emerged as a critical technology for real-time monitoring in complex systems, such as smart grids and industrial automation, where precise measurement of physical parameters is essential<sup>1</sup>. Chromatic dispersion, a wavelength-dependent signal distortion in optical fibers, significantly impacts sensing accuracy and communication performance, necessitating reliable measurement techniques<sup>2</sup>. Traditional dispersion characterization methods, including time-of-flight and phase-shift approaches, face challenges in dynamic sensing environments due to their slow response, complex setups, and susceptibility to environmental noise<sup>3</sup>. To address these limitations, this study proposes a rapid chromatic dispersion measurement technique based on an asymmetric Sagnac interferometer (ASI). The ASI-based system leverages its inherent sensitivity to phase differences induced by dispersion variations, enabling high-speed and high-resolution measurements without requiring extensive calibration. The novelty lies in its integration with intelligent sensing frameworks, offering enhanced real-time monitoring capabilities while minimizing hardware complexity. Experimental validation demonstrates improvements in measurement speed by over 40% compared to conventional methods, with a resolution of 0.1 ps/(nm&#x00B7;km). This advancement not only supports distributed sensing networks and fault detection in smart infrastructure but also extends its applicability to emerging fields such as photovoltaic system monitoring, where dynamic dispersion compensation is crucial for optimizing energy efficiency.</p>
+</sec>
+<sec id="s2">
+<label>2.</label>
+<title>Overview of Intelligent Optical Fiber Sensing and Chromatic Dispersion</title>
+<sec id="s2.1">
+<label>2.1.</label>
+<title>Fundamentals of optical fiber sensing: principles, types, and applications</title>
+<p>Optical fiber sensing operates by modulating light properties (intensity, phase, or wavelength) in response to external stimuli such as temperature, strain, or acoustic waves. Intensity-modulated sensors detect mechanical deformations (e.g., microbend sensors for pressure monitoring), while phase-sensitive interferometers (e.g., Mach-Zehnder, Sagnac) enable sub-nanometer displacement measurements. Wavelength-dependent devices like fiber Bragg gratings (FBGs) offer multiplexing capabilities by reflecting specific wavelengths correlated with environmental changes. These sensors are indispensable in aerospace structural health monitoring, oil pipeline leak detection, and minimally invasive medical diagnostics due to their compactness, electromagnetic immunity, and compatibility with harsh environments. Recent advancements integrate machine learning for anomaly detection, enhancing their role in predictive maintenance systems.</p>
+<fig id="f1">
+<label>Figure 1.</label>
+<caption><p>Optical fiber sensing synergy.</p></caption>
+<graphic xlink:href="00016_PSISDG13973_139730G_page_2_1.jpg"/>
+</fig>
+</sec>
+
+<sec id="s2.2">
+<label>2.2.</label>
+<title>Role of chromatic dispersion in fiber optic systems</title>
+<p>Chromatic dispersion originates from the wavelength-dependent propagation velocity of light in optical fibers, causing temporal spreading of optical pulses. In communication systems, this phenomenon limits data rates and transmission distances, necessitating dispersion-compensating modules<sup>4</sup>. For sensing applications, dispersion-induced phase distortions degrade interferometric signal coherence, particularly in coherent optical frequency domain reflectometry (OFDR) and distributed acoustic sensing (DAS). Uncompensated dispersion shifts Bragg wavelengths in FBG arrays, introducing errors in multi-parameter measurements. Mitigation strategies include hybrid electronic-optical compensation and dispersion-shifted fiber designs, yet achieving real-time adaptive control remains a challenge in dynamic environments like smart grids or autonomous vehicle networks.</p>
+<fig id="f2">
+<label>Figure 2.</label>
+<caption><p>Chromatic dispersion in fiber optic systems.</p></caption>
+<graphic xlink:href="00016_PSISDG13973_139730G_page_3_1.jpg"/>
+</fig>
+</sec>
+<sec id="s2.3">
+<label>2.3.</label>
+<title>Challenges in Real-Time dispersion measurement for intelligent sensing</title>
+<p>Conventional dispersion measurement methods, such as time-domain reflectometry and phase-sensitive optical coherence tomography, exhibit limited temporal resolution (>1 s) and require bulky tunable lasers or mechanical modulators. In industrial IoT applications, rapid environmental fluctuations (e.g., temperature cycles in power plants) demand sub-second dispersion tracking with sub-ps/(nm&#x00B7;km) resolution. Existing techniques struggle to balance speed and accuracy, often requiring offline calibration or complex signal post-processing. Integration with adaptive sensing networks is further hindered by compatibility issues between dispersion compensation algorithms and real-time control protocols. Emerging solutions leverage photonic integrated circuits and edge computing, but scalability and cost barriers impede widespread deployment in smart cities and 5G infrastructure.</p>
+<fig id="f3">
+<label>Figure 3.</label>
+<caption><p>Challenges in Real-Time dispersion measurement.</p></caption>
+<graphic xlink:href="00016_PSISDG13973_139730G_page_3_2.jpg"/>
+</fig>
+</sec>
+</sec>
+<sec id="s3">
+<label>3.</label>
+<title>Asymmetric Sagnac Interferometer (ASI): Theory and Design</title>
+<sec id="s3.1">
+<label>3.1.</label>
+<title>Operating principle of asi for dispersion measurement</title>
+<p>The ASI exploits path-length asymmetry between clockwise (CW) and counterclockwise (CCW) optical paths to induce wavelength-dependent phase shifts proportional to chromatic dispersion. When broadband light traverses the imbalanced loop, dispersion causes the CW and CCW beams to accumulate differential group delays, generating a non-reciprocal phase difference. This phase difference, encoded in the interference fringe spectrum at the output, is extracted via Fourier transform analysis, directly yielding the dispersion coefficient D without iterative fitting. The asymmetric configuration inherently suppresses common-mode environmental noise (e.g., temperature drift) by ensuring both beams experience identical perturbations except dispersion effects, achieving sub-0.1 ps/(nm&#x00B7;km) resolution in calibrated 20 km fiber tests.</p>
+
+
+<sec id="s3.1.1">
+<label>A.</label>
+<title><i>Design and optimization of the ASI setup</i></title>
+<p>The ASI architecture integrates a tunable laser (C-band, 10 pm wavelength step), a polarization-maintaining 3&#x00D7;3 fiber coupler for balanced detection, and a high-speed InGaAs photodetector array (12-bit ADC, 1 MS/s). Path-length imbalance (&#x0394;L = 5-50 m) is optimized to maximize dispersion sensitivity while avoiding fringe ambiguity, with &#x0394;L = 15 m selected for 10-100 km fiber spans. Polarization controllers and Faraday rotators minimize polarization-dependent signal fading, ensuring <0.5 dB power fluctuation. Temperature stabilization (&#x00B1;0.1&#x00B0;C) of the test fiber coil reduces thermo-optic noise by 20 dB. Adaptive wavelength scanning algorithms adjust step sizes (0.02-0.1 nm) based on real-time SNR feedback, enabling 100 ms per measurement cycle.</p>
+</sec>
+</sec>
+<sec id="s3.2">
+<label>3.2.</label>
+<title>Advantages of ASI over conventional interferometric methods</title>
+<p>ASI eliminates the need for external reference arms or moving parts required in Michelson/Mach-Zehnder interferometers, reducing system complexity and alignment sensitivity. Its single-loop design provides intrinsic common-mode noise rejection, achieving 30 dB higher environmental stability than phase-shift methods in vibration-prone environments. The technique enables multi-wavelength dispersion profiling in a single scan, reducing measurement time by 60% compared to spectral interferometry. Field trials demonstrated 0.05 ps/(nm&#x00B7;km) repeatability over 24 hours, outperforming time-of-flight methods by a factor of 3 in resolution<sup>5</sup>. These attributes make ASI suitable for embedded sensing in smart grids and autonomous vehicles, where robustness and real-time operation are critical.</p>
+</sec>
+</sec>
+<sec id="s4">
+<label>4.</label>
+<title>RAPID CHROMATIC DISPERSION MEASUREMENT TECHNOLOGY</title>
+<sec id="s4.1">
+<label>4.1.</label>
+<title>System architecture and implementation</title>
+<sec id="s4.1.1">
+<label>1)</label>
+<title>Hardware Configuration: Laser Source, Couplers, and Detectors</title>
+<p>The ASI-based system employs a tunable laser source (1520-1620 nm, &#x00B1;0.1 nm stability), a polarization-maintaining 3&#x00D7;3 fiber coupler, and balanced InGaAs photodetectors (10 GHz bandwidth). Key components and specifications are summarized in Table 1. The asymmetric path imbalance (&#x0394;L = 10 m) is introduced via a coiled test fiber segment, while a circulator isolates back-reflections. Wavelength-dependent phase shifts are captured by synchronizing laser tuning with detector sampling.</p>
+<table id="t1">
+<label>Table 1.</label>
+<caption>Hardware configuration.</caption>
+<thead>
+<tr>
+<th>Component</th>
+<th>Specification</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tunable Laser</td>
+<td>1520&#x2013;1620 nm, &#x00B1;0.1 nm stability</td>
+<td>Generate wavelength-swept light</td>
+</tr>
+<tr>
+<td>3&#x00D7;3 Fiber Coupler</td>
+<td>PM fiber, 50:50 splitting ratio</td>
+<td>Split/combine optical paths</td>
+</tr>
+<tr>
+<td>Balanced Detectors</td>
+<td>10 GHz bandwidth, 0.1 pW/&#x221A;Hz NEP</td>
+<td>Capture interference signals</td>
+</tr>
+</tbody>
+</table>
+</sec>
+
+<sec id="s4.1.2">
+<label>2)</label>
+<title>Signal Processing Algorithms for Dispersion Extraction</title>
+<p>The dispersion coefficient D is derived from the measured phase difference &#x0394;&#x03C6;(&#x03BB;) using:</p>
+<fig id="d1">
+<graphic xlink:href="00016_PSISDG13973_139730G_page_4_1.jpg"/>
+</fig>
+<p>where c is the speed of light, L is the fiber length, and &#x0394;&#x03BB; is the wavelength step. A Hilbert transform isolates the interference fringe envelope, enabling phase extraction without fringe counting, while a phase-unwrapping algorithm resolves &#x0394;&#x03C6;(&#x03BB;) discontinuities caused by abrupt dispersion changes. Nonlinear laser tuning noise is suppressed via a least-mean-square (LMS) adaptive filter, which iteratively minimizes the error between measured and modeled phase profiles. Experimental validation on 50 km fibers demonstrated a 20 dB improvement in signal-to-noise ratio (SNR) compared to conventional Fourier transform methods, achieving a phase resolution of 0.01 radians at 100 nm/s scanning rates.</p>
+</sec>
+</sec>
+
+<sec id="s4.2">
+<label>4.2.</label>
+<title>Experimental validation</title>
+<sec id="s4.2.1">
+<label>1)</label>
+<title>Experimental Setup and Parameter Selection</title>
+<p>The experimental setup employed standard single-mode fibers spanning 10-50 km, with dispersion coefficients of 16-20 ps/(nm&#x00B7;km), representing typical telecommunication and sensing fiber spans. Key parameters (Table 2) were selected to optimize measurement linearity and resolution. A tunable laser with a wavelength step of 0.02 nm ensured spectral resolution below 0.1 ps/(nm&#x00B7;km), while a 100 nm/s scan rate balanced acquisition speed and signal fidelity. The 1 MS/s sampling rate captured dynamic dispersion variations induced by temperature fluctuations or mechanical stress, minimizing aliasing artifacts. Fiber lengths were varied systematically to validate scalability, with polarization controllers and isolators minimizing back-reflection noise. A 12-bit analog-to-digital converter digitized interference signals, enabling phase resolution of 0.01 radians under 50 dB dynamic range conditions.</p>
+<table id="t2">
+<label>Table 2.</label>
+<caption>Experimental parameters.</caption>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fiber Length</td>
+<td>10&#x2013;50 km</td>
+<td>Simulate practical spans</td>
+</tr>
+<tr>
+<td>Wavelength Step</td>
+<td>0.02 nm</td>
+<td>Balance resolution/speed</td>
+</tr>
+<tr>
+<td>Sampling Rate</td>
+<td>1 kS/s</td>
+<td>Capture dynamic signals</td>
+</tr>
+</tbody>
+</table>
+</sec>
+
+<sec id="s4.2.2">
+<label>2)</label>
+<title>Calibration and Noise Suppression Techniques</title>
+<p>System calibration utilized a 10 km reference fiber with a certified dispersion coefficient of 17 ps/(nm&#x00B7;km) to eliminate initial phase offsets through iterative least-squares fitting. Differential detection with balanced photodiodes suppressed common-mode environmental noise, while a Wiener filter with adaptive kernel sizes (3-15 kHz) minimized broadband phase noise, achieving 15 dB reduction in the 1-100 kHz frequency range. Temperature-induced wavelength drift (<0.005 nm/&#x00B0;C) was compensated via PID-controlled thermal regulation of the laser diode, maintaining &#x00B1;0.01 nm stability over 24-hour operation. Phase-sensitive optical time-domain reflectometry (&#x03C6;-OTDR) cross-validated calibration accuracy, showing 0.95% deviation across 50 measurement cycles. Hybrid electrical-optical feedback loops further reduced residual acoustic noise by 8 dB, enabling operation in industrial environments with 70 dB ambient vibration.</p>
+</sec>
+</sec>
+
+<sec id="s4.3">
+<label>4.3.</label>
+<title>Performance evaluation</title>
+<sec id="s4.3.1">
+<label>1)</label>
+<title>Metrics: Measurement Speed, Resolution, and Repeatability</title>
+<p>The system achieves a dispersion resolution &#x0394;D of:</p>
+<fig id="d2">
+<graphic xlink:href="00016_PSISDG13973_139730G_page_5_1.jpg"/>
+</fig>
+<p>where N is the averaging factor. At N=100, the system achieves a dispersion resolution of 0.1 ps/(nm&#x00B7;km) with a measurement time of 50 ms per wavelength channel. Repeatability tests showed <1% deviation over 100 cycles.</p>
+</sec>
+
+<sec id="s4.3.2">
+<label>2)</label>
+<title>Comparison with Existing Methods</title>
+<p>Compared to time-of-flight (ToF) and phase-shift methods, the ASI-based technique reduces measurement time by 60% while improving resolution by 3&#x00D7;. Its all-fiber design eliminates alignment complexity, enabling seamless integration into distributed sensing networks.</p>
+</sec>
+</sec>
+</sec>
+</sec>
+</sec>
+<sec id="s5">
+<label>5.</label>
+<title>Applications in Intelligent Optical Fiber Sensing</title>
+<sec id="s5.1">
+<label>5.1.</label>
+<title>Case Study 1: distributed sensing networks</title>
+<sec id="s5.1.1">
+<label>1.</label>
+<title>Integration with Fiber Bragg Grating (FBG) Sensors</title>
+<p>The ASI-based dispersion measurement system is integrated with FBG arrays to enhance wavelength-division multiplexing (WDM) capabilities. By correlating dispersion-induced phase shifts with FBG reflection spectra, simultaneous multi-parameter sensing (temperature, strain) is achieved. The ASI compensates for dispersion-induced spectral broadening, improving FBG wavelength resolution by 25% in 50-km distributed networks, as validated in oil pipeline monitoring trials.</p>
+</sec>
+
+<sec id="s5.1.2">
+<label>2.</label>
+<title>Real-Time Monitoring of Temperature and Strain</title>
+<p>Real-time temperature and strain mapping is enabled through dynamic dispersion calibration at 1 kHz sampling rates. Field tests on bridge structures demonstrated &#x00B1;0.1<sup>&#x00B0;</sup>C temperature accuracy and &#x00B1;2 &#x00B5;&#x03B5; strain resolution over 20 km sensing fibers. The system's low latency (<5 ms) supports early warning for structural anomalies, reducing false alarms by 40% compared to conventional OTDR-based systems.</p>
+</sec>
+</sec>
+
+<sec id="s5.2">
+<label>5.2.</label>
+<title>Case Study 2: smart infrastructure monitoring</title>
+<sec id="s5.2.1">
+<label>1.</label>
+<title>Dispersion Compensation in Long-Haul Communication Links</title>
+<p>In 100 Gbps coherent optical networks, the ASI technology provides real-time dispersion maps for adaptive electronic compensation. Experimental results show a 50% reduction in bit error rate (BER) for 500 km links by dynamically adjusting pre-distortion coefficients, outperforming static dispersion-compensating fiber (DCF) modules.</p>
+</sec>
+
+<sec id="s5.2.2">
+<label>2.</label>
+<title>Fault Detection and Localization in Power Grids</title>
+<p>Embedded in high-voltage transmission lines, the ASI system detects cable faults via dispersion anomalies caused by temperature surges or mechanical stress. A 220 kV grid trial achieved 98% fault detection accuracy with <2 m localization error within 10 ms, enabling rapid isolation of arc faults and partial discharges.</p>
+</sec>
+</sec>
+
+<sec id="s5.3">
+<label>5.3.</label>
+<title>Extended applications and future directions</title>
+<sec id="s5.3.1">
+<label>1.</label>
+<title>Potential in Solar Energy Systems</title>
+<p>The technology monitors photovoltaic (PV) panel degradation by measuring dispersion changes in fiber-optic sensors attached to cell arrays. Preliminary tests correlated 0.5 ps/(nm&#x00B7;km) dispersion shifts with 5% efficiency drops in silicon PV modules, enabling predictive maintenance for solar farms.</p>
+</sec>
+
+<sec id="s5.3.2">
+<label>2.</label>
+<title>Synergy with AI-Driven Predictive Maintenance</title>
+<p>ASI-generated dispersion data trains neural networks to predict fiber aging and environmental impacts. A prototype AI model achieved 92% accuracy in forecasting splice joint failures 48 hours in advance by analyzing multi-wavelength dispersion trends, demonstrating potential for autonomous sensing systems<sup>6</sup>.</p>
+</sec>
+</sec>
+</sec>
+<sec id="s6">
+<label>6.</label>
+<title>CONCLUSION</title>
+<p>The asymmetric Sagnac interferometer (ASI)-based chromatic dispersion measurement method addresses critical limitations of traditional techniques by enabling rapid, high-resolution characterization through wavelength-dependent phase shift detection. Key benefits include a 40% improvement in measurement speed, sub-picosecond resolution (0.1 ps/(nm&#x00B7;km)), and robust noise immunity, validated through distributed sensing trials on 50 km fibers and 100 Gbps communication links. Experimental results demonstrate enhanced accuracy in real-time temperature (&#x00B1;0.1<sup>&#x00B0;</sup>C) and strain (&#x00B1;2 <sub>&#x00B5;&#x03B5;</sub>) monitoring for infrastructure health assessment, alongside a 50% reduction in bit error rates for long-haul optical networks. The technology's versatility is further evidenced by its emerging applications in photovoltaic performance monitoring and AI-driven predictive maintenance. Future work will focus on scaling the system for multi-kilometer sensing networks, integrating multi-parameter sensing capabilities (e.g., simultaneous pressure and humidity detection), and optimizing cost-efficiency for industrial adoption. Standardization of calibration protocols and miniaturization of ASI hardware remain pivotal to enabling widespread deployment in smart cities and renewable energy systems.</p>
+</sec>
+</body>
+<back>
+<ref-list>
+<title>REFERENCES</title>
+<ref id="r1"><label>[1]</label><mixed-citation publication-type="journal"><person-group person-group-type="author"><string-name><surname>Sun</surname> <given-names>Z.</given-names></string-name>, <string-name><surname>Sun</surname> <given-names>D.</given-names></string-name>, <string-name><surname>Yang</surname> <given-names>H.</given-names></string-name>, <string-name><surname>Zhao</surname> <given-names>C.</given-names></string-name></person-group>. <article-title>Distributed Optical Fiber Vibration Sensors Using Light Interference Technology: Fundamental Principles and Major Advancements</article-title>. <source>IEEE Transactions on Instrumentation and Measurement</source>, <year>2025</year>, <pub-date><year>2025</year></pub-date>, to be published.</mixed-citation></ref>
+<ref id="r2"><label>[2]</label><mixed-citation publication-type="journal"><person-group person-group-type="author"><string-name><surname>Liu</surname> <given-names>K.</given-names></string-name>, <string-name><surname>Jin</surname> <given-names>X.</given-names></string-name>, <string-name><surname>Jiang</surname> <given-names>J.</given-names></string-name>, <etal>et al</etal></person-group>. <article-title>Interferometer-based distributed optical fiber sensors in long-distance vibration detection: A review</article-title>. <source>IEEE Sensors Journal</source>, <year>2022</year>, <volume>22</volume>(<issue>22</issue>): <fpage>21428</fpage>&#x2013;<lpage>21444</lpage>.</mixed-citation></ref>
+<ref id="r3"><label>[3]</label><mixed-citation publication-type="journal"><person-group person-group-type="author"><string-name><surname>Naku</surname> <given-names>W.</given-names></string-name>, <string-name><surname>Huang</surname> <given-names>J.</given-names></string-name>, <string-name><surname>Zhu</surname> <given-names>C.</given-names></string-name></person-group>. <article-title>Optical fiber sensors based on advanced vernier Effect&#x2014;A review</article-title>. <source>IEEE Sensors Journal</source>, <year>2024</year>, <pub-date><year>2024</year></pub-date>, to be published.</mixed-citation></ref>
+<ref id="r4"><label>[4]</label><mixed-citation publication-type="journal"><person-group person-group-type="author"><string-name><surname>Liu</surname> <given-names>Q.</given-names></string-name>, <string-name><surname>Xing</surname> <given-names>L.</given-names></string-name>, <string-name><surname>Wu</surname> <given-names>Z.</given-names></string-name>, <string-name><surname>Cai</surname> <given-names>L.</given-names></string-name>, <string-name><surname>Zhang</surname> <given-names>Z.</given-names></string-name>, <string-name><surname>Zhao</surname> <given-names>J.</given-names></string-name></person-group>. <article-title>High-sensitivity photonic crystal fiber force sensor based on Sagnac interferometer for weighing</article-title>. <source>Optics and Laser Technology</source>, <year>2020</year>, <volume>123</volume>: <fpage>105939</fpage>.</mixed-citation></ref>
+<ref id="r5"><label>[5]</label><mixed-citation publication-type="journal"><person-group person-group-type="author"><string-name><surname>Du</surname> <given-names>L.</given-names></string-name>, <string-name><surname>Wang</surname> <given-names>Z.</given-names></string-name>, <string-name><surname>Liu</surname> <given-names>J.</given-names></string-name>, <etal>et al</etal></person-group>. <article-title>High Accurate Optic Fiber Transfer Delay Measurement Using Software Defined Radio</article-title>. <source>IEEE Sensors Journal</source>, <year>2025</year>, <pub-date><year>2025</year></pub-date>, to be published.</mixed-citation></ref>
+<ref id="r6"><label>[6]</label><mixed-citation publication-type="journal"><person-group person-group-type="author"><string-name><surname>Mihailovic</surname> <given-names>P.</given-names></string-name>, <string-name><surname>Petricevic</surname> <given-names>S.</given-names></string-name></person-group>. <article-title>Fiber optic sensors based on the Faraday effect</article-title>. <source>Sensors</source>, <year>2021</year>, <volume>21</volume>(<issue>19</issue>): <fpage>6564</fpage>.</mixed-citation></ref>
+</ref-list>
+</back>
+</article>

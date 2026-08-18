@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF to XML Converter</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg style="display:none">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.5 12 4l8 7.5" /><path d="M6 10v9h12v-9" /><path d="M10 19v-6h4v6" /></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z" /><path d="M14 3v4h4" /><path d="M9.5 12h5M9.5 15.5h5" /></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3.2 2" /></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6.5h6l2 2h10v9.5H3z" /></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.5 3H4v8.5L14 21l8.5-8.5z" /><circle cx="8.2" cy="7.2" r="1.3" /></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2" /><path d="M3.5 19c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2" /><circle cx="17" cy="8.5" r="2.5" /><path d="M15.5 13.6c2.5.2 4.5 2.2 4.5 5.4" /></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" /><path d="M12 3.5v2.4M12 18.1v2.4M20.5 12h-2.4M5.9 12H3.5M17.7 6.3l-1.7 1.7M8 16l-1.7 1.7M17.7 17.7 16 16M8 8 6.3 6.3" /></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M9.5 9.3c.3-1.4 1.5-2.2 2.8-2 1.3.2 2.1 1.2 1.9 2.4-.2 1.2-1.6 1.5-2.1 2.6-.2.4-.2.9-.2 1.2" /><circle cx="12" cy="16.6" r="0.6" fill="currentColor" stroke="none" /></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M7 16.5A4.2 4.2 0 0 1 8 8.2 5.5 5.5 0 0 1 18.7 9 3.8 3.8 0 0 1 18 16.5" /><path d="M12 10.5v8M9 13l3-3 3 3" /></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></symbol>
+    <symbol id="i-chevrons-left" viewBox="0 0 24 24"><path d="M17 6l-6 6 6 6M10 6l-6 6 6 6" /></symbol>
+    <symbol id="i-chevrons-right" viewBox="0 0 24 24"><path d="M7 6l6 6-6 6M14 6l6 6-6 6" /></symbol>
+    <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" /><path d="M19 19l-4.3-4.3" /></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="1.5" /><path d="M5.5 15.5h-1a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v1" /></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4" /><path d="M5 18.5h14" /></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M8 12.3l2.5 2.5L16 9.3" /></symbol>
+    <symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M9 9l6 6M15 9l-6 6" /></symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 17h16l1.2-8.5L16 12l-4-6-4 6-5.2-3.5z" /></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6.5 16v-4.5a5.5 5.5 0 0 1 11 0V16l1.5 2h-14z" /><path d="M10.3 20a1.9 1.9 0 0 0 3.4 0" /></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z" fill="currentColor" stroke="none"/><path d="M14 3v4h4" fill="none"/></symbol>
+    <symbol id="i-gear-small" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 8v4l3 2" /></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5 21 8l-9 4.5L3 8z" /><path d="M3 12.5l9 4.5 9-4.5M3 16.5l9 4.5 9-4.5" /></symbol>
+    <symbol id="i-sigma" viewBox="0 0 24 24"><path d="M17 5H7l6 7-6 7h10" /></symbol>
+    <symbol id="i-batch" viewBox="0 0 24 24"><rect x="3.5" y="6" width="13" height="13" rx="1.5" /><path d="M7.5 6V4.5h13v13H19" /></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 19.5 6.5V12c0 5-3.4 7.7-7.5 9-4.1-1.3-7.5-4-7.5-9V6.5z" /><path d="M9 12l2.2 2.2L15.5 9.5" /></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="4.5" /><circle cx="12" cy="12" r="0.8" fill="currentColor" stroke="none" /></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5.5" /><circle cx="12" cy="8" r="0.7" fill="currentColor" stroke="none" /></symbol>
+  </defs>
+</svg>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">XML</div>
+      <div class="brand-text">
+        <div class="brand-title">PDF to XML</div>
+        <div class="brand-sub">Converter</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button class="nav-item active" data-view="dashboard"><svg class="icon"><use href="#i-home"/></svg>Dashboard</button>
+      <button class="nav-item" data-view="dashboard"><svg class="icon"><use href="#i-file"/></svg>Convert</button>
+      <button class="nav-item" data-view="history"><svg class="icon"><use href="#i-clock"/></svg>History</button>
+      <button class="nav-item" data-view="templates"><svg class="icon"><use href="#i-folder"/></svg>Templates</button>
+      <button class="nav-item" data-view="tag-rules"><svg class="icon"><use href="#i-tag"/></svg>Tag Rules</button>
+      <button class="nav-item" data-view="users"><svg class="icon"><use href="#i-users"/></svg>Users &amp; Access</button>
+      <button class="nav-item" data-view="settings"><svg class="icon"><use href="#i-gear"/></svg>Settings</button>
+      <button class="nav-item" data-view="help"><svg class="icon"><use href="#i-help"/></svg>Help &amp; Support</button>
+    </nav>
+
+    <div class="upsell">
+      <div class="upsell-icon"><svg class="icon"><use href="#i-crown"/></svg></div>
+      <div class="upsell-title">Pro Plan</div>
+      <div class="upsell-desc">Unlock advanced features, higher limits and priority support.</div>
+      <button class="upsell-btn" id="upgradeBtn">Upgrade Now</button>
+    </div>
+
+    <div class="profile">
+      <div class="avatar">AM</div>
+      <div class="profile-text">
+        <div class="profile-name">Admin User</div>
+        <div class="profile-email">admin@example.com</div>
+      </div>
+      <svg class="icon chevron"><use href="#i-chevron-down"/></svg>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn hamburger" title="Toggle sidebar" id="hamburgerBtn"><svg class="icon"><use href="#i-menu"/></svg></button>
+      <h1 class="page-title" id="pageTitle">PDF to XML Converter</h1>
+      <div class="topbar-right">
+        <div class="credits-pill">Credits: 12,450</div>
+        <button class="icon-btn bell-btn" title="Notifications"><svg class="icon"><use href="#i-bell"/></svg><span class="badge">3</span></button>
+        <div class="avatar small">AM</div>
+        <svg class="icon chevron"><use href="#i-chevron-down"/></svg>
+      </div>
+    </header>
+
+    <div class="content" id="dashboardView">
+      <div class="columns">
+
+        <!-- LEFT COLUMN -->
+        <div class="left-col">
+
+          <div class="card">
+            <div class="card-title"><span class="step-num">1</span>Upload PDF</div>
+            <div class="dropzone" id="dropzone">
+              <input type="file" id="fileInput" accept="application/pdf" hidden>
+              <svg class="icon upload-icon"><use href="#i-upload"/></svg>
+              <div class="dz-text">Drag &amp; drop your PDF file here</div>
+              <div class="dz-or">or</div>
+              <button class="btn btn-primary" id="browseBtn">Browse Files</button>
+            </div>
+            <div class="file-row" id="fileRow" hidden>
+              <svg class="icon file-icon-pdf"><use href="#i-pdf"/></svg>
+              <div class="file-meta">
+                <div class="file-name" id="fileName"></div>
+                <div class="file-size" id="fileSize"></div>
+              </div>
+              <svg class="icon check-icon"><use href="#i-check-circle"/></svg>
+            </div>
+            <div class="error-row" id="uploadError" hidden></div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="step-num">2</span>Conversion Options</div>
+
+            <label class="field-label">Output Format</label>
+            <select class="select" id="outputFormat" disabled>
+              <option>JATS XML</option>
+            </select>
+
+            <label class="field-label with-info">OCR Engine
+              <svg class="icon info-icon" title="Controls whether detected equations are sent through math OCR (pix2tex)."><use href="#i-info"/></svg>
+            </label>
+            <select class="select" id="ocrEngine">
+              <option value="auto" selected>Auto Detect (Recommended)</option>
+              <option value="off">Disabled (skip equations, faster)</option>
+            </select>
+
+            <label class="field-label">Layout Mode</label>
+            <div class="toggle-group">
+              <button class="toggle-btn active" data-layout="auto">Auto</button>
+              <button class="toggle-btn" data-layout="flow" disabled title="Coming soon">Flow</button>
+              <button class="toggle-btn" data-layout="fixed" disabled title="Coming soon">Fixed</button>
+            </div>
+
+            <button class="more-options-toggle" id="moreOptionsToggle">
+              More Options
+              <svg class="icon"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="more-options" id="moreOptions" hidden>
+              <label class="checkbox-row">
+                <input type="checkbox" id="optTables" checked>
+                Detect &amp; preserve tables
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" id="optHeaders" checked>
+                Strip repeating headers &amp; footers
+              </label>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="step-num">3</span>Start Conversion</div>
+            <button class="btn btn-primary btn-block btn-convert" id="convertBtn" disabled>
+              <svg class="icon"><use href="#i-gear-small"/></svg>
+              <span id="convertBtnLabel">Convert to XML</span>
+            </button>
+            <div class="convert-hint" id="convertHint">Estimated time: ~30 seconds</div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-col">
+          <div class="tabs-bar">
+            <div class="tabs">
+              <button class="tab active" data-tab="preview">Preview</button>
+              <button class="tab" data-tab="xml">XML Output</button>
+              <button class="tab" data-tab="validation">Validation</button>
+              <button class="tab" data-tab="logs">Logs</button>
+            </div>
+            <div class="tabs-actions">
+              <button class="btn btn-outline" id="downloadBtn" disabled>
+                <svg class="icon"><use href="#i-download"/></svg>Download XML
+              </button>
+              <div class="export-wrap">
+                <button class="btn btn-primary" id="exportBtn" disabled>
+                  Export <svg class="icon"><use href="#i-chevron-down"/></svg>
+                </button>
+                <div class="export-menu" id="exportMenu" hidden>
+                  <button data-export="xml">Download XML (.xml)</button>
+                  <button data-export="txt">Download as plain text (.txt)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="viewer" id="viewer" data-mode="preview">
+
+            <div class="pane pane-preview" id="panePreview">
+              <div class="pdf-toolbar">
+                <button class="icon-btn" id="firstPageBtn" title="First page"><svg class="icon"><use href="#i-chevrons-left"/></svg></button>
+                <button class="icon-btn" id="prevPageBtn" title="Previous page"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+                <input type="text" class="page-input" id="pageInput" value="0">
+                <span class="page-of">/ <span id="pageTotal">0</span></span>
+                <button class="icon-btn" id="nextPageBtn" title="Next page"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+                <button class="icon-btn" id="lastPageBtn" title="Last page"><svg class="icon"><use href="#i-chevrons-right"/></svg></button>
+                <select class="select zoom-select" id="zoomSelect">
+                  <option value="50">50%</option>
+                  <option value="75">75%</option>
+                  <option value="100" selected>100%</option>
+                  <option value="125">125%</option>
+                  <option value="150">150%</option>
+                </select>
+                <button class="icon-btn push-right" id="fullscreenBtn" title="Fullscreen"><svg class="icon"><use href="#i-maximize"/></svg></button>
+                <button class="icon-btn" id="searchBtn" title="Search"><svg class="icon"><use href="#i-search"/></svg></button>
+              </div>
+              <div class="pdf-page-wrap" id="pdfPageWrap">
+                <div class="empty-state">
+                  <svg class="icon empty-icon"><use href="#i-file"/></svg>
+                  <div>Upload a PDF to see a live preview</div>
+                </div>
+              </div>
+              <div class="thumb-strip-wrap">
+                <div class="thumb-strip-label">Page Thumbnails</div>
+                <div class="thumb-strip-row">
+                  <button class="icon-btn" id="thumbLeftBtn"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+                  <div class="thumb-strip" id="thumbStrip"></div>
+                  <button class="icon-btn" id="thumbRightBtn"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pane pane-xml" id="paneXml">
+              <div class="code-toolbar">
+                <span class="code-toolbar-title">output.xml</span>
+                <div class="code-toolbar-actions">
+                  <button class="icon-btn on-dark" id="copyXmlBtn" title="Copy"><svg class="icon"><use href="#i-copy"/></svg></button>
+                  <button class="icon-btn on-dark" id="downloadXmlIconBtn" title="Download"><svg class="icon"><use href="#i-download"/></svg></button>
+                  <button class="icon-btn on-dark" id="expandXmlBtn" title="Expand"><svg class="icon"><use href="#i-maximize"/></svg></button>
+                </div>
+              </div>
+              <pre class="code-view" id="codeView"><code id="codeContent">// XML output will appear here after conversion</code></pre>
+            </div>
+
+            <div class="pane pane-validation" id="paneValidation" hidden>
+              <div class="validation-panel" id="validationPanel">
+                <div class="empty-state">
+                  <svg class="icon empty-icon"><use href="#i-check-circle"/></svg>
+                  <div>Run a conversion to see validation results</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pane pane-logs" id="paneLogs" hidden>
+              <div class="logs-panel" id="logsPanel">
+                <div class="log-line muted">Logs will appear here during conversion...</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="icon"><use href="#i-target"/></svg></div>
+          <div class="feature-title">High Accuracy</div>
+          <div class="feature-desc">Advanced heuristics ensure high quality conversion.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="icon"><use href="#i-layers"/></svg></div>
+          <div class="feature-title">Preserve Structure</div>
+          <div class="feature-desc">Maintains headings, tables, figures and references.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="icon"><use href="#i-sigma"/></svg></div>
+          <div class="feature-title">MathML Support</div>
+          <div class="feature-desc">Extracts complex equations in MathML format.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="icon"><use href="#i-batch"/></svg></div>
+          <div class="feature-title">Batch Processing</div>
+          <div class="feature-desc">Convert multiple PDFs to XML in one go.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+          <div class="feature-title">Secure &amp; Private</div>
+          <div class="feature-desc">Your files are processed locally and never shared.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content placeholder-view" id="placeholderView" hidden>
+      <div class="placeholder-box">
+        <svg class="icon empty-icon"><use href="#i-folder"/></svg>
+        <div class="placeholder-title" id="placeholderTitle">Coming soon</div>
+        <div class="placeholder-desc">This section is not part of the converter yet.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

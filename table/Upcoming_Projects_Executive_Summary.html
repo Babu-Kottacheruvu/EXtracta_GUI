@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>
+        JATS-HTML Viewer
+        </title>
+    <style type="text/css">
+      body { margin-left: 8%;
+      margin-right: 8%;
+      background-color: #f8f8f8 }
+
+
+      div > *:first-child { margin-top:0em }
+
+      div { margin-top: 0.5em }
+
+      div.front, div.footer { }
+
+      .back, .body { font-family: serif }
+
+      div.metadata { font-family: sans-serif }
+      div.centered { text-align: center }
+
+      div.table { display: table;}
+      div.metadata.table { width: 100% }
+      div.row { display: table-row }
+      div.cell { display: table-cell; padding-left: 0.25em; padding-right: 0.25em;}
+
+      .TableData {border: .1px solid gray;border-collapse: collapse;}
+
+
+      div.metadata div.cell {
+      vertical-align: top }
+
+      div.two-column div.cell {
+      width: 50% }
+
+      div.one-column div.cell.spanning { width: 100% }
+
+      
+      div.ref-cell { display: table-cell; padding-left: 0.25em; padding-right: 0.25em }
+
+      div.two-column div.ref-cell{
+      vertical-align: top}
+
+      div.metadata-group { margin-top: 0.5em;
+      font-size: 75% }
+
+      div.metadata-group > p, div.metadata-group > div { margin-top: 0.5em }
+
+      div.metadata-area * { margin: 0em }
+
+      div.metadata-chunk { margin-left: 1em }
+
+      div.branding { text-align: center }
+
+      div.document-title-notes {
+      text-align: center;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto
+      }
+
+      div.footnote { font-size: 90% }
+
+      /* rules */
+      hr.part-rule {
+      border: thin solid black;
+      width: 50%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      }
+
+      hr.section-rule {
+      border: thin dotted black;
+      width: 50%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      }
+
+      /* superior numbers that are cross-references */
+      .xref {
+      color: red;
+      }
+
+      /* generated text */
+      .generated { color: gray; }
+
+      .warning, tex-math {
+      font-size:80%; font-family: sans-serif }
+
+      .warning {
+      color: red }
+
+      .tex-math { color: green }
+
+      .data {
+      color: black;
+      }
+
+      .formula {
+      font-family: sans-serif;
+      font-size: 90% }
+      
+      
+      span.given-name{ 
+      color: blue;
+      }
+      
+      
+      span.surname{ 
+      color: red;
+      }
+      
+      
+      span.suffix{
+      color: pink;
+      }
+
+      /* --------------- Titling levels -------------------- */
+
+
+      h1, h2, h3, h4, h5, h6 {
+      display: block;
+      margin-top: 0em;
+      margin-bottom: 0.5em;
+      font-family: helvetica, sans-serif;
+      font-weight: bold;
+      color: midnightblue;
+      }
+      /* titling level 1: document title */
+      .document-title {
+      text-align: center;
+      }
+
+      /* callout titles appear in a left column (table cell)
+      opposite what they head */
+      .callout-title { text-align: right;
+      margin-top: 0.5em;
+      margin-right: 1em;
+      font-size: 140% }
+
+
+
+      div.section, div.back-section {
+      margin-top: 1em; margin-bottom: 0.5em }
+
+      div.panel { background-color: white;
+      font-size: 90%;
+      border: thin solid black;
+      padding-left: 0.5em; padding-right: 0.5em;
+      padding-top: 0.5em; padding-bottom: 0.5em;
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.blockquote { font-size: 90%;
+      margin-left: 1em; margin-right: 1em;
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.caption {
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.speech {
+      margin-left: 1em; margin-right: 1em;
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.verse-group {
+      margin-left: 1em;
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.verse-group div.verse-group {
+      margin-left: 1em;
+      margin-top: 0em; margin-bottom: 0em }
+
+      div.note { margin-top: 0em; margin-left: 1em;
+      font-size: 85% }
+
+      .ref-label { margin-top: 0em; vertical-align: top }
+
+      .ref-content { margin-top: 0em; padding-left: 0.25em }
+
+      h5.label { margin-top: 0em; margin-bottom: 0em }
+
+      p { margin-top: 0.5em; margin-bottom: 0em }
+
+      p.first { margin-top: 0em }
+
+      p.verse-line, p.citation { margin-top: 0em; margin-bottom: 0em; margin-left: 2em; text-indent: -2em }
+
+      p.address-line { margin-top: 0em; margin-bottom: 0em; margin-left: 2em }
+
+      ul, ol { margin-top: 0.5em }
+
+      li { margin-top: 0.5em; margin-bottom: 0em }
+      li > p { margin-top: 0.2em; margin-bottom: 0em  }
+
+      div.def-list { border-spacing: 0.25em }
+
+      div.def-list div.cell { vertical-align: top;
+      border-bottom: thin solid black;
+      padding-bottom: 0.5em }
+
+      div.def-list div.def-list-head {
+      text-align: left }
+
+      /* text decoration */
+      .label { font-weight: bold; font-family: sans-serif; font-size: 80% }
+
+      .monospace {
+      font-family: monospace;
+      }
+
+      .overline{
+      text-decoration: overline;
+      }
+
+      a       { text-decoration: none }
+      a:hover { text-decoration: underline }
+      
+
+
+    </style>
+  </head>
+  <body>
+    <div id="article-front" class="front">
+      <div class="metadata">
+        <div class="row">
+          <div class="cell">
+            <h4 class="generated">Article Information</h4>
+            <div class="metadata-group"></div>
+          </div>
+        </div>
+      </div>
+      <hr class="part-rule">
+      <div class="metadata centered">
+        <h1 class="document-title">Upcoming_Projects_Executive_Summary.pdf</h1>
+      </div>
+      <hr class="part-rule">
+    </div>
+    <div id="article-body" class="body">
+      <p class="first" id="ID0EJ">1. Human Capital Management (HCM/HRMS) ?  Bandhan Bank   [HIGH]   Objective:  SaaS-based HCM/HRMS platform for 80,000+  employees; integrated Payroll, Analytics &amp; AI Agents.   Key Requirements:  BFSI implementation experience;  payroll automation &amp; statutory compliance; AI-driven  employee self-service; centralized HR analytics.   Eligibility:  Proven HCM implementation experience; large  enterprise/BFSI references; financially stable organization.   Important Dates:  Technical Queries ? 03 Jul 2026  |   Proposal Submission ? 13 Jul 2026</p>
+      <p id="ID0EK">2. NCERT ? AI-Enabled Digital Content  Development   [MEDIUM]   Objective:  AI-powered multilingual educational content  platform (22 Indian languages) with human-in-the-loop  review.   Key Requirements:  AI-generated videos, scripts &amp; voice  synthesis; workflow automation &amp; version control;  curriculum-aligned content.   Eligibility:  Registered Indian org, 3+ yrs relevant  experience, avg. turnover ? ?2 Cr, team of 20+ professionals.   Important Dates:  EOI Issue ? 01 Jul  |  Submission ? 22 Jul   |  Presentation ? 27 Jul 2026</p>
+      <p id="ID0EL">3. Ireland ? Digital Transformation &amp; AI Training    [HIGH]   Objective:  Design and deliver Digital Transformation and  AI workforce development programmes.   Key Requirements:  AI, Data Analytics &amp; Digital  Transformation training; enterprise learning delivery;  workforce upskilling.   Submission Deadline:  09 July 2026</p>
+      <p id="ID0EM">4. Ireland ? Online Digital Reference Content for  Schools   [MEDIUM]   Objective:  Supply online digital educational reference  content for schools.   Project Value:  Approximately ?500,000   Key Requirements:  Digital educational content platform;  online learning resources; electronic tender submission.   Submission Deadline:  12 August 2026</p>
+      <p id="ID0EN">5. ElectronVibe 2026 Innovation Challenge    [HIGH]   AP State Track:  Renewable Energy Storage; Renewable  Forecasting; Smart Grid Intelligence.   BRPL Track:  LT Network Visibility; AI-powered Tariff  Intelligence; Revenue Protection.   Requirements:  Startup information, technology readiness,  pilot readiness, supporting documents.   Application Deadline:  08 July 2026</p>
+      <p id="ID0EO">6. IIM Kashipur ? Career Development Workshops    [HIGH]   Objective:  Career development and employability training  for management students.   Requirements:  Min. 5 yrs operations; higher-education  training experience; 50+ industry trainers; avg. turnover ?  ?1.25 Cr; relevant client references.   Submission Deadline:  03 July 2026</p>
+      <p id="ID0EP">7. AI-Powered Founder?Investor Intelligence  Platform   [STRATEGIC]   Objective:  India's most comprehensive AI-powered  fundraising ecosystem ? founder-investor matching,  startup health scoring, AI pitch-deck generation,  fundraising CRM, secure data rooms, portfolio &amp;  due-diligence automation.   Long-Term Vision:  Build the Operating System for  Startup Fundraising in India.   Status / Priority:  Product Planning &amp; System  Architecture  ?  High (Internal, Ongoing)</p>
+      <div class="section"><a id="ID0EQ"><!-- named anchor --></a><h2 class="main-title">IMMEDIATE PRIORITIES (NEXT 30 DAYS)</h2>
+        <p id="ID0ES">Priority   Project   Deadline</p>
+        <p id="ID0ET">High   IIM Kashipur   03 Jul 2026</p>
+        <p id="ID0EU">High   Bandhan Bank ? Technical Queries   03 Jul 2026</p>
+        <p id="ID0EV">High   ElectronVibe 2026   08 Jul 2026</p>
+        <p id="ID0EW">High   Ireland ? AI Training   09 Jul 2026</p>
+        <p id="ID0EX">High   Bandhan Bank ? Proposal Submission   13 Jul 2026</p>
+        <p id="ID0EY">Medium   NCERT ? AI Content   22 Jul 2026</p>
+        <p id="ID0EZ">Medium   Ireland ? Digital Schools Content   12 Aug 2026</p>
+        <p id="ID0E1">Strategic   Founder?Investor AI Platform   Ongoing</p>
+      </div>
+    </div>
+    <div id="article-footer" class="footer">
+      <hr class="part-rule">
+      <div class="branding">
+        <p>This display is generated from NISO JATS XML with <b>jats-html.xsl</b>. The XSLT engine is Microsoft.</p>
+      </div>
+    </div>
+  </body>
+</html>

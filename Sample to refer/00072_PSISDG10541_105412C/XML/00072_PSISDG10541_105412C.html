@@ -1,0 +1,508 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Tung and Hung: 
+        
+        JATS-HTML Viewer
+        </title>
+    <style type="text/css">
+      body { margin-left: 8%;
+      margin-right: 8%;
+      background-color: #f8f8f8 }
+
+
+      div > *:first-child { margin-top:0em }
+
+      div { margin-top: 0.5em }
+
+      div.front, div.footer { }
+
+      .back, .body { font-family: serif }
+
+      div.metadata { font-family: sans-serif }
+      div.centered { text-align: center }
+
+      div.table { display: table;}
+      div.metadata.table { width: 100% }
+      div.row { display: table-row }
+      div.cell { display: table-cell; padding-left: 0.25em; padding-right: 0.25em;}
+
+      .TableData {border: .1px solid gray;border-collapse: collapse;}
+
+
+      div.metadata div.cell {
+      vertical-align: top }
+
+      div.two-column div.cell {
+      width: 50% }
+
+      div.one-column div.cell.spanning { width: 100% }
+
+      
+      div.ref-cell { display: table-cell; padding-left: 0.25em; padding-right: 0.25em }
+
+      div.two-column div.ref-cell{
+      vertical-align: top}
+
+      div.metadata-group { margin-top: 0.5em;
+      font-size: 75% }
+
+      div.metadata-group > p, div.metadata-group > div { margin-top: 0.5em }
+
+      div.metadata-area * { margin: 0em }
+
+      div.metadata-chunk { margin-left: 1em }
+
+      div.branding { text-align: center }
+
+      div.document-title-notes {
+      text-align: center;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto
+      }
+
+      div.footnote { font-size: 90% }
+
+      /* rules */
+      hr.part-rule {
+      border: thin solid black;
+      width: 50%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      }
+
+      hr.section-rule {
+      border: thin dotted black;
+      width: 50%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      }
+
+      /* superior numbers that are cross-references */
+      .xref {
+      color: red;
+      }
+
+      /* generated text */
+      .generated { color: gray; }
+
+      .warning, tex-math {
+      font-size:80%; font-family: sans-serif }
+
+      .warning {
+      color: red }
+
+      .tex-math { color: green }
+
+      .data {
+      color: black;
+      }
+
+      .formula {
+      font-family: sans-serif;
+      font-size: 90% }
+      
+      
+      span.given-name{ 
+      color: blue;
+      }
+      
+      
+      span.surname{ 
+      color: red;
+      }
+      
+      
+      span.suffix{
+      color: pink;
+      }
+
+      /* --------------- Titling levels -------------------- */
+
+
+      h1, h2, h3, h4, h5, h6 {
+      display: block;
+      margin-top: 0em;
+      margin-bottom: 0.5em;
+      font-family: helvetica, sans-serif;
+      font-weight: bold;
+      color: midnightblue;
+      }
+      /* titling level 1: document title */
+      .document-title {
+      text-align: center;
+      }
+
+      /* callout titles appear in a left column (table cell)
+      opposite what they head */
+      .callout-title { text-align: right;
+      margin-top: 0.5em;
+      margin-right: 1em;
+      font-size: 140% }
+
+
+
+      div.section, div.back-section {
+      margin-top: 1em; margin-bottom: 0.5em }
+
+      div.panel { background-color: white;
+      font-size: 90%;
+      border: thin solid black;
+      padding-left: 0.5em; padding-right: 0.5em;
+      padding-top: 0.5em; padding-bottom: 0.5em;
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.blockquote { font-size: 90%;
+      margin-left: 1em; margin-right: 1em;
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.caption {
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.speech {
+      margin-left: 1em; margin-right: 1em;
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.verse-group {
+      margin-left: 1em;
+      margin-top: 0.5em; margin-bottom: 0.5em }
+
+      div.verse-group div.verse-group {
+      margin-left: 1em;
+      margin-top: 0em; margin-bottom: 0em }
+
+      div.note { margin-top: 0em; margin-left: 1em;
+      font-size: 85% }
+
+      .ref-label { margin-top: 0em; vertical-align: top }
+
+      .ref-content { margin-top: 0em; padding-left: 0.25em }
+
+      h5.label { margin-top: 0em; margin-bottom: 0em }
+
+      p { margin-top: 0.5em; margin-bottom: 0em }
+
+      p.first { margin-top: 0em }
+
+      p.verse-line, p.citation { margin-top: 0em; margin-bottom: 0em; margin-left: 2em; text-indent: -2em }
+
+      p.address-line { margin-top: 0em; margin-bottom: 0em; margin-left: 2em }
+
+      ul, ol { margin-top: 0.5em }
+
+      li { margin-top: 0.5em; margin-bottom: 0em }
+      li > p { margin-top: 0.2em; margin-bottom: 0em  }
+
+      div.def-list { border-spacing: 0.25em }
+
+      div.def-list div.cell { vertical-align: top;
+      border-bottom: thin solid black;
+      padding-bottom: 0.5em }
+
+      div.def-list div.def-list-head {
+      text-align: left }
+
+      /* text decoration */
+      .label { font-weight: bold; font-family: sans-serif; font-size: 80% }
+
+      .monospace {
+      font-family: monospace;
+      }
+
+      .overline{
+      text-decoration: overline;
+      }
+
+      a       { text-decoration: none }
+      a:hover { text-decoration: underline }
+      
+
+
+    </style>
+  </head>
+  <body>
+    <div id="article-front" class="front">
+      <div class="metadata">
+        <div class="row">
+          <div class="cell">
+            <h4 class="generated">Journal Information</h4>
+            <div class="metadata-group">
+              <p class="metadata-entry"><span class="generated">Journal ID (<span class="data">publisher-id</span>): </span></p>
+              <p class="metadata-entry"><span class="generated">Title: </span>Photonic and Phononic Properties of Engineered Nanostructures VIII</p>
+              <p class="metadata-entry"><span class="generated">ISSN: </span>0277-786X</p>
+              <p class="metadata-entry"><span class="generated">Publisher: </span>SPIE</p> 
+            </div>
+          </div>
+          <div class="cell">
+            <h4 class="generated">Article Information</h4>
+            <div class="metadata-group">
+              <p class="metadata-entry"><span class="generated">Self URI: </span><a href="105412C.pdf">105412C.pdf</a></p>
+              <p class="metadata-entry"><span class="generated">Copyright statement: </span>COPYRIGHT SPIE. Downloading of the abstract is permitted for personal use only.</p>
+              <p class="metadata-entry"><span class="generated">Copyright: </span>2018</p>
+              <p class="metadata-entry"><span class="generated">Publication date: </span>21 February 2018</p>
+              <p class="metadata-entry"><span class="generated">Volume: </span>10541</p>
+              <p class="metadata-entry"><span class="generated">Issue: </span>105412C</p>
+              <p class="metadata-entry"><span class="generated">Pages: </span>105412C-1-105412C-6</p>
+              <p class="metadata-entry"><span class="generated">ISBN: </span>978-1-5106-1567-0</p>
+              <p class="metadata-entry"><span class="generated">Conference: </span>OPTO<span class="generated"> (</span>PWO<span class="generated">)</span> 103<span class="generated"> (</span><span class="generated">)</span></p>
+              <p class="metadata-entry"><span class="generated">Conference: </span>SPIE OPTO<span class="generated"> (</span>PW18O<span class="generated">)</span> 2257041<span class="generated"> (</span>2018-01-27|2018-02-01, San Francisco, California, United States<span class="generated">)</span></p>
+              <p class="metadata-entry"><span class="generated">Conference: </span>Photonic and Phononic Properties of Engineered Nanostructures VIII 10541<span class="generated"> (</span><span class="generated">)</span></p>
+              <p class="metadata-entry"><span class="generated">Conference: </span>Poster Session PWed<span class="generated"> (</span><span class="generated">)</span></p>
+              <p class="metadata-entry"><span class="generated">DOI: </span>10.1117/12.2290475</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="part-rule">
+      <div class="metadata centered">
+        <h1 class="document-title">Characterization of phase transitions and parameter retrieval in three-dimensional dielectric helix structures</h1>
+      </div>
+      <div class="metadata">
+        <div class="row">
+          <div class="cell" style="text-align: right">
+            <div class="metadata-group">
+              <p class="metadata-entry"><a id="ID0EX"><!-- named anchor --></a> 
+     
+    <span class="given-name">Ho-Ting </span> 
+    <span class="surname">Tung</span> 
+     
+  </p>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="metadata-group"></div>
+          </div>
+        </div>
+      </div>
+      <div class="metadata">
+        <div class="row">
+          <div class="cell" style="text-align: right">
+            <div class="metadata-group">
+              <p class="metadata-entry"><a id="ID0E6"><!-- named anchor --></a> 
+     
+    <span class="given-name">Yu-Chueh </span> 
+    <span class="surname">Hung</span> 
+     
+  </p>
+            </div>
+          </div>
+          <div class="cell">
+            <div class="metadata-group"></div>
+          </div>
+        </div>
+      </div>
+      <div class="metadata">
+        <div class="row">
+          <div class="cell"> </div>
+          <div class="cell">
+            <div class="metadata-group">
+              <p class="metadata-entry"><a id="aff1"><!-- named anchor --></a>Institute of Photonics Technologies, National Tsing Hua University, No. 101, Section 2, Kuang-Fu Road, Hsinchu 30013, Taiwan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="metadata">
+        <div class="row">
+          <div class="cell empty"></div>
+          <div class="cell">
+            <div class="metadata-group">
+              <div class="metadata-area">
+                <p class="metadata-entry"><span class="generated">Author notes: </span></p>
+                <div class="metadata-chunk"><a id="ID0EKB"><!-- named anchor --></a><p class="metadata-entry"><span class="generated"><a id="cor1"><!-- named anchor --></a>Correspondence to: </span><span class="generated">[</span>*<span class="generated">] </span><a href="mailto:ychung@ee.nthu.edu.tw">ychung@ee.nthu.edu.tw</a></p>
+                </div>
+              </div> 
+              </div>
+          </div>
+        </div>
+      </div>
+      <hr class="section-rule">
+      <div>
+        <h2 class="main-title">ABSTRACT</h2>
+        <div class="cell">
+          <p id="ID0EAC">Chiral metamaterials have attracted great interests in recent years owing to fascinating properties such as negative refraction, strong optical activity, and circular dichroism, which can be applied in many optoelectronic devices. Helix is especially suitable for studying chiral responses as the helical geometry well resembles the feature of circularly polarized light. In this study, we use a helix structure as a model system to demonstrate the general response of circularly polarized light in a three-dimensional dielectric helix nanostructure. The optical characterization is performed based on finite-difference time-domain (FDTD) method and our results show that the helix structure, consisting of dielectric helices arranged in a square lattice, exhibits multiple resonant peaks. The retrieved effective parameters from the complex transmittance and reflectance will be presented and the dispersion characteristics will be discussed based on various geometric parameters. The resonant frequencies can be tuned by structural parameters, and negative permeability can be achieved when the resonances are adjacent in frequencies. Depending on the geometrical arrangements, we will demonstrate the unique optical properties in an anisotropic helix nanostructure. Our analysis yields physical insight into the interaction of circularly polarized light with a three-dimensional chiral nanostructure, and provides design guidelines towards the implementation of all-dielectric photonic metamaterials.</p>
+        </div>
+      </div>
+      <hr class="part-rule">
+    </div>
+    <div id="article-body" class="body">
+      <div class="section"><a id="s1"><!-- named anchor --></a><h5 class="label">1.</h5>
+        <h2 class="main-title">INTRODUCTION</h2>
+        <h5 class="label">1.</h5>
+        <p id="ID0EDD">Metamaterials are artificially engineered structures that exhibit unique properties, such as negative refraction and artificial magnetism. By virtue of these properties, exciting applications, including subwavelength imaging<sup><a href="#c1">1</a></sup>, subwavelength cavity resonators<sup><a href="#c2">2</a></sup>, and magnetic mirrors<sup><a href="#c3">3</a></sup>, can be realized. Previously metamaterials have been constructed mainly based on metals, in which negative permittivity can be readily available at some wavelength range. However, the use of metals inevitably introduces loss to the system, especially at optical frequencies, which impedes realization of high performance optical metamaterials. To solve the loss problem, all-dielectric metamaterials have emerged as an attractive alternative<sup><a href="#c4">4</a></sup>. Optical properties of the dielectric metamaterials are governed by the resonance behaviors of the constituent dielectric motifs. By tuning the refractive index and geometry of the dielectrics, negative effective parameters can be achieved<sup><a href="#c5">5</a></sup>.</p>
+        <p id="ID0E5D">Dielectric helix structure has been reported to display negative refraction as a photonic crystal<sup><a href="#c6">6</a></sup>, and past studies suggest that by adjusting the structural parameters of a periodic array, the structure can transit from photonic crystal to metamaterial<sup><a href="#c7">7</a></sup>. Moreover, helix, as a bianisotropic structure, displays cross-coupling effect between electric and magnetic field. Bianisotropy is considered a key to negative effective parameters or artificial magnetism<sup><a href="#c8">8</a>,<a href="#c9">9</a></sup>. In chiral structures, the cross-coupling effect originates from the different response to right circularly polarized (RCP) wave and to left circularly polarized (LCP) wave, and the difference can be described by a chirality parameter κ. The existence of κ implies that the effective permittivity and permeability of RCP and LCP wave have distinct values, and also opens up a new route to negative effective parameters or negative effective refractive indices.</p>
+        <p id="ID0ETE">In this report, we utilize the parameter retrieval technique to analyze the optical properties of a periodic structure consisting of dielectric helices. Effective electromagnetic parameters are evaluated by the complex transmission and reflection coefficients. The resonance responses of the structure are examined by analyzing the field distributions, and the movement of the resonance is monitored with different structural parameters of the helix. The relationship between the retrieved parameters and the structural parameters of the helix structure is discussed. Based on the analysis results, negative parameters can be obtained at some frequency ranges. In the following sections, the methods are elaborated and the effective parameters of the structure are presented and discussed.</p>
+      </div>
+      <div class="section"><a id="s2"><!-- named anchor --></a><h5 class="label">2.</h5>
+        <h2 class="main-title">METHOD</h2>
+        <h5 class="label">2.</h5>
+        <p id="ID0EYE">The helix structure under study is illustrated in <a href="#f1">Fig. 1</a>(a). The structure consists of right-handed (RH) helices arranged in a 2D square lattice, as shown in <a href="#f1">Fig. 1</a>(b). The geometrical parameters are defined by the helix radius <i>R</i>, pitch length <i>p</i>, helix spacing <i>a</i>, and wire radius <i>r</i>. In the following, the wire radius is set to be 50 nm, and the helix with one pitch is employed to eliminate unnecessary resonant peaks and avoid ambiguity in the retrieved parameters<sup><a href="#c10">10</a></sup>.</p>
+        <div class="fig panel" style="display: float; clear: both"><a id="f1"><!-- named anchor --></a><h5 class="label">Figure 1.</h5>
+          <div class="caption">
+            <p class="first" id="ID0ETF">The illustrations of the right-handed helical metamaterials. (a) The side view of a unit cell. (b) The top view of a 2*2 array. The structure is arranged in a 2D square lattice with a lattice constant <i>a</i>. The helix is defined by pitch length <i>p</i>, radius <i>R</i>, and wire radius <i>r</i>.</p>
+          </div><img src="00072_PSISDG10541_105412C_page_2_1.jpg"></div>
+        <p id="ID0E6F">For an isotropic, homogeneous and reciprocal chiral medium, the constitutive relation is given by<sup><a href="#c11">11</a></sup>:
+<div class="disp-formula panel"><a id="d1"><!-- named anchor --></a>
+<img src="00072_PSISDG10541_105412C_page_2_2.jpg">
+</div>
+        </p>
+        <p id="ID0EMG">where <i>ε</i><sub>0</sub> and <i>μ</i><sub>0</sub> are the permittivity and permeability in vacuum, <i>ε</i> and <i>μ</i> are the relative permittivity and permeability of the medium, <i>κ</i> is the chirality parameter and <i>c</i> is the speed of light in vacuum. Assume that the time harmonic in Fourier domain is written in <i>e<sup>−iωt</sup></i>. The eigenwaves of the medium propagating along the z axis can thus be described as <i>E</i><sub>±</sub>(<i>z</i>) = (<i>x ± iy</i>)<i>Ee</i><sup><i>i</i>k<sub>±</sub><i>z</i></sup>, in which <i>k</i> is the wavenumber in the medium. The positive and negative signs represent RCP and LCP waves, respectively. Given a homogenous chiral slab with a thickness <i>d<sub>slab</sub></i>, by solving the boundary value problem with S-parameters, one can find the effective impedance <i>Z</i> and refraction indices of the two eigenwaves <i>n</i><sub>±</sub>(+ for RCP and – for LCP) to be<sup><a href="#c11">11</a></sup>:
+<div class="disp-formula panel"><a id="d2"><!-- named anchor --></a>
+<img src="00072_PSISDG10541_105412C_page_2_3.jpg">
+</div>
+<div class="disp-formula panel"><a id="d3"><!-- named anchor --></a>
+<img src="00072_PSISDG10541_105412C_page_2_4.jpg">
+</div>
+        </p>
+        <p id="ID0EMAAC">where <i>T</i> and <i>R</i> represent complex transmission and reflection coefficients, respectively. Owing to the same optical path length in the slab for the reflection waves of both RCP and LCP, <i>R<sub>+-</sub> = R<sub>-+</sub> = R</i>. All cross-coupling S-parameters are identical (i.e., <i>T<sub>+-</sub> = T<sub>-+</sub>, R<sub>++</sub> = R<sub>--</sub></i>) due to a purely chiral structure<sup><a href="#c12">12</a></sup>. It should also be noted that both RCP and LCP waves have the same impedance <i>Z</i>. The sign of <a href="#d2">Equ. (2)</a> and the imaginary part of <a href="#d3">Equ. (3)</a> can be uniquely chosen by the concept of causality and conservation of energy. The branch index “m” of logarithm operator in <a href="#d3">Equ. (3)</a> should be carefully selected to satisfy the continuity required by the Kramers-Kronig relations. The remaining effective parameters can be determined by the relations: <i>n</i> = (<i>n</i><sub>+</sub> + <i>n</i><sub>_</sub>)/2, <i>κ</i> = (<i>n<sub>+</sub> − n<sub>-</sub></i>)/2, <i>ε</i> = <i>n/Z</i> and <i>μ = nZ</i>. Numerical analysis was carried out to evaluate the transmission and reflection using a commercial software package <i>FDTD Solutions</i><sup><a href="#c13">13</a></sup>. In the simulation setup, periodic boundary conditions are applied to the lateral directions and only axial propagation is considered. The material of the helices is a non-dispersive dielectric with a refractive index of 3.5.</p>
+      </div>
+      <div class="section"><a id="s3"><!-- named anchor --></a><h5 class="label">3.</h5>
+        <h2 class="main-title">RESULTS AND DISCUSSION</h2>
+        <h5 class="label">3.</h5>
+        <p id="ID0EWCAC">The optical properties of the helix structures are examined by adjusting the geometrical arrangements. When the helices are closer in space, the structure is operated as a photonic crystal, where the lowest gap is governed by the Bragg resonance<sup><a href="#c6">6</a></sup>. As we increase the lattice constant and helix radius, resonance bands of the helix structure move toward lower frequencies, and the operation scenario gradually transits from the photonic crystal regime to the metamaterial regime. <a href="#f2">Fig. 2</a>(a) shows a typical RCP transmission spectrum that depicts the resonance features of the helix structure upon the incidence of RCP light. The corresponding effective refractive index, retrieved from the method discussed in the previous section, is shown in <a href="#f2">Fig. 2</a>(b), where the solid line is the real part and the dashed line is the imaginary part. One can see that the transmittance exhibits two valleys at 290 THz and 341 THz, representing the occurrence of resonances, denoted as P1 and P2, respectively. The corresponding real part and imaginary part of the refractive index at P1 and P2 exhibit a typical resonance behavior. To further examine the resonance characteristics, we analyze the field distributions at P1 and P2, as shown in <a href="#f2">Fig. 2</a>(c) and <a href="#f2">2</a>(d), respectively. At P1, the electric field is confined along the helix wire, while at P2 the electric field is around the structure. The directions of the electric fields are denoted in the figure.</p>
+        <div class="fig panel" style="display: float; clear: both"><a id="f2"><!-- named anchor --></a><h5 class="label">Figure 2.</h5>
+          <div class="caption">
+            <p class="first" id="ID0ERDAC">(a) The transmission coefficient of RCP light and (b) the retrieved effective RCP index of the helix structure. (c)-(d) The corresponding mode profile at P1 and P2, respectively.</p>
+          </div><img src="00072_PSISDG10541_105412C_page_3_1.jpg"></div>
+        <p id="ID0EUDAC">Previous studies have demonstrated that negative parameters can be achieved by bringing the electric and magnetic resonances closer together<sup><a href="#c5">5</a></sup>. To manipulate the resonance conditions, we first monitor the variation of resonance frequencies with respect to the change of helix geometrical parameters, i.e., the lattice constant <i>a</i>, pitch length <i>p</i>, and radius <i>R</i>. <a href="#f3">Fig. 3</a>(a) shows the shift of the resonance frequency of P1 and P2 while varying the lattice constant <i>a</i>. Both resonances exhibit a constant red shift as the lattice constant increases. This is consistent with our previous result, where the resonant mode also redshifts at a large lattice constant<sup><a href="#c6">6</a></sup>. When we change the pitch length p of the helices, the two resonances display different tendencies. <a href="#f3">Fig. 3</a>(b) shows the shift of the two resonances when <i>a</i>=0.8μm. The resonance frequency of P1 slightly decreases as the pitch length increases from 0.6μm to 1μm, whereas the resonance of P2 experiences a blue shift instead. It is difficult, though, to bring the two resonances even closer, as the strength of the magnetic resonance is getting weaker for a larger <i>p</i>. <a href="#f3">Fig. 3</a>(c) shows the dependence of the resonant frequencies on the helix radius R. As R increases, we can see that P1 resonance displays a red-shift, while P2 resonance stays around the same frequency. When R keeps increasing, the two resonances tend to move toward each other.</p>
+        <div class="fig panel" style="display: float; clear: both"><a id="f3"><!-- named anchor --></a><h5 class="label">Figure 3.</h5>
+          <div class="caption">
+            <p class="first" id="ID0E3EAC">The electric and magnetic resonant frequencies under different (a) lattice constant, (b) pitch length, and (c) helix radius.</p>
+          </div><img src="00072_PSISDG10541_105412C_page_4_1.jpg"></div>
+        <p id="ID0E6EAC">Based on the analysis results, we adjusted the structural parameters of the helix structure and examined the optical properties. Two designs are presented, i.e., configuration A with <i>a</i>=1μm, <i>p</i>=0.4μm, <i>R</i>=0.57μm in <a href="#f4">Figs. 4</a>(a)-(d) and configuration B with <i>a</i>=1.1μm, <i>p</i>=0.4μm, <i>R</i>=0.6μm in <a href="#f4">Figs. 4</a>(e)-(h). Both configurations have a relatively low <i>p</i>/<i>a</i> ratio to support strong resonances, and a high <i>R</i>/<i>a</i> ratio in order to yield resonances in close proximity.</p>
+        <div class="fig panel" style="display: float; clear: both"><a id="f4"><!-- named anchor --></a><h5 class="label">Figure 4.</h5>
+          <div class="caption">
+            <p class="first" id="ID0EBGAC">The retrieved parameters of helix metamaterial for (a)-(d) <i>a</i>=1μm, <i>p</i>=0.4μm, <i>R</i>=0.57μm, and (e)-(h) <i>a</i>=1.1μm, <i>p</i>=0.4μm, <i>R</i>=0.6μm.</p>
+          </div><img src="00072_PSISDG10541_105412C_page_4_2.jpg"></div>
+        <p id="ID0ERGAC"><a href="#f4">Fig. 4</a>(a) shows the RCP transmittance and reflectance of the structure with configuration A. Within the band colored in yellow, two adjacent transmission minima can be observed, indicating the resonances are close in frequency. From the transmission and reflection coefficients, the effective RCP index are calculated and displayed in <a href="#f4">Fig. 4</a>(b), where the real part is plotted by the solid line and the imaginary part by the dashed line. The RCP effective index experiences successive drops at resonances. The retrieved permittivity and permeability are plotted in <a href="#f4">Fig. 4</a>(c) and <a href="#f4">4</a>(d), where the real part is represented by the solid line and the imaginary part by the dashed line. A negative effective permittivity band, highlighted in green, and a negative effective permeability band, highlighted in yellow, are identified.</p>
+        <p id="ID0ECHAC">In configuration B, it is shown in <a href="#f4">Fig. 4</a>(e) that the resonances are not as close as those in configuration A. Consider <a href="#f4">Fig. 4</a>(f), the effective RCP index drop caused by resonance is also not as significant as in configuration A. Bands of negative parameters can also be identified in <a href="#f4">Fig. 4</a>(g) and <a href="#f4">4</a>(h). (highlighted in green for negative permittivity, and in yellow for negative permeability). Comparing the retrieved parameters of the two structures, we can see that while P1 and P2 almost overlap in frequency, a more pronounced effect of negative permeability can be obtained. The results show potential of artificial magnetism in dielectric helix structures.</p>
+        <p id="ID0EUHAC">For the frequency bands with negative permittivities, the negative values are quite small, since they are in the off-resonance regime. The small negative effective permittivities are associated with the retrieved impedance. <a href="#f5">Fig. 5</a> plots the impedance of configuration B. The impedance shows a sudden -90° phase in the band of negative effective permittivity, and a +90° phase in the band of negative permeability. The -90° phase of impedance implies that the metamaterial is capacitive, giving rise to a negative effective permittivity in the region. The +90° phase suggests that the metamaterial is inductive, which results in a small negative permeability when the two resonant peaks are not close enough. Similar trend of impedance has been reported in other dielectric matamaterials<sup><a href="#c14">14</a></sup>.These two bands only appear when both the lattice constant and <i>R</i>/<i>p</i> ratio are large enough. The cause of the abnormal dispersion and the manipulation of the optical properties will be investigated in our future work.</p>
+        <div class="fig panel" style="display: float; clear: both"><a id="f5"><!-- named anchor --></a><h5 class="label">Figure 5.</h5>
+          <div class="caption">
+            <p class="first" id="ID0EHIAC">The retrieved impedance of helix metamaterial for <i>a</i>=1.1μm, <i>p</i>=0.4μm, <i>R</i>=0.6μm.</p>
+          </div><img src="00072_PSISDG10541_105412C_page_5_1.jpg"></div>
+      </div>
+      <div class="section"><a id="s4"><!-- named anchor --></a><h5 class="label">4.</h5>
+        <h2 class="main-title">CONCLUSION</h2>
+        <h5 class="label">4.</h5>
+        <p id="ID0EVIAC">In sum, the electromagnetic response of dielectric helix metamaterials is numerically investigated. The structure features two distinctive RCP resonances. The trend of the two resonant frequencies while varying the lattice constant, pitch length, and helix radius is studied, and is utilized in designing metamaterial that exhibits negative permittivity and permeability. We demonstrated that the negative effective parameters are related to the gaps between the resonant peaks. The general design guidelines to achieve negative parameters are presented, and retrieved impedance is briefly discussed to explain the optical properties.</p>
+      </div>
+    </div>
+    <div id="article-back" class="back">
+      <div class="back-section"><a id="ID0EXIAC"><!-- named anchor --></a><div class="section ref-list"><a id="ID0EXIAC"><!-- named anchor --></a><h2 class="main-title">REFERENCES</h2>
+          <div class="ref-list table">
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[1]</span> <a id="c1"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0E3IAC"><!-- named anchor --></a>Jacob,  Z., Alekseyev,  L. V., and Narimanov,  E., ““Optical Hyperlens: Far-field imaging beyond the diffraction limit”, ,” Optics Express 14, 8247–8256 (2006)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[2]</span> <a id="c2"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0E5JAC"><!-- named anchor --></a>Engheta,  N., ““An idea for thin subwavelength cavity resonators using metamaterials with negative permittivity and permeability”, ,” IEEE antennas and wireless propagation letters 1 (2002)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[3]</span> <a id="c3"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0ESKAC"><!-- named anchor --></a>Schwanecke,  A. S., Fedotov,  V. A., Khardikov,  V. V., Prosvirnin,  S. L., Chen,  Y. and Zheludev,  N. I., ““Optical magnetic mirrors”, ,” Journal of Optics A: Pure and Applied Optics 9, 1 (2006)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[4]</span> <a id="c4"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0EBMAC"><!-- named anchor --></a>Jahani,  S. and Jacob,  Z., ““All-dielectric metamaterials”, ,” Nature Nanotechnology 11, 23–36 (2016)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[5]</span> <a id="c5"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0E5MAC"><!-- named anchor --></a>Dominec,  F., Kadlec,  C., Němec,  H., Kužel,  P., and Kadlec,  F., ““Transition between metamaterial and photonic-crystal behavior in arrays of dielectric rods”, ,” Optics Express 22, 30492–30503 (2014)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[6]</span> <a id="c6"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0EKOAC"><!-- named anchor --></a>Tung,  H., Chen,  Y., Jheng,  P., and Hung,  Y., ““Origin and manipulation of band gaps in three-dimensional dielectric helix structures”, ,” Optics Express 25, 17627–17638 (2017)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[7]</span> <a id="c7"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0ERPAC"><!-- named anchor --></a>Rybin,  M. V., Filonov,  D. S., Samusev,  K. B., Belov,  P. A., Kivshar,  Y. S., and Limonov,  M. F., ““Phase diagram for the transition from photonic crystals to dielectric metamaterials”, ,” Nature Communication 6, 10102 (2015)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[8]</span> <a id="c8"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0EBBAE"><!-- named anchor --></a>Markovich,  D., Baryshnikova,  K., Shalin,  A., Samusev,  A., Krasnok,  A., Belov,  P., and Ginzburg,  P., ““Enhancement of artificial magnetism via resonant bianisotropy”, ,” Scientific Reports 6, 22546 (2016)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[9]</span> <a id="c9"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0EVCAE"><!-- named anchor --></a>Marqués,  R., Medina,  F., and Rafii-El-Idrissi,  R., ““Role of bianisotropy in negative permeability and left-handed metamaterials”, ,” Phys. Rev. B 65, 144440 (2002)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[10]</span> <a id="c10"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0EVDAE"><!-- named anchor --></a>Smith,  D. R., Schultz,  S., Markos,  P., and Soukoulis,  C. M., ““Determination of effective permittivity and permeability of metamaterials from reflection and transmission coefficients”, ,” Phys. Rev. B 65, 195104 (2002)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[11]</span> <a id="c11"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0E1EAE"><!-- named anchor --></a>Zhao,  R., Koschny,  T., and Soukoulis,  C., ““Chiral metamaterials: retrieval of the effective parameters with and without substrate”, ,” Optics Express 18, 14553–14567 (2010)</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[12]</span> <a id="c12"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0E3FAE"><!-- named anchor --></a>Lakhtakia,  A., Varadan,  V., and Varadan,  V., [Time-Harmonic Electromagnetic Fields in Chiral Media], Springer-Verlag, New York (1989).</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[13]</span> <a id="c13"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0E1GAE"><!-- named anchor --></a>Lumerical Solutions, Inc. <a target="xrefwindow" href="http://www.lumerical.com/tcad-products/fdtd/" id="ID0EAHAE">http://www.lumerical.com/tcad-products/fdtd/</a></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ref-label ref-cell"><span class="label">[14]</span> <a id="c14"><!-- named anchor --></a></div>
+              <div class="ref-content ref-cell">
+                <p class="citation"><a id="ID0EGHAE"><!-- named anchor --></a>Ginn,  J. C. and Brener,  I., ““Realizing Optical Magnetism from Dielectric Metamaterials”, ,” Phys. Rev. Lett. 108, 097402 (2012)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="article-footer" class="footer">
+      <hr class="part-rule">
+      <div class="metadata">
+        <h4 class="generated">Article Information (continued)</h4>
+        <div class="metadata-group"> 
+
+              <div class="metadata-area">
+            <p class="metadata-entry"><span class="generated">Keywords:: </span></p>
+            <div class="metadata-chunk">
+              <h4 class="block-title">Keywords:</h4>
+              <p class="metadata-entry"><span class="generated">Keyword: </span>Chiral metamaterial</p>
+              <p class="metadata-entry"><span class="generated">Keyword: </span>effective medium</p>
+              <p class="metadata-entry"><span class="generated">Keyword: </span>dielectric helix</p>
+            </div>
+          </div> 
+
+               
+            </div>
+      </div>
+      <hr class="part-rule">
+      <div class="branding">
+        <p>This display is generated from NISO JATS XML with <b>jats-html.xsl</b>. The XSLT engine is Microsoft.</p>
+      </div>
+    </div>
+  </body>
+</html>

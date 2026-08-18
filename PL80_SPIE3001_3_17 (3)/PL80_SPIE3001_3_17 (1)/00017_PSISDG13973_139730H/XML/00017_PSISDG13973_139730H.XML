@@ -1,0 +1,109 @@
+<!DOCTYPE article PUBLIC "-//NLM//DTD Journal Publishing DTD v3.0 20080202//EN" "http://dtd.nlm.nih.gov/publishing/3.0/journalpublishing3.dtd">
+<article article-type="proceedings" dtd-version="3.0" xml:lang="en" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<front>
+<journal-meta>
+<issn>0277-786X</issn>
+<isbn>9781510698901</isbn>
+<publisher>
+<publisher-name>SPIE</publisher-name>
+</publisher>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="doi">10.1117/12.3089319</article-id>
+<title-group>
+<article-title>
+IoT sensor network and adaptive Kalman filtering-based dynamic monitoring technology for vegetation microenvironment in Fushun city ecological restoration area
+</article-title>
+</title-group>
+<contrib-group content-type="volume">
+<contrib contrib-type="editor">
+<name>
+<surname>Yue</surname>
+<given-names>Yang</given-names>
+</name>
+<xref ref-type="aff" rid="aff2" />
+</contrib>
+</contrib-group>
+<contrib-group content-type="article">
+<contrib contrib-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>Songyu</given-names>
+</name>
+<xref ref-type="aff" rid="aff1" />
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Zhang</surname>
+<given-names>Feiyu</given-names>
+</name>
+<xref ref-type="aff" rid="aff1" />
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Li</surname>
+<given-names>ChengJun</given-names>
+</name>
+<xref ref-type="aff" rid="aff1" />
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Qi</surname>
+<given-names>Xiaoyan</given-names>
+</name>
+<xref ref-type="aff" rid="aff1" />
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Wu</surname>
+<given-names>Nan</given-names>
+</name>
+<xref ref-type="aff" rid="aff1" />
+</contrib>
+</contrib-group>
+<aff id="aff1">Liaoning Dongke Electric Power Co., Ltd. (China)</aff>
+<aff id="aff2">Xi'an Jiaotong Univ. (China)</aff>
+<pub-date>
+<day>11</day>
+<month>11</month>
+<year>2025</year>
+</pub-date>
+<volume>13973</volume>
+<fpage>139730H</fpage>
+<lpage>139730H-6</lpage>
+<permissions>
+<copyright-statement>COPYRIGHT SPIE. Downloading of the abstract is permitted for personal use only.</copyright-statement>
+<copyright-year>2025</copyright-year>
+</permissions>
+<self-uri xlink:title="pdf" xlink:href="139730H.pdf"/>
+<abstract>
+Ecological restoration necessitates advanced monitoring technologies to address vegetation microenvironment dynamics under environmental uncertainties. This study proposes an IoT sensor network integrated with adaptive Kalman filtering for real-time spatiotemporal analysis in Fushun City’s degraded ecosystems. A hierarchical deployment of multisensory nodes achieves 93.04% pixel accuracy in parameter estimation through multi-scale spectral-spatial fusion, while event-driven protocols reduce communication overhead by 30%. The adaptive filtering algorithm demonstrates stability under non-Gaussian noise, bounding errors within ±1.96σ through covariance intersection and frequency-domain feature fusion. Field validation reveals 89.7% precision in detecting soil moisture anomalies and vegetation stress, with latency reduced to 9.8 seconds for actionable insights. The framework bridges distributed sensing theory with practical ecological management, enabling energy-efficient operation for 634 days under solar harvesting. Implementation results inform adaptive irrigation strategies and disaster response, validated by 2,580 ground truth samples. Future work will extend the system via satellite thermal data fusion and federated learning architectures for global scalability.
+</abstract>
+<conference content-type="conf-level-1">
+<conf-date />
+<conf-name>The International Conference on Wireless, Optical Communication and Information Engineering</conf-name>
+<conf-acronym>WOCIE</conf-acronym>
+<conf-num>1397</conf-num>
+</conference>
+<conference content-type="conf-level-2">
+<conf-date>2025-08-08|2025-08-10</conf-date>
+<conf-name>International Conference on Wireless, Optical Communication and Information Engineering (WOCIE 2025)</conf-name>
+<conf-acronym>WOCIE25</conf-acronym>
+<conf-num>8100553</conf-num>
+<conf-loc>Sydney, Australia</conf-loc>
+</conference>
+<conference content-type="volume">
+<conf-date />
+<conf-name>International Conference on Wireless, Optical Communication, and Information Engineering (WOCIE 2025)</conf-name>
+<conf-num>13973</conf-num>
+</conference>
+<conference content-type="session">
+<conf-date />
+<conf-name>International Conference on Wireless, Optical Communication, and Information Engineering (WOCIE 2025)</conf-name>
+<conf-num>1</conf-num>
+</conference>
+</article-meta>
+</front>
+<back>
+</back>
+</article>
