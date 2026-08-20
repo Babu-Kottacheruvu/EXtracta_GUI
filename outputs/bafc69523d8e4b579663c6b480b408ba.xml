@@ -1,0 +1,4594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<article xmlns:ns0="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" article-type="proceedings">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>877d76a0e79a4ff0a967182504e9206c.pdf</article-title>
+      </title-group>
+    </article-meta>
+  </front>
+  <body>
+    <p>
+      Absolutely. You need directly into Word/Google Docs, export as PDF, and then feed into your converter. 
+      <bold>normal, human-readable mathematical formulas</bold>
+       that you can paste 
+    </p>
+    <p>
+      Here is a good 
+      <bold>test set from simple to complex</bold>
+      . 
+    </p>
+    <p>
+      <bold>Basic Algebra </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="1em"/>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>10</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mn>5</ns0:mn>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mn>15</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:msup>
+            <ns0:mi>×</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mn>5</ns0:mn>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>6</ns0:mn>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>0</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>4</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:msup>
+            <ns0:mo>∝</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">b</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">c</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>5</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>X</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>y</ns0:mi>
+          <ns0:msup>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>y</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math>
+        <ns0:mtext>Math extraction failed: </ns0:mtext>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mi>T</ns0:mi>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+            <ns0:mi>𝒬</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>𝖩</ns0:mi>
+            <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+            <ns0:mi>𝖢</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>𝖰</ns0:mi>
+            <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">𝒬</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>𝖨</ns0:mi>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mi mathvariant="bold">p</ns0:mi>
+                </ns0:mrow>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+            <ns0:mi>𝖢</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>𝖰</ns0:mi>
+            <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mn>8</ns0:mn>
+          </ns0:mrow>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:msup>
+              <ns0:mi/>
+              <ns0:mo>*</ns0:mo>
+            </ns0:msup>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>X</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mn>9</ns0:mn>
+            <ns0:mo stretchy="false">)</ns0:mo>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>x</ns0:mi>
+              <ns0:mo>−</ns0:mo>
+              <ns0:mn>3</ns0:mn>
+            </ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>♯</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>𝖷</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>3</ns0:mn>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Fractions and Roots </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>9</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>5</ns0:mn>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>6</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>4</ns0:mn>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+            <ns0:mo>.</ns0:mo>
+          </ns0:mrow>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:msqrt>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" minsize="1.2em" maxsize="1.2em">(</ns0:mo>
+            </ns0:mrow>
+          </ns0:msqrt>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">X</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msubsup>
+            <ns0:mo>⋁</ns0:mo>
+            <ns0:mrow>
+              <ns0:mo>*</ns0:mo>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msubsup>
+          <ns0:mo stretchy="true" fence="true" minsize="1.2em" maxsize="1.2em">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>Z</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mi>\l</ns0:mi>
+          <ns0:mrow>
+            <ns0:mi>Ψ</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>\l</ns0:mi>
+            <ns0:mrow/>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mover>
+            <ns0:mrow>
+              <ns0:mstyle displaystyle="true" scriptlevel="0">
+                <ns0:mi>Ψ</ns0:mi>
+              </ns0:mstyle>
+            </ns0:mrow>
+            <ns0:mo stretchy="true">¯</ns0:mo>
+          </ns0:mover>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>\l</ns0:mi>
+            <ns0:mrow/>
+          </ns0:msup>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>\l</ns0:mi>
+          <ns0:mrow>
+            <ns0:mi>Γ</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>\l</ns0:mi>
+            <ns0:mrow/>
+          </ns0:msup>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">.42</ns0:mo>
+            <ns0:mo>.</ns0:mo>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+              <ns0:mi>\stackrel</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>·</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi>×</ns0:mi>
+              </ns0:mrow>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mo>∣</ns0:mo>
+              <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+            </ns0:mrow>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>\stackrel</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi>×</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>×</ns0:mi>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mn>2</ns0:mn>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>χ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>χ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo stretchy="true" fence="true" form="postfix"/>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mstyle displaystyle="true" scriptlevel="0">
+            <ns0:mrow>
+              <ns0:msub>
+                <ns0:mn>13</ns0:mn>
+                <ns0:mrow>
+                  <ns0:mi>·</ns0:mi>
+                </ns0:mrow>
+              </ns0:msub>
+              <ns0:msup>
+                <ns0:mtext> </ns0:mtext>
+                <ns0:mrow>
+                  <ns0:mo>*</ns0:mo>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mn>1</ns0:mn>
+              <ns0:mo>/</ns0:mo>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:mn>1</ns0:mn>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mfrac>
+                <ns0:mrow>
+                  <ns0:mi>·</ns0:mi>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mn>1</ns0:mn>
+                  <ns0:mo>/</ns0:mo>
+                  <ns0:mo stretchy="false">(</ns0:mo>
+                  <ns0:mn>1</ns0:mn>
+                  <ns0:mo>+</ns0:mo>
+                  <ns0:mi>χ</ns0:mi>
+                  <ns0:mo stretchy="false">)</ns0:mo>
+                </ns0:mrow>
+              </ns0:mfrac>
+              <ns0:msup>
+                <ns0:mo stretchy="false">)</ns0:mo>
+                <ns0:mrow>
+                  <ns0:mo>*</ns0:mo>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mo>=</ns0:mo>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:mn>1</ns0:mn>
+              <ns0:mi>\stackrel</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>·</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="script">X</ns0:mi>
+              </ns0:mrow>
+              <ns0:mo stretchy="false">)</ns0:mo>
+              <ns0:mo>/</ns0:mo>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:mn>2</ns0:mn>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mi>χ</ns0:mi>
+              <ns0:mo stretchy="false">)</ns0:mo>
+            </ns0:mrow>
+          </ns0:mstyle>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Powers and Logarithms </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>14</ns0:mn>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mtext> </ns0:mtext>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mtext> </ns0:mtext>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mtext> </ns0:mtext>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mi>Ω</ns0:mi>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">I</ns0:mi>
+                <ns0:mi mathvariant="normal">n</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mrow>
+            <ns0:mtext> </ns0:mtext>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mi>Ω</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>I</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mtext> </ns0:mtext>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mi>Ω</ns0:mi>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">I</ns0:mi>
+                <ns0:mi mathvariant="normal">n</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>15</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msup>
+            <ns0:mn>8</ns0:mn>
+            <ns0:mrow>
+              <ns0:mi>m</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:msup>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>m</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>m</ns0:mi>
+              <ns0:mi>n</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">G</ns0:mi>
+            <ns0:mo>.</ns0:mo>
+            <ns0:mi mathvariant="normal">\stackrel</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo>.</ns0:mo>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>0</ns0:mn>
+            </ns0:mrow>
+            <ns0:mi mathvariant="normal">G</ns0:mi>
+            <ns0:mi mathvariant="normal">G</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi mathvariant="normal">a</ns0:mi>
+            <ns0:mi mathvariant="normal">b</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+            <ns0:mi mathvariant="normal">G</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>a</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">l</ns0:mi>
+            <ns0:mi mathvariant="normal">o</ns0:mi>
+            <ns0:mi mathvariant="normal">g</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>b</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>47</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mi>D</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>D</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow/>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mspace width="0.167em"/>
+          <ns0:msub>
+            <ns0:mn>8</ns0:mn>
+            <ns0:mrow>
+              <ns0:mi>s</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mrow>
+            <ns0:msup>
+              <ns0:mi mathvariant="normal">log</ns0:mi>
+              <ns0:mrow>
+                <ns0:mo>−</ns0:mo>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi mathvariant="normal">x</ns0:mi>
+            <ns0:msup>
+              <ns0:mo stretchy="false">)</ns0:mo>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">·</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>P</ns0:mi>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mo>∘</ns0:mo>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mi mathvariant="bold">x</ns0:mi>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mrow>
+            <ns0:mo>/</ns0:mo>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">I</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi mathvariant="normal">D</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>α</ns0:mi>
+          <ns0:msup>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mrow>
+              <ns0:mo>−</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mi>⌊</ns0:mi>
+          <ns0:msub>
+            <ns0:mi>Θ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo>∘</ns0:mo>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo>⊗</ns0:mo>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mo>∘</ns0:mo>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mi>x</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mo>∘</ns0:mo>
+          </ns0:mrow>
+          <ns0:msub>
+            <ns0:mrow>
+              <ns0:mphantom>
+                <ns0:mrow>
+                  <ns0:mo>∘</ns0:mo>
+                </ns0:mrow>
+              </ns0:mphantom>
+            </ns0:mrow>
+            <ns0:mrow/>
+          </ns0:msub>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mo>∘</ns0:mo>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi>χ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mo>!</ns0:mo>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mo>∘</ns0:mo>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mo>+</ns0:mo>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>3</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mo>!</ns0:mo>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mi>…</ns0:mi>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mi>…</ns0:mi>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Sequences and Series </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>20</ns0:mn>
+          <ns0:mi>·</ns0:mi>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mo>⋯</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">I</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">I</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mn>1</ns0:mn>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>2</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mi>ℒ</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>⊢</ns0:mo>
+          <ns0:msup>
+            <ns0:mn>4</ns0:mn>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi>ℒ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mn>3</ns0:mn>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mo>⋯</ns0:mo>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi>𝖨</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">I</ns0:mi>
+              <ns0:mspace width="negativethinmathspace"/>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="sans-serif">I</ns0:mi>
+                <ns0:mspace width="negativethinmathspace"/>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mo>*</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">I</ns0:mi>
+              <ns0:mspace width="negativethinmathspace"/>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>6</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:msub>
+            <ns0:mn>22</ns0:mn>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo>∣</ns0:mo>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mo>↑</ns0:mo>
+          <ns0:mi>·</ns0:mi>
+          <ns0:mo>↑</ns0:mo>
+          <ns0:mi>·</ns0:mi>
+          <ns0:mo>⋯</ns0:mo>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mo>↑</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>n</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msup>
+            <ns0:mo>↑</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>n</ns0:mi>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mn>1</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>·</ns0:mi>
+          <ns0:mo>↓</ns0:mo>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msup>
+            <ns0:mo>↑</ns0:mo>
+            <ns0:mrow>
+              <ns0:mo>−</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>↓</ns0:mo>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>23</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:msub>
+            <ns0:mrow>
+              <ns0:mtext> </ns0:mtext>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">i</ns0:mi>
+                <ns0:mi mathvariant="normal">n</ns0:mi>
+                <ns0:mi mathvariant="normal">t</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mrow>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mi>i</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>ℑ</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>ℑ</ns0:mi>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mtext mathvariant="bold">+</ns0:mtext>
+          </ns0:mrow>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>2</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>24</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msub>
+            <ns0:mi>Σ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">i</ns0:mi>
+                <ns0:mi mathvariant="normal">n</ns0:mi>
+                <ns0:mi mathvariant="normal">t</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:msup>
+            <ns0:mn>1</ns0:mn>
+            <ns0:mrow>
+              <ns0:mi>i</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msup>
+            <ns0:mi>j</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>10</ns0:mn>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>j</ns0:mi>
+          <ns0:mi>j</ns0:mi>
+          <ns0:mi>i</ns0:mi>
+          <ns0:mi>j</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>25</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:msub>
+            <ns0:mrow>
+              <ns0:mi>𝖯</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">i</ns0:mi>
+                <ns0:mo>,</ns0:mo>
+                <ns0:mi mathvariant="normal">t</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo>,</ns0:mo>
+          <ns0:mi>𝗂</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>𝗇</ns0:mi>
+          <ns0:mo>!</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Trigonometry </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>26</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">s</ns0:mi>
+                <ns0:mi mathvariant="normal">i</ns0:mi>
+                <ns0:mi mathvariant="normal">n</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mn>6</ns0:mn>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">c</ns0:mi>
+                <ns0:mi mathvariant="normal">o</ns0:mi>
+                <ns0:mi mathvariant="normal">s</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mn>6</ns0:mn>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>1</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mo>∠</ns0:mo>
+          <ns0:mn>7</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">t</ns0:mi>
+            <ns0:mi mathvariant="normal">a</ns0:mi>
+            <ns0:mi mathvariant="normal">p</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>Θ</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>sin</ns0:mi>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mi>Θ</ns0:mi>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mi>cos</ns0:mi>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mi>Θ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>28</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>β</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">c</ns0:mi>
+            <ns0:mi mathvariant="normal">o</ns0:mi>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>g</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">c</ns0:mi>
+            <ns0:mi mathvariant="normal">o</ns0:mi>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mspace width="0.278em"/>
+          </ns0:mrow>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>g</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>29</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">c</ns0:mi>
+            <ns0:mi mathvariant="normal">o</ns0:mi>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>β</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>cos</ns0:mi>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">c</ns0:mi>
+            <ns0:mi mathvariant="normal">o</ns0:mi>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>g</ns0:mi>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+            <ns0:mtext> </ns0:mtext>
+          </ns0:mrow>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+            <ns0:mtext> </ns0:mtext>
+          </ns0:mrow>
+          <ns0:mi>β</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>30</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">s</ns0:mi>
+              <ns0:mi mathvariant="normal">i</ns0:mi>
+              <ns0:mi mathvariant="normal">l</ns0:mi>
+              <ns0:mi mathvariant="normal">l</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mn>26</ns0:mn>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mfrac>
+              <ns0:mrow>
+                <ns0:mo>⋯</ns0:mo>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:mfrac>
+          </ns0:mrow>
+          <ns0:mi>sin</ns0:mi>
+          <ns0:mrow>
+            <ns0:mi>G</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>cos</ns0:mi>
+          <ns0:mrow>
+            <ns0:mi>G</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>Θ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mi>⟼</ns0:mi>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">G</ns0:mi>
+              <ns0:mi mathvariant="normal">o</ns0:mi>
+              <ns0:mi mathvariant="normal">s</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mi>Θ</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">G</ns0:mi>
+                <ns0:mi mathvariant="normal">o</ns0:mi>
+                <ns0:mi mathvariant="normal">s</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>Θ</ns0:mi>
+          <ns0:mo>−</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">s</ns0:mi>
+                <ns0:mi mathvariant="normal">i</ns0:mi>
+                <ns0:mi mathvariant="normal">n</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>Θ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>32</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">t</ns0:mi>
+              <ns0:mi mathvariant="normal">a</ns0:mi>
+              <ns0:mi mathvariant="normal">p</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mn>0</ns0:mn>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">s</ns0:mi>
+              <ns0:mi mathvariant="normal">e</ns0:mi>
+              <ns0:mi mathvariant="normal">c</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>Θ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Calculus </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>33</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">d</ns0:mi>
+              <ns0:mi mathvariant="normal">y</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">d</ns0:mi>
+            <ns0:mi mathvariant="normal">x</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>ℤ</ns0:mi>
+          <ns0:mi>×</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:msub>
+            <ns0:mn>34</ns0:mn>
+            <ns0:mrow>
+              <ns0:mo>*</ns0:mo>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mo>∂</ns0:mo>
+                <ns0:mo>/</ns0:mo>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mover>
+                  <ns0:mrow>
+                    <ns0:mi>σ</ns0:mi>
+                  </ns0:mrow>
+                  <ns0:mo>¨</ns0:mo>
+                </ns0:mover>
+              </ns0:mrow>
+            </ns0:mover>
+          </ns0:mrow>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>χ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>n</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>I</ns0:mi>
+          <ns0:msup>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>n</ns0:mi>
+              <ns0:mo>−</ns0:mo>
+              <ns0:mn>1</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>35</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>d</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:msup>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">s</ns0:mi>
+              <ns0:mi mathvariant="normal">i</ns0:mi>
+              <ns0:mi mathvariant="normal">l</ns0:mi>
+              <ns0:mi mathvariant="normal">t</ns0:mi>
+              <ns0:mtext> </ns0:mtext>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">c</ns0:mi>
+            <ns0:mi mathvariant="normal">o</ns0:mi>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mtext> </ns0:mtext>
+          </ns0:mrow>
+          <ns0:mi>χ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>36</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>d</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:msup>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">′</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">C</ns0:mi>
+            <ns0:mi mathvariant="normal">O</ns0:mi>
+            <ns0:mi mathvariant="normal">S</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mi>·</ns0:mi>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mi mathvariant="script">X</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">S</ns0:mi>
+            <ns0:mi mathvariant="normal">I</ns0:mi>
+            <ns0:mi mathvariant="normal">I</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>χ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>37</ns0:mn>
+          <ns0:mo>,</ns0:mo>
+          <ns0:msub>
+            <ns0:mo>↑</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>×</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mrow>
+            <ns0:msup>
+              <ns0:mi>x</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msup>
+            <ns0:mi>d</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo>⋆</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>x</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>3</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>C</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>38</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:msub>
+            <ns0:mo>↑</ns0:mo>
+            <ns0:mrow>
+              <ns0:mo>∘</ns0:mo>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">S</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">G</ns0:mi>
+            <ns0:mi mathvariant="normal">o</ns0:mi>
+            <ns0:mi mathvariant="normal">S</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>C</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>39</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msubsup>
+            <ns0:mi>|</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>0</ns0:mn>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>1</ns0:mn>
+            </ns0:mrow>
+          </ns0:msubsup>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msup>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:mi>𝒩</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>40</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">|</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">l</ns0:mi>
+              <ns0:mi mathvariant="normal">i</ns0:mi>
+              <ns0:mi mathvariant="normal">D</ns0:mi>
+              <ns0:mi mathvariant="normal">x</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="postfix"/>
+          </ns0:mrow>
+          <ns0:msub>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>0</ns0:mn>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">D</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>d</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>41</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi>d</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>d</ns0:mi>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mi>x</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mn>4</ns0:mn>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>0</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>More Complex Calculus </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>42</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:msub>
+            <ns0:mo>↑</ns0:mo>
+            <ns0:mrow>
+              <ns0:mo>∘</ns0:mo>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mrow>
+            <ns0:mo>∘</ns0:mo>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mi>e</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo>∘</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:msup>
+            <ns0:mi>e</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo>∘</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>d</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>43</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msubsup>
+            <ns0:mi>⌋</ns0:mi>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mn>0</ns0:mn>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>1</ns0:mn>
+            </ns0:mrow>
+          </ns0:msubsup>
+          <ns0:msup>
+            <ns0:mi>×</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>n</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>O</ns0:mi>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>p</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">\boldmath</ns0:mi>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mn>1</ns0:mn>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>44</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mo stretchy="false">[</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mo stretchy="false">]</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+            <ns0:mi mathvariant="normal">i</ns0:mi>
+            <ns0:mi mathvariant="normal">n</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>χ</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">c</ns0:mi>
+            <ns0:mi mathvariant="normal">o</ns0:mi>
+            <ns0:mi mathvariant="normal">s</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>χ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>45</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mo>∣</ns0:mo>
+          <ns0:mi>×</ns0:mi>
+          <ns0:msup>
+            <ns0:mi>e</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>x</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mi>d</ns0:mi>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>e</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>x</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mo>∣</ns0:mo>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>C</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>4</ns0:mn>
+          <ns0:mover>
+            <ns0:mrow>
+              <ns0:mi>Θ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="true">¯</ns0:mo>
+          </ns0:mover>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:msup>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>u</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mo>∂</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>x</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mi>σ</ns0:mi>
+              </ns0:mrow>
+              <ns0:mo stretchy="true">¯</ns0:mo>
+            </ns0:mover>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>u</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mover>
+            <ns0:mrow>
+              <ns0:mi>σ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="true">¯</ns0:mo>
+          </ns0:mover>
+          <ns0:msup>
+            <ns0:mi>y</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>0</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>47</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msub>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:msub>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mrow/>
+          </ns0:msub>
+          <ns0:msub>
+            <ns0:mrow/>
+            <ns0:mrow>
+              <ns0:mi>\l</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo>/</ns0:mo>
+          <ns0:msub>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>\l</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>Ω</ns0:mi>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msup>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mrow>
+            <ns0:mi mathvariant="bold">u</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mo>∂</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">χ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Matrices </bold>
+    </p>
+    <p>48.​ </p>
+    <p>| 1  2 | | 3  4 | </p>
+    <p>49.​ </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mi>𝔸</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix"/>
+            <ns0:mi>𝐚</ns0:mi>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mi>𝐛</ns0:mi>
+            <ns0:mo stretchy="true" fence="true" form="postfix">|</ns0:mo>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>    | c  d | </p>
+    <p>50.​ </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mi>𝐀</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo>∣</ns0:mo>
+          <ns0:mn>1</ns0:mn>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mo>∣</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>    | 4  5  6 |     | 7  8  9 | </p>
+    <p>51.​ </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mo/>
+          <ns0:mo>*</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>d</ns0:mi>
+            <ns0:mi>e</ns0:mi>
+            <ns0:mi>t</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>𝔸</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo>ad</ns0:mo>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mo>bc</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>52.​ </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:msup>
+            <ns0:mi>𝔸</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo>−</ns0:mo>
+              <ns0:mn>1</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">.1</ns0:mo>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>Ω</ns0:mi>
+            <ns0:mi>Ω</ns0:mi>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">b</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mi>ℂ</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo stretchy="true" fence="true" form="postfix"/>
+          </ns0:mrow>
+          <ns0:mo>∣</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mi>Ω</ns0:mi>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">b</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mo stretchy="false">|</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>                   | −c   a | </p>
+    <p>
+      <bold>Probability and Statistics </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">S</ns0:mi>
+              <ns0:mn>3</ns0:mn>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">P</ns0:mi>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:mi mathvariant="sans-serif">A</ns0:mi>
+              <ns0:mtext> </ns0:mtext>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>∪</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>𝖡</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">P</ns0:mi>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:mi mathvariant="sans-serif">A</ns0:mi>
+              <ns0:mo stretchy="false">)</ns0:mo>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">P</ns0:mi>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:mi mathvariant="sans-serif">B</ns0:mi>
+              <ns0:mo stretchy="false">)</ns0:mo>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">P</ns0:mi>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:mi mathvariant="sans-serif">A</ns0:mi>
+              <ns0:mtext> </ns0:mtext>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>∩</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>𝖡</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:msub>
+            <ns0:mn>54</ns0:mn>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mstyle mathsize="0.7em">
+                <ns0:mrow>
+                  <ns0:mi mathvariant="normal">D</ns0:mi>
+                </ns0:mrow>
+              </ns0:mstyle>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>Λ</ns0:mi>
+          <ns0:mo>∣</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mstyle mathsize="0.7em">
+                <ns0:mrow>
+                  <ns0:mi mathvariant="normal">B</ns0:mi>
+                </ns0:mrow>
+              </ns0:mstyle>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="script">P</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>Λ</ns0:mi>
+          <ns0:mo>↑</ns0:mo>
+          <ns0:mo>↑</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mstyle mathsize="0.7em">
+                <ns0:mrow>
+                  <ns0:mi mathvariant="normal">B</ns0:mi>
+                </ns0:mrow>
+              </ns0:mstyle>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mpadded width="0">
+            <ns0:mtext>⧸</ns0:mtext>
+          </ns0:mpadded>
+          <ns0:msup>
+            <ns0:mi>♯</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo>*</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mstyle mathsize="0.7em">
+                <ns0:mrow>
+                  <ns0:mi mathvariant="normal">D</ns0:mi>
+                </ns0:mrow>
+              </ns0:mstyle>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="bold">B</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:msub>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="sans-serif">E</ns0:mi>
+                <ns0:mi mathvariant="sans-serif">S</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mi>𝔼</ns0:mi>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>X</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">♯</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mi>♯</ns0:mi>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>X</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msub>
+            <ns0:mi>×</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>i</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">S</ns0:mi>
+              <ns0:mi mathvariant="sans-serif">G</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:msqrt>
+              <ns0:mrow>
+                <ns0:mi>\arg</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mi>𝔛</ns0:mi>
+                </ns0:mrow>
+              </ns0:mrow>
+            </ns0:msqrt>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>X</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>𝔼</ns0:mi>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi>𝔛</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mo stretchy="false">[</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>𝔈</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>X</ns0:mi>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:msup>
+            <ns0:mo stretchy="false">]</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>57</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">G</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mi>Σ</ns0:mi>
+              </ns0:mrow>
+              <ns0:mo stretchy="false">~</ns0:mo>
+            </ns0:mover>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msub>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>i</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo>−</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">σ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mo>*</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:msup>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mspace width="0.278em"/>
+          <ns0:mi>ℕ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mi mathvariant="script">S</ns0:mi>
+            <ns0:mn mathvariant="script">8</ns0:mn>
+          </ns0:mrow>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mi>Z</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">x</ns0:mi>
+              <ns0:mo>−</ns0:mo>
+              <ns0:mi mathvariant="bold">μ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+          </ns0:mrow>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mo>*</ns0:mo>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mo>,</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>∘</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:msub>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="sans-serif">S</ns0:mi>
+                <ns0:mi mathvariant="sans-serif">O</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mo stretchy="false">(</ns0:mo>
+                <ns0:mi mathvariant="bold">x</ns0:mi>
+                <ns0:mo stretchy="false">)</ns0:mo>
+              </ns0:mrow>
+              <ns0:mo stretchy="false">^</ns0:mo>
+            </ns0:mover>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo mathvariant="bold">∇</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mn mathvariant="bold">0</ns0:mn>
+              </ns0:mrow>
+              <ns0:mo stretchy="false">^</ns0:mo>
+            </ns0:mover>
+          </ns0:mrow>
+          <ns0:mi>\</ns0:mi>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn mathvariant="script">2</ns0:mn>
+              <ns0:mi mathvariant="script">m</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>∝</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi mathvariant="bold">x</ns0:mi>
+            <ns0:mo mathvariant="bold">−</ns0:mo>
+            <ns0:mn mathvariant="bold">1</ns0:mn>
+            <ns0:msup>
+              <ns0:mo stretchy="false">)</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn mathvariant="bold">12</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi mathvariant="bold">e</ns0:mi>
+                </ns0:mrow>
+                <ns0:mo stretchy="false">^</ns0:mo>
+              </ns0:mover>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Coordinate Geometry </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">G</ns0:mi>
+              <ns0:mi mathvariant="normal">O</ns0:mi>
+              <ns0:mo>.</ns0:mo>
+              <ns0:mtext> </ns0:mtext>
+              <ns0:mi mathvariant="normal">D</ns0:mi>
+              <ns0:mi mathvariant="normal">i</ns0:mi>
+              <ns0:mi mathvariant="normal">s</ns0:mi>
+              <ns0:mi mathvariant="normal">t</ns0:mi>
+              <ns0:mi mathvariant="normal">a</ns0:mi>
+              <ns0:mi mathvariant="normal">n</ns0:mi>
+              <ns0:mi mathvariant="normal">v</ns0:mi>
+              <ns0:mi mathvariant="normal">G</ns0:mi>
+              <ns0:mi mathvariant="normal">e</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:msqrt>
+              <ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mo stretchy="true" fence="true" form="prefix">[</ns0:mo>
+                  <ns0:mo stretchy="false">(</ns0:mo>
+                  <ns0:msub>
+                    <ns0:mi>χ</ns0:mi>
+                    <ns0:mrow>
+                      <ns0:mn>2</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:msub>
+                  <ns0:mo>−</ns0:mo>
+                  <ns0:msub>
+                    <ns0:mi>χ</ns0:mi>
+                    <ns0:mrow>
+                      <ns0:mn>1</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:msub>
+                  <ns0:msup>
+                    <ns0:mo stretchy="false">)</ns0:mo>
+                    <ns0:mrow>
+                      <ns0:mn>2</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:msup>
+                  <ns0:mo>+</ns0:mo>
+                  <ns0:mo stretchy="false">(</ns0:mo>
+                  <ns0:msub>
+                    <ns0:mi>y</ns0:mi>
+                    <ns0:mrow>
+                      <ns0:mn>2</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:msub>
+                  <ns0:mo>−</ns0:mo>
+                  <ns0:mrow>
+                    <ns0:msub>
+                      <ns0:mi mathvariant="normal">y</ns0:mi>
+                      <ns0:mrow>
+                        <ns0:mn>1</ns0:mn>
+                      </ns0:mrow>
+                    </ns0:msub>
+                  </ns0:mrow>
+                  <ns0:msup>
+                    <ns0:mo stretchy="false">)</ns0:mo>
+                    <ns0:mrow>
+                      <ns0:mn>2</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:msup>
+                  <ns0:mo stretchy="true" fence="true" form="postfix">]</ns0:mo>
+                </ns0:mrow>
+              </ns0:mrow>
+            </ns0:msqrt>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>6</ns0:mn>
+          <ns0:mrow>
+            <ns0:mi mathvariant="bold">λ</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="bold">λ</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">)</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+              <ns0:msub>
+                <ns0:mi>y</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msub>
+              <ns0:mo>−</ns0:mo>
+              <ns0:mrow>
+                <ns0:msub>
+                  <ns0:mi>𝐲</ns0:mi>
+                  <ns0:mrow>
+                    <ns0:mn>1</ns0:mn>
+                  </ns0:mrow>
+                </ns0:msub>
+              </ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mo>−</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mi>·</ns0:mi>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mrow>
+            <ns0:mi mathvariant="bold">λ</ns0:mi>
+          </ns0:mrow>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mspace width="negativethinmathspace"/>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:msub>
+            <ns0:mi>𝐱</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mrow>
+            <ns0:msub>
+              <ns0:mi>𝐱</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>1</ns0:mn>
+              </ns0:mrow>
+            </ns0:msub>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mrow>
+              <ns0:mspace width="negativethinmathspace"/>
+              <ns0:mi>·</ns0:mi>
+              <ns0:mspace width="negativethinmathspace"/>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>62.9</ns0:mn>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mrow>
+            <ns0:mfrac>
+              <ns0:mrow>
+                <ns0:mi>·</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mrow>
+                  <ns0:msqrt>
+                    <ns0:mrow>
+                      <ns0:mn>1</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:msqrt>
+                </ns0:mrow>
+              </ns0:mrow>
+            </ns0:mfrac>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>𝔪</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mo>−</ns0:mo>
+          <ns0:msub>
+            <ns0:mi>x</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>1</ns0:mn>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mo stretchy="false">)</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>63</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi>×</ns0:mi>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mi>×</ns0:mi>
+                </ns0:mrow>
+              </ns0:mover>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mtext> </ns0:mtext>
+              <ns0:mi>y</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>r</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>64</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mi>\stackrel</ns0:mi>
+          <ns0:mrow>
+            <ns0:mi>·</ns0:mi>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mn>1</ns0:mn>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mo stretchy="false">(</ns0:mo>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>−</ns0:mo>
+          <ns0:mi>k</ns0:mi>
+          <ns0:msup>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>r</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>65</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mo>∧</ns0:mo>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi>·</ns0:mi>
+              </ns0:mrow>
+            </ns0:mover>
+          </ns0:mrow>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mi>B</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi>·</ns0:mi>
+              </ns0:mrow>
+            </ns0:mover>
+          </ns0:mrow>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mo>∨</ns0:mo>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi>·</ns0:mi>
+              </ns0:mrow>
+            </ns0:mover>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Vectors </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>66</ns0:mn>
+          <ns0:mo>…</ns0:mo>
+          <ns0:mi>𝐚</ns0:mi>
+          <ns0:mi>·</ns0:mi>
+          <ns0:mi>𝐛</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:mi>𝐚</ns0:mi>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:mi>𝐛</ns0:mi>
+          <ns0:mo stretchy="false">|</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mi>cos</ns0:mi>
+          <ns0:mi>Θ</ns0:mi>
+          <ns0:mo>⊗</ns0:mo>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>67</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">|</ns0:mo>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mo stretchy="true" fence="true" form="postfix">|</ns0:mo>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix">|</ns0:mo>
+              <ns0:mrow>
+                <ns0:mo stretchy="true" fence="true" form="prefix"/>
+                <ns0:mo stretchy="true" fence="true" form="postfix"/>
+              </ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="postfix">|</ns0:mo>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mo>*</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">|</ns0:mo>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix">|</ns0:mo>
+              <ns0:mi>𝐛</ns0:mi>
+              <ns0:mo stretchy="true" fence="true" form="postfix">|</ns0:mo>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix"/>
+              <ns0:mi>sin</ns0:mi>
+              <ns0:mrow>
+                <ns0:mo stretchy="true" fence="true" form="prefix">[</ns0:mo>
+                <ns0:mrow>
+                  <ns0:mn mathvariant="bold">6</ns0:mn>
+                </ns0:mrow>
+                <ns0:mo stretchy="true" fence="true" form="postfix">|</ns0:mo>
+              </ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="postfix">|</ns0:mo>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix"/>
+              <ns0:mo stretchy="true" fence="true" form="postfix"/>
+            </ns0:mrow>
+            <ns0:mi>sin</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix">[</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn mathvariant="bold">6</ns0:mn>
+              </ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="postfix"/>
+            </ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="postfix"/>
+          </ns0:mrow>
+          <ns0:mrow>
+            <ns0:mn>6</ns0:mn>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math>
+        <ns0:mtext>Math extraction failed: </ns0:mtext>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mn>69</ns0:mn>
+          </ns0:mrow>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="prefix">|</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">d</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="true" fence="true" form="postfix">|</ns0:mo>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msqrt>
+            <ns0:mrow>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:msubsup>
+                <ns0:mrow>
+                  <ns0:mi mathvariant="bold">a</ns0:mi>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mn>1</ns0:mn>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mtext> </ns0:mtext>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msubsup>
+              <ns0:mo>+</ns0:mo>
+              <ns0:msubsup>
+                <ns0:mi>α</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mtext> </ns0:mtext>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msubsup>
+              <ns0:mo>+</ns0:mo>
+              <ns0:msub>
+                <ns0:mi>α</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>3</ns0:mn>
+                </ns0:mrow>
+              </ns0:msub>
+              <ns0:msup>
+                <ns0:mrow/>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mo stretchy="false">)</ns0:mo>
+            </ns0:mrow>
+          </ns0:msqrt>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>70</ns0:mn>
+          <ns0:mrow>
+            <ns0:mi>·</ns0:mi>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi>\boldmath</ns0:mi>
+              <ns0:mrow>
+                <ns0:mo mathvariant="bold">∇</ns0:mo>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>↑</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mn>0</ns0:mn>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:munder>
+              <ns0:mrow>
+                <ns0:mi>\o</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>1</ns0:mn>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mn>1</ns0:mn>
+                </ns0:mrow>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mrow/>
+                <ns0:mrow>
+                  <ns0:mn>8</ns0:mn>
+                </ns0:mrow>
+              </ns0:mrow>
+            </ns0:munder>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mo>…</ns0:mo>
+            <ns0:mi>\o</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>3</ns0:mn>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>\stackrel</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>·</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mo>⊗</ns0:mo>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>3</ns0:mn>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>3</ns0:mn>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Differential Equations </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>7</ns0:mn>
+          <ns0:mi>\</ns0:mi>
+          <ns0:mi>\</ns0:mi>
+          <ns0:mi>\</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mi>Ω</ns0:mi>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mi>×</ns0:mi>
+          <ns0:mi>\y</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>Θ</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>x</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>72</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi>d</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>d</ns0:mi>
+          </ns0:mrow>
+          <ns0:msup>
+            <ns0:mi>x</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mrow>
+            <ns0:mi>d</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>d</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>x</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mn>2</ns0:mn>
+          <ns0:mi>y</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mn>0</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:msup>
+            <ns0:mn>73.9</ns0:mn>
+            <ns0:mrow>
+              <ns0:mo>+</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix">.0</ns0:mo>
+              <ns0:msup>
+                <ns0:mi/>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mi>y</ns0:mi>
+              <ns0:mo>=</ns0:mo>
+              <ns0:mn>0</ns0:mn>
+              <ns0:mo stretchy="true" fence="true" form="postfix"/>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mo>∘</ns0:mo>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>74</ns0:mn>
+          <ns0:mi>·</ns0:mi>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">d</ns0:mi>
+              <ns0:mi mathvariant="normal">y</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>/</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">d</ns0:mi>
+              <ns0:mi mathvariant="normal">x</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">k</ns0:mi>
+            <ns0:mi mathvariant="normal">y</ns0:mi>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>75</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mn>9</ns0:mn>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">C</ns0:mi>
+              <ns0:mi mathvariant="normal">e</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>8</ns0:mn>
+              <ns0:mi>κ</ns0:mi>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Physics/Formulas </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>76</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mtext> </ns0:mtext>
+              <ns0:mi mathvariant="normal">f</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">m</ns0:mi>
+            <ns0:mi mathvariant="normal">a</ns0:mi>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>77</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mrow>
+            <ns0:mi>E</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">m</ns0:mi>
+                <ns0:mi mathvariant="normal">G</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>78</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mo>∨</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mi>𝐮</ns0:mi>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mi>𝐭</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>79</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mi>S</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">u</ns0:mi>
+            <ns0:mi mathvariant="normal">t</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:msub>
+            <ns0:mi>y</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+              <ns0:mi>α</ns0:mi>
+            </ns0:mrow>
+          </ns0:msub>
+          <ns0:mrow>
+            <ns0:msup>
+              <ns0:mi mathvariant="normal">t</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>80</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:msup>
+            <ns0:mo>∨</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msup>
+            <ns0:mi>𝐮</ns0:mi>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+            </ns0:mrow>
+          </ns0:msup>
+          <ns0:mo>+</ns0:mo>
+          <ns0:mo>∠</ns0:mo>
+          <ns0:mi>α</ns0:mi>
+          <ns0:mi>𝐬</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mi>δ</ns0:mi>
+          <ns0:mrow>
+            <ns0:mn mathvariant="bold">1</ns0:mn>
+          </ns0:mrow>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mi>𝐩</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo/>
+          <ns0:mo>*</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi>m</ns0:mi>
+          </ns0:mrow>
+          <ns0:mi>𝐯</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>82</ns0:mn>
+          <ns0:mi>·</ns0:mi>
+          <ns0:mi>𝔼</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:msub>
+            <ns0:mrow>
+              <ns0:mi>γ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>2</ns0:mn>
+              <ns0:msup>
+                <ns0:mrow>
+                  <ns0:mo>mod</ns0:mo>
+                  <ns0:mrow/>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msup>
+            </ns0:mrow>
+          </ns0:msub>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mrow>
+            <ns0:mi>𝔅</ns0:mi>
+          </ns0:mrow>
+          <ns0:mn>3</ns0:mn>
+          <ns0:mo>,</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mo>∨</ns0:mo>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mtext> </ns0:mtext>
+          <ns0:mo stretchy="false">}</ns0:mo>
+          <ns0:mi>ℝ</ns0:mi>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>84</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mrow>
+            <ns0:mi>P</ns0:mi>
+          </ns0:mrow>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mo>∀</ns0:mo>
+          <ns0:mn>1</ns0:mn>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mn>85</ns0:mn>
+          <ns0:mo>.</ns0:mo>
+          <ns0:mspace width="0.167em"/>
+          <ns0:mi>Q</ns0:mi>
+          <ns0:mo>=</ns0:mo>
+          <ns0:mrow>
+            <ns0:mi mathvariant="normal">m</ns0:mi>
+            <ns0:mi mathvariant="normal">C</ns0:mi>
+            <ns0:mi mathvariant="normal">B</ns0:mi>
+            <ns0:mi mathvariant="normal">T</ns0:mi>
+          </ns0:mrow>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Advanced but still normal-looking formulas </bold>
+    </p>
+    <sec>
+      <title>86.​ Quadratic formula</title>
+      <disp-formula>
+        <ns0:math>
+          <ns0:mtext>Math extraction failed: </ns0:mtext>
+        </ns0:math>
+      </disp-formula>
+    </sec>
+    <sec>
+      <title>87.​ Binomial theorem</title>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>𝐛</ns0:mi>
+            <ns0:msup>
+              <ns0:mo stretchy="false">)</ns0:mo>
+              <ns0:mrow>
+                <ns0:mi>n</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msub>
+              <ns0:mi>Σ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>r</ns0:mi>
+                <ns0:mo>=</ns0:mo>
+                <ns0:mn>0</ns0:mn>
+              </ns0:mrow>
+            </ns0:msub>
+            <ns0:msup>
+              <ns0:mrow/>
+              <ns0:mrow>
+                <ns0:mi>n</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mi>G</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>𝐮</ns0:mi>
+            <ns0:mo>,</ns0:mo>
+            <ns0:mi>𝐫</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>Ω</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>n</ns0:mi>
+                <ns0:mo>−</ns0:mo>
+                <ns0:mi>r</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:msup>
+              <ns0:mi>𝐛</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>r</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        88.​
+        <bold>Taylor series </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mi>𝐟</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>𝐱</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mi>𝐟</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>+</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>𝐟</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>′</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>𝐱</ns0:mi>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>+</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>𝐟</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>m</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>𝐱</ns0:mi>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mi>α</ns0:mi>
+            <ns0:msup>
+              <ns0:mo stretchy="false">)</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mn>2</ns0:mn>
+            <ns0:mo>!</ns0:mo>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mo>⋯</ns0:mo>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        89.​
+        <bold>Euler's formula </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:msup>
+              <ns0:mi>𝐞</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>𝐢</ns0:mi>
+                <ns0:mi>×</ns0:mi>
+                <ns0:mi>𝐱</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mi>cos</ns0:mi>
+            <ns0:mi>𝐱</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>𝐢</ns0:mi>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mi>sin</ns0:mi>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mi>χ</ns0:mi>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+    </sec>
+    <sec>
+      <title>90.​ Normal distribution</title>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mi>f</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mn>4</ns0:mn>
+            <ns0:mi>/</ns0:mi>
+            <ns0:mrow>
+              <ns0:mo minsize="1.2em" maxsize="1.2em">(</ns0:mo>
+              <ns0:mi>O</ns0:mi>
+              <ns0:mi>\</ns0:mi>
+              <ns0:mo minsize="1.2em" maxsize="1.2em">(</ns0:mo>
+              <ns0:mi>𝒟</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>𝖳</ns0:mi>
+              </ns0:mrow>
+              <ns0:mo minsize="1.2em" maxsize="1.2em">)</ns0:mo>
+              <ns0:mo minsize="1.2em" maxsize="1.2em">)</ns0:mo>
+            </ns0:mrow>
+            <ns0:mo>⊗</ns0:mo>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:msub>
+              <ns0:mi>χ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>D</ns0:mi>
+              </ns0:mrow>
+            </ns0:msub>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mi>|</ns0:mi>
+            <ns0:mi>𝖬</ns0:mi>
+            <ns0:msup>
+              <ns0:mo stretchy="false">)</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:msub>
+              <ns0:mi>𝒟</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>0</ns0:mn>
+              </ns0:mrow>
+            </ns0:msub>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo>−</ns0:mo>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo minsize="1.2em" maxsize="1.2em">)</ns0:mo>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        91.​
+        <bold>Bayes' theorem </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mi>P</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>𝔸</ns0:mi>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mi>B</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mi>P</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>B</ns0:mi>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mi>𝔸</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mi>P</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>𝔸</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mi>P</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>B</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+    </sec>
+    <sec>
+      <title>92.​ Fourier transform</title>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mi>𝐟</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mn>0</ns0:mn>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msubsup>
+              <ns0:mi>𝐣</ns0:mi>
+              <ns0:mrow>
+                <ns0:mo>−</ns0:mo>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo>∞</ns0:mo>
+              </ns0:mrow>
+            </ns0:msubsup>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo mathvariant="bold">∞</ns0:mo>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mi>𝐟</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>𝐭</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mi mathvariant="bold-italic">e</ns0:mi>
+                </ns0:mrow>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo>−</ns0:mo>
+                <ns0:mi>𝐢</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>𝐮</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>t</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mi>𝐝</ns0:mi>
+            <ns0:mi>t</ns0:mi>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        93.​
+        <bold>Heat equation </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mi>𝐮</ns0:mi>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mi>𝐭</ns0:mi>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>𝐜</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mi>𝒪</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>𝐮</ns0:mi>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>𝐱</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        94.​
+        <bold>Wave equation </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:msup>
+              <ns0:mo>∂</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>ν</ns0:mi>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="script">O</ns0:mi>
+            </ns0:mrow>
+            <ns0:msup>
+              <ns0:mo stretchy="false">[</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mi mathvariant="normal">G</ns0:mi>
+                </ns0:mrow>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mspace width="0.167em"/>
+            <ns0:msup>
+              <ns0:mi>𝒪</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>ν</ns0:mi>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>χ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+    </sec>
+    <sec>
+      <title>95.​ Schrödinger equation</title>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mi>n</ns0:mi>
+              </ns0:mrow>
+              <ns0:mo>˙</ns0:mo>
+            </ns0:mover>
+            <ns0:mspace width="0.278em"/>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mi>Ψ</ns0:mi>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo>∂</ns0:mo>
+            <ns0:mi>t</ns0:mi>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>ℏ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mn>2</ns0:mn>
+            <ns0:mi>Π</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mspace width="0.278em"/>
+            <ns0:msup>
+              <ns0:mo>∇</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>Ψ</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>𝒱</ns0:mi>
+            <ns0:mi>Ψ</ns0:mi>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        <bold>For your PDF test, I recommend these 15 </bold>
+      </p>
+      <p>
+        If your goal is specifically to test whether 
+        <bold>PDF → image → pix2tex → LaTeX → MathML → </bold>
+        <bold>JATS XML</bold>
+         works correctly, put these together in one PDF: 
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mn>1</ns0:mn>
+            <ns0:mo>.</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>×</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mn>5</ns0:mn>
+            <ns0:mi>×</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mn>6</ns0:mn>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mn>0</ns0:mn>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mi>ℒ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo>.</ns0:mo>
+            <ns0:mi>×</ns0:mi>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mi>𝐛</ns0:mi>
+            <ns0:mi>±</ns0:mi>
+            <ns0:msqrt>
+              <ns0:mrow>
+                <ns0:mo stretchy="false">(</ns0:mo>
+                <ns0:msup>
+                  <ns0:mi>𝐛</ns0:mi>
+                  <ns0:mrow>
+                    <ns0:mn>2</ns0:mn>
+                  </ns0:mrow>
+                </ns0:msup>
+                <ns0:mo>−</ns0:mo>
+                <ns0:mn>4</ns0:mn>
+                <ns0:mi>α</ns0:mi>
+                <ns0:mi>𝐜</ns0:mi>
+                <ns0:mo stretchy="false">)</ns0:mo>
+              </ns0:mrow>
+            </ns0:msqrt>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mn>2</ns0:mn>
+            <ns0:mi>α</ns0:mi>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mn>3</ns0:mn>
+            <ns0:mo>.</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>b</ns0:mi>
+            <ns0:msup>
+              <ns0:mo stretchy="false">)</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msup>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mover>
+                    <ns0:mrow>
+                      <ns0:mi>α</ns0:mi>
+                    </ns0:mrow>
+                    <ns0:mo stretchy="true">¯</ns0:mo>
+                  </ns0:mover>
+                </ns0:mrow>
+                <ns0:mo>˙</ns0:mo>
+              </ns0:mover>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mn>2</ns0:mn>
+            <ns0:mi>α</ns0:mi>
+            <ns0:mi>b</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>b</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mn>4</ns0:mn>
+            <ns0:mo>*</ns0:mo>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:munder>
+                    <ns0:mi>}</ns0:mi>
+                    <ns0:mrow>
+                      <ns0:mi>~</ns0:mi>
+                    </ns0:mrow>
+                  </ns0:munder>
+                  <ns0:mrow>
+                    <ns0:munder>
+                      <ns0:mrow>
+                        <ns0:mn>4</ns0:mn>
+                      </ns0:mrow>
+                      <ns0:mo>⏟</ns0:mo>
+                    </ns0:munder>
+                    <ns0:mrow>
+                      <ns0:mi>·</ns0:mi>
+                    </ns0:mrow>
+                  </ns0:mrow>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mo>.</ns0:mo>
+                </ns0:mrow>
+              </ns0:mover>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mn>2</ns0:mn>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mn>3</ns0:mn>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mo>⋯</ns0:mo>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mo>∩</ns0:mo>
+              <ns0:mo>=</ns0:mo>
+              <ns0:mo>∩</ns0:mo>
+              <ns0:mo stretchy="false">(</ns0:mo>
+              <ns0:mi>Π</ns0:mi>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mn>4</ns0:mn>
+              <ns0:mo stretchy="false">)</ns0:mo>
+              <ns0:mo>/</ns0:mo>
+              <ns0:mn>2</ns0:mn>
+              <ns0:mrow>
+                <ns0:mover>
+                  <ns0:mrow>
+                    <ns0:mi>x</ns0:mi>
+                  </ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mo>.</ns0:mo>
+                  </ns0:mrow>
+                </ns0:mover>
+              </ns0:mrow>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mn>5</ns0:mn>
+            <ns0:mo>.</ns0:mo>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:msub>
+              <ns0:mi>Σ</ns0:mi>
+              <ns0:mrow>
+                <ns0:msup>
+                  <ns0:mrow>
+                    <ns0:mi mathvariant="normal">i</ns0:mi>
+                    <ns0:mo>=</ns0:mo>
+                    <ns0:mn>1</ns0:mn>
+                  </ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mi>·</ns0:mi>
+                  </ns0:mrow>
+                </ns0:msup>
+                <ns0:msup>
+                  <ns0:mrow>
+                    <ns0:mi mathvariant="bold">τ</ns0:mi>
+                  </ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mi>·</ns0:mi>
+                  </ns0:mrow>
+                </ns0:msup>
+                <ns0:msup>
+                  <ns0:mi>i</ns0:mi>
+                  <ns0:mrow>
+                    <ns0:mn>2</ns0:mn>
+                  </ns0:mrow>
+                </ns0:msup>
+              </ns0:mrow>
+            </ns0:msub>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mi>Π</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">u</ns0:mi>
+            </ns0:mrow>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">τ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mn>2</ns0:mn>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mi mathvariant="bold">u</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mi mathvariant="normal">\boldmath</ns0:mi>
+                  <ns0:mtext> </ns0:mtext>
+                  <ns0:mi mathvariant="normal">τ</ns0:mi>
+                </ns0:mrow>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">τ</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mn>6</ns0:mn>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">τ</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>6</ns0:mn>
+            </ns0:mrow>
+            <ns0:mi>·</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">S</ns0:mi>
+            </ns0:mrow>
+            <ns0:mi>i</ns0:mi>
+            <ns0:msup>
+              <ns0:mi>Π</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>Θ</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="bold">G</ns0:mi>
+            </ns0:mrow>
+            <ns0:msup>
+              <ns0:mi>Ω</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>Θ</ns0:mi>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mi mathvariant="bold">Φ</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi>·</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math>
+          <ns0:mtext>Math extraction failed: </ns0:mtext>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mrow>
+              <ns0:mn>8</ns0:mn>
+              <ns0:mo>.</ns0:mo>
+              <ns0:msup>
+                <ns0:mi mathvariant="normal">\d</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mi mathvariant="normal">y</ns0:mi>
+              <ns0:mo>/</ns0:mo>
+              <ns0:mn>0</ns0:mn>
+              <ns0:msup>
+                <ns0:mi mathvariant="normal">x</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mo>+</ns0:mo>
+              <ns0:mn>4</ns0:mn>
+              <ns0:mi mathvariant="normal">y</ns0:mi>
+              <ns0:mo>=</ns0:mo>
+              <ns0:mn>0</ns0:mn>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:msub>
+              <ns0:mrow>
+                <ns0:mi>𝔔</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo>*</ns0:mo>
+              </ns0:mrow>
+            </ns0:msub>
+            <ns0:mspace width="0.167em"/>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mi>𝒬</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi>U</ns0:mi>
+                </ns0:mrow>
+                <ns0:mo stretchy="true">¯</ns0:mo>
+              </ns0:mover>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi>𝒬</ns0:mi>
+                </ns0:mrow>
+                <ns0:mo stretchy="false">^</ns0:mo>
+              </ns0:mover>
+            </ns0:mrow>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mi>𝔛</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>+</ns0:mo>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mo>∂</ns0:mo>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mrow>
+              <ns0:mi>U</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi>𝒪</ns0:mi>
+                </ns0:mrow>
+                <ns0:mo stretchy="false">^</ns0:mo>
+              </ns0:mover>
+            </ns0:mrow>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mi>𝔙</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mn>0</ns0:mn>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mn>4</ns0:mn>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mi>Ω</ns0:mi>
+            <ns0:mo>,</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:msup>
+              <ns0:mi>Λ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mo>−</ns0:mo>
+                <ns0:mn>1</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix"/>
+              <ns0:mo stretchy="true" fence="true" form="postfix">|</ns0:mo>
+            </ns0:mrow>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>Ω</ns0:mi>
+            <ns0:mi>Ω</ns0:mi>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mrow>
+              <ns0:mstyle mathsize="1.2em">
+                <ns0:mtext> </ns0:mtext>
+                <ns0:mspace width="negativethinmathspace"/>
+                <ns0:mtext> </ns0:mtext>
+                <ns0:mrow>
+                  <ns0:mover>
+                    <ns0:mrow>
+                      <ns0:mtext> </ns0:mtext>
+                      <ns0:mi mathvariant="normal">\DeltaC</ns0:mi>
+                    </ns0:mrow>
+                    <ns0:mo stretchy="true">¯</ns0:mo>
+                  </ns0:mover>
+                </ns0:mrow>
+              </ns0:mstyle>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix">[</ns0:mo>
+              <ns0:mrow>
+                <ns0:mstyle mathsize="1.2em">
+                  <ns0:mtext> </ns0:mtext>
+                  <ns0:mi mathvariant="normal">Q</ns0:mi>
+                  <ns0:mtext> </ns0:mtext>
+                </ns0:mstyle>
+              </ns0:mrow>
+              <ns0:mo>−</ns0:mo>
+              <ns0:mrow>
+                <ns0:mstyle mathsize="1.2em">
+                  <ns0:mtext> </ns0:mtext>
+                  <ns0:mn>0</ns0:mn>
+                </ns0:mstyle>
+              </ns0:mrow>
+              <ns0:mi>;</ns0:mi>
+              <ns0:mspace width="0.167em"/>
+              <ns0:mo>−</ns0:mo>
+              <ns0:mrow>
+                <ns0:mstyle mathsize="1.2em">
+                  <ns0:mtext> </ns0:mtext>
+                  <ns0:mi mathvariant="normal">C</ns0:mi>
+                  <ns0:mtext> </ns0:mtext>
+                </ns0:mstyle>
+              </ns0:mrow>
+              <ns0:mi>Ω</ns0:mi>
+              <ns0:mo stretchy="true" fence="true" form="postfix">]</ns0:mo>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mn>44</ns0:mn>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">·</ns0:mi>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="sans-serif">P</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">A</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mrow>
+              <ns0:mstyle mathsize="0.7em">
+                <ns0:mrow>
+                  <ns0:mi mathvariant="normal">B</ns0:mi>
+                </ns0:mrow>
+              </ns0:mstyle>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="sans-serif">P</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">A</ns0:mi>
+            </ns0:mrow>
+            <ns0:msup>
+              <ns0:mo>↑</ns0:mo>
+              <ns0:mrow>
+                <ns0:mo>&lt;</ns0:mo>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mstyle mathsize="0.7em">
+                    <ns0:mrow>
+                      <ns0:mi mathvariant="normal">B</ns0:mi>
+                    </ns0:mrow>
+                  </ns0:mstyle>
+                </ns0:mrow>
+              </ns0:mrow>
+              <ns0:mo stretchy="true">¯</ns0:mo>
+            </ns0:mover>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi mathvariant="sans-serif">P</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mrow>
+              <ns0:mstyle mathsize="0.7em">
+                <ns0:mrow>
+                  <ns0:mi mathvariant="normal">B</ns0:mi>
+                </ns0:mrow>
+              </ns0:mstyle>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">)</ns0:mo>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mn>42</ns0:mn>
+            <ns0:mo>.</ns0:mo>
+            <ns0:mspace width="0.278em"/>
+            <ns0:mi>𝔼</ns0:mi>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mi mathvariant="bold">Ω</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo>*</ns0:mo>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:msub>
+              <ns0:mi>Σ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>X</ns0:mi>
+                <ns0:mo>∣</ns0:mo>
+              </ns0:mrow>
+            </ns0:msub>
+            <ns0:mrow>
+              <ns0:mi mathvariant="script">D</ns0:mi>
+            </ns0:mrow>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msub>
+              <ns0:mrow>
+                <ns0:mi>χ</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo>↓</ns0:mo>
+              </ns0:mrow>
+            </ns0:msub>
+            <ns0:mo stretchy="false">)</ns0:mo>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mn>43</ns0:mn>
+            <ns0:mo>.</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>e</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>i</ns0:mi>
+                <ns0:mi>χ</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mi>cos</ns0:mi>
+            <ns0:msubsup>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">\boldmath</ns0:mi>
+                <ns0:mtext> </ns0:mtext>
+                <ns0:mi mathvariant="normal">x</ns0:mi>
+                <ns0:mtext> </ns0:mtext>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo>*</ns0:mo>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mrow/>
+              </ns0:mrow>
+            </ns0:msubsup>
+            <ns0:mi>i</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi mathvariant="normal">\boldmath</ns0:mi>
+              <ns0:mtext> </ns0:mtext>
+              <ns0:mi mathvariant="normal">S</ns0:mi>
+              <ns0:mi mathvariant="normal">i</ns0:mi>
+              <ns0:mi mathvariant="normal">D</ns0:mi>
+              <ns0:mtext> </ns0:mtext>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:msup>
+                <ns0:mi mathvariant="normal"/>
+                <ns0:mrow>
+                  <ns0:msup>
+                    <ns0:mi mathvariant="normal"/>
+                    <ns0:mi mathvariant="normal">′</ns0:mi>
+                  </ns0:msup>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mtext> </ns0:mtext>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mtable>
+              <ns0:mtr>
+                <ns0:mtd columnalign="right">
+                  <ns0:mrow>
+                    <ns0:mrow>
+                      <ns0:mpadded width="0">
+                        <ns0:mphantom>
+                          <ns0:mrow>
+                            <ns0:mn>4</ns0:mn>
+                          </ns0:mrow>
+                        </ns0:mphantom>
+                      </ns0:mpadded>
+                      <ns0:msub>
+                        <ns0:mi>λ</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mo>*</ns0:mo>
+                        </ns0:mrow>
+                      </ns0:msub>
+                      <ns0:mtext> </ns0:mtext>
+                      <ns0:mi>f</ns0:mi>
+                      <ns0:mo stretchy="false">(</ns0:mo>
+                      <ns0:mi>×</ns0:mi>
+                      <ns0:mo stretchy="false">)</ns0:mo>
+                      <ns0:mo>=</ns0:mo>
+                      <ns0:mspace width="0.278em"/>
+                      <ns0:mrow>
+                        <ns0:mpadded width="0">
+                          <ns0:mphantom>
+                            <ns0:mrow>
+                              <ns0:mn>1</ns0:mn>
+                            </ns0:mrow>
+                          </ns0:mphantom>
+                        </ns0:mpadded>
+                      </ns0:mrow>
+                      <ns0:mo>/</ns0:mo>
+                      <ns0:mo stretchy="false">(</ns0:mo>
+                      <ns0:mi>𝒪</ns0:mi>
+                      <ns0:mo>∨</ns0:mo>
+                      <ns0:mo stretchy="false">(</ns0:mo>
+                      <ns0:mn>2</ns0:mn>
+                      <ns0:mo>∓</ns0:mo>
+                      <ns0:mo stretchy="false">)</ns0:mo>
+                      <ns0:mo stretchy="false">)</ns0:mo>
+                      <ns0:mspace width="0.167em"/>
+                      <ns0:mi>exp</ns0:mi>
+                      <ns0:mo stretchy="false">(</ns0:mo>
+                      <ns0:mo>−</ns0:mo>
+                      <ns0:mo stretchy="false">(</ns0:mo>
+                      <ns0:mi>×</ns0:mi>
+                      <ns0:mo>−</ns0:mo>
+                      <ns0:mo>∣</ns0:mo>
+                      <ns0:mi>ℑ</ns0:mi>
+                      <ns0:msup>
+                        <ns0:mo stretchy="false">)</ns0:mo>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mo>/</ns0:mo>
+                      <ns0:mo stretchy="false">(</ns0:mo>
+                      <ns0:mn>2</ns0:mn>
+                      <ns0:msup>
+                        <ns0:mi>σ</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mo stretchy="false">)</ns0:mo>
+                      <ns0:mo stretchy="false">)</ns0:mo>
+                    </ns0:mrow>
+                  </ns0:mrow>
+                </ns0:mtd>
+              </ns0:mtr>
+            </ns0:mtable>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math>
+          <ns0:mtext>Math extraction failed: </ns0:mtext>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        These will give you a good range of 
+        <bold>fractions, roots, Greek characters, superscripts, </bold>
+        <bold>subscripts, summations, integrals, matrices, derivatives, limits, and nested </bold>
+        <bold>expressions</bold>
+         to evaluate the conversion quality. 
+      </p>
+    </sec>
+  </body>
+</article>

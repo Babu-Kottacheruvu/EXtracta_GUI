@@ -1,0 +1,1354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" article-type="proceedings">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>262c946e7cb049b58303ad8559626e75.pdf</article-title>
+      </title-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec>
+      <title>AN TOBAR</title>
+      <p>
+        <styled-content style="color:#b08c45">
+          <italic>Irish Language Educational Platform</italic>
+        </styled-content>
+         
+      </p>
+      <fig>
+        <graphic xlink:href="image_p1_55_226.jpg"/>
+      </fig>
+      <p>
+        <bold>Estimated Financial Budget &amp; Cost Proposal</bold>
+         
+      </p>
+      <p>
+        <styled-content style="color:#666666">Prepared in response to the Request for Tenders (RFT) issued byAn Chomhairle um Oideachas Gaeltachta </styled-content>
+      </p>
+    </sec>
+    <sec>
+      <title>(COGG)</title>
+      <p>RFT Reference: An Tobar — Invitation to Tender, 20 July 2026 </p>
+      <p>Contracting Authority: COGG (An Chomhairle um Oideachas Gaeltachta) </p>
+      <p>Currency: Euro (€)  |  Jurisdiction: Ireland </p>
+      <p>Document prepared: 18 August 2026 </p>
+    </sec>
+    <sec>
+      <title>ESTIMATED FINANCIAL MODEL</title>
+    </sec>
+    <sec>
+      <title>1.​ Table of contents</title>
+      <p>
+        <bold>1. Table of contents............................................................................................................................................ 2 </bold>
+      </p>
+      <p>
+        <bold>2. Executive Summary........................................................................................................................................ 3 </bold>
+      </p>
+      <p>
+        <bold>3. RFT Financial Constraints................................................................................................................................ 4 </bold>
+      </p>
+      <p>
+        <bold>4. Key Financial Assumptions..............................................................................................................................5 </bold>
+      </p>
+      <p>
+        <bold>5. Irish Cost &amp; Salary Assumptions......................................................................................................................6 </bold>
+      </p>
+      <p>
+        <bold>6. Project Staffing Model.................................................................................................................................... 7 </bold>
+      </p>
+      <p>
+        <bold>7. Development Budget (Year 1)......................................................................................................................... 8 </bold>
+      </p>
+      <p>
+        <bold>8. Infrastructure &amp; Third-Party Costs...................................................................................................................9 </bold>
+      </p>
+      <fig>
+        <graphic xlink:href="image_p2_55_226.jpg"/>
+      </fig>
+      <p>
+        <bold>9. Testing &amp; Quality Assurance Budget..............................................................................................................10 </bold>
+      </p>
+      <p>
+        <bold>10. Launch &amp; Deployment Budget.....................................................................................................................11 </bold>
+      </p>
+      <p>
+        <bold>11. Year 2 Maintenance Budget........................................................................................................................ 13 </bold>
+      </p>
+      <p>
+        <bold>12. Year 3 Maintenance Budget........................................................................................................................ 14 </bold>
+      </p>
+      <p>
+        <bold>13. Contingency................................................................................................................................................15 </bold>
+      </p>
+      <p>
+        <bold>14. Three-Year Consolidated Budget................................................................................................................. 16 </bold>
+      </p>
+      <p>
+        <bold>15. VAT Calculation........................................................................................................................................... 17 </bold>
+      </p>
+      <p>
+        <bold>16. Proposed Payment Milestones....................................................................................................................18 </bold>
+      </p>
+      <p>
+        <bold>17. Financial Risks.............................................................................................................................................19 </bold>
+      </p>
+      <p>
+        <bold>18. Assumptions............................................................................................................................................... 20 </bold>
+      </p>
+      <p>
+        <bold>19. Exclusions................................................................................................................................................... 21 </bold>
+      </p>
+      <p>
+        <bold>20. Budget Feasibility Assessment.................................................................................................................... 22 </bold>
+      </p>
+      <p>
+        <bold>21. Final Financial Summary............................................................................................................................. 23 </bold>
+      </p>
+      <p>
+        <bold>Tender Budget Compliance Statement.............................................................................................................. 23 </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>2. Executive Summary</title>
+      <p>This document sets out an estimated financial budget and cost proposal for the design, development, launch, and three-year maintenance of the An Tobar website, in response to the RFT issued by COGG. The RFT sets a fixed ceiling of €75,000, VAT inclusive, for a 3-year contract comprising 1 year of development and 2 years of maintenance, with a target launch date of August 2027. </p>
+      <p>Given the scale of the required platform — a bilingual (Irish/English), fully editable, filter-driven educational resource site with distinct primary and post-primary experiences — and the tightness of the €75,000 ceiling, this proposal is built around a lean delivery model: a small Ireland-based project liaison layer supported by a nearshore/offshore delivery team engaged on a contractor day-rate basis, rather than a full Irish-based salaried team. This approach is disclosed transparently in Section 5 and Section 10. </p>
+      <fig>
+        <graphic xlink:href="image_p3_55_226.jpg"/>
+      </fig>
+      <p>Key headline figures (all VAT inclusive unless stated): </p>
+      <p>●​Maximum RFT budget: €75,000.00 (VAT inclusive) </p>
+      <p>●​Estimated net project cost (excl. VAT): €60,975.61 </p>
+      <p>●​Estimated VAT at the 23% standard rate: €14,024.39 </p>
+      <p>●​Total estimated contract value (incl. VAT): €75,000.00 — exactly at the RFT ceiling </p>
+      <p>●​Remaining budget headroom: €0.00 beyond the contingency reserves already built into each year (see Section 13) </p>
+      <p>The proposal is assessed as commercially feasible only under the lean, nearshore-supported delivery model described herein, and only if the assumptions in Section 18 (particularly around content volume, integrations, and COGG-provided assets) hold. Section 20 sets out this feasibility assessment in full. </p>
+    </sec>
+    <sec>
+      <title>3. RFT Financial Constraints</title>
+      <p>The following constraints are taken directly from the RFT and are treated as fixed: </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Constraint</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Value / Requirement</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Maximum budget </td>
+              <td style="padding:8px 12px;">€75,000, VAT inclusive </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Contract duration </td>
+              <td style="padding:8px 12px;">3 years (1 year development + 2 years maintenance), subject to annual review </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Target launch date </td>
+              <td style="padding:8px 12px;">August 2027 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Optional extension </td>
+              <td style="padding:8px 12px;">Up to 1 further year, on the same terms, at COGG's discretion </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Currency </td>
+              <td style="padding:8px 12px;">Euro (€) only </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Pricing basis </td>
+              <td style="padding:8px 12px;">All prices all-inclusive, VAT shown separately where applicable </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Price validity </td>
+              <td style="padding:8px 12px;">12 months from the tender closing date </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>Source: An Tobar RFT, Sections 4 and 9 (July 2026).</italic>
+        </styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>4. Key Financial Assumptions</title>
+      <p>This proposal is built on the following high-level financial assumptions. Detailed scope assumptions are set out in Section 18. </p>
+      <p>●​The RFT budget of €75,000 is VAT inclusive; the applicable Irish VAT rate for the services described (web design, software development, and digital consulting) is the standard rate of 23%, per Irish Revenue rules (see Section 5). </p>
+      <p>●​Delivery is modelled using a small Ireland-based liaison/PM presence combined with a nearshore/offshore development, design, and QA team engaged as contractors, rather than a full Irish salaried team, in order to fit within the ceiling. This is a commercial assumption, not an RFT requirement — see Section 10. </p>
+      <fig>
+        <graphic xlink:href="image_p5_55_226.jpg"/>
+      </fig>
+      <p>●​All personnel costs are modelled as contractor/freelancer day rates (not gross salary + employer PRSI), except where explicitly marked as an Irish employee cost. </p>
+      <p>●​Costs are apportioned across Year 1 (development), Year 2 (maintenance) and Year 3 (maintenance) in line with the RFT's 1+2 year structure. </p>
+      <p>●​A contingency reserve of approximately 10% is built into each year's budget (see Section 13). </p>
+      <p>●​Figures are estimates for tender planning purposes and are not a quotation, an approved COGG budget, or a guarantee of actual cost. </p>
+    </sec>
+    <sec>
+      <title>5. Irish Cost &amp; Salary Assumptions</title>
+      <p>All costs in this proposal are estimated against Ireland/EU market conditions, not converted from any other jurisdiction's cost base. Where statutory Irish rates are referenced, the source and date are identified below; all rates should be reconfirmed with an Irish accountant or tax adviser before contract signature, as they are subject to change (notably PRSI rates change again from 1 October 2026). </p>
+    </sec>
+    <sec>
+      <title>5.1 Statutory rates referenced (verify before signature)</title>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Item</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Rate</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Source</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Status</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Standard VAT rate (Ireland) </td>
+              <td style="padding:8px 12px;">23% </td>
+              <td style="padding:8px 12px;">Irish Revenue / Citizens Information, 2026 </td>
+              <td style="padding:8px 12px;">Statutory </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Employer PRSI (Class A, higher band, weekly earnings &gt; €552) </td>
+              <td style="padding:8px 12px;">11.25% (Jan–Sep 2026); rising to 11.4% from 1 Oct 2026 </td>
+              <td style="padding:8px 12px;">Citizens Information / gov.ie, 2026 </td>
+              <td style="padding:8px 12px;">Statutory — applies only if Irish employees are engaged </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Employer PRSI (Class A, reduced band, weekly earnings ≤ €552) </td>
+              <td style="padding:8px 12px;">9% (Jan–Sep 2026); rising to 9.15% from 1 Oct 2026 </td>
+              <td style="padding:8px 12px;">Citizens Information / gov.ie, 2026 </td>
+              <td style="padding:8px 12px;">Statutory — applies only if Irish employees are engaged </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>These PRSI rates are shown for completeness because this proposal explains the difference between employee and contractor </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>cost models (Section 5.3). They are not applied in the cost build in this proposal, as personnel are modelled as contractors, not </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>Irish employees.</italic>
+        </styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>5.2 Commercial (non-statutory) market assumptions</title>
+      <p>The following are market estimates, not legal requirements, and are clearly distinguished as such: </p>
+      <p>●​Nearshore/offshore contractor day rates for development, design and QA roles are estimated at €150–€250 per day, reflecting typical EU/nearshore digital agency rates for a public-sector education project of this scale, not Irish full-time salaried equivalents. </p>
+      <p>●​The Ireland-based project liaison/PM day rate is estimated at €450–€500 per day, reflecting typical Irish senior digital-project-management contractor rates. </p>
+      <p>●​An Irish accessibility/compliance specialist day rate is estimated at €350–€400 per day. </p>
+      <p>●​For reference only (not used in this cost model, since no Irish employees are assumed): a full-time Irish mid-level developer salary is commonly quoted in the €45,000–€65,000 gross range, to which employer PRSI (Section 5.1) and other on-costs would be added — this is materially higher than the budget ceiling would support for a dedicated Irish team across 3 years. </p>
+    </sec>
+    <sec>
+      <title>5.3 Employee vs contractor cost model — this proposal</title>
+      <p>This proposal uses a contractor/day-rate model throughout, not an employee salary model, except for the small Ireland-based liaison role which may be engaged either as a contractor or via an existing employer of record. No gross-salary-plus-employer-PRSI calculation is used elsewhere in this budget, and the figures below should not be read as implying Irish full-time employment for the nearshore roles. </p>
+    </sec>
+    <sec>
+      <title>6. Project Staffing Model</title>
+      <p>The table below sets out the Year 1 (development) staffing model. No role is engaged full-time for the full 3 years; Year 2 and Year 3 staffing is a much smaller maintenance-only retainer (see Sections 11–12). </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Role</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Engagement</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Est. Days </bold>
+                <bold>(Yr 1)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Day Rate (€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Est. Cost (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Ireland-based Project Liaison / PM </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">15 </td>
+              <td style="padding:8px 12px;">500 </td>
+              <td style="padding:8px 12px;">7,500 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Business Analyst (nearshore) </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">8 </td>
+              <td style="padding:8px 12px;">200 </td>
+              <td style="padding:8px 12px;">1,600 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">UX/UI Designer (nearshore) </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">15 </td>
+              <td style="padding:8px 12px;">220 </td>
+              <td style="padding:8px 12px;">3,300 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Frontend Developer (nearshore) </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">30 </td>
+              <td style="padding:8px 12px;">200 </td>
+              <td style="padding:8px 12px;">6,000 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Backend / Full-Stack Developer (nearshore) </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">34.5 </td>
+              <td style="padding:8px 12px;">200 </td>
+              <td style="padding:8px 12px;">6,900 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Bilingual (GA/EN) Content &amp; QA Support </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">10 </td>
+              <td style="padding:8px 12px;">200 </td>
+              <td style="padding:8px 12px;">2,000 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">QA / Test Engineer (nearshore) </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">10 </td>
+              <td style="padding:8px 12px;">180 </td>
+              <td style="padding:8px 12px;">1,800 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Accessibility Specialist (Irish/EU) </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">5 </td>
+              <td style="padding:8px 12px;">400 </td>
+              <td style="padding:8px 12px;">2,000 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">DevOps / Deployment Support </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">5 </td>
+              <td style="padding:8px 12px;">220 </td>
+              <td style="padding:8px 12px;">1,100 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Technical Writer / Trainer </td>
+              <td style="padding:8px 12px;">Contractor, part-time </td>
+              <td style="padding:8px 12px;">4 </td>
+              <td style="padding:8px 12px;">250 </td>
+              <td style="padding:8px 12px;">1,000 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>Total Year 1 labour (before infrastructure and contingency): €33,200. Days are estimates for budgeting purposes and would be </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>refined during detailed planning.</italic>
+        </styled-content>
+         
+      </p>
+      <p>Basis for rates: Ireland-based liaison/PM and accessibility specialist rates reflect Irish contractor market norms for senior, specialist roles; nearshore development, design, BA and QA rates reflect typical EU nearshore digital-agency day rates for public-sector project work. No role is assumed to be a full-time Irish employee, so no employer PRSI is added to these figures — see Section 5.3. </p>
+    </sec>
+    <sec>
+      <title>7. Development Budget (Year 1)</title>
+      <p>The Year 1 development budget covers discovery, UX/UI, frontend, backend, CMS/admin, content structure, accessibility, QA, deployment, and training, in line with the RFT's Appendix 1 requirements (editable tabs, buttons, filters; bilingual Irish/English; primary and post-primary sections; full CMS access). </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Category</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Estimated Cost </bold>
+                <bold>(€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Includes</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Project Management &amp; Governance </td>
+              <td style="padding:8px 12px;">7,527 </td>
+              <td style="padding:8px 12px;">Ireland-based liaison, planning, stakeholder workshops, reporting </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Business Analysis &amp; Requirements </td>
+              <td style="padding:8px 12px;">1,600 </td>
+              <td style="padding:8px 12px;">Requirements gathering, functional/technical specification </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">UX/UI Design </td>
+              <td style="padding:8px 12px;">3,300 </td>
+              <td style="padding:8px 12px;">Information architecture, wireframes, primary &amp; post-primary design systems, prototype </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Website Development (frontend, backend, CMS) </td>
+              <td style="padding:8px 12px;">13,800 </td>
+              <td style="padding:8px 12px;">Responsive frontend, backend/API, database, CMS, editable tabs/buttons/filters, bilingual content support </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">QA &amp; Testing </td>
+              <td style="padding:8px 12px;">1,800 </td>
+              <td style="padding:8px 12px;">Functional, cross-browser, responsive, and pre-launch testing </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Accessibility </td>
+              <td style="padding:8px 12px;">2,000 </td>
+              <td style="padding:8px 12px;">WCAG 2.1 AA design/build review ahead of NDA inspection </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Security </td>
+              <td style="padding:8px 12px;">500 </td>
+              <td style="padding:8px 12px;">Secure authentication, baseline security controls, GDPR-aware data handling </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Infrastructure (one-time setup) </td>
+              <td style="padding:8px 12px;">1,200 </td>
+              <td style="padding:8px 12px;">Hosting setup, domain/DNS, SSL, dev tooling </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Training &amp; Documentation </td>
+              <td style="padding:8px 12px;">1,000 </td>
+              <td style="padding:8px 12px;">Admin/technical training, documentation, handover </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Subtotal (excl. contingency) </td>
+              <td style="padding:8px 12px;">32,727 </td>
+              <td style="padding:8px 12px;"> </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Contingency (~10%) </td>
+              <td style="padding:8px 12px;">3,273 </td>
+              <td style="padding:8px 12px;">Scope clarification, technical risk buffer </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Year 1 Total (excl. VAT) </td>
+              <td style="padding:8px 12px;">36,000 </td>
+              <td style="padding:8px 12px;"> </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </sec>
+    <sec>
+      <title>8. Infrastructure &amp; Third-Party Costs</title>
+      <p>Infrastructure is modelled on lean, cloud-based hosting appropriate to a resource website of this scale, split between one-time setup and annual recurring costs. </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Item</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Type</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Year 1 (€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Year 2 (€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Year 3 (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Cloud hosting &amp; database </td>
+              <td style="padding:8px 12px;">Recurring </td>
+              <td style="padding:8px 12px;">600 </td>
+              <td style="padding:8px 12px;">1,100 </td>
+              <td style="padding:8px 12px;">1,100 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Domain, DNS &amp; SSL/TLS </td>
+              <td style="padding:8px 12px;">Recurring </td>
+              <td style="padding:8px 12px;">150 </td>
+              <td style="padding:8px 12px;">150 </td>
+              <td style="padding:8px 12px;">150 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">CDN / object storage </td>
+              <td style="padding:8px 12px;">Recurring </td>
+              <td style="padding:8px 12px;">150 </td>
+              <td style="padding:8px 12px;">300 </td>
+              <td style="padding:8px 12px;">300 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Email service </td>
+              <td style="padding:8px 12px;">Recurring </td>
+              <td style="padding:8px 12px;">100 </td>
+              <td style="padding:8px 12px;">100 </td>
+              <td style="padding:8px 12px;">100 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Monitoring, logging &amp; backup tooling </td>
+              <td style="padding:8px 12px;">Recurring </td>
+              <td style="padding:8px 12px;">100 </td>
+              <td style="padding:8px 12px;">250 </td>
+              <td style="padding:8px 12px;">250 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Analytics </td>
+              <td style="padding:8px 12px;">Recurring </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">100 </td>
+              <td style="padding:8px 12px;">100 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Dev tooling / one-time setup </td>
+              <td style="padding:8px 12px;">One-time </td>
+              <td style="padding:8px 12px;">100 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">0 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Total infrastructure </td>
+              <td style="padding:8px 12px;"> </td>
+              <td style="padding:8px 12px;">1,200 </td>
+              <td style="padding:8px 12px;">2,000 </td>
+              <td style="padding:8px 12px;">2,000 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </sec>
+    <sec>
+      <title>9. Testing &amp; Quality Assurance Budget</title>
+      <p>Testing is concentrated in Year 1, ahead of go-live, with light-touch annual regression checks folded into the maintenance retainers in Years 2 and 3 (Sections 11–12) rather than budgeted as a separate line. </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Testing Activity</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Estimated Cost (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Functional &amp; integration testing </td>
+              <td style="padding:8px 12px;">700 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Cross-browser &amp; responsive testing </td>
+              <td style="padding:8px 12px;">400 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Accessibility testing (WCAG 2.1 AA) </td>
+              <td style="padding:8px 12px;">300 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Security testing (baseline) </td>
+              <td style="padding:8px 12px;">200 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">User acceptance testing support </td>
+              <td style="padding:8px 12px;">200 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Total (Year 1) </td>
+              <td style="padding:8px 12px;">1,800 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>Performance testing is limited in scope, reflecting the expected traffic profile of a school-resource site rather than a high-traffic </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>consumer platform (see Section 18 assumptions).</italic>
+        </styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>10. Launch &amp; Deployment Budget</title>
+      <p>Launch and deployment costs are folded into the Year 1 Infrastructure and Development lines above rather than budgeted separately, given the scale of the project. They comprise: </p>
+      <p>●​Production environment configuration and CI/CD setup </p>
+      <p>●​Domain/DNS cut-over and SSL/TLS configuration </p>
+      <p>●​Backup configuration and go-live monitoring </p>
+      <p>●​Go-live support during the August 2027 launch window </p>
+      <p>Because the €75,000 ceiling cannot support a large Irish-based full-time delivery team across 3 years, the delivery model assumed for these activities — and for development generally — is a lean core team: a small Ireland-based PM/liaison for governance, stakeholder engagement, and NDA/accessibility sign-off, supported by a nearshore/offshore team for design, build, and QA, using cloud-based infrastructure and reusable components rather than custom-built infrastructure from scratch. </p>
+      <fig>
+        <graphic xlink:href="image_p11_55_226.jpg"/>
+      </fig>
+      <p>Where an offshore/nearshore delivery model is used, this proposal assumes: (a) all client-facing engagement, requirements sign-off, and NDA/accessibility liaison is handled by the Ireland-based liaison; (b) data is hosted within the EU/EEA to support GDPR compliance; (c) security and support requirements are coordinated through the Ireland-based liaison, with defined response-time expectations agreed with COGG during onboarding; and (d) COGG retains full back-end/admin access regardless of where development is performed, per the RFT's Section 6 requirement. </p>
+    </sec>
+    <sec>
+      <title>11. Year 2 Maintenance Budget</title>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Category</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Estimated Cost </bold>
+                <bold>(€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Includes</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Project Management &amp; Governance </td>
+              <td style="padding:8px 12px;">3,000 </td>
+              <td style="padding:8px 12px;">Ireland-based liaison oversight, quarterly reviews </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Maintenance &amp; Support (nearshore retainer) </td>
+              <td style="padding:8px 12px;">4,500 </td>
+              <td style="padding:8px 12px;">Corrective maintenance, bug fixing, minor content/system changes, incident handling </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Infrastructure (recurring) </td>
+              <td style="padding:8px 12px;">2,000 </td>
+              <td style="padding:8px 12px;">Hosting, domain, SSL, monitoring, backup </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Accessibility </td>
+              <td style="padding:8px 12px;">900 </td>
+              <td style="padding:8px 12px;">Annual WCAG/NDA inspection preparation and remediation </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Security </td>
+              <td style="padding:8px 12px;">800 </td>
+              <td style="padding:8px 12px;">Security updates, dependency updates, monitoring </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Subtotal (excl. contingency) </td>
+              <td style="padding:8px 12px;">11,200 </td>
+              <td style="padding:8px 12px;"> </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Contingency (~11.6%) </td>
+              <td style="padding:8px 12px;">1,300 </td>
+              <td style="padding:8px 12px;"> </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Year 2 Total (excl. VAT) </td>
+              <td style="padding:8px 12px;">12,500 </td>
+              <td style="padding:8px 12px;"> </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        <styled-content style="color:#b08c45">
+          <bold>Included maintenance vs chargeable change requests</bold>
+        </styled-content>
+         
+      </p>
+      <p>●​Included: bug fixing, security patching, dependency updates, minor content/label/filter changes, monitoring, backup management, incident response, standard technical support. </p>
+      <p>●​Chargeable (out of scope): new features, major redesigns, large-scale content creation or migration, new integrations, additional applications (e.g. a mobile app) — see Section 19. </p>
+    </sec>
+    <sec>
+      <title>12. Year 3 Maintenance Budget</title>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Category</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Estimated Cost </bold>
+                <bold>(€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Includes</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Project Management &amp; Governance </td>
+              <td style="padding:8px 12px;">3,000 </td>
+              <td style="padding:8px 12px;">Ireland-based liaison oversight, quarterly reviews </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Maintenance &amp; Support (nearshore retainer) </td>
+              <td style="padding:8px 12px;">4,500 </td>
+              <td style="padding:8px 12px;">Corrective maintenance, bug fixing, minor content/system changes, incident handling </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Infrastructure (recurring) </td>
+              <td style="padding:8px 12px;">2,000 </td>
+              <td style="padding:8px 12px;">Hosting, domain, SSL, monitoring, backup </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Accessibility </td>
+              <td style="padding:8px 12px;">900 </td>
+              <td style="padding:8px 12px;">Annual WCAG/NDA inspection preparation and remediation </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Security </td>
+              <td style="padding:8px 12px;">800 </td>
+              <td style="padding:8px 12px;">Security updates, dependency updates, monitoring </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Subtotal (excl. contingency) </td>
+              <td style="padding:8px 12px;">11,200 </td>
+              <td style="padding:8px 12px;"> </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Contingency (~11.4%) </td>
+              <td style="padding:8px 12px;">1,275.61 </td>
+              <td style="padding:8px 12px;"> </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Year 3 Total (excl. VAT) </td>
+              <td style="padding:8px 12px;">12,475.61 </td>
+              <td style="padding:8px 12px;"> </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>The scope split between included maintenance and chargeable change requests is the same as Year 2 (Section 11). </p>
+    </sec>
+    <sec>
+      <title>13. Contingency</title>
+      <p>A contingency reserve is built into every year of the budget to absorb scope clarification, technical risk, minor third-party cost changes, and unexpected effort, without breaching the RFT ceiling: </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Year</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Subtotal excl. Contingency </bold>
+                <bold>(€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Contingency (€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Contingency </bold>
+                <bold>%</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Year Total (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Year 1 – Development </td>
+              <td style="padding:8px 12px;">32,727 </td>
+              <td style="padding:8px 12px;">3,273 </td>
+              <td style="padding:8px 12px;">10.0% </td>
+              <td style="padding:8px 12px;">36,000 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Year 2 – Maintenance </td>
+              <td style="padding:8px 12px;">11,200 </td>
+              <td style="padding:8px 12px;">1,300 </td>
+              <td style="padding:8px 12px;">11.6% </td>
+              <td style="padding:8px 12px;">12,500 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Year 3 – Maintenance </td>
+              <td style="padding:8px 12px;">11,200 </td>
+              <td style="padding:8px 12px;">1,275.61 </td>
+              <td style="padding:8px 12px;">11.4% </td>
+              <td style="padding:8px 12px;">12,475.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">3-Year Total </td>
+              <td style="padding:8px 12px;">55,127 </td>
+              <td style="padding:8px 12px;">5,848.61 </td>
+              <td style="padding:8px 12px;">10.6% </td>
+              <td style="padding:8px 12px;">60,975.61 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>Because the contingency is already embedded within each year's total (and therefore within the €75,000 ceiling), any </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>contingency drawn down reduces the buffer available for the remainder of that year rather than adding to the contract value.</italic>
+        </styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>14. Three-Year Consolidated Budget</title>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Cost Category</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Year 1 (€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Year 2 (€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Year 3 (€)</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>3-Yr Total (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Project Management </td>
+              <td style="padding:8px 12px;">7,527 </td>
+              <td style="padding:8px 12px;">3,000 </td>
+              <td style="padding:8px 12px;">3,000 </td>
+              <td style="padding:8px 12px;">13,527 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Business Analysis </td>
+              <td style="padding:8px 12px;">1,600 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">1,600 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">UX/UI </td>
+              <td style="padding:8px 12px;">3,300 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">3,300 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Development </td>
+              <td style="padding:8px 12px;">13,800 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">13,800 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">QA &amp; Testing </td>
+              <td style="padding:8px 12px;">1,800 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">1,800 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Accessibility </td>
+              <td style="padding:8px 12px;">2,000 </td>
+              <td style="padding:8px 12px;">900 </td>
+              <td style="padding:8px 12px;">900 </td>
+              <td style="padding:8px 12px;">3,800 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Security </td>
+              <td style="padding:8px 12px;">500 </td>
+              <td style="padding:8px 12px;">800 </td>
+              <td style="padding:8px 12px;">800 </td>
+              <td style="padding:8px 12px;">2,100 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Infrastructure </td>
+              <td style="padding:8px 12px;">1,200 </td>
+              <td style="padding:8px 12px;">2,000 </td>
+              <td style="padding:8px 12px;">2,000 </td>
+              <td style="padding:8px 12px;">5,200 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Training &amp; Documentation </td>
+              <td style="padding:8px 12px;">1,000 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">1,000 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Maintenance &amp; Support </td>
+              <td style="padding:8px 12px;">0 </td>
+              <td style="padding:8px 12px;">4,500 </td>
+              <td style="padding:8px 12px;">4,500 </td>
+              <td style="padding:8px 12px;">9,000 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Contingency </td>
+              <td style="padding:8px 12px;">3,273 </td>
+              <td style="padding:8px 12px;">1,300 </td>
+              <td style="padding:8px 12px;">1,275.61 </td>
+              <td style="padding:8px 12px;">5,848.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Subtotal excluding VAT </td>
+              <td style="padding:8px 12px;">36,000.00 </td>
+              <td style="padding:8px 12px;">12,500.00 </td>
+              <td style="padding:8px 12px;">12,475.61 </td>
+              <td style="padding:8px 12px;">60,975.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">VAT (23%) </td>
+              <td style="padding:8px 12px;">8,280.00 </td>
+              <td style="padding:8px 12px;">2,875.00 </td>
+              <td style="padding:8px 12px;">2,869.39 </td>
+              <td style="padding:8px 12px;">14,024.39 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Total including VAT </td>
+              <td style="padding:8px 12px;">44,280.00 </td>
+              <td style="padding:8px 12px;">15,375.00 </td>
+              <td style="padding:8px 12px;">15,345.00 </td>
+              <td style="padding:8px 12px;">75,000.00 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>Totals reconcile exactly to the RFT ceiling of €75,000, VAT inclusive, with no rounding residue.</italic>
+        </styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>15. VAT Calculation</title>
+      <p>The RFT states the €75,000 budget is VAT inclusive. Web design, software development, and digital-consulting services supplied in Ireland are, in the ordinary case, subject to the Irish standard VAT rate of 23%. This proposal therefore treats the full contract value as standard-rated. </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Step</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Calculation</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Amount (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">A. Total budget including VAT </td>
+              <td style="padding:8px 12px;">RFT ceiling </td>
+              <td style="padding:8px 12px;">75,000.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">B. Net project budget excluding VAT </td>
+              <td style="padding:8px 12px;">75,000 ÷ 1.23 </td>
+              <td style="padding:8px 12px;">60,975.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">C. Estimated VAT amount </td>
+              <td style="padding:8px 12px;">75,000 − 60,975.61 </td>
+              <td style="padding:8px 12px;">14,024.39 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">D. Available amount for project expenditure </td>
+              <td style="padding:8px 12px;">= B (net budget) </td>
+              <td style="padding:8px 12px;">60,975.61 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>VAT treatment is not automatically uniform across every supplier or cost line: </p>
+      <p>●​Services supplied by an Irish-VAT-registered contractor are charged Irish VAT at 23% in the normal way. </p>
+      <p>●​Where nearshore/offshore contractors are engaged from outside Ireland, business-to-business supplies of services to an Irish-established client are generally subject to the EU/Irish reverse-charge mechanism (the Irish recipient self-accounts for VAT) rather than the supplier charging foreign VAT — this should be confirmed with an Irish tax adviser for the specific supplier arrangement used. </p>
+      <p>●​Certain infrastructure/SaaS subscriptions (e.g. non-EU cloud providers) may also fall under reverse-charge or place-of-supply rules rather than the flat 23% assumption used here for budgeting simplicity. </p>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>This VAT treatment is a budgeting assumption, not tax advice. It should be verified with an Irish accountant or tax adviser </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>before contract signature, particularly given the mixed Irish/nearshore supplier model assumed in this proposal.</italic>
+        </styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>16. Proposed Payment Milestones</title>
+      <p>Proposed Payment Schedule – Subject to COGG Approval. The milestones below are indicative and align with the Year 1 development lifecycle and the Year 2/Year 3 maintenance periods. Milestone amounts are VAT inclusive and reconcile exactly to the total contract value of €75,000. </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Milestone</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Timing</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Amount incl. VAT (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">M1 – Contract commencement / mobilisation </td>
+              <td style="padding:8px 12px;">Contract start </td>
+              <td style="padding:8px 12px;">4,428.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">M2 – Requirements &amp; design approval </td>
+              <td style="padding:8px 12px;">End of discovery/UX phase </td>
+              <td style="padding:8px 12px;">8,856.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">M3 – Core development complete </td>
+              <td style="padding:8px 12px;">Mid-build </td>
+              <td style="padding:8px 12px;">13,284.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">M4 – UAT &amp; pre-launch testing complete </td>
+              <td style="padding:8px 12px;">Pre-launch </td>
+              <td style="padding:8px 12px;">8,856.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">M5 – Production launch / go-live </td>
+              <td style="padding:8px 12px;">August 2027 </td>
+              <td style="padding:8px 12px;">8,856.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">M6 – Year 2 maintenance </td>
+              <td style="padding:8px 12px;">Annual, start of Year 2 </td>
+              <td style="padding:8px 12px;">15,375.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">M7 – Year 3 maintenance </td>
+              <td style="padding:8px 12px;">Annual, start of Year 3 </td>
+              <td style="padding:8px 12px;">15,345.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Total </td>
+              <td style="padding:8px 12px;"> </td>
+              <td style="padding:8px 12px;">75,000.00 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>
+        <styled-content style="color:#666666">
+          <italic>COGG may prefer quarterly rather than annual invoicing for M6/M7; this can be adjusted without changing the total contract </italic>
+        </styled-content>
+        <styled-content style="color:#666666">
+          <italic>value.</italic>
+        </styled-content>
+         
+      </p>
+    </sec>
+    <sec>
+      <title>17. Financial Risks</title>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th style="padding:8px 12px; text-align:left;">
+                <styled-content style="color:#1f3764">
+                  <bold>17. Financial Risks</bold>
+                </styled-content>
+                <styled-content style="color:#2e73b4"> </styled-content>
+              </th>
+              <th style="padding:8px 12px; text-align:left;"/>
+              <th style="padding:8px 12px; text-align:left;"/>
+              <th style="padding:8px 12px; text-align:left;"/>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Risk</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Probability</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Financial </bold>
+                <bold>Impact</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Mitigation</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Scope expansion beyond RFT requirements </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">High </td>
+              <td style="padding:8px 12px;">Formal change-control process; all additions costed and approved before work begins </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Third-party / infrastructure price increases </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Annual review of hosting and licence costs; lean, commodity cloud services preferred </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Additional content migration beyond assumption </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Content volume defined and agreed with COGG during discovery </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Additional security/GDPR requirements (data protection for minors) </td>
+              <td style="padding:8px 12px;">Low/Medium </td>
+              <td style="padding:8px 12px;">High </td>
+              <td style="padding:8px 12px;">Security and data-protection review built into Year 1 scope; escalate materially new requirements via change control </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Additional integrations (e.g. LMS, future mobile app) </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">High </td>
+              <td style="padding:8px 12px;">Confirmed as out of scope unless specified; costed separately if requested </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Support demand exceeding maintenance allowance </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Defined SLA and response-time expectations agreed at contract start </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Nearshore/offshore delivery risk (communication, time zone, currency) </td>
+              <td style="padding:8px 12px;">Low/Medium </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Ireland-based liaison manages all COGG-facing communication; EU/EEA-based delivery preferred to limit exposure </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Bilingual (Irish/English) content quality risk </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Medium </td>
+              <td style="padding:8px 12px;">Dedicated bilingual QA allowance in Year 1 budget; no automated translation used, per RFT Section 3 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </sec>
+    <sec>
+      <title>18. Assumptions</title>
+      <p>This budget is materially dependent on the following assumptions. Any of these proving incorrect would require the budget to be revisited via change control. </p>
+      <p>●​Scope: a single bilingual (Irish/English) resource website with primary and post-primary sections, editable tabs/buttons/filters, and a CMS, as described in RFT Appendix 1 — not a native mobile app or a separate LMS. </p>
+      <p>●​Page/section volume: broadly in line with the homepage, primary, and secondary section structures shown in the RFT (in the order of 15–25 distinct page templates/layouts, not hundreds of unique page designs). </p>
+      <p>●​Initial resource volume: COGG provides an initial, bounded set of resources (documents, videos, worksheets) for launch content population; large-scale ongoing content creation is excluded (Section 19). </p>
+      <fig>
+        <graphic xlink:href="image_p19_55_226.jpg"/>
+      </fig>
+      <p>●​Content migration: limited migration of existing COGG materials; large-scale historical content migration is treated as a chargeable addition. </p>
+      <p>●​Integrations: no third-party LMS, payment, or SSO integrations beyond basic authentication/admin access are assumed. </p>
+      <p>●​Traffic/users: a school-resource-site traffic profile (not a high-traffic consumer platform), consistent with standard, cost-efficient cloud hosting. </p>
+      <p>●​Hosting: cloud-based hosting within the EU/EEA to support GDPR compliance. </p>
+      <p>●​Support hours/SLA: standard business-hours support during Years 2–3; no 24/7 support is assumed (Section 19). </p>
+      <p>●​Accessibility: WCAG 2.1 AA is targeted in design and build, with annual NDA inspection preparation included; this proposal does not guarantee NDA certification, which rests with COGG's inspection process. </p>
+      <p>●​Security &amp; data protection: baseline GDPR-aware security controls appropriate to a public-sector education site handling data relating to minors; a full independent security audit/penetration test is not included unless requested. </p>
+      <p>●​Third-party services: limited to the infrastructure items costed in Section 8; no paid premium third-party APIs are assumed beyond this. </p>
+      <p>●​Branding: COGG provides final colour scheme, logo, and branding guidance (RFT notes colours are 'to be confirmed'). </p>
+      <p>●​Approvals: COGG provides timely review and sign-off at each milestone; delays in approval may affect the schedule but not, in themselves, the budget. </p>
+      <p>●​Change requests: any request outside the RFT's stated scope is treated as a chargeable change request, priced and approved separately. </p>
+      <p>●​Delivery model: a nearshore/offshore-supported delivery team is used to remain within budget; this is a commercial assumption, not an RFT requirement, and is disclosed in Section 10. </p>
+    </sec>
+    <sec>
+      <title>19. Exclusions</title>
+      <p>The following are not included in this budget unless explicitly required by the RFT and subsequently agreed and costed as a change request: </p>
+      <p>●​Major scope changes or new features outside the approved requirements </p>
+      <p>●​Large-scale content creation or extensive historical content migration </p>
+      <p>●​Paid third-party APIs or premium software licences beyond the allowance in Section 8 </p>
+      <p>●​Major integrations not specified in the RFT (e.g. LMS platforms, payment systems, SSO with school systems) </p>
+      <p>●​Hardware </p>
+      <fig>
+        <graphic xlink:href="image_p20_55_226.jpg"/>
+      </fig>
+      <p>●​Travel, unless specifically required and agreed in advance </p>
+      <p>●​24/7 support (standard business-hours support only) </p>
+      <p>●​Major redesigns beyond the initial design system </p>
+      <p>●​Additional applications, including a native mobile app </p>
+      <p>●​Large-scale marketing, search engine marketing, or continuous content creation </p>
+      <p>●​Independent third-party security audits or penetration testing (baseline security controls only are included) </p>
+    </sec>
+    <sec>
+      <title>20. Budget Feasibility Assessment</title>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th style="padding:8px 12px; text-align:left;">
+                <styled-content style="color:#1f3764">
+                  <bold>20. Budget Feasibility Assessment</bold>
+                </styled-content>
+                <styled-content style="color:#2e73b4"> </styled-content>
+              </th>
+              <th style="padding:8px 12px; text-align:left;"/>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Item</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Amount (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">A. RFT Maximum (incl. VAT) </td>
+              <td style="padding:8px 12px;">75,000.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">B. Estimated VAT (23%) </td>
+              <td style="padding:8px 12px;">14,024.39 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">C. Net Contract Value (A − B) </td>
+              <td style="padding:8px 12px;">60,975.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">D. Estimated Project Cost (net, incl. built-in contingency) </td>
+              <td style="padding:8px 12px;">60,975.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">E. Remaining Budget (C − D) </td>
+              <td style="padding:8px 12px;">0.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">F. Contingency reserved within D (not additive) </td>
+              <td style="padding:8px 12px;">5,848.61 (≈9.6% of D) </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>Conclusion: the proposal is exactly at budget. It reconciles precisely to the RFT's €75,000 VAT-inclusive ceiling, with a contingency reserve of approximately 9.6% of net project cost already embedded within each year's figures rather than sitting on top of the ceiling. </p>
+      <p>This result is only achievable under the lean, nearshore-supported delivery model described in Sections 5 and 10. A conventional Irish full-time salaried delivery team, at typical Irish gross-salary-plus-employer-PRSI cost levels (Section 5.2), would materially exceed the €75,000 ceiling across a 3-year, 1+2 year contract of this scope. Tenderers should treat this as a genuine commercial constraint of the RFT, not an artefact of this estimate. </p>
+      <p>Because the model is exactly at budget with no headroom beyond the embedded contingency, any of the assumptions in Section 18 proving materially incorrect — particularly around content volume, integrations, or additional accessibility/security requirements — would require either a reduction in scope, a change-controlled increase to the contract value, or a re-negotiation with COGG, rather than absorption within this budget. </p>
+    </sec>
+    <sec>
+      <title>21. Final Financial Summary</title>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <thead>
+            <tr>
+              <th style="padding:8px 12px; text-align:left;">
+                <styled-content style="color:#1f3764">
+                  <bold>21. Final Financial Summary</bold>
+                </styled-content>
+                <styled-content style="color:#2e73b4"> </styled-content>
+              </th>
+              <th style="padding:8px 12px; text-align:left;"/>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;">
+                <bold>Line</bold>
+                 
+              </td>
+              <td style="padding:8px 12px;">
+                <bold>Amount (€)</bold>
+                 
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Maximum RFT Budget (VAT inclusive) </td>
+              <td style="padding:8px 12px;">75,000.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Estimated Net Budget </td>
+              <td style="padding:8px 12px;">60,975.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Estimated VAT </td>
+              <td style="padding:8px 12px;">14,024.39 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Estimated Development Cost (Year 1, net) </td>
+              <td style="padding:8px 12px;">36,000.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Estimated Year 2 Maintenance (net) </td>
+              <td style="padding:8px 12px;">12,500.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Estimated Year 3 Maintenance (net) </td>
+              <td style="padding:8px 12px;">12,475.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Contingency (embedded across all years) </td>
+              <td style="padding:8px 12px;">5,848.61 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Total Contract Value (VAT inclusive) </td>
+              <td style="padding:8px 12px;">75,000.00 </td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;">Remaining Budget </td>
+              <td style="padding:8px 12px;">0.00 </td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>Conclusion: the proposed financial model is commercially feasible for a 3-year Irish contract of this scope only under the lean, nearshore-supported delivery model set out in this proposal, and only if the scope assumptions in Section 18 hold. It leaves no additional headroom beyond the contingency already built into each year, so disciplined change control will be essential to keeping the project within the RFT's €75,000 ceiling. </p>
+      <p>
+        <styled-content style="color:#1f3764">
+          <bold>Tender Budget Compliance Statement</bold>
+        </styled-content>
+        <styled-content style="color:#2e73b4"> </styled-content>
+      </p>
+      <p>This estimated financial model has been structured around the RFT's stated maximum budget of €75,000, VAT inclusive, for a 3-year contract consisting of 1 year of development and 2 years of maintenance, with a target website launch in August 2027. </p>
+    </sec>
+  </body>
+</article>

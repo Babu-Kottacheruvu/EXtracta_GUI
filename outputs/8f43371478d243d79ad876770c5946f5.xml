@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<article xmlns:ns0="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" article-type="proceedings">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>1535f72d9ae24a61a7a57bd3723d0933.pdf</article-title>
+      </title-group>
+    </article-meta>
+  </front>
+  <body>
+    <p>
+      Absolutely. You need directly into Word/Google Docs, export as PDF, and then feed into your converter. 
+      <bold>normal, human-readable mathematical formulas</bold>
+       that you can paste 
+    </p>
+    <p>
+      Here is a good 
+      <bold>test set from simple to complex</bold>
+      . 
+    </p>
+    <p>
+      <bold>Basic Algebra </bold>
+    </p>
+    <disp-formula>
+      <ns0:math display="inline">
+        <ns0:mrow>
+          <ns0:mtable>
+            <ns0:mtr>
+              <ns0:mtd columnalign="left">
+                <ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mo stretchy="false">[</ns0:mo>
+                    <ns0:mo>⋯</ns0:mo>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ι</ns0:mi>
+                    <ns0:mo stretchy="false">|</ns0:mo>
+                    <ns0:mi>ι</ns0:mi>
+                    <ns0:mo stretchy="false">}</ns0:mo>
+                  </ns0:mrow>
+                </ns0:mrow>
+              </ns0:mtd>
+            </ns0:mtr>
+            <ns0:mtr>
+              <ns0:mtd columnalign="left">
+                <ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mo>∂</ns0:mo>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ι</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ι</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ξ</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                  </ns0:mrow>
+                </ns0:mrow>
+              </ns0:mtd>
+            </ns0:mtr>
+            <ns0:mtr>
+              <ns0:mtd columnalign="left">
+                <ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mo>∂</ns0:mo>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>‖</ns0:mi>
+                    <ns0:mi>★</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ι</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ξ</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                  </ns0:mrow>
+                </ns0:mrow>
+              </ns0:mtd>
+            </ns0:mtr>
+            <ns0:mtr>
+              <ns0:mtd columnalign="left">
+                <ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mo>∂</ns0:mo>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>‖</ns0:mi>
+                    <ns0:mi>★</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ξ</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                  </ns0:mrow>
+                </ns0:mrow>
+              </ns0:mtd>
+            </ns0:mtr>
+            <ns0:mtr>
+              <ns0:mtd columnalign="left">
+                <ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mo>∂</ns0:mo>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>‖</ns0:mi>
+                    <ns0:mi>★</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ξ</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                  </ns0:mrow>
+                </ns0:mrow>
+              </ns0:mtd>
+            </ns0:mtr>
+            <ns0:mtr>
+              <ns0:mtd columnalign="left">
+                <ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mo>∂</ns0:mo>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ξ</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ξ</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ξ</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ξ</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                  </ns0:mrow>
+                </ns0:mrow>
+              </ns0:mtd>
+            </ns0:mtr>
+            <ns0:mtr>
+              <ns0:mtd columnalign="left">
+                <ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mo>∂</ns0:mo>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>‖</ns0:mi>
+                    <ns0:mi>★</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>‖</ns0:mi>
+                    <ns0:mi>‖</ns0:mi>
+                    <ns0:mi>★</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>‖</ns0:mi>
+                    <ns0:mi>★</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                    <ns0:mi>ι</ns0:mi>
+                    <ns0:mo>∣</ns0:mo>
+                  </ns0:mrow>
+                </ns0:mrow>
+              </ns0:mtd>
+            </ns0:mtr>
+          </ns0:mtable>
+        </ns0:mrow>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Fractions and Roots </bold>
+    </p>
+    <disp-formula>
+      <ns0:math>
+        <ns0:mtext>Math extraction failed: </ns0:mtext>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Powers and Logarithms </bold>
+    </p>
+    <p>14.​aᵐ × aⁿ = aᵐ⁺ⁿ 15.​(aᵐ)ⁿ = aᵐⁿ 16.​log(ab) = log(a) + log(b) 17.​log(a/b) = log(a) - log(b) 18.​logₐ(x) = ln(x) / ln(a) 19.​eˣ = 1 + x + x²/2! + x³/3! + ⋯ </p>
+    <p>
+      <bold>Sequences and Series </bold>
+    </p>
+    <disp-formula>
+      <ns0:math>
+        <ns0:mtext>Math extraction failed: </ns0:mtext>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Trigonometry </bold>
+    </p>
+    <p>26.​sin²θ + cos²θ = 1 27.​tan θ = sin θ / cos θ 28.​sin(α + β) = sin α cos β + cos α sin β </p>
+    <p>29.​cos(α + β) = cos α cos β − sin α sin β 30.​sin 2θ = 2 sin θ cos θ 31.​cos 2θ = cos²θ − sin²θ 32.​1 + tan²θ = sec²θ </p>
+    <p>
+      <bold>Calculus </bold>
+    </p>
+    <p>33.​dy/dx = 2x 34.​d/dx (xⁿ) = nxⁿ⁻¹ 35.​d/dx (sin x) = cos x 36.​d/dx (cos x) = −sin x 37.​∫ x² dx = x³/3 + C 38.​∫ sin x dx = −cos x + C 39.​∫₀¹ x² dx = 1/3 40.​limₓ→₀ (sin x)/x = 1 41.​d²y/dx² + 4y = 0 </p>
+    <p>
+      <bold>More Complex Calculus </bold>
+    </p>
+    <disp-formula>
+      <ns0:math>
+        <ns0:mtext>Math extraction failed: </ns0:mtext>
+      </ns0:math>
+    </disp-formula>
+    <p>
+      <bold>Matrices </bold>
+    </p>
+    <p>48.​ </p>
+    <p>| 1  2 | | 3  4 | </p>
+    <p>49.​ </p>
+    <p>A = | a  b |     | c  d | </p>
+    <p>50.​ </p>
+    <sec>
+      <title>A = | 1  2  3 |      | 4  5  6 |      | 7  8  9 |</title>
+      <p>51.​ </p>
+      <p>det(A) = ad − bc </p>
+      <p>52.​ </p>
+      <p>A⁻¹ = 1/(ad − bc) |  d  −b |                    | −c   a | </p>
+      <p>
+        <bold>Probability and Statistics </bold>
+      </p>
+      <p>53.​P(A ∪ B) = P(A) + P(B) − P(A ∩ B) 54.​P(A | B) = P(A ∩ B) / P(B) 55.​E(X) = Σ xᵢP(X = xᵢ) 56.​Var(X) = E(X²) − [E(X)]² 57.​σ² = Σ(xᵢ − μ)² / N 58.​z = (x − μ) / σ 59.​f(x) = 1/(σ√(2π)) e⁻⁽ˣ⁻μ⁾²/²σ² </p>
+      <p>
+        <bold>Coordinate Geometry </bold>
+      </p>
+      <p>60.​Distance = √[(x₂ − x₁)² + (y₂ − y₁)²] 61.​m = (y₂ − y₁)/(x₂ − x₁) 62.​y − y₁ = m(x − x₁) 63.​x² + y² = r² 64.​(x − h)² + (y − k)² = r² 65.​Ax + By + C = 0 </p>
+      <p>
+        <bold>Vectors </bold>
+      </p>
+      <p>
+        66.​67.​|a × b| = |a||b| sin θ 68.​69.​|a| = √(a₁² + a₂² + a₃²) 70.​a · b = a₁b₁ + a₂b₂ + a₃b₃ 
+        <bold>a</bold>
+         · 
+        <bold>b</bold>
+         = |a||b| cos θ 
+        <bold>a</bold>
+         = a₁i + a₂j + a₃k 
+      </p>
+      <p>
+        <bold>Differential Equations </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mtable>
+              <ns0:mtr>
+                <ns0:mtd columnalign="center">
+                  <ns0:mrow>
+                    <ns0:mrow>
+                      <ns0:mn>7</ns0:mn>
+                      <ns0:mo>!</ns0:mo>
+                      <ns0:mi>·</ns0:mi>
+                      <ns0:mi>Φ</ns0:mi>
+                      <ns0:mo>/</ns0:mo>
+                      <ns0:mo>/</ns0:mo>
+                      <ns0:mi>|</ns0:mi>
+                      <ns0:mi>d</ns0:mi>
+                      <ns0:mi>x</ns0:mi>
+                      <ns0:mo>+</ns0:mo>
+                      <ns0:mi>y</ns0:mi>
+                      <ns0:mo>=</ns0:mo>
+                      <ns0:mi>\nonumber</ns0:mi>
+                      <ns0:mi>\nonumber</ns0:mi>
+                    </ns0:mrow>
+                  </ns0:mrow>
+                </ns0:mtd>
+              </ns0:mtr>
+              <ns0:mtr>
+                <ns0:mtd columnalign="center">
+                  <ns0:mrow>
+                    <ns0:mrow>
+                      <ns0:mn>72</ns0:mn>
+                      <ns0:mi>·</ns0:mi>
+                      <ns0:msup>
+                        <ns0:mi>d</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mi>y</ns0:mi>
+                      <ns0:mo>/</ns0:mo>
+                      <ns0:mi>d</ns0:mi>
+                      <ns0:msup>
+                        <ns0:mi>x</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mo>+</ns0:mo>
+                      <ns0:mo>∂</ns0:mo>
+                      <ns0:mi>Φ</ns0:mi>
+                      <ns0:mo>/</ns0:mo>
+                      <ns0:mi>d</ns0:mi>
+                      <ns0:mi>x</ns0:mi>
+                      <ns0:mo>+</ns0:mo>
+                      <ns0:mn>2</ns0:mn>
+                      <ns0:mi>y</ns0:mi>
+                      <ns0:mo>=</ns0:mo>
+                      <ns0:mn>0</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:mrow>
+                </ns0:mtd>
+              </ns0:mtr>
+              <ns0:mtr>
+                <ns0:mtd columnalign="center">
+                  <ns0:mrow>
+                    <ns0:mrow>
+                      <ns0:mn>73</ns0:mn>
+                      <ns0:mi>·</ns0:mi>
+                      <ns0:mtext> </ns0:mtext>
+                      <ns0:msup>
+                        <ns0:mi>y</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mo>+</ns0:mo>
+                      <ns0:msup>
+                        <ns0:mi>ω</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mi>y</ns0:mi>
+                      <ns0:mo>=</ns0:mo>
+                      <ns0:mn>0</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:mrow>
+                </ns0:mtd>
+              </ns0:mtr>
+              <ns0:mtr>
+                <ns0:mtd columnalign="center">
+                  <ns0:mrow>
+                    <ns0:mrow>
+                      <ns0:mn>74</ns0:mn>
+                      <ns0:mi>·</ns0:mi>
+                      <ns0:msup>
+                        <ns0:mi>d</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mo>+</ns0:mo>
+                      <ns0:msup>
+                        <ns0:mi>ω</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mi>y</ns0:mi>
+                      <ns0:mo>=</ns0:mo>
+                      <ns0:mn>0</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:mrow>
+                </ns0:mtd>
+              </ns0:mtr>
+              <ns0:mtr>
+                <ns0:mtd columnalign="center">
+                  <ns0:mrow>
+                    <ns0:mrow>
+                      <ns0:mn>75</ns0:mn>
+                      <ns0:mi>·</ns0:mi>
+                      <ns0:mi>d</ns0:mi>
+                      <ns0:mi>y</ns0:mi>
+                      <ns0:mo>/</ns0:mo>
+                      <ns0:mi>d</ns0:mi>
+                      <ns0:msup>
+                        <ns0:mi>x</ns0:mi>
+                        <ns0:mrow>
+                          <ns0:mn>2</ns0:mn>
+                        </ns0:mrow>
+                      </ns0:msup>
+                      <ns0:mo>+</ns0:mo>
+                      <ns0:mi>d</ns0:mi>
+                      <ns0:mi>y</ns0:mi>
+                      <ns0:mo>/</ns0:mo>
+                      <ns0:mi>d</ns0:mi>
+                      <ns0:mi>x</ns0:mi>
+                      <ns0:mo>+</ns0:mo>
+                      <ns0:mn>2</ns0:mn>
+                      <ns0:mi>y</ns0:mi>
+                      <ns0:mo>=</ns0:mo>
+                      <ns0:mn>0</ns0:mn>
+                    </ns0:mrow>
+                  </ns0:mrow>
+                </ns0:mtd>
+              </ns0:mtr>
+            </ns0:mtable>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        <bold>Physics/Formulas </bold>
+      </p>
+      <disp-formula>
+        <ns0:math>
+          <ns0:mtext>Math extraction failed: </ns0:mtext>
+        </ns0:math>
+      </disp-formula>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mstyle displaystyle="false" scriptlevel="1">
+              <ns0:mrow>
+                <ns0:mn>8</ns0:mn>
+                <ns0:mi>·</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>8</ns0:mn>
+                  <ns0:mi>·</ns0:mi>
+                  <ns0:mi>R</ns0:mi>
+                </ns0:mrow>
+              </ns0:mrow>
+            </ns0:mstyle>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        <bold>Advanced but still normal-looking formulas </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>86.​ Quadratic formula</title>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mi>χ</ns0:mi>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:mi>*</ns0:mi>
+            <ns0:mi>b</ns0:mi>
+            <ns0:mi>±</ns0:mi>
+            <ns0:mo>∀</ns0:mo>
+            <ns0:mo stretchy="false">(</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>b</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mn>4</ns0:mn>
+            <ns0:mi>△</ns0:mi>
+            <ns0:mi>Γ</ns0:mi>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mo stretchy="false">)</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mspace width="0.167em"/>
+            <ns0:mn>2</ns0:mn>
+            <ns0:mi>△</ns0:mi>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+    </sec>
+    <sec>
+      <title>87.​ Binomial theorem</title>
+      <p>(a + b)ⁿ = Σᵣ₌₀ⁿ C(n,r)aⁿ⁻ʳbʳ </p>
+      <p>
+        88.​
+        <bold>Taylor series </bold>
+      </p>
+      <p>f(x) = f(a) + f′(a)(x − a) + f″(a)(x − a)²/2! + ⋯ </p>
+      <p>
+        89.​
+        <bold>Euler's formula </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:msup>
+              <ns0:mrow>
+                <ns0:mi>𝔤</ns0:mi>
+              </ns0:mrow>
+              <ns0:mrow>
+                <ns0:mo>*</ns0:mo>
+                <ns0:mo>⋆</ns0:mo>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mrow>
+              <ns0:mi>cos</ns0:mi>
+              <ns0:mrow>
+                <ns0:mi>𝔛</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mi>i</ns0:mi>
+            <ns0:mi>sin</ns0:mi>
+            <ns0:mrow>
+              <ns0:mi>𝔛</ns0:mi>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+    </sec>
+    <sec>
+      <title>90.​ Normal distribution</title>
+      <p>f(x) = 1/(σ√(2π)) exp(−(x − μ)²/(2σ²)) </p>
+      <p>
+        91.​
+        <bold>Bayes' theorem </bold>
+      </p>
+    </sec>
+    <sec>
+      <title>P(A | B) = P(B | A)P(A) / P(B)</title>
+    </sec>
+    <sec>
+      <title>92.​ Fourier transform</title>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mi>𝕋</ns0:mi>
+            <ns0:mi>⟨</ns0:mi>
+            <ns0:mo stretchy="false">|</ns0:mo>
+            <ns0:mrow>
+              <ns0:mn mathvariant="bold">0</ns0:mn>
+            </ns0:mrow>
+            <ns0:mi>⟩</ns0:mi>
+            <ns0:mo>≡</ns0:mo>
+            <ns0:msub>
+              <ns0:mo>∫</ns0:mo>
+              <ns0:mrow>
+                <ns0:mo>∘</ns0:mo>
+              </ns0:mrow>
+            </ns0:msub>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">:</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mrow>
+                <ns0:mi mathvariant="normal">:</ns0:mi>
+              </ns0:mrow>
+            </ns0:mrow>
+            <ns0:mi>⟨</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi>ℕ</ns0:mi>
+            <ns0:mo stretchy="false">|</ns0:mo>
+            <ns0:mi>⟨</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi>⟨</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi>⟩</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi>⟨</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi>⟨</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mo>↓</ns0:mo>
+            <ns0:mi>⟩</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi>⟩</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi>⟨</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:msup>
+              <ns0:mo>↓</ns0:mo>
+              <ns0:mrow>
+                <ns0:mi>′</ns0:mi>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>⟨</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mi>⟩</ns0:mi>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mo>∣</ns0:mo>
+            <ns0:mspace width="negativethinmathspace"/>
+            <ns0:mn>0</ns0:mn>
+            <ns0:mo stretchy="false">|</ns0:mo>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        93.​
+        <bold>Heat equation </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mo>∂</ns0:mo>
+              </ns0:mrow>
+              <ns0:mo stretchy="true">¯</ns0:mo>
+            </ns0:mover>
+            <ns0:mi>𝐮</ns0:mi>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mo>∂</ns0:mo>
+              </ns0:mrow>
+              <ns0:mo stretchy="true">¯</ns0:mo>
+            </ns0:mover>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi mathvariant="bold">e</ns0:mi>
+                </ns0:mrow>
+                <ns0:mo stretchy="false">^</ns0:mo>
+              </ns0:mover>
+            </ns0:mrow>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi mathvariant="bold">t</ns0:mi>
+                </ns0:mrow>
+                <ns0:mo stretchy="false">^</ns0:mo>
+              </ns0:mover>
+            </ns0:mrow>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>α</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix"/>
+              <ns0:msup>
+                <ns0:mrow>
+                  <ns0:mover>
+                    <ns0:mrow>
+                      <ns0:mi>ϕ</ns0:mi>
+                    </ns0:mrow>
+                    <ns0:mo stretchy="true">¯</ns0:mo>
+                  </ns0:mover>
+                </ns0:mrow>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mi>𝐮</ns0:mi>
+              <ns0:mo>/</ns0:mo>
+              <ns0:mo>∂</ns0:mo>
+              <ns0:msup>
+                <ns0:mi>𝐱</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mo stretchy="true" fence="true" form="postfix"/>
+            </ns0:mrow>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        94.​
+        <bold>Wave equation </bold>
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:msup>
+              <ns0:mi>δ</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>ω</ns0:mi>
+            <ns0:mi>l</ns0:mi>
+            <ns0:mi>i</ns0:mi>
+            <ns0:msup>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi>ω</ns0:mi>
+                </ns0:mrow>
+                <ns0:mo stretchy="false">~</ns0:mo>
+              </ns0:mover>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mo>=</ns0:mo>
+            <ns0:msup>
+              <ns0:mi>c</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mspace width="0.222em"/>
+            <ns0:msup>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mi>σ</ns0:mi>
+                </ns0:mrow>
+                <ns0:mo stretchy="false">~</ns0:mo>
+              </ns0:mover>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>ω</ns0:mi>
+            <ns0:mi>l</ns0:mi>
+            <ns0:mi>l</ns0:mi>
+            <ns0:mi>δ</ns0:mi>
+            <ns0:msup>
+              <ns0:mi>x</ns0:mi>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+    </sec>
+    <sec>
+      <title>95.​ Schrödinger equation</title>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mi>𝕙</ns0:mi>
+            <ns0:mtext> </ns0:mtext>
+            <ns0:mrow>
+              <ns0:mover>
+                <ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:mi mathvariant="bold-italic">ω</ns0:mi>
+                  </ns0:mrow>
+                </ns0:mrow>
+                <ns0:mo stretchy="false">^</ns0:mo>
+              </ns0:mover>
+            </ns0:mrow>
+            <ns0:mi>ψ</ns0:mi>
+            <ns0:mo>/</ns0:mo>
+            <ns0:mi>δ</ns0:mi>
+            <ns0:mover>
+              <ns0:mrow>
+                <ns0:mi>𝐭</ns0:mi>
+              </ns0:mrow>
+              <ns0:mo stretchy="false">^</ns0:mo>
+            </ns0:mover>
+            <ns0:mo>=</ns0:mo>
+            <ns0:mo>−</ns0:mo>
+            <ns0:mrow>
+              <ns0:mo stretchy="true" fence="true" form="prefix">(</ns0:mo>
+              <ns0:msup>
+                <ns0:mi>h</ns0:mi>
+                <ns0:mrow>
+                  <ns0:mn>2</ns0:mn>
+                </ns0:mrow>
+              </ns0:msup>
+              <ns0:mo>/</ns0:mo>
+              <ns0:mn>2</ns0:mn>
+              <ns0:mi>𝐦</ns0:mi>
+              <ns0:mo stretchy="true" fence="true" form="postfix">)</ns0:mo>
+            </ns0:mrow>
+            <ns0:msup>
+              <ns0:mo>∇</ns0:mo>
+              <ns0:mrow>
+                <ns0:mn>2</ns0:mn>
+              </ns0:mrow>
+            </ns0:msup>
+            <ns0:mi>ψ</ns0:mi>
+            <ns0:mo>+</ns0:mo>
+            <ns0:mo>⋁</ns0:mo>
+            <ns0:mi>ψ</ns0:mi>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        <bold>For your PDF test, I recommend these 15 </bold>
+      </p>
+      <p>
+        If your goal is specifically to test whether 
+        <bold>PDF → image → pix2tex → LaTeX → MathML → </bold>
+        <bold>JATS XML</bold>
+         works correctly, put these together in one PDF: 
+      </p>
+      <disp-formula>
+        <ns0:math display="inline">
+          <ns0:mrow>
+            <ns0:mstyle displaystyle="false" scriptlevel="1">
+              <ns0:mrow>
+                <ns0:mfrac>
+                  <ns0:mrow>
+                    <ns0:msub>
+                      <ns0:mi>μ</ns0:mi>
+                      <ns0:mrow>
+                        <ns0:mn>1</ns0:mn>
+                      </ns0:mrow>
+                    </ns0:msub>
+                    <ns0:msub>
+                      <ns0:mi>n</ns0:mi>
+                      <ns0:mrow>
+                        <ns0:mn>1</ns0:mn>
+                      </ns0:mrow>
+                    </ns0:msub>
+                  </ns0:mrow>
+                  <ns0:mrow>
+                    <ns0:msubsup>
+                      <ns0:mi>μ</ns0:mi>
+                      <ns0:mrow>
+                        <ns0:mn>1</ns0:mn>
+                      </ns0:mrow>
+                      <ns0:mrow>
+                        <ns0:mo stretchy="false">(</ns0:mo>
+                        <ns0:mi>n</ns0:mi>
+                        <ns0:mo stretchy="false">)</ns0:mo>
+                      </ns0:mrow>
+                    </ns0:msubsup>
+                    <ns0:mo stretchy="false">(</ns0:mo>
+                    <ns0:msubsup>
+                      <ns0:mi>n</ns0:mi>
+                      <ns0:mrow>
+                        <ns0:mn>1</ns0:mn>
+                      </ns0:mrow>
+                      <ns0:mrow>
+                        <ns0:mo stretchy="false">(</ns0:mo>
+                        <ns0:mi>n</ns0:mi>
+                        <ns0:mo stretchy="false">)</ns0:mo>
+                      </ns0:mrow>
+                    </ns0:msubsup>
+                  </ns0:mrow>
+                </ns0:mfrac>
+              </ns0:mrow>
+            </ns0:mstyle>
+          </ns0:mrow>
+        </ns0:math>
+      </disp-formula>
+      <p>
+        These will give you a good range of 
+        <bold>fractions, roots, Greek characters, superscripts, </bold>
+        <bold>subscripts, summations, integrals, matrices, derivatives, limits, and nested </bold>
+        <bold>expressions</bold>
+         to evaluate the conversion quality. 
+      </p>
+    </sec>
+  </body>
+</article>

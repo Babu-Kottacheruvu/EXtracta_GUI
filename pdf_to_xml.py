@@ -6,6 +6,102 @@ import re
 import sys
 from math_extractor import get_mathml_from_image
 
+MML_NS = "{http://www.w3.org/1998/Math/MathML}"
+
+_MATH_TOKEN_RE = re.compile(r'\d+\.?\d*|[A-Za-zΑ-Ωα-ω]+|[^\sA-Za-z0-9]')
+_MATH_OPERATORS = set('=+−-×÷±∓≠≈≡≤≥<>∈∉⊂⊃⊆⊇∪∩∧∨⊕⊗·/()[]{}|,√∫∬∭∮∇∂∆∏∑∞')
+
+
+def spans_text_reliable(spans):
+    """False when PyMuPDF couldn't map enough glyphs to real Unicode
+    codepoints (shows up as U+FFFD), meaning the extracted text itself
+    can't be trusted -- e.g. an embedded custom math font with a broken
+    ToUnicode CMap. In that case image OCR is the only option left."""
+    text = "".join(s["text"] for s in spans)
+    if not text.strip():
+        return False
+    unmapped = text.count('�')
+    return unmapped / max(len(text), 1) < 0.15
+
+
+def build_mathml_from_spans(spans):
+    """Build inline MathML directly from PDF text spans instead of
+    rasterizing the line and running it through OCR.
+
+    PyMuPDF already reports each span's exact text, font size, vertical
+    origin, and an explicit superscript flag. For the extremely common case
+    of a Word/Google-Docs-generated PDF -- where "superscript"/"subscript"
+    is really just a smaller, vertically-shifted run of the same font --
+    that is strictly more reliable ground truth than asking a vision model
+    (pix2tex) to re-read a picture of text we already have perfectly. This
+    keeps math conversion fully offline/free and sidesteps OCR's accuracy
+    limits on non-LaTeX-rendered equations entirely for this common case.
+    """
+    text_spans = [s for s in spans if s["text"].strip()]
+    if not text_spans:
+        return None
+
+    sizes = [s["size"] for s in text_spans]
+    base_size = max(set(sizes), key=sizes.count)
+    normal_ys = [s["origin"][1] for s in text_spans if s["size"] >= base_size * 0.85]
+    baseline_y = sum(normal_ys) / len(normal_ys) if normal_ys else text_spans[0]["origin"][1]
+
+    tokens = []  # list of (kind, text) where kind is "normal" / "sup" / "sub"
+    for s in text_spans:
+        smaller = s["size"] < base_size * 0.85
+        raised = s["origin"][1] < baseline_y - 0.5
+        lowered = s["origin"][1] > baseline_y + 0.5
+        if (s["flags"] & 1) or (smaller and raised):
+            kind = "sup"
+        elif smaller and lowered:
+            kind = "sub"
+        else:
+            kind = "normal"
+        for tok in _MATH_TOKEN_RE.findall(s["text"]):
+            tokens.append((kind, tok))
+
+    if not tokens:
+        return None
+
+    def leaf(text):
+        if re.fullmatch(r'\d+\.?\d*', text):
+            tag = "mn"
+        elif text in _MATH_OPERATORS:
+            tag = "mo"
+        else:
+            tag = "mi"
+        el = ET.Element(MML_NS + tag)
+        el.text = text
+        return el
+
+    mrow = ET.Element(MML_NS + "mrow")
+    i, n = 0, len(tokens)
+    while i < n:
+        kind, tok = tokens[i]
+        if kind == "normal" or len(mrow) == 0:
+            # A sup/sub run with nothing preceding it on this line has no
+            # base to attach to -- keep it as plain text rather than losing it.
+            mrow.append(leaf(tok))
+            i += 1
+            continue
+
+        base_el = mrow[-1]
+        del mrow[-1]
+        run = []
+        while i < n and tokens[i][0] == kind:
+            run.append(tokens[i][1])
+            i += 1
+        script_el = ET.Element(MML_NS + "mrow")
+        for rt in run:
+            script_el.append(leaf(rt))
+        wrapper = ET.Element(MML_NS + ("msup" if kind == "sup" else "msub"))
+        wrapper.append(base_el)
+        wrapper.append(script_el)
+        mrow.append(wrapper)
+
+    return mrow if len(mrow) else None
+
+
 def sanitize_xml_text(text):
     """Remove control characters that are invalid in XML 1.0."""
     if not isinstance(text, str):
@@ -279,12 +375,14 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                 for line in block.get("lines", []):
                     for span in line.get("spans", []):
                         block_text += span["text"] + " "
-                
+
                 block_text = block_text.strip()
                 if not block_text:
                     continue
 
-                # Math block detection heuristic
+                # Math detection heuristic. Applied per-line (see below) so a
+                # stack of independent short equations doesn't get diluted by
+                # being averaged together as one block.
                 def is_math_block(text, spans):
                     if not spans or not text:
                         return False
@@ -310,9 +408,23 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                     # "=", "+", "×" characters (e.g. "T+1 settlement") must not qualify.
                     if math_char_count / len(text) > 0.08 or unmapped_count / len(text) > 0.1:
                         return True
+
+                    # Catches equations built almost entirely from single-letter
+                    # variables, digits and ASCII operators (e.g. "P(A | B) =
+                    # P(B | A)P(A) / P(B)"), which have too few Unicode math
+                    # symbols to trip the ratio check above. Real prose sentences
+                    # are made of actual multi-letter words, so requiring at most
+                    # one word longer than 3 letters (function names like "sin"/
+                    # "log" are exactly 3) keeps this from firing on a sentence
+                    # that merely contains a stray "=".
+                    if len(text) < 150 and ('=' in text or math_char_count > 0):
+                        words = re.findall(r'[A-Za-z]+', text)
+                        long_words = [w for w in words if len(w) > 3]
+                        if len(long_words) <= 1:
+                            return True
                     return False
 
-                # Reconstruct full block text and collect spans to check for math / headings
+                # Reconstruct full block text and collect spans to check for headings
                 all_spans = []
                 for line in block.get("lines", []):
                     all_spans.extend(line.get("spans", []))
@@ -326,9 +438,13 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                 # solution shall be..." only has its number in bold, so bold_ratio stays
                 # low and it correctly falls through to the normal paragraph branch below,
                 # where process_spans keeps the bold number and normal prose as separate
-                # runs inside the same <p>.
+                # runs inside the same <p>. The isupper() check requires a real run of 2+
+                # uppercase letters so a formula built from lone uppercase variables (e.g.
+                # "P(A | B) = P(B | A)P(A) / P(B)") -- which is trivially "all uppercase"
+                # since every cased character in it happens to be a capital letter --
+                # doesn't get mistaken for a heading.
                 is_heading = len(block_text) < 100 and (
-                    block_text.isupper()
+                    (block_text.isupper() and re.search(r'[A-Z]{2,}', block_text))
                     or (bold_ratio > 0.8 and re.match(r'^\d+(\.\d+)*[\.\s]', block_text))
                 )
 
@@ -336,31 +452,70 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                     current_sec = ET.SubElement(body, "sec")
                     title = ET.SubElement(current_sec, "title")
                     title.text = sanitize_xml_text(block_text)
-                elif opts["ocr_math"] and is_math_block(block_text, all_spans):
-                    parent = current_sec if current_sec is not None else body
-                    disp_formula = ET.SubElement(parent, "disp-formula")
+                    continue
 
-                    # Render block as image
-                    pix = page.get_pixmap(clip=bbox)
-                    img_bytes = pix.tobytes("png")
+                # Walk the block line by line instead of dumping every line into
+                # one paragraph. A block can contain a stack of independent short
+                # equations (each its own <disp-formula>, cropped and OCR'd from
+                # just that line's bbox); consecutive non-math lines still get
+                # accumulated into a single shared <p>, so normal line-wrapped
+                # prose is unaffected.
+                parent = current_sec if current_sec is not None else body
+                current_p = None
+                for line in block.get("lines", []):
+                    line_spans = line.get("spans", [])
+                    line_text = "".join(s["text"] for s in line_spans).strip()
+                    if not line_text:
+                        continue
 
-                    mathml = get_mathml_from_image(img_bytes)
-                    try:
-                        math_elem = ET.fromstring(mathml)
-                        disp_formula.append(math_elem)
-                    except:
-                        disp_formula.text = mathml
+                    if opts["ocr_math"] and is_math_block(line_text, line_spans):
+                        current_p = None  # close any open paragraph before the formula
+                        disp_formula = ET.SubElement(parent, "disp-formula")
 
-                    if log_callback:
-                        log_callback("Detected math text block, rendered and converted.")
-                else:
-                    # Append paragraph
-                    parent = current_sec if current_sec is not None else body
-                    p = ET.SubElement(parent, "p")
-                    
-                    for line in block.get("lines", []):
-                        process_spans(p, line.get("spans", []))
-                    
+                        # Prefer building MathML directly from the PDF's own text
+                        # (exact, deterministic, free) over image OCR. OCR is
+                        # only a fallback for when the extracted text itself
+                        # can't be trusted (e.g. an embedded math font PyMuPDF
+                        # can't decode to real Unicode).
+                        math_elem = None
+                        if spans_text_reliable(line_spans):
+                            mrow = build_mathml_from_spans(line_spans)
+                            if mrow is not None:
+                                math_elem = ET.Element(MML_NS + "math")
+                                math_elem.set("display", "inline")
+                                math_elem.append(mrow)
+
+                        if math_elem is not None:
+                            disp_formula.append(math_elem)
+                            if log_callback:
+                                log_callback("Detected math line, built MathML directly from PDF text.")
+                        else:
+                            # A single text line is often only ~12-14pt tall,
+                            # which at 1:1 scale renders a crop only ~12-14px
+                            # tall -- too little detail for OCR to read
+                            # reliably. Pad the crop slightly (glyphs like
+                            # roots/tall parens can extend past the reported
+                            # line bbox) and render at a much higher
+                            # effective resolution.
+                            line_bbox = fitz.Rect(line.get("bbox", bbox))
+                            pad = 3
+                            crop_rect = (line_bbox + (-pad, -pad, pad, pad)) & page_rect
+                            pix = page.get_pixmap(clip=crop_rect, matrix=fitz.Matrix(6, 6))
+                            img_bytes = pix.tobytes("png")
+
+                            mathml = get_mathml_from_image(img_bytes)
+                            try:
+                                disp_formula.append(ET.fromstring(mathml))
+                            except:
+                                disp_formula.text = mathml
+
+                            if log_callback:
+                                log_callback("Detected math line (image OCR fallback), rendered and converted.")
+                    else:
+                        if current_p is None:
+                            current_p = ET.SubElement(parent, "p")
+                        process_spans(current_p, line_spans)
+
             elif block["type"] == 1:  # Image block
                 parent = current_sec if current_sec is not None else body
                 
