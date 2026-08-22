@@ -8,6 +8,80 @@ from math_extractor import get_mathml_from_image
 
 MML_NS = "{http://www.w3.org/1998/Math/MathML}"
 
+
+def dedupe_overlapping_spans(spans):
+    """Some PDF generators fake a bold/heavy weight by stacking the same run
+    of text several times at a sub-pixel offset instead of embedding a real
+    bold font. Left alone, that comes through as literal repeated text.
+    Collapse spans down to one per (text, ~1pt-rounded position) group,
+    keeping first-seen order -- genuinely distinct repeated text (e.g. the
+    same word in two different table cells) sits at a clearly different
+    position and is left untouched. Set-based (not just adjacent-pair
+    comparison) since PyMuPDF doesn't always return the stacked copies next
+    to each other.
+    """
+    seen = set()
+    deduped = []
+    for span in spans:
+        key = (span["text"], round(span["origin"][0]), round(span["origin"][1]))
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(span)
+    return deduped
+
+
+def _bbox_overlap_ratio(b1, b2):
+    """Intersection area as a fraction of the smaller of the two boxes (a
+    containment-style ratio, not IoU)."""
+    ix0, iy0 = max(b1[0], b2[0]), max(b1[1], b2[1])
+    ix1, iy1 = min(b1[2], b2[2]), min(b1[3], b2[3])
+    inter = max(0, ix1 - ix0) * max(0, iy1 - iy0)
+    area1 = max(0, b1[2] - b1[0]) * max(0, b1[3] - b1[1])
+    area2 = max(0, b2[2] - b2[0]) * max(0, b2[3] - b2[1])
+    smaller = min(area1, area2) or 1
+    return inter / smaller
+
+
+def dedupe_overlapping_lines(lines):
+    """Same fake-bold problem as dedupe_overlapping_spans, but for a messier
+    real-world case: a decorative heading rendered with a 4-direction
+    shadow/emboss effect (the same glyphs stacked at NE/NW/SE/SW pixel
+    offsets) plus one "real" center copy. PyMuPDF often reports the shadow
+    copies as smaller, more fragmented lines than the center copy (e.g. a
+    shadow line containing only "W" next to a center line containing
+    "WORLD"), so exact text matching misses it. Instead: when two lines'
+    bounding boxes substantially overlap and one line's text is wholly
+    contained in the other's, keep only the more complete line.
+    """
+    kept = []
+    for line in lines:
+        text = "".join(s["text"] for s in line.get("spans", []))
+        norm = re.sub(r"\s+", "", text)
+        bbox = line.get("bbox")
+        if not norm or not bbox:
+            kept.append(line)
+            continue
+
+        absorbed = False
+        for k in kept:
+            k_text = "".join(s["text"] for s in k.get("spans", []))
+            k_norm = re.sub(r"\s+", "", k_text)
+            k_bbox = k.get("bbox")
+            if not k_norm or not k_bbox:
+                continue
+            if _bbox_overlap_ratio(bbox, k_bbox) <= 0.5:
+                continue
+            if norm in k_norm:
+                absorbed = True
+                break
+            if k_norm in norm:
+                kept.remove(k)
+                break
+        if not absorbed:
+            kept.append(line)
+    return kept
+
 _MATH_TOKEN_RE = re.compile(r'\d+\.?\d*|[A-Za-zΑ-Ωα-ω]+|[^\sA-Za-z0-9]')
 _MATH_OPERATORS = set('=+−-×÷±∓≠≈≡≤≥<>∈∉⊂⊃⊆⊇∪∩∧∨⊕⊗·/()[]{}|,√∫∬∭∮∇∂∆∏∑∞')
 
@@ -129,15 +203,65 @@ def sanitize_xml_text(text):
 
 
 def is_header_or_footer(block_bbox, page_rect):
-    """Simple heuristic to detect headers and footers based on y-coordinates"""
+    """Position-only margin-zone check, used for image blocks (logos etc.)
+    where there's no text to confirm repetition against. Real body figures
+    are rarely small enough to fit entirely inside this band, so a position
+    check alone is reasonably safe for images."""
     y0 = block_bbox[1]
     y1 = block_bbox[3]
     height = page_rect.height
-    
-    # Top 7% and bottom 7% are considered headers/footers
-    if y0 <= height * 0.07 or y1 >= height * 0.93:
+
+    # Top 12% and bottom 12% are considered header/footer margin.
+    if y0 <= height * 0.12 or y1 >= height * 0.88:
         return True
     return False
+
+
+def _header_footer_key(text, bbox, page_rect):
+    """Normalized (zone, text) key for a block sitting in the header/footer
+    margin. Digit runs are collapsed so a page-numbered footer like "Page 5
+    of 26" matches "Page 6 of 26" on the next page as the same running
+    footer."""
+    height = page_rect.height
+    y0, y1 = bbox[1], bbox[3]
+    if y0 <= height * 0.12:
+        zone = "top"
+    elif y1 >= height * 0.88:
+        zone = "bottom"
+    else:
+        return None
+
+    normalized = re.sub(r'\d+', '#', text.strip().lower())
+    normalized = re.sub(r'\s+', ' ', normalized)
+    return (zone, normalized) if normalized else None
+
+
+def find_repeating_header_footer_keys(doc):
+    """Two-pass detection of running headers/footers: a block in the page
+    margin whose (digit-normalized) text repeats across a good fraction of
+    pages is treated as a real running header/footer; a one-off block that
+    merely happens to sit in that margin (e.g. a title on a page with a
+    small top margin) is left alone. A single fixed percentage-band cutoff
+    can't tell these apart on its own, since it only looks at position.
+    """
+    if len(doc) < 2:
+        return set()
+
+    key_page_counts = {}
+    for page in doc:
+        page_rect = page.rect
+        for block in page.get_text("dict")["blocks"]:
+            if block.get("type") != 0:
+                continue
+            text = "".join(
+                span["text"] for line in dedupe_overlapping_lines(block.get("lines", [])) for span in line.get("spans", [])
+            )
+            key = _header_footer_key(text, block["bbox"], page_rect)
+            if key:
+                key_page_counts[key] = key_page_counts.get(key, 0) + 1
+
+    min_repeats = max(2, len(doc) // 3)
+    return {k for k, count in key_page_counts.items() if count >= min_repeats}
 
 
 def _cell_texts(table):
@@ -173,14 +297,18 @@ def is_structured_table(table, page_rect):
     if populated_columns < 2:
         return False
 
-    bbox = table.bbox
-    page_coverage = ((bbox[2] - bbox[0]) * (bbox[3] - bbox[1])) / max(page_rect.get_area(), 1)
     all_cells = [cell for row in rows for cell in row if cell]
     total_text = sum(len(cell) for cell in all_cells)
     longest_cell = max((len(cell) for cell in all_cells), default=0)
 
-    # Full-page grids with a single narrative cell are common in templates.
-    if page_coverage > 0.75 and (longest_cell > 300 or longest_cell > total_text * 0.70):
+    # Real tabular data cells are short phrases/values. A single cell holding
+    # this much running prose means the "table" is actually a layout grid --
+    # e.g. rule lines from a drop-cap box, a chapter banner, or a two-column
+    # page's column gutter -- wrapping ordinary body text, not real tabular
+    # data. This check must NOT be gated on how much of the page the detected
+    # grid covers: a false-positive grid over "only" 60% of a page is just as
+    # much a layout artifact as one over 90%.
+    if longest_cell > 300 or (total_text > 0 and longest_cell > total_text * 0.5):
         return False
     return True
 
@@ -200,7 +328,13 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
         log_callback(f"Starting extraction for: {pdf_path}")
 
     doc = fitz.open(pdf_path)
-    
+
+    header_footer_keys = set()
+    if opts["strip_header_footer"]:
+        header_footer_keys = find_repeating_header_footer_keys(doc)
+        if log_callback and header_footer_keys:
+            log_callback(f"Detected {len(header_footer_keys)} repeating header/footer line(s) to strip.")
+
     # Create XML Root based on the JATS template
     root = ET.Element("article", {
         "article-type": "proceedings",
@@ -246,7 +380,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
         
         def process_spans(parent, spans):
             last_elem = None
-            for span in spans:
+            for span in dedupe_overlapping_spans(spans):
                 text = sanitize_xml_text(span["text"])
                 if not text:
                     continue
@@ -302,8 +436,22 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
         page_blocks = []
         for block in blocks:
             bbox = block["bbox"]
-            if opts["strip_header_footer"] and is_header_or_footer(bbox, page_rect):
-                continue
+            if opts["strip_header_footer"]:
+                if block.get("type") == 0:
+                    # Text: only strip margin text confirmed to repeat across
+                    # pages, so a one-off heading that merely starts close to
+                    # the top margin isn't mistaken for a running header.
+                    text = "".join(
+                        span["text"] for line in dedupe_overlapping_lines(block.get("lines", [])) for span in line.get("spans", [])
+                    )
+                    key = _header_footer_key(text, bbox, page_rect)
+                    if key and key in header_footer_keys:
+                        continue
+                elif is_header_or_footer(bbox, page_rect):
+                    # Images (logos etc.): position alone is a reasonably
+                    # safe signal since real body figures rarely fit
+                    # entirely inside the margin band.
+                    continue
 
             # Skip if block is in any table
             in_table = False
@@ -352,7 +500,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                         cell_dict = page.get_text("dict", clip=cell_bbox)
                         for b in cell_dict.get("blocks", []):
                             if b.get("type") == 0:
-                                for l in b.get("lines", []):
+                                for l in dedupe_overlapping_lines(b.get("lines", [])):
                                     process_spans(th, l.get("spans", []))
 
                 tbody = ET.SubElement(table_el, "tbody")
@@ -364,7 +512,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                             cell_dict = page.get_text("dict", clip=cell_bbox)
                             for b in cell_dict.get("blocks", []):
                                 if b.get("type") == 0:
-                                    for l in b.get("lines", []):
+                                    for l in dedupe_overlapping_lines(b.get("lines", [])):
                                         process_spans(td, l.get("spans", []))
                 continue
 
@@ -372,8 +520,8 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
             bbox = block["bbox"]
             if block["type"] == 0:  # Text block
                 block_text = ""
-                for line in block.get("lines", []):
-                    for span in line.get("spans", []):
+                for line in dedupe_overlapping_lines(block.get("lines", [])):
+                    for span in dedupe_overlapping_spans(line.get("spans", [])):
                         block_text += span["text"] + " "
 
                 block_text = block_text.strip()
@@ -426,8 +574,8 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
 
                 # Reconstruct full block text and collect spans to check for headings
                 all_spans = []
-                for line in block.get("lines", []):
-                    all_spans.extend(line.get("spans", []))
+                for line in dedupe_overlapping_lines(block.get("lines", [])):
+                    all_spans.extend(dedupe_overlapping_spans(line.get("spans", [])))
 
                 total_chars = sum(len(s["text"]) for s in all_spans) or 1
                 bold_chars = sum(len(s["text"]) for s in all_spans if s["flags"] & 16)
@@ -462,8 +610,8 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                 # prose is unaffected.
                 parent = current_sec if current_sec is not None else body
                 current_p = None
-                for line in block.get("lines", []):
-                    line_spans = line.get("spans", [])
+                for line in dedupe_overlapping_lines(block.get("lines", [])):
+                    line_spans = dedupe_overlapping_spans(line.get("spans", []))
                     line_text = "".join(s["text"] for s in line_spans).strip()
                     if not line_text:
                         continue
