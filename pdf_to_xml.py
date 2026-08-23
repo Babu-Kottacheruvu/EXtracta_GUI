@@ -107,9 +107,9 @@ def build_mathml_from_spans(spans):
     of a Word/Google-Docs-generated PDF -- where "superscript"/"subscript"
     is really just a smaller, vertically-shifted run of the same font --
     that is strictly more reliable ground truth than asking a vision model
-    (pix2tex) to re-read a picture of text we already have perfectly. This
-    keeps math conversion fully offline/free and sidesteps OCR's accuracy
-    limits on non-LaTeX-rendered equations entirely for this common case.
+    (PaddleOCR-VL) to re-read a picture of text we already have perfectly.
+    This keeps math conversion fully offline/free and sidesteps OCR's
+    accuracy limits entirely for this common case.
     """
     text_spans = [s for s in spans if s["text"].strip()]
     if not text_spans:
@@ -313,7 +313,7 @@ def is_structured_table(table, page_rect):
     return True
 
 DEFAULT_OPTIONS = {
-    "ocr_math": True,          # run image OCR (pix2tex) to convert equations to MathML
+    "ocr_math": True,          # run image OCR (PaddleOCR-VL) to convert equations to MathML
     "detect_tables": True,     # detect and emit <table-wrap> for structured tables
     "strip_header_footer": True,  # drop repeating page headers/footers
 }
