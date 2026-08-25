@@ -55,7 +55,7 @@ class Api:
 
         window = webview.windows[0]
         dest = window.create_file_dialog(
-            webview.SAVE_DIALOG,
+            webview.FileDialog.SAVE,
             directory=os.path.expanduser("~"),
             save_filename=f"{_base_name(job)}.xml",
             file_types=("XML Files (*.xml)", "All files (*.*)"),
@@ -77,7 +77,7 @@ class Api:
 
         window = webview.windows[0]
         dest = window.create_file_dialog(
-            webview.SAVE_DIALOG,
+            webview.FileDialog.SAVE,
             directory=os.path.expanduser("~"),
             save_filename=f"{_base_name(job)}.txt",
             file_types=("Text Files (*.txt)", "All files (*.*)"),

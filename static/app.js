@@ -317,16 +317,42 @@
     if (revertMs) setTimeout(() => { if (el.textContent === msg) el.textContent = prev; }, revertMs);
   }
 
+  function showToast(message, type = "success", duration = 4000) {
+    let container = document.querySelector(".toast-container");
+    if (!container) {
+      container = document.createElement("div");
+      container.className = "toast-container";
+      document.body.appendChild(container);
+    }
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`;
+    const iconId = type === "error" ? "i-x-circle" : "i-check-circle";
+    toast.innerHTML = `<svg class="icon"><use href="#${iconId}"/></svg><span></span>`;
+    toast.querySelector("span").textContent = message;
+    container.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add("show"));
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 250);
+    }, duration);
+  }
+
   function downloadXml() {
     if (!state.jobId) return;
     if (inDesktopShell()) {
       window.pywebview.api.save_xml(state.jobId).then((res) => {
-        if (res && res.ok) showHint(`Saved to ${res.path}`, 4000);
-        else if (res && !res.cancelled) showHint("Save failed: " + (res.error || "unknown error"), 4000);
+        if (res && res.ok) {
+          showHint(`Saved to ${res.path}`, 4000);
+          showToast("File downloaded successfully", "success");
+        } else if (res && !res.cancelled) {
+          showHint("Save failed: " + (res.error || "unknown error"), 4000);
+          showToast("Download failed: " + (res.error || "unknown error"), "error");
+        }
       });
       return;
     }
     window.location.href = `/api/jobs/${state.jobId}/download`;
+    showToast("File downloaded successfully", "success");
   }
 
   // Export dropdown
@@ -349,8 +375,13 @@
 
       if (inDesktopShell()) {
         window.pywebview.api.save_text(state.jobId).then((res) => {
-          if (res && res.ok) showHint(`Saved to ${res.path}`, 4000);
-          else if (res && !res.cancelled) showHint("Save failed: " + (res.error || "unknown error"), 4000);
+          if (res && res.ok) {
+            showHint(`Saved to ${res.path}`, 4000);
+            showToast("File downloaded successfully", "success");
+          } else if (res && !res.cancelled) {
+            showHint("Save failed: " + (res.error || "unknown error"), 4000);
+            showToast("Download failed: " + (res.error || "unknown error"), "error");
+          }
         });
         return;
       }
@@ -363,6 +394,7 @@
       a.download = `${base}.txt`;
       a.click();
       URL.revokeObjectURL(a.href);
+      showToast("File downloaded successfully", "success");
     });
   });
 
@@ -449,6 +481,7 @@
     if (!success) {
       $("#convertBtnLabel").textContent = "Convert to XML";
       $("#convertHint").textContent = "Failed: " + (errorMsg || "unknown error");
+      showToast("Conversion failed: " + (errorMsg || "unknown error"), "error");
       return;
     }
 
@@ -456,6 +489,7 @@
     $("#convertHint").textContent = "Conversion complete.";
     $("#downloadBtn").disabled = false;
     $("#exportBtn").disabled = false;
+    showToast("File converted successfully", "success");
 
     const [xmlRes, valRes] = await Promise.all([
       fetch(`/api/jobs/${state.jobId}/xml`),

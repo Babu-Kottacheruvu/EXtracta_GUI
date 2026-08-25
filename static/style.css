@@ -34,6 +34,7 @@ body{
   color:var(--gray-900);
   background:var(--gray-50);
   font-size:14px;
+  overflow-x:hidden;
 }
 button{font-family:inherit}
 .icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
@@ -213,7 +214,16 @@ button{font-family:inherit}
 .convert-hint{text-align:center;font-size:11.5px;color:var(--gray-500);margin-top:10px}
 
 /* ---------- right column / tabs ---------- */
-.right-col{display:flex;flex-direction:column;gap:0;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+.right-col{
+  display:flex;flex-direction:column;gap:0;background:var(--white);border:1px solid var(--gray-200);
+  border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);
+  /* Without a real bounded height, the code/logs/validation panes below just
+     grow to fit all their content and the whole page scrolls instead of the
+     pane itself -- pin this to the viewport (minus topbar + content padding)
+     so overflow:auto on those panes actually gets a height to scroll within. */
+  height:calc(100vh - 104px);
+  min-height:400px;
+}
 .tabs-bar{display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid var(--gray-200);flex-wrap:wrap;gap:8px}
 .tabs{display:flex;gap:4px}
 .tab{
@@ -236,8 +246,8 @@ button{font-family:inherit}
 .export-menu button:hover{background:var(--gray-100)}
 
 /* ---------- viewer / panes ---------- */
-.viewer{display:flex;min-height:560px}
-.pane{display:none;flex-direction:column;min-width:0}
+.viewer{display:flex;flex:1;min-height:0}
+.pane{display:none;flex-direction:column;min-width:0;min-height:0}
 .pane-preview{border-right:1px solid var(--gray-200)}
 
 .viewer[data-mode="preview"] .pane-preview{display:flex;flex:1.15}
@@ -281,9 +291,17 @@ button{font-family:inherit}
 .code-toolbar-title{font-size:11.5px;color:#94a3b8;font-family:"SFMono-Regular",Consolas,monospace}
 .code-toolbar-actions{display:flex;gap:2px}
 .code-view{
-  margin:0;padding:14px 16px;overflow:auto;flex:1;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  margin:0;padding:14px 16px;overflow:auto;flex:1;min-width:0;min-height:0;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
   font-size:12px;line-height:1.65;white-space:pre;counter-reset:line;
 }
+/* Default OS scrollbars are nearly invisible against this dark background,
+   which reads as "not scrollable" even though it is -- make it obvious. */
+.code-view::-webkit-scrollbar{width:12px;height:12px}
+.code-view::-webkit-scrollbar-track{background:#1e293b}
+.code-view::-webkit-scrollbar-thumb{background:#475569;border-radius:6px;border:2px solid #1e293b}
+.code-view::-webkit-scrollbar-thumb:hover{background:#64748b}
+.code-view::-webkit-scrollbar-corner{background:#1e293b}
 .code-view .ln{
   display:inline-block;width:2.4em;color:#475569;user-select:none;text-align:right;margin-right:14px;
 }
@@ -295,7 +313,7 @@ button{font-family:inherit}
 .comment{color:#64748b;font-style:italic}
 
 /* ---------- validation ---------- */
-.validation-panel{flex:1;padding:20px;overflow:auto}
+.validation-panel{flex:1;padding:20px;overflow:auto;min-width:0;min-height:0}
 .validation-summary{display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:10px;margin-bottom:16px;font-weight:600;font-size:13.5px}
 .validation-summary.ok{background:var(--green-50);color:#166534}
 .validation-summary.ok .icon{color:var(--green-500)}
@@ -309,7 +327,11 @@ button{font-family:inherit}
 .validation-errors div{font-size:12px;color:#991b1b;font-family:monospace}
 
 /* ---------- logs ---------- */
-.logs-panel{flex:1;overflow:auto;padding:14px 16px;font-family:"SFMono-Regular",Consolas,monospace;font-size:12px;background:#0f172a;color:#cbd5e1}
+.logs-panel{flex:1;overflow:auto;min-width:0;min-height:0;padding:14px 16px;font-family:"SFMono-Regular",Consolas,monospace;font-size:12px;background:#0f172a;color:#cbd5e1}
+.logs-panel::-webkit-scrollbar{width:12px;height:12px}
+.logs-panel::-webkit-scrollbar-track{background:#1e293b}
+.logs-panel::-webkit-scrollbar-thumb{background:#475569;border-radius:6px;border:2px solid #1e293b}
+.logs-panel::-webkit-scrollbar-thumb:hover{background:#64748b}
 .log-line{padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04)}
 .log-line .ts{color:#64748b;margin-right:10px}
 .log-line.muted{color:#64748b;font-style:italic}
@@ -336,3 +358,27 @@ button{font-family:inherit}
 .right-col.is-fullscreen{
   position:fixed;inset:16px;z-index:100;box-shadow:0 20px 60px rgba(0,0,0,.3);
 }
+
+/* ---------- toast notifications ---------- */
+.toast-container{
+  position:fixed;right:22px;bottom:22px;z-index:1000;
+  display:flex;flex-direction:column-reverse;gap:10px;
+  pointer-events:none;
+}
+.toast{
+  display:flex;align-items:center;gap:10px;
+  background:var(--gray-900);color:#fff;
+  padding:12px 16px;border-radius:10px;
+  box-shadow:0 12px 30px rgba(0,0,0,.28);
+  font-size:13px;font-weight:600;
+  min-width:240px;max-width:380px;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .2s ease, transform .2s ease;
+  pointer-events:auto;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast .icon{width:18px;height:18px;flex:none}
+.toast.success{background:#166534}
+.toast.success .icon{color:#4ade80}
+.toast.error{background:#991b1b}
+.toast.error .icon{color:#fca5a5}
