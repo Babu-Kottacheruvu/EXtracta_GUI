@@ -186,7 +186,7 @@ def job_validation(job_id):
             "sections": len(root.findall(".//sec")),
             "paragraphs": len(root.findall(".//p")),
             "tables": len(root.findall(".//table-wrap")),
-            "formulas": len(root.findall(".//disp-formula")),
+            "formulas": len(root.findall(".//inline-formula")),
             "bold_runs": len(root.findall(".//bold")),
             "figures": len(root.findall(".//fig")),
         }

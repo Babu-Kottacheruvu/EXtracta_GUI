@@ -4,9 +4,7 @@ from xml.dom import minidom
 import os
 import re
 import sys
-from math_extractor import get_mathml_from_image
-
-MML_NS = "{http://www.w3.org/1998/Math/MathML}"
+from math_extractor import get_latex_from_image
 
 
 def dedupe_overlapping_spans(spans):
@@ -82,8 +80,7 @@ def dedupe_overlapping_lines(lines):
             kept.append(line)
     return kept
 
-_MATH_TOKEN_RE = re.compile(r'\d+\.?\d*|[A-Za-zΑ-Ωα-ω]+|[^\sA-Za-z0-9]')
-_MATH_OPERATORS = set('=+−-×÷±∓≠≈≡≤≥<>∈∉⊂⊃⊆⊇∪∩∧∨⊕⊗·/()[]{}|,√∫∬∭∮∇∂∆∏∑∞')
+_MATH_TOKEN_RE = re.compile(r'\d+\.?\d*|[A-Za-zΑ-Ωα-ω]+|\s+|[^\sA-Za-z0-9]')
 
 
 def spans_text_reliable(spans):
@@ -98,8 +95,82 @@ def spans_text_reliable(spans):
     return unmapped / max(len(text), 1) < 0.15
 
 
-def build_mathml_from_spans(spans):
-    """Build inline MathML directly from PDF text spans instead of
+_UNICODE_TO_LATEX = {
+    "×": r"\times", "÷": r"\div", "±": r"\pm", "∓": r"\mp",
+    "≠": r"\neq", "≈": r"\approx", "≡": r"\equiv", "≤": r"\leq", "≥": r"\geq",
+    "∝": r"\propto", "∞": r"\infty",
+    "∫": r"\int", "∬": r"\iint", "∭": r"\iiint", "∮": r"\oint",
+    "∇": r"\nabla", "∂": r"\partial",
+    "∏": r"\prod", "∑": r"\sum",
+    "√": r"\sqrt", "∛": r"\sqrt[3]", "∜": r"\sqrt[4]",
+    "∠": r"\angle", "⊥": r"\perp", "∥": r"\parallel",
+    "∩": r"\cap", "∪": r"\cup",
+    "⊂": r"\subset", "⊃": r"\supset", "⊆": r"\subseteq", "⊇": r"\supseteq",
+    "∈": r"\in", "∉": r"\notin", "∅": r"\emptyset",
+    "∧": r"\wedge", "∨": r"\vee", "⊕": r"\oplus", "⊗": r"\otimes",
+    "·": r"\cdot", "⋯": r"\cdots", "…": r"\ldots",
+    "π": r"\pi", "θ": r"\theta", "α": r"\alpha", "β": r"\beta", "γ": r"\gamma",
+    "δ": r"\delta", "λ": r"\lambda", "μ": r"\mu", "σ": r"\sigma", "ω": r"\omega",
+    "Δ": r"\Delta", "Σ": r"\Sigma", "Π": r"\Pi", "Ω": r"\Omega",
+}
+
+
+def _join_latex_parts(parts):
+    """Join LaTeX fragments, inserting a space wherever omitting one would
+    change the meaning: a LaTeX control word (\\times, \\sqrt, ...) is only
+    terminated by the first non-letter character, so "\\times" + "a" must
+    become "\\times a" (not "\\timesa", which LaTeX would parse as an
+    unrecognized command \\timesa). No space is needed before a digit,
+    symbol, or another command -- those already terminate the control word
+    on their own.
+    """
+    out = ""
+    for part in parts:
+        if out and re.search(r'\\[a-zA-Z]+$', out) and re.match(r'[a-zA-Z]', part):
+            out += " "
+        out += part
+    return out
+
+
+_SQRT_RE = re.compile(r'\\sqrt(\[[34]\])?([(\[])')
+
+
+def _fix_sqrt_grouping(latex):
+    """\\sqrt only takes the next single token as its argument unless it is
+    wrapped in {}; a parenthesized (or bracketed -- PyMuPDF text sometimes
+    carries "[" ... "]" around a root instead of "(" ... ")") group like
+    "\\sqrt(x+y)" is invalid (it would apply only to the literal "(" and
+    leave ")" dangling outside the root, and a bare "[...]" right after
+    \\sqrt is parsed as the root-degree argument, not a group). Convert
+    whichever bracket the source used into the {} grouping LaTeX actually
+    needs, recursively for nested roots.
+    """
+    out = []
+    i = 0
+    while True:
+        m = _SQRT_RE.search(latex, i)
+        if not m:
+            out.append(latex[i:])
+            break
+        out.append(latex[i:m.start()])
+        open_ch = m.group(2)
+        close_ch = ')' if open_ch == '(' else ']'
+        depth = 1
+        j = m.end()
+        while j < len(latex) and depth > 0:
+            if latex[j] == open_ch:
+                depth += 1
+            elif latex[j] == close_ch:
+                depth -= 1
+            j += 1
+        inner = _fix_sqrt_grouping(latex[m.end():j - 1])
+        out.append(f"\\sqrt{m.group(1) or ''}{{{inner}}}")
+        i = j
+    return "".join(out)
+
+
+def build_latex_from_spans(spans):
+    """Build a LaTeX string directly from PDF text spans instead of
     rasterizing the line and running it through OCR.
 
     PyMuPDF already reports each span's exact text, font size, vertical
@@ -109,7 +180,9 @@ def build_mathml_from_spans(spans):
     that is strictly more reliable ground truth than asking a vision model
     (PaddleOCR-VL) to re-read a picture of text we already have perfectly.
     This keeps math conversion fully offline/free and sidesteps OCR's
-    accuracy limits entirely for this common case.
+    accuracy limits entirely for this common case. The resulting LaTeX is
+    stored in a JATS <tex-math> element; MathML generation from it is a
+    separate, later step.
     """
     text_spans = [s for s in spans if s["text"].strip()]
     if not text_spans:
@@ -137,43 +210,30 @@ def build_mathml_from_spans(spans):
     if not tokens:
         return None
 
-    def leaf(text):
-        if re.fullmatch(r'\d+\.?\d*', text):
-            tag = "mn"
-        elif text in _MATH_OPERATORS:
-            tag = "mo"
-        else:
-            tag = "mi"
-        el = ET.Element(MML_NS + tag)
-        el.text = text
-        return el
+    def latex_token(text):
+        return _UNICODE_TO_LATEX.get(text, text)
 
-    mrow = ET.Element(MML_NS + "mrow")
+    parts = []
     i, n = 0, len(tokens)
     while i < n:
         kind, tok = tokens[i]
-        if kind == "normal" or len(mrow) == 0:
+        if kind == "normal" or not parts:
             # A sup/sub run with nothing preceding it on this line has no
             # base to attach to -- keep it as plain text rather than losing it.
-            mrow.append(leaf(tok))
+            parts.append(latex_token(tok))
             i += 1
             continue
 
-        base_el = mrow[-1]
-        del mrow[-1]
+        base = parts.pop()
         run = []
         while i < n and tokens[i][0] == kind:
-            run.append(tokens[i][1])
+            run.append(latex_token(tokens[i][1]))
             i += 1
-        script_el = ET.Element(MML_NS + "mrow")
-        for rt in run:
-            script_el.append(leaf(rt))
-        wrapper = ET.Element(MML_NS + ("msup" if kind == "sup" else "msub"))
-        wrapper.append(base_el)
-        wrapper.append(script_el)
-        mrow.append(wrapper)
+        marker = "^" if kind == "sup" else "_"
+        parts.append(f"{base}{marker}{{{_join_latex_parts(run)}}}")
 
-    return mrow if len(mrow) else None
+    latex = _fix_sqrt_grouping(_join_latex_parts(parts))
+    return latex if latex else None
 
 
 def sanitize_xml_text(text):
@@ -379,7 +439,15 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
             return f"#{color_int:06x}"
         
         def process_spans(parent, spans):
-            last_elem = None
+            # process_spans is called once per line, with multiple lines
+            # accumulating into the same <p> (see the per-line loop below).
+            # last_elem must therefore pick up wherever the previous line's
+            # call left off -- an element's .text only ever renders before
+            # ALL of its children, so if a later line's leading plain-text
+            # run were written to parent.text instead of the last existing
+            # child's .tail, it would render before every earlier line's
+            # italic/bold runs, scrambling the paragraph's word order.
+            last_elem = list(parent)[-1] if len(parent) else None
             for span in dedupe_overlapping_spans(spans):
                 text = sanitize_xml_text(span["text"])
                 if not text:
@@ -489,9 +557,17 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                     "style": "width:100%; border-collapse:collapse;",
                 })
                 cell_style = "padding:8px 12px;"
-                # An external header is not part of table.rows.  Internal headers
-                # are already the first row and must not be emitted twice.
-                if table.header and table.header.cells and table.header.external:
+                # Only trust an INTERNAL header: it's part of the table's own
+                # detected row/ruling structure, so it's reliable. An
+                # "external" header is just PyMuPDF's guess at whatever text
+                # sits closest above the table -- for a sparse grid (e.g. a
+                # diagram laid out as a table of mostly-empty cells), that is
+                # often the tail of the preceding paragraph, chopped into
+                # nonsense column fragments. That text is not part of
+                # table_bboxes either, so it is already correctly emitted as
+                # its own <p> elsewhere; rendering it again here would only
+                # duplicate it, and corrupted.
+                if table.header and table.header.cells and not table.header.external:
                     thead = ET.SubElement(table_el, "thead")
                     tr = ET.SubElement(thead, "tr")
                     for cell_bbox in table.header.cells:
@@ -533,6 +609,24 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                 # being averaged together as one block.
                 def is_math_block(text, spans):
                     if not spans or not text:
+                        return False
+
+                    # Algorithmic pseudocode ("do if a −< s[m]", "return s[m]
+                    # and n − m") mixes structural keywords with math-italic
+                    # variables that are typically set in the very math fonts
+                    # checked below, so the font-ratio and short-line checks
+                    # both misfire and classify these as pure math. That is
+                    # doubly bad: it not only routes plain prose into a
+                    # <disp-formula>, but build_latex_from_spans's tokenizer
+                    # drops whitespace between tokens, so "do if" glues into
+                    # "doif". Treat a line containing any of these reserved
+                    # words as prose so it goes through normal paragraph
+                    # extraction, which preserves real spacing.
+                    pseudocode_keywords = {
+                        "do", "if", "then", "else", "for", "while", "return", "case", "let"
+                    }
+                    words_lower = set(w.lower() for w in re.findall(r"[A-Za-z]+", text))
+                    if words_lower & pseudocode_keywords:
                         return False
 
                     math_fonts = ['Math', 'Symbol', 'CMMI', 'CMSY', 'CMEX', 'Cambria Math', 'MT Extra']
@@ -603,40 +697,65 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                     continue
 
                 # Walk the block line by line instead of dumping every line into
-                # one paragraph. A block can contain a stack of independent short
-                # equations (each its own <disp-formula>, cropped and OCR'd from
-                # just that line's bbox); consecutive non-math lines still get
-                # accumulated into a single shared <p>, so normal line-wrapped
-                # prose is unaffected.
+                # one paragraph. A line detected as math becomes an
+                # <inline-formula> inside the same, still-open <p> instead of
+                # closing it -- unlike a <disp-formula> (a block element),
+                # this keeps a run of pseudocode/prose lines that happen to
+                # contain a formula in one continuous paragraph rather than
+                # fragmenting it into many small out-of-order-looking pieces.
                 parent = current_sec if current_sec is not None else body
                 current_p = None
+                prev_line_text = ""
+
+                def ensure_space(p, prev_text, next_text):
+                    # PyMuPDF line boundaries don't carry the space a
+                    # justified paragraph visually has at the wrap point, so
+                    # without this two wrapped lines glue together as one
+                    # word (e.g. "of xs(longest"). Skip it after a hyphen (a
+                    # broken word, not a real word boundary) or around
+                    # bracket/quote pairs, where no space belongs either.
+                    if not (
+                        prev_text
+                        and prev_text[-1] not in "-([{“‘"
+                        and next_text[:1] not in ").,;:!?’”»-"
+                    ):
+                        return
+                    last_elem = list(p)[-1] if len(p) else None
+                    if last_elem is not None:
+                        last_elem.tail = (last_elem.tail or "") + " "
+                    else:
+                        p.text = (p.text or "") + " "
+
                 for line in dedupe_overlapping_lines(block.get("lines", [])):
                     line_spans = dedupe_overlapping_spans(line.get("spans", []))
                     line_text = "".join(s["text"] for s in line_spans).strip()
                     if not line_text:
                         continue
 
-                    if opts["ocr_math"] and is_math_block(line_text, line_spans):
-                        current_p = None  # close any open paragraph before the formula
-                        disp_formula = ET.SubElement(parent, "disp-formula")
+                    if current_p is None:
+                        current_p = ET.SubElement(parent, "p")
+                    elif prev_line_text:
+                        ensure_space(current_p, prev_line_text, line_text)
 
-                        # Prefer building MathML directly from the PDF's own text
+                    if opts["ocr_math"] and is_math_block(line_text, line_spans):
+                        inline_formula = ET.SubElement(current_p, "inline-formula")
+
+                        # Prefer building LaTeX directly from the PDF's own text
                         # (exact, deterministic, free) over image OCR. OCR is
                         # only a fallback for when the extracted text itself
                         # can't be trusted (e.g. an embedded math font PyMuPDF
-                        # can't decode to real Unicode).
-                        math_elem = None
+                        # can't decode to real Unicode). Either way the result
+                        # goes into a JATS <tex-math> element -- MathML
+                        # generation from that LaTeX is a separate, later step.
+                        latex = None
                         if spans_text_reliable(line_spans):
-                            mrow = build_mathml_from_spans(line_spans)
-                            if mrow is not None:
-                                math_elem = ET.Element(MML_NS + "math")
-                                math_elem.set("display", "inline")
-                                math_elem.append(mrow)
+                            latex = build_latex_from_spans(line_spans)
 
-                        if math_elem is not None:
-                            disp_formula.append(math_elem)
+                        if latex:
+                            tex_math = ET.SubElement(inline_formula, "tex-math")
+                            tex_math.text = latex
                             if log_callback:
-                                log_callback("Detected math line, built MathML directly from PDF text.")
+                                log_callback("Detected math line, built LaTeX directly from PDF text.")
                         else:
                             # A single text line is often only ~12-14pt tall,
                             # which at 1:1 scale renders a crop only ~12-14px
@@ -651,18 +770,16 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                             pix = page.get_pixmap(clip=crop_rect, matrix=fitz.Matrix(6, 6))
                             img_bytes = pix.tobytes("png")
 
-                            mathml = get_mathml_from_image(img_bytes)
-                            try:
-                                disp_formula.append(ET.fromstring(mathml))
-                            except:
-                                disp_formula.text = mathml
+                            ocr_latex = get_latex_from_image(img_bytes)
+                            tex_math = ET.SubElement(inline_formula, "tex-math")
+                            tex_math.text = ocr_latex
 
                             if log_callback:
-                                log_callback("Detected math line (image OCR fallback), rendered and converted.")
+                                log_callback("Detected math line (image OCR fallback), extracted LaTeX.")
                     else:
-                        if current_p is None:
-                            current_p = ET.SubElement(parent, "p")
                         process_spans(current_p, line_spans)
+
+                    prev_line_text = line_text
 
             elif block["type"] == 1:  # Image block
                 parent = current_sec if current_sec is not None else body
@@ -677,19 +794,17 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                 
                 # Let's say if it's very wide but short, it might be an equation
                 if opts["ocr_math"] and img_width > 50 and img_height < 150 and img_bytes:
-                    disp_formula = ET.SubElement(parent, "disp-formula")
-                    mathml = get_mathml_from_image(img_bytes)
-                    
-                    # Embed the MathML XML directly using a dirty hack since we have it as string
-                    # Alternatively, parse it and append
-                    try:
-                        math_elem = ET.fromstring(mathml)
-                        disp_formula.append(math_elem)
-                    except:
-                        disp_formula.text = mathml
-                        
+                    # inline-formula (not disp-formula) needs a text-flow
+                    # parent -- an image block isn't part of any open <p>,
+                    # so give it one of its own.
+                    formula_p = ET.SubElement(parent, "p")
+                    inline_formula = ET.SubElement(formula_p, "inline-formula")
+                    ocr_latex = get_latex_from_image(img_bytes)
+                    tex_math = ET.SubElement(inline_formula, "tex-math")
+                    tex_math.text = ocr_latex
+
                     if log_callback:
-                        log_callback("Detected and converted math equation.")
+                        log_callback("Detected math equation image, extracted LaTeX.")
                 else:
                     fig = ET.SubElement(parent, "fig")
                     graphic = ET.SubElement(fig, "graphic")

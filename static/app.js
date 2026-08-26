@@ -46,6 +46,18 @@
     document.querySelector(".app-shell").classList.toggle("sidebar-collapsed");
   });
 
+  // ---------------- Theme toggle ----------------
+  // The <head> inline script already applied the stored theme before paint
+  // (avoids a flash of the wrong theme); this just wires up the button.
+  $("#themeToggleBtn").addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    const next = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch (e) {}
+  });
+
   // ---------------- Upload ----------------
   const dropzone = $("#dropzone");
   const fileInput = $("#fileInput");

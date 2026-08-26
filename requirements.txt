@@ -1,7 +1,6 @@
 PyMuPDF
 paddleocr
 truststore
-latex2mathml
 lxml
 Flask
 pywebview

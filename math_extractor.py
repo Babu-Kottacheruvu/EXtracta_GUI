@@ -1,4 +1,3 @@
-import io
 import os
 import re
 import tempfile
@@ -22,7 +21,6 @@ os.environ.setdefault("PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK", "True")
 
 try:
     from paddleocr import PaddleOCRVL
-    import latex2mathml.converter
 
     HAS_PADDLEOCR_VL = True
 except ImportError:
@@ -35,34 +33,13 @@ _pipeline = None
 _LATEX_SEGMENT_RE = re.compile(r"\$\$(.+?)\$\$|\$(.+?)\$", re.DOTALL)
 
 
-def _latex_to_mathml_full(latex):
-    """A complete, standalone <mml:math> element for `latex`."""
-    mathml = latex2mathml.converter.convert(latex)
-    mathml = mathml.replace('<?xml version="1.0" encoding="UTF-8"?>', "").strip()
-    mathml = mathml.replace(
-        'xmlns="http://www.w3.org/1998/Math/MathML"',
-        'xmlns:mml="http://www.w3.org/1998/Math/MathML"',
-    )
-    mathml = re.sub(r"<(/?)(m[a-z]+)", r"<\1mml:\2", mathml)
-    return mathml
-
-
-def _latex_to_mathml_inner(latex):
-    """Same as _latex_to_mathml_full but with the outer <mml:math> wrapper
-    stripped, for splicing into a larger combined element."""
-    full = _latex_to_mathml_full(latex)
-    inner = re.sub(r"^<mml:math[^>]*>", "", full)
-    inner = re.sub(r"</mml:math>\s*$", "", inner)
-    return inner
-
-
-def _escape_xml_text(text):
-    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-
-
-def get_mathml_from_image(img_bytes):
+def get_latex_from_image(img_bytes):
+    """OCR a cropped equation image into raw LaTeX (no MathML conversion --
+    that is a separate, later step). Used as a fallback for math that isn't
+    real extractable PDF text (e.g. a genuinely embedded equation image, or
+    a custom math font PyMuPDF can't decode)."""
     if not HAS_PADDLEOCR_VL:
-        return '<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mtext>Math extraction requires paddleocr</mml:mtext></mml:math>'
+        return "% LaTeX extraction requires paddleocr"
 
     global _pipeline
     try:
@@ -95,37 +72,18 @@ def get_mathml_from_image(img_bytes):
 
         # PaddleOCR-VL returns Markdown with inline/display LaTeX delimited by
         # $...$ / $$...$$ (e.g. "6.  $ x = (-b \pm \sqrt{b^2-4ac}) / 2a $").
-        # Split into alternating plain-text and math segments so a leading
-        # clause number stays as text rather than being force-fed through the
-        # LaTeX converter.
-        parts = []
-        last = 0
-        for m in _LATEX_SEGMENT_RE.finditer(content):
-            if m.start() > last:
-                text = content[last : m.start()].strip()
-                if text:
-                    parts.append(("text", text))
-            latex = m.group(1) if m.group(1) is not None else m.group(2)
-            parts.append(("math", latex.strip()))
-            last = m.end()
-        if last < len(content):
-            text = content[last:].strip()
-            if text:
-                parts.append(("text", text))
-        if not parts:
-            parts = [("text", content)]
+        # A <tex-math> element should hold pure LaTeX, so pull out just the
+        # math segment(s) and drop any surrounding label/prose text.
+        math_segments = [
+            (m.group(1) if m.group(1) is not None else m.group(2)).strip()
+            for m in _LATEX_SEGMENT_RE.finditer(content)
+        ]
+        if math_segments:
+            return " ".join(math_segments)
 
-        if len(parts) == 1 and parts[0][0] == "math":
-            return _latex_to_mathml_full(parts[0][1])
-
-        inner = ""
-        for kind, value in parts:
-            if kind == "text":
-                inner += f"<mml:mtext>{_escape_xml_text(value)}</mml:mtext>"
-            else:
-                inner += _latex_to_mathml_inner(value)
-        return f'<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow>{inner}</mml:mrow></mml:math>'
+        # No $...$ delimiters found -- fall back to the raw recognized text
+        # rather than returning nothing.
+        return content
 
     except Exception as e:
-        err_msg = _escape_xml_text(str(e))
-        return f'<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mtext>Math extraction failed: {err_msg}</mml:mtext></mml:math>'
+        return f"% LaTeX extraction failed: {e}"
