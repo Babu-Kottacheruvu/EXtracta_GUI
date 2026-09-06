@@ -1,0 +1,5963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" article-type="proceedings">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>26b54ed513f24be19751fa975f0613a5.pdf</article-title>
+      </title-group>
+    </article-meta>
+  </front>
+  <body>
+    <p>
+      <bold>Truly Functional Solutions to the Longest Uptrend Problem</bold>
+       
+      <bold>(Functional Pearl)</bold>
+    </p>
+    <p>
+      <styled-content style="color:#005596">ALEXANDER DINGES</styled-content>
+      , RPTU Kaiserslautern-Landau, Germany 
+      <styled-content style="color:#005596">RALF HINZE</styled-content>
+      , RPTU Kaiserslautern-Landau, Germany
+    </p>
+    <p>Solutions to the longest increasing subsequence problem are typically implemented imperatively, relying on arrays for constant-time lookups and updates. Replacing these arrays with functional sequences allows a purely functional solution with the same asymptotic running time, but with significantly worse practical performance. In this pearl, we present a purely functional approach that is not only asymptotically optimal, but also efficient in practice. The core idea is to exploit the interplay between search, lookup, and update operations through Huet’s zipper. In addition, we improve the adaptive behaviour of imperative solutions commonly found in the literature.</p>
+    <p>
+      CCS Concepts: •
+      <bold> Theory of computation</bold>
+       →
+      <italic>Data structures design and analysis</italic>
+      ; •
+      <bold> Software and its</bold>
+       
+      <bold>engineering</bold>
+       →
+      <bold>Functional languages</bold>
+      .
+    </p>
+    <p>Additional Key Words and Phrases: Longest Increasing Subsequence, Zipper, Haskell</p>
+    <p>
+      <bold>ACM Reference Format:</bold>
+       Alexander Dinges and Ralf Hinze. 2025. Truly Functional Solutions to the Longest Uptrend Problem (Functional Pearl).
+      <italic> Proc. ACM Program. Lang.</italic>
+       9, ICFP, Article 251 (August 2025),
+      <styled-content style="color:#781c7d"> 16</styled-content>
+       pages.
+      <styled-content style="color:#005596"> https://doi.org/10.1145/3747520</styled-content>
+    </p>
+    <sec>
+      <title>1 Introduction</title>
+      <p>
+        <italic>I can resist anything except temptation.</italic>
+         Oscar Wilde, Lady Windermere’s Fan
+      </p>
+      <p>
+        “Shall I be pure or impure?” Many temptations lure the functional programmer: input/output, exceptions, references, and, in particular, arrays with constant-time update. And the sirens whisper: “Haskell is the world’s finest imperative programming language.” We openly admit that we too have succumbed to temptation: on more than one occasion, the efficiency promises of updatable arrays have been too compelling. Here is a recent example. We derived an algorithm for solving the “longest increasing subsequence” problem. Briefly, given a sequence of elements, the problem is to find a longest subsequence that is strictly increasing. A subsequence is given by a selection of the original data, such that the relative order of the data items is preserved. The derived algorithm can justifiably be called imperative, and indeed we used the 
+        <italic>ST</italic>
+        -monad for the Haskell implementation. For reference, Figure
+        <styled-content style="color:#781c7d"> 1</styled-content>
+         summarizes the most important facts, using pseudo-code rather than monadic code to emphasize its imperative nature. Indeed, open a classic textbook on program derivation [
+        <styled-content style="color:#781c7d">2</styled-content>
+        ,
+        <styled-content style="color:#781c7d"> 5</styled-content>
+        ] and you will find similar solutions. The central operation is an in-place array update:
+      </p>
+      <p>
+        <italic>𝑖</italic>
+        ←Binary-Search · · · 
+        <inline-formula>
+          <tex-math>𝑠[𝑖−1] ←𝑎: 𝑠[𝑖]</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>s</mml:mi>
+              
+    
+              <mml:mo>[</mml:mo>
+              
+    
+              <mml:mi>i</mml:mi>
+              
+    
+              <mml:mo>-</mml:mo>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+    
+              <mml:mo>]</mml:mo>
+              
+    
+              <mml:mo>←</mml:mo>
+              
+    
+              <mml:mi>a</mml:mi>
+              
+    
+              <mml:mo>:</mml:mo>
+              
+    
+              <mml:mo> </mml:mo>
+              
+    
+              <mml:mi>s</mml:mi>
+              
+    
+              <mml:mo>[</mml:mo>
+              
+    
+              <mml:mi>i</mml:mi>
+              
+    
+              <mml:mo>]</mml:mo>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        Authors’ Contact Information:
+        <styled-content style="color:#005596"> Alexander Dinges</styled-content>
+        , RPTU Kaiserslautern-Landau, Kaiserslautern, Germany, alexander.dinges@ cs.rptu.de;
+        <styled-content style="color:#005596"> Ralf Hinze</styled-content>
+        , RPTU Kaiserslautern-Landau, Kaiserslautern, Germany, ralf.hinze@cs.rptu.de.
+      </p>
+      <p>
+        <styled-content style="color:#005596">This work is licensed under a Creative Commons Attribution 4.0 International License.</styled-content>
+         © 2025 Copyright held by the owner/author(s). ACM 2475-1421/2025/8-ART251 
+        <styled-content style="color:#005596">https://doi.org/10.1145/3747520</styled-content>
+      </p>
+      <p>
+        The pseudocode that follows takes as input a list
+        <italic> xs</italic>
+         and it returns a longest increasing subsequence of
+        <italic> xs</italic>
+         (longest uptrend for short) together with its length. The program maintains a table of candidate solutions: 
+        <italic>𝑠</italic>
+        [
+        <italic>𝑖</italic>
+        ] is an uptrend of length
+        <italic> 𝑛</italic>
+        −
+        <italic>𝑖</italic>
+        . The
+        <italic> extensibility</italic>
+         relation “−
+        <italic>&lt;</italic>
+        ” specifies when a candidate can be extended at the front:
+        <italic> a</italic>
+         −
+        <italic>&lt;</italic>
+        <italic> w</italic>
+         = (
+        <italic>null w</italic>
+        ) ∨(
+        <italic>a</italic>
+        <italic> &lt;</italic>
+        <italic> head w</italic>
+        ).
+      </p>
+      <p>
+        Longest-Increasing-Subseqence (
+        <italic>xs</italic>
+        ) 1 
+        <italic>𝑛</italic>
+        ←Length (
+        <italic>xs</italic>
+        ) 2 
+        <inline-formula>
+          <tex-math>𝑚←𝑛</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>←</mml:mo>
+            
+  
+            <mml:mi>m</mml:mi>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mi>n</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+         3 
+        <italic>𝑠</italic>
+        [
+        <italic>𝑛</italic>
+        ] ←[] 4 
+        <bold>for</bold>
+        <italic> 𝑎</italic>
+        <bold>in</bold>
+         Reverse (
+        <italic>xs</italic>
+        ) 5 
+        <bold>do if</bold>
+        <italic> 𝑎</italic>
+        −
+        <italic>&lt;</italic>
+        <italic> 𝑠</italic>
+        [
+        <italic>𝑚</italic>
+        ] 6 
+        <bold>then</bold>
+        <italic> 𝑠</italic>
+        [
+        <italic>𝑚</italic>
+        −1] ←
+        <italic>𝑎</italic>
+        :
+        <italic> 𝑠</italic>
+        [
+        <italic>𝑚</italic>
+        ] ▷grow table by one entry 7 
+        <inline-formula>
+          <tex-math>𝑚←𝑚−1</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>←</mml:mo>
+            
+  
+            <mml:mi>m</mml:mi>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mi>m</mml:mi>
+            
+  
+            <mml:mo>−</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         8 
+        <bold>else</bold>
+        <italic> 𝑖</italic>
+        ←Binary-Search (
+        <italic>𝜆</italic>
+        <italic>j</italic>
+        <italic> .</italic>
+        <italic> a</italic>
+         −
+        <italic>&lt;</italic>
+        <italic> 𝑠</italic>
+        [
+        <italic>𝑗</italic>
+        ]) (
+        <italic>𝑚</italic>
+        + 1
+        <italic>,𝑛</italic>
+        ) 9 
+        <inline-formula>
+          <tex-math>𝑠[𝑖−1] ←𝑎: 𝑠[𝑖]</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>s</mml:mi>
+              
+    
+              <mml:mo>[</mml:mo>
+              
+    
+              <mml:mi>i</mml:mi>
+              
+    
+              <mml:mo>-</mml:mo>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+    
+              <mml:mo>]</mml:mo>
+              
+    
+              <mml:mo>←</mml:mo>
+              
+    
+              <mml:mi>a</mml:mi>
+              
+    
+              <mml:mo>:</mml:mo>
+              
+    
+              <mml:mo> </mml:mo>
+              
+    
+              <mml:mi>s</mml:mi>
+              
+    
+              <mml:mo>[</mml:mo>
+              
+    
+              <mml:mi>i</mml:mi>
+              
+    
+              <mml:mo>]</mml:mo>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+         ▷update an existing entry 10 
+        <bold>return</bold>
+        <italic> 𝑠</italic>
+        [
+        <italic>𝑚</italic>
+        ] and
+        <italic> 𝑛</italic>
+        −
+        <italic>𝑚</italic>
+         For each element of the input, the table is either grown or an existing entry is updated. If the current longest uptrend at position
+        <italic> 𝑚</italic>
+        can be extended, a longer uptrend has been found. Otherwise, a binary search determines the least
+        <italic> 𝑖</italic>
+        such that
+        <italic> 𝑠</italic>
+        [
+        <italic>𝑖</italic>
+        ] is extensible. The uptrend
+        <italic> 𝑎</italic>
+        :
+        <italic> 𝑠</italic>
+        [
+        <italic>𝑖</italic>
+        ] improves
+        <italic> 𝑠</italic>
+        [
+        <italic>𝑖</italic>
+        −1], which is accordingly updated. We say that
+        <italic> 𝑤</italic>
+        improves
+        <italic> 𝑣</italic>
+        if every extension of
+        <italic> 𝑣</italic>
+        also extends
+        <italic> 𝑤</italic>
+        , formally:
+        <italic> 𝑣</italic>
+        ≼
+        <italic>𝑤</italic>
+        :⇐⇒∀
+        <italic>𝑎.</italic>
+         (
+        <italic>𝑎</italic>
+        −
+        <italic>&lt;</italic>
+        <italic> 𝑣</italic>
+        ) ⇒(
+        <italic>𝑎</italic>
+        −
+        <italic>&lt;</italic>
+        <italic> 𝑤</italic>
+        ). The candidates are not only arranged in
+        <italic> decreasing</italic>
+         order of length, but also in 
+        <italic>increasing</italic>
+         order of improvement — the shorter, the better:
+        <italic> 𝑖</italic>
+        ≤
+        <italic>𝑗</italic>
+        = ⇒
+        <italic>𝑠</italic>
+        [
+        <italic>𝑖</italic>
+        ] ≼
+        <italic>𝑠</italic>
+        [
+        <italic>𝑗</italic>
+        ]. The program maintains this invariant. An example run of the algorithm is shown in Figure
+        <styled-content style="color:#781c7d"> 2</styled-content>
+        .
+      </p>
+      <p>
+        Fig. 1. An
+        <italic> 𝑛</italic>
+        · log
+        <italic>𝑚</italic>
+        algorithm for solving the “longest increasing subsequence” problem.
+      </p>
+      <p>The details are not important. Suffice it to say that a binary search determines an index, which is then used to read one array element and to update a second. To functionalize the code, we can replace the ephemeral, imperative array with a persistent, functional array, but you might argue that this representation change does not remove the imperative nature.</p>
+      <p>
+        let
+        <italic> i</italic>
+         =
+        <italic> binary-search</italic>
+         · · · in
+        <italic> update s</italic>
+         (
+        <italic>i</italic>
+         −1) (
+        <italic>a</italic>
+         :
+        <italic> s</italic>
+         !
+        <italic> i</italic>
+        )
+      </p>
+      <p>
+        If each operation — search, look-up, and update — runs in logarithmic time, then the asymptotic running time is no worse than that of the imperative fragment. However, the constant factors are worse, as look-up and update do not run in constant-time; and, indeed, benchmarks demonstrate the superiority of the imperative program. We gave up ... but the problem gnawed at us. After a while, we realized that we had been guilty of imperative thinking. The three operations — search, look-up, and update — are closely intertwined, but they communicate rather indirectly via numerical positions, via indices. Surely there is a better way of arranging their interplay. This pearl tells the story of a truly functional solution to the “longest increasing subsequence” problem (“longest uptrend” for short). The motto is “
+        <italic>Down with indices!</italic>
+        ” Section
+        <styled-content style="color:#781c7d"> 2</styled-content>
+         introduces the basic idea using the data-structural manifestation of binary search: binary trees. Section
+        <styled-content style="color:#781c7d"> 3</styled-content>
+         addresses the inefficiency of binary trees by introducing a balancing scheme. Finally, Section
+        <styled-content style="color:#781c7d"> 4</styled-content>
+         improves the interface and the implementation. This paper is aimed at readers with a basic understanding of functional programming; no specialized knowledge of algorithm design is presumed.
+      </p>
+      <p>
+        Given the input sequence [0
+        <italic>,</italic>
+         7
+        <italic>,</italic>
+         4
+        <italic>,</italic>
+         6
+        <italic>,</italic>
+         1
+        <italic>,</italic>
+         5
+        <italic>,</italic>
+         3
+        <italic>,</italic>
+         4
+        <italic>,</italic>
+         1] of length 9, the algorithm returns [0
+        <italic>,</italic>
+         1
+        <italic>,</italic>
+         3
+        <italic>,</italic>
+         4] as its longest increasing subsequence. It starts with an array
+        <italic> s</italic>
+         of length 10, setting
+        <italic> 𝑠</italic>
+        [9] = []. The input sequence is processed in reverse order, updating the array
+        <italic> s</italic>
+         as follows:
+      </p>
+      <table-wrap>
+        <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tbody>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[1]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[4]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[3, 4]</td>
+              <td style="padding:8px 12px;">[4]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[3, 4]</td>
+              <td style="padding:8px 12px;">[5]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[1, 3, 4]</td>
+              <td style="padding:8px 12px;">[3, 4]</td>
+              <td style="padding:8px 12px;">[5]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[1, 3, 4]</td>
+              <td style="padding:8px 12px;">[3, 4]</td>
+              <td style="padding:8px 12px;">[6]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[1, 3, 4]</td>
+              <td style="padding:8px 12px;">[4, 6]</td>
+              <td style="padding:8px 12px;">[6]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[1, 3, 4]</td>
+              <td style="padding:8px 12px;">[4, 6]</td>
+              <td style="padding:8px 12px;">[7]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;"/>
+              <td style="padding:8px 12px;">[0, 1, 3, 4]</td>
+              <td style="padding:8px 12px;">[1, 3, 4]</td>
+              <td style="padding:8px 12px;">[4, 6]</td>
+              <td style="padding:8px 12px;">[7]</td>
+              <td style="padding:8px 12px;">[ ]</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+      <p>1</p>
+      <p>4</p>
+      <p>3</p>
+      <p>5</p>
+      <p>1</p>
+      <p>6</p>
+      <p>4</p>
+      <p>7</p>
+      <p>0</p>
+      <p>The active part of the array is highlighted in orange. In each step, either a longer uptrend is added at the front or an existing candidate is replaced by an improved one. Only in the latter case, a binary search is performed. Observe that the candidates in each row (and each column) are arranged in increasing order of improvement.</p>
+      <p>Fig. 2. An example run of Longest-Increasing-Subsequence.</p>
+    </sec>
+    <sec>
+      <title>2 Warm Up: Unbalanced, Binary Trees</title>
+    </sec>
+    <sec>
+      <title>2.1 Binary Trees</title>
+      <p>We represent sequences by binary, node-labelled trees.</p>
+      <p>
+        data
+        <italic> Tree a</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+      </p>
+      <p>
+        |
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+         (
+        <italic>Tree a</italic>
+        )
+        <italic> a</italic>
+         (
+        <italic>Tree a</italic>
+        ) 
+        <italic>single</italic>
+         ::
+        <italic> a</italic>
+         →
+        <italic>Tree a</italic>
+         
+        <italic>single a</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> Node Leaf</italic>
+        </styled-content>
+        <italic> a</italic>
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+      </p>
+      <p>
+        <bold>2.2</bold>
+         
+        <bold>Zipper</bold>
+         Since we frown upon numerical positions, we must first find a suitable replacement. Fortunately, we do not have to look far: locations within a tree can be
+        <italic> functionally</italic>
+         represented using Huet’s zipper (
+        <styled-content style="color:#781c7d">1997</styled-content>
+        ).
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝛾</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝛾</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑎</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <styled-content style="color:#008b00">
+          <italic>L</italic>
+        </styled-content>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑎</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <styled-content style="color:#008b00">
+          <italic>R</italic>
+        </styled-content>
+      </p>
+      <p>
+        data
+        <italic> Context a</italic>
+         
+        <inline-formula>
+          <tex-math>= T</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mi>T</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>t</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            <mml:mi>t</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        |
+        <styled-content style="color:#008b00">
+          <italic> L</italic>
+        </styled-content>
+         (
+        <italic>Context a</italic>
+        )
+        <italic> a</italic>
+         (
+        <italic>Tree a</italic>
+        ) |
+        <styled-content style="color:#008b00">
+          <italic> R</italic>
+        </styled-content>
+         (
+        <italic>Tree a</italic>
+        ) 
+        <italic>a</italic>
+         (
+        <italic>Context a</italic>
+        ) type
+        <italic> Loc a</italic>
+         = (
+        <italic>Context a</italic>
+        <italic>,</italic>
+        <italic> Tree a</italic>
+        )
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>L 𝛾a t</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>L</mml:mi>
+            
+  
+            <mml:mi>𝛾</mml:mi>
+            
+  
+            <mml:mi>a</mml:mi>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>R</italic>
+        </styled-content>
+        <italic> t a</italic>
+        <italic> 𝛾</italic>
+      </p>
+      <p>Roughly speaking, the zipper reverses the “pointers” along a path, replacing downward pointers (marked by a hole</p>
+      <p>
+        ) with upward pointers (drawn as bold edges). The constructors
+        <styled-content style="color:#008b00">
+          <italic> L</italic>
+        </styled-content>
+         and
+        <styled-content style="color:#008b00">
+          <italic> R</italic>
+        </styled-content>
+         signal that the hole is located on the left or on the right. We use dashed edges to depict the position of the hole. To illustrate, consider the two locations below (
+        <italic>N</italic>
+         is short for
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+         and
+        <italic> s</italic>
+         for
+        <italic> single</italic>
+        ).
+      </p>
+      <fig>
+        <graphic xlink:href="image_p4_119_99.jpg"/>
+      </fig>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>T</italic>
+        </styled-content>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>T</italic>
+        </styled-content>
+      </p>
+      <p>4</p>
+      <p>
+        4 
+        <styled-content style="color:#008b00">
+          <italic>R</italic>
+        </styled-content>
+      </p>
+      <p>8</p>
+      <p>
+        8 
+        <styled-content style="color:#008b00">
+          <italic>L</italic>
+        </styled-content>
+      </p>
+      <p>1</p>
+      <p>1</p>
+      <p>10 7</p>
+      <p>10 7</p>
+      <p>3 0</p>
+      <p>3 0</p>
+      <p>8 6</p>
+      <p>8 6</p>
+      <p>
+        (
+        <styled-content style="color:#008b00">
+          <italic>T</italic>
+        </styled-content>
+        <italic>,</italic>
+        <styled-content style="color:#008b00">
+          <italic> N</italic>
+        </styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>N</italic>
+        </styled-content>
+         (
+        <italic>s</italic>
+         0) 1 (
+        <italic>s</italic>
+         3)) 4 (
+        <styled-content style="color:#008b00">
+          <italic>L</italic>
+        </styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>R</italic>
+        </styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>N</italic>
+        </styled-content>
+         (
+        <italic>s</italic>
+         0) 1 (
+        <italic>s</italic>
+         3)) 4
+        <styled-content style="color:#008b00">
+          <italic> T</italic>
+        </styled-content>
+        ) 8 (
+        <italic>s</italic>
+         10)
+        <italic>,</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>N</italic>
+        </styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>N</italic>
+        </styled-content>
+         (
+        <italic>s</italic>
+         6) 7 (
+        <italic>s</italic>
+         8)) 8 (
+        <italic>s</italic>
+         10))) 
+        <styled-content style="color:#008b00">
+          <italic>N</italic>
+        </styled-content>
+         (
+        <italic>s</italic>
+         6) 7 (
+        <italic>s</italic>
+         8))
+      </p>
+      <p>A location consists of a context and a tree. The context is the path leading to the top; the tree is the current focus of attention (its root is marked by a double circle). Starting from the root, we make two moves: first to the right and then to the left. A move changes the location in the following way.</p>
+      <p>right</p>
+      <p>left</p>
+      <p>
+        (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        )
+      </p>
+      <p>
+        (
+        <styled-content style="color:#008b00">
+          <italic>L</italic>
+        </styled-content>
+        <italic> 𝛾</italic>
+        <italic>a u</italic>
+        <italic>,</italic>
+        <italic> t</italic>
+        ) (
+        <styled-content style="color:#008b00">
+          <italic>R</italic>
+        </styled-content>
+        <italic> t a</italic>
+        <italic> 𝛾,</italic>
+        <italic> u</italic>
+        )
+      </p>
+      <p>up</p>
+      <p>up</p>
+      <p>
+        Since we never lose any information, each move can be undone. If we always move up, zipping the context with the tree, we re-create the original tree (do not confuse
+        <italic> zip</italic>
+         with its namesake on lists).
+      </p>
+      <p>
+        <italic>zip</italic>
+         ::
+        <italic> Loc a</italic>
+         →
+        <italic>Tree a</italic>
+         
+        <italic>zip</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>T</italic>
+        </styled-content>
+        <italic>,</italic>
+         
+        <inline-formula>
+          <tex-math>r) = r</tex-math>
+          <mml:math display="block">
+            <mml:mi>r</mml:mi>
+            <mml:mo>=</mml:mo>
+            <mml:mi>r</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>zip (L 𝛾a u, t) = zip (𝛾, Node t a u)</tex-math>
+          <mml:math>
+            
+  
+            <mml:mo>zip</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mi>L</mml:mi>
+            
+  
+            <mml:mo>𝛾</mml:mo>
+            
+  
+            <mml:mi>a</mml:mi>
+            
+  
+            <mml:mi>u</mml:mi>
+            
+  
+            <mml:mo>,</mml:mo>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mo>zip</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mo>𝛾</mml:mo>
+            
+  
+            <mml:mo>,</mml:mo>
+            
+  
+            <mml:mo>Node</mml:mo>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+  
+            <mml:mi>a</mml:mi>
+            
+  
+            <mml:mi>u</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>zip (R t a 𝛾, u) = zip (𝛾, Node t a u)</tex-math>
+          <mml:math>
+            
+  
+            <mml:mo>zip</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mi>R</mml:mi>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+  
+            <mml:mi>a</mml:mi>
+            
+  
+            <mml:mi>𝛾</mml:mi>
+            
+  
+            <mml:mo>,</mml:mo>
+            
+  
+            <mml:mi>u</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mo>zip</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mi>𝛾</mml:mi>
+            
+  
+            <mml:mo>,</mml:mo>
+            
+  
+            <mml:mo>Node</mml:mo>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+  
+            <mml:mi>a</mml:mi>
+            
+  
+            <mml:mi>u</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <bold>2.3</bold>
+         
+        <bold>Binary Search</bold>
+         Given a predicate
+        <italic> p</italic>
+         and a sequence
+        <italic> s</italic>
+         represented by a tree, binary search returns
+        <italic> some</italic>
+         tipping point, a pair of adjacent elements in
+        <italic> s</italic>
+        , say
+        <italic> a</italic>
+         and
+        <italic> b</italic>
+        , such that ¬
+        <italic>p a</italic>
+         and
+        <italic> p b</italic>
+        . (In Figure
+        <styled-content style="color:#781c7d"> 1</styled-content>
+        , binary search returns the index of
+        <italic> b</italic>
+        .) Of course, we do not actually return the elements, but their locations, for example, (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        ) and (
+        <italic>𝛿,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> v b w</italic>
+        ); the element is the root label of the focus. We must also consider the case that the sequence
+        <italic> s</italic>
+         is empty, and that the tipping point is on the far left or on the far right — a case for
+        <italic> Maybe</italic>
+        .
+      </p>
+      <p>
+        <italic>binary-search</italic>
+         :: (
+        <italic>a</italic>
+         →
+        <italic>Bool</italic>
+        ) →
+        <italic>Tree a</italic>
+         →(
+        <italic>Maybe</italic>
+         (
+        <italic>Loc a</italic>
+        )
+        <italic>,</italic>
+        <italic> Maybe</italic>
+         (
+        <italic>Loc a</italic>
+        )) 
+        <italic>binary-search p s</italic>
+         =
+        <italic> find</italic>
+        <styled-content style="color:#008b00">
+          <italic> Nothing</italic>
+        </styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>T</italic>
+        </styled-content>
+        <italic>,</italic>
+        <italic> s</italic>
+        )
+        <styled-content style="color:#008b00">
+          <italic> Nothing</italic>
+        </styled-content>
+      </p>
+      <p>
+        where
+        <italic> find</italic>
+         ::
+        <italic> Maybe</italic>
+         (
+        <italic>Loc a</italic>
+        ) →
+        <italic>Loc a</italic>
+         →
+        <italic>Maybe</italic>
+         (
+        <italic>Loc a</italic>
+        ) →(
+        <italic>Maybe</italic>
+         (
+        <italic>Loc a</italic>
+        )
+        <italic>,</italic>
+        <italic> Maybe</italic>
+         (
+        <italic>Loc a</italic>
+        )) 
+        <italic>find neg cur</italic>
+        @(
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+         )
+        <italic> pos</italic>
+         = (
+        <italic>neg</italic>
+        <italic>,</italic>
+        <italic> pos</italic>
+        ) 
+        <italic>find neg cur</italic>
+        @(
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> l x r</italic>
+        )
+        <italic> pos</italic>
+         |
+        <italic> p x</italic>
+         
+        <inline-formula>
+          <tex-math>= find neg</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mi>find</mml:mi>
+            
+  
+            <mml:mo>neg</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         (
+        <styled-content style="color:#008b00">
+          <italic>L</italic>
+        </styled-content>
+        <italic> 𝛾</italic>
+        <italic>x r</italic>
+        <italic>,</italic>
+        <italic> l</italic>
+        ) (
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+        <italic> cur</italic>
+        ) |
+        <italic> otherwise</italic>
+         =
+        <italic> find</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+        <italic> cur</italic>
+        ) (
+        <styled-content style="color:#008b00">
+          <italic>R</italic>
+        </styled-content>
+        <italic> l x</italic>
+        <italic> 𝛾,</italic>
+        <italic> r</italic>
+        )
+        <italic> pos</italic>
+      </p>
+      <p>
+        The worker function
+        <italic> find</italic>
+         maintains pointers to a candidate for
+        <italic> a</italic>
+         (
+        <italic>neg</italic>
+        ), to the current location (
+        <italic>cur</italic>
+        ), and to a candidate for
+        <italic> b</italic>
+         (
+        <italic>pos</italic>
+        ). The wrapper function initializes the two pointers to
+        <styled-content style="color:#008b00">
+          <italic> Nothing</italic>
+        </styled-content>
+        , which can be seen as representing the boundaries of the sequence
+        <italic> s</italic>
+        . At any point during the recursion, the current focus contains exactly the elements between
+        <italic> a</italic>
+         and
+        <italic> b</italic>
+        . Consequently, if the focus is an empty leaf, two adjacent elements are found. Moreover,
+        <italic> find</italic>
+         maintains the invariant that ¬
+        <italic>p a</italic>
+         and
+        <italic> p b</italic>
+         (if applicable). Note that we do not assume that the sequence
+        <italic> s</italic>
+         is ordered, nor do we assume any properties of the predicate
+        <italic> p</italic>
+        . (A common view is that binary search is about searching an ordered table — the recent pearl by
+        <styled-content style="color:#781c7d"> Dinges and Hinze</styled-content>
+         debunks this myth.)
+      </p>
+      <p>
+        <bold>2.4</bold>
+         
+        <bold>Longest Uptrend</bold>
+         As explained in Figure
+        <styled-content style="color:#781c7d"> 1</styled-content>
+        , the algorithm for solving the “longest uptrend” problem maintains a sequence of candidate solutions arranged in
+        <italic> decreasing</italic>
+         order of length. Each candidate is the best uptrend (with respect to the improvement relation ≼) among all uptrends of the same length. When every input element has been processed, the leftmost candidate is therefore the longest uptrend (the definition of
+        <italic> leftmost</italic>
+         is standard and omitted).
+      </p>
+      <p>
+        <italic>best-longest-uptrend</italic>
+         :: (
+        <italic>Ord a</italic>
+        ) ⇒[
+        <italic>a</italic>
+        ] →[
+        <italic>a</italic>
+        ] 
+        <italic>best-longest-uptrend</italic>
+         =
+        <italic> leftmost</italic>
+         ·
+        <italic> foldr insert</italic>
+         (
+        <italic>single</italic>
+         [ ])
+      </p>
+      <p>
+        The best and only uptrend of length 0 is the empty list [ ]. The step function
+        <italic> insert</italic>
+         first determines a tipping point with respect to the extensibility relation: two adjacent uptrends, say
+        <italic> w</italic>
+         and
+        <italic> v</italic>
+        , such that ¬
+        <italic>a</italic>
+         −
+        <italic>&lt;</italic>
+        <italic> w</italic>
+         and
+        <italic> a</italic>
+         −
+        <italic>&lt;</italic>
+        <italic> v</italic>
+        . Depending on the location of the tipping point,
+        <italic> insert</italic>
+         then takes one of two actions.
+      </p>
+      <p>
+        <italic>insert</italic>
+         :: (
+        <italic>Ord a</italic>
+        ) ⇒
+        <italic>a</italic>
+         →
+        <italic>Tree</italic>
+         [
+        <italic>a</italic>
+        ] →
+        <italic>Tree</italic>
+         [
+        <italic>a</italic>
+        ] 
+        <italic>insert a t</italic>
+         = case
+        <italic> binary-search</italic>
+         (
+        <italic>a</italic>
+        −
+        <italic>&lt;</italic>
+        )
+        <italic> t</italic>
+         of (
+        <styled-content style="color:#008b00">
+          <italic>Nothing</italic>
+        </styled-content>
+        <italic>,</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node Leaf</italic>
+        </styled-content>
+        <italic> v r</italic>
+        )) →
+        <italic>zip</italic>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+         (
+        <italic>single</italic>
+         (
+        <italic>a</italic>
+         :
+        <italic> v</italic>
+        ))
+        <italic> v r</italic>
+        ) (
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> l w r</italic>
+        )
+        <italic>,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Just</italic>
+        </styled-content>
+         (
+        <italic> ,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        )) →
+        <italic>zip</italic>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> l</italic>
+         (
+        <italic>a</italic>
+         :
+        <italic> v</italic>
+        )
+        <italic> r</italic>
+        )
+      </p>
+      <p>
+        If the tipping point is on the far left, then the very first uptrend
+        <italic> v</italic>
+         is extensible. The new uptrend 
+        <italic>a</italic>
+         :
+        <italic> v</italic>
+         is added to the sequence by replacing the empty left subtree with a singleton tree. Otherwise, the uptrend
+        <italic> w</italic>
+         can be improved and is replaced by
+        <italic> a</italic>
+         :
+        <italic> v</italic>
+        . In each case, the updated location is zipped to a tree. The patterns are not exhaustive, but this is no cause for alarm: the second location is necessarily proper, as the empty uptrend is trivially extensible.
+      </p>
+    </sec>
+    <sec>
+      <title>3 Balanced Binary Tree</title>
+      <p>
+        The implementation in Section
+        <styled-content style="color:#781c7d"> 2.4</styled-content>
+         serves mainly as a proof of concept. It has a quadratic worst-case running time Θ(
+        <italic>𝑛</italic>
+        2), because the binary tree always degenerates to a list-like structure, see Figure
+        <styled-content style="color:#781c7d"> 3</styled-content>
+        . However, a fix is easy to find: we impose a balancing scheme. There are a few dozen options to choose from. Since our trees only grow, never shrink, we pick the simplest, and therefore most attractive scheme: Okasaki’s red-black trees (
+        <styled-content style="color:#781c7d">1999</styled-content>
+        ). If you need a refresher, Figure
+        <styled-content style="color:#781c7d"> 4</styled-content>
+         summarizes the key facts about red-black trees.
+      </p>
+      <p>
+        Continuing the example from Figure
+        <styled-content style="color:#781c7d"> 2</styled-content>
+        ,
+        <italic> best-longest-uptrend</italic>
+         applied to the input [0
+        <italic>,</italic>
+         7
+        <italic>,</italic>
+         4
+        <italic>,</italic>
+         6
+        <italic>,</italic>
+         1
+        <italic>,</italic>
+         5
+        <italic>,</italic>
+         3
+        <italic>,</italic>
+         4
+        <italic>,</italic>
+         1] produces the following sequence of trees (from left to right):
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>\cdots</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>⋯</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>[ ]</tex-math>
+          <mml:math display="block">
+            <mml:mo>[</mml:mo>
+            <mml:mo>]</mml:mo>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[ ]</tex-math>
+          <mml:math display="block">
+            <mml:mo>[</mml:mo>
+            <mml:mo>]</mml:mo>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>[ ]</tex-math>
+          <mml:math display="block">
+            <mml:mo>[</mml:mo>
+            <mml:mo>]</mml:mo>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[ ]</tex-math>
+          <mml:math display="block">
+            <mml:mo>[</mml:mo>
+            <mml:mo>]</mml:mo>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[1]</tex-math>
+          <mml:math display="block">
+            <mml:mrow>
+              <mml:mn>1</mml:mn>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[4]</tex-math>
+          <mml:math display="block">
+            <mml:mn>4</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[7]</tex-math>
+          <mml:math display="block">
+            <mml:mn>7</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[4 \ldots</tex-math>
+          <mml:math display="block">
+            <mml:mn>4</mml:mn>
+            <mml:mo>…</mml:mo>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[1 \ldots</tex-math>
+          <mml:math display="block">
+            <mml:mn>1</mml:mn>
+            <mml:mo>…</mml:mo>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[0 \ldots</tex-math>
+          <mml:math display="block">
+            <mml:mo>[</mml:mo>
+            <mml:mn>0</mml:mn>
+            <mml:mo>…</mml:mo>
+            <mml:mo>]</mml:mo>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        Each tree corresponds to a row in Figure
+        <styled-content style="color:#781c7d"> 2</styled-content>
+        . Sadly, since the trees are always extended on the left, they degenerate to a list-like structure. Thus,
+        <italic> binary-search</italic>
+         is, in fact, a linear search.
+      </p>
+      <p>
+        Fig. 3. An example run for
+        <italic> best-longest-uptrend</italic>
+        .
+      </p>
+    </sec>
+    <sec>
+      <title>3.1 Red-Black Trees</title>
+      <p>The changes are minor. The nodes of binary trees are augmented with a colour field.</p>
+      <p>
+        data
+        <italic> Colour</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> Red</italic>
+        </styled-content>
+         |
+        <styled-content style="color:#008b00">
+          <italic> Black</italic>
+        </styled-content>
+         data
+        <italic> Red-Black-Tree a</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+      </p>
+      <p>
+        |
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> Colour</italic>
+         (
+        <italic>Red-Black-Tree a</italic>
+        )
+        <italic> a</italic>
+         (
+        <italic>Red-Black-Tree a</italic>
+        )
+      </p>
+      <p>We take the opportunity to introduce a few helper functions.</p>
+      <p>
+        <italic>new</italic>
+         ::
+        <italic> a</italic>
+         →
+        <italic>Red-Black-Tree a</italic>
+         
+        <italic>new a</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> Node Red Leaf</italic>
+        </styled-content>
+        <italic> a</italic>
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+         
+        <italic>red4</italic>
+         ::
+        <italic> Red-Black-Tree a</italic>
+         →
+        <italic>a</italic>
+         →
+        <italic>Red-Black-Tree a</italic>
+         →
+        <italic>a</italic>
+         →
+        <italic>Red-Black-Tree a</italic>
+         →
+        <italic>a</italic>
+         →
+        <italic>Red-Black-Tree a</italic>
+         →
+        <italic>Red-Black-Tree a</italic>
+         
+        <italic>red4 t a u b v c w</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> Node Red</italic>
+        </styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node Black</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        )
+        <italic> b</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node Black</italic>
+        </styled-content>
+        <italic> v c w</italic>
+        )
+      </p>
+      <p>
+        The code of Sections
+        <styled-content style="color:#781c7d"> 2.2</styled-content>
+         and
+        <styled-content style="color:#781c7d"> 2.3</styled-content>
+         is easily adapted and hence omitted: we only need to add colour fields to the constructors
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        ,
+        <styled-content style="color:#008b00">
+          <italic> L</italic>
+        </styled-content>
+        , and
+        <styled-content style="color:#008b00">
+          <italic> R</italic>
+        </styled-content>
+        .
+      </p>
+    </sec>
+    <sec>
+      <title>3.2 Longest Uptrend — encore une fois</title>
+      <p>
+        The implementation of
+        <italic> best-longest-uptrend</italic>
+         is also unchanged, with one notable exception: if a new node is added, we possibly need to re-balance the tree, see the first case below.
+      </p>
+      <p>
+        <italic>insert</italic>
+         :: (
+        <italic>Ord a</italic>
+        ) ⇒
+        <italic>a</italic>
+         →
+        <italic>Red-Black-Tree</italic>
+         [
+        <italic>a</italic>
+        ] →
+        <italic>Red-Black-Tree</italic>
+         [
+        <italic>a</italic>
+        ] 
+        <italic>insert a t</italic>
+         = case
+        <italic> binary-search</italic>
+         (
+        <italic>a</italic>
+        −
+        <italic>&lt;</italic>
+        )
+        <italic> t</italic>
+         of (
+        <styled-content style="color:#008b00">
+          <italic>Nothing</italic>
+        </styled-content>
+        <italic>,</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> c</italic>
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+        <italic> v r</italic>
+        )) →
+        <italic>balance</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>L</italic>
+        </styled-content>
+        <italic> c</italic>
+        <italic> 𝛾</italic>
+        <italic>v r</italic>
+        <italic>,</italic>
+        <italic> new</italic>
+         (
+        <italic>a</italic>
+         :
+        <italic> v</italic>
+        )) (
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> c l w r</italic>
+        )
+        <italic>,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Just</italic>
+        </styled-content>
+         (
+        <italic> ,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        )) →
+        <italic>zip</italic>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> c l</italic>
+         (
+        <italic>a</italic>
+         :
+        <italic> v</italic>
+        )
+        <italic> r</italic>
+        )
+      </p>
+      <p>
+        The helper function
+        <italic> balance</italic>
+         takes a location and maintains the invariant that the focus is coloured red. It walks
+        <italic> up</italic>
+         the left spine, distinguishing three cases:
+      </p>
+      <p>
+        Red-black trees are a cunning representation of 2-3-4 trees, where ternary and quaternary nodes are represented by small binary trees consisting of a black root and one or two red children. The relation to 2-3-4 trees motivates the
+        <italic> red-condition</italic>
+        : a red node can only appear as a child of a black node. 2-3-4 trees are perfectly balanced, motivating the
+        <italic> black-condition</italic>
+        : on any path from the root to a leaf, the number of black nodes is the same — the number is called the
+        <italic> black-height</italic>
+        . The two conditions ensure that each path from the root to a leaf has logarithmic length in the total number of nodes.
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑐</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>c</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>𝑎</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑤</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑤</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            <mml:mi>t</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑐</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>c</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑏</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑏</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑣</tex-math>
+          <mml:math display="inline">
+            <mml:mi>v</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑤</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑤</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑏</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑏</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>𝑎</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑏</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑏</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑢</tex-math>
+          <mml:math display="inline">
+            <mml:mi>u</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑣</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>v</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            <mml:mi>t</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑢</tex-math>
+          <mml:math display="inline">
+            <mml:mi>u</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑎</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑐</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>c</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑣</tex-math>
+          <mml:math display="inline">
+            <mml:mi>v</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑤</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑤</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑐</tex-math>
+          <mml:math display="inline">
+            <mml:mi>c</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            <mml:mi>t</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑢</tex-math>
+          <mml:math display="inline">
+            <mml:mi>u</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑎</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑤</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑤</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑎</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            <mml:mi>t</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑏</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑏</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑢</tex-math>
+          <mml:math display="inline">
+            <mml:mi>u</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑐</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>c</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            <mml:mi>t</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑏</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑏</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑢</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>u</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑣</tex-math>
+          <mml:math display="inline">
+            <mml:mi>v</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑣</tex-math>
+          <mml:math display="inline">
+            <mml:mi>v</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑤</tex-math>
+          <mml:math display="inline">
+            <mml:mi>w</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        Insertion works in the same way as with binary trees, except that a leaf is replaced by a
+        <italic> red</italic>
+         node, possibly violating the red-condition, but not the black-condition. The violation is fixed by local transformations along the search path, as illustrated above. Each rewrite possibly causes a violation further up the tree. If a red node percolates to the top, it is turned into a black node, increasing the black-height by one.
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>γ</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>Fig. 4. Red-black trees: a brief summary.</p>
+      <p>
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝛾</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑐</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>c</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑏</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑏</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑤</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑤</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑏</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑏</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑎</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑣</tex-math>
+          <mml:math display="inline">
+            <mml:mi>v</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>𝑎</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑣</tex-math>
+          <mml:math display="inline">
+            <mml:mi>v</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑎</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝑎</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>T</italic>
+        </styled-content>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑢</tex-math>
+          <mml:math display="inline">
+            <mml:mi>u</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>t</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑢</tex-math>
+          <mml:math display="inline">
+            <mml:mi>u</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>t</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑢</tex-math>
+          <mml:math display="inline">
+            <mml:mi>u</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑡</tex-math>
+          <mml:math display="inline">
+            <mml:mi>t</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        If the parent is black, no (further) re-balancing is necessary. If the parent is red, the red-condition is violated: the red-red-black path is transformed into a red node with two black children, see Figure
+        <styled-content style="color:#781c7d"> 4</styled-content>
+        ; and the re-balancing continues. If there is no parent node, the red node has percolated to the top, where it is re-coloured to be black.
+      </p>
+      <p>
+        <italic>balance</italic>
+         ::
+        <italic> Loc a</italic>
+         →
+        <italic>Red-Black-Tree a</italic>
+         
+        <italic>balance</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>T</italic>
+        </styled-content>
+        <italic>,</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic>Node Red</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        ) =
+        <styled-content style="color:#008b00">
+          <italic> Node Black</italic>
+        </styled-content>
+        <italic> t a u</italic>
+         
+        <italic>balance</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>L Red</italic>
+        </styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>L Black</italic>
+        </styled-content>
+        <italic> 𝛾</italic>
+        <italic>c w</italic>
+        )
+        <italic> b v</italic>
+        <italic>,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node Red</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        ) =
+        <italic> balance</italic>
+         (
+        <italic>𝛾,</italic>
+        <italic> red4 t a u b v c w</italic>
+        ) 
+        <italic>balance</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>L Black</italic>
+        </styled-content>
+        <italic> 𝛾</italic>
+        <italic>b v</italic>
+        <italic>,</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic>Node Red</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        ) =
+        <italic> zip</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>L Black</italic>
+        </styled-content>
+        <italic> 𝛾</italic>
+        <italic>b v</italic>
+        <italic>,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node Red</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        )
+      </p>
+      <p>
+        Again, the patterns are not exhaustive; and again, this is no cause for alarm. Since the path initially points to the new leftmost element, it is necessarily a sequence of
+        <styled-content style="color:#008b00">
+          <italic> L</italic>
+        </styled-content>
+         constructors ending in a
+        <styled-content style="color:#008b00">
+          <italic> T</italic>
+        </styled-content>
+        . Huet’s zipper has proved its worth. As we are able to walk
+        <italic> up</italic>
+         the tree, violations of the red-condition are straightforward to detect and to repair. Observe that both
+        <italic> zip</italic>
+         and
+        <italic> balance</italic>
+         are tail-recursive, which is one of the reasons why the implementation of
+        <italic> best-longest-uptrend</italic>
+         performs very well in practice. It is also asymptotically optimal: it runs in Θ(
+        <italic>𝑛</italic>
+        · log
+        <italic>𝑚</italic>
+        ) time, where
+        <italic> 𝑛</italic>
+        is the length of the input and
+        <italic> 𝑚</italic>
+        is the length of a longest uptrend. But there is still room for improvement.
+      </p>
+      <p>
+        <bold>4</bold>
+         
+        <bold>Finish: Finger Tree</bold>
+         The implementation can be improved in two ways, addressing two orthogonal issues. The first improvement is of algorithmic nature and addresses an efficiency problem. The imperative solution runs in linear time, if the input is sorted or nearly sorted, as the case where the table grows is treated separately (lines 5-7 in Figure
+        <styled-content style="color:#781c7d"> 1</styled-content>
+        ). To achieve the same
+        <italic> adaptive</italic>
+         behaviour, we need to be able to extend a sequence in amortized constant time and to access the head in constant time. The second improvement concerns a software-engineering issue: the lack of a proper interface. Both the data structures, red-black trees and zippers, and the central algorithm, binary search, are tailored to the application and are of little general use. (The search returns a pointer to a node, revealing implementation details. A malicious adversary could tinker with the internals. Ouch.) We address both problems in turn.
+      </p>
+      <p>
+        <bold>4.1</bold>
+         
+        <bold>Left-Spine View</bold>
+         Let us start with a crucial observation. Our application is rather special in that new elements are only added at the front. This usage pattern has an interesting consequence:
+        <italic> the size of a red-black</italic>
+         
+        <italic>tree completely determines its shape</italic>
+         [
+        <styled-content style="color:#781c7d">6</styled-content>
+        ]. To see why this is the case, let us consider a few small examples. The diagrams below show the shapes for sizes up to 8. For perspicuity, the insertion path, the so-called
+        <italic> left spine</italic>
+        , is drawn horizontally (ignore the numbers for the moment).
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>1 = 2(1)</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mn>2</mml:mn>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>2 = 2(2)</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>2</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mo>2</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mo>2</mml:mo>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>3 = 2(11)</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:apply>
+              
+    
+              <mml:eq/>
+              
+    
+              <mml:cn>3</mml:cn>
+              
+    
+              <mml:apply>
+                
+      
+                <mml:times/>
+                
+      
+                <mml:cn>2</mml:cn>
+                
+      
+                <mml:apply>
+                  
+        
+                  <mml:fenced/>
+                  
+        
+                  <mml:cn>11</mml:cn>
+                  
+      
+                </mml:apply>
+                
+    
+              </mml:apply>
+              
+  
+            </mml:apply>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>4 = 2(21)</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:apply>
+              
+    
+              <mml:eq/>
+              
+    
+              <mml:cn>4</mml:cn>
+              
+    
+              <mml:apply>
+                
+      
+                <mml:times/>
+                
+      
+                <mml:cn>2</mml:cn>
+                
+      
+                <mml:apply>
+                  
+        
+                  <mml:power/>
+                  
+        
+                  <mml:cn>2</mml:cn>
+                  
+        
+                  <mml:cn>1</mml:cn>
+                  
+      
+                </mml:apply>
+                
+    
+              </mml:apply>
+              
+  
+            </mml:apply>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>5 = 2(12)</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>5</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mo>2</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mo>12</mml:mo>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>6 = 2(22)</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>6</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mo>2</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mn>22</mml:mn>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>7 = 2(111)</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>7</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mo>2</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mn>111</mml:mn>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>8 = 2(211)</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>8</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mo>2</mml:mo>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mn>211</mml:mn>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        We observe that red nodes are rather rare; they only appear
+        <italic> on</italic>
+         the left spine. This is not a coincidence. New nodes, which are coloured red, are placed
+        <italic> on</italic>
+         the left spine. If the red-condition is violated, the first rewrite rule of Figure
+        <styled-content style="color:#781c7d"> 4</styled-content>
+         fires. The rule is repeated below, but with a twist: in accordance with the examples, the left spine is drawn horizontally.
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>+1</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <italic>t</italic>
+         
+        <italic>a</italic>
+         
+        <inline-formula>
+          <tex-math>1</tex-math>
+          <mml:math display="block">
+            <mml:mn>1</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>2</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>+1</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <italic>b</italic>
+      </p>
+      <p>
+        <italic>t</italic>
+         
+        <italic>a</italic>
+      </p>
+      <p>
+        <italic>c</italic>
+      </p>
+      <p>
+        <italic>b</italic>
+      </p>
+      <p>(1)</p>
+      <p>
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         ⇒
+      </p>
+      <p>
+        <italic>u</italic>
+      </p>
+      <p>
+        <italic>c</italic>
+      </p>
+      <p>
+        <italic>v</italic>
+      </p>
+      <p>
+        <italic>w</italic>
+      </p>
+      <p>
+        <italic>u</italic>
+      </p>
+      <p>
+        <italic>v</italic>
+         
+        <italic>w</italic>
+      </p>
+      <p>
+        The rule maintains the invariant that red nodes only appear
+        <italic> on</italic>
+         the spine. Consequently, the trees hanging from the spine are all black. This has two immediate consequences. First, only the first rule ever fires, see Figure
+        <styled-content style="color:#781c7d"> 4</styled-content>
+        . Second, the black-condition entails that the trees below the spine are perfectly balanced. Thus, the left spine is a sequence of topped perfect trees, so-called
+        <italic> pennants</italic>
+        . The black-condition also implies that a pennant of height
+        <italic> h</italic>
+         appears either once or twice. Since the size of a pennant of height
+        <italic> h</italic>
+         is 2
+        <italic>ℎ</italic>
+        , the shape of a tree of size
+        <italic> n</italic>
+         is uniquely determined by the binary representation of
+        <italic> n</italic>
+        :
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑘−1</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>k</mml:mi>
+            
+  
+            <mml:mo>−</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>\sum︁</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>∑</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2^{(𝑑}0^{. . .𝑑}𝑘−1^{)}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mn>2</mml:mn>
+              
+    
+              <mml:mo>(</mml:mo>
+              
+    
+              <mml:mi>d</mml:mi>
+              
+    
+              <mml:mo>)</mml:mo>
+              
+  
+            </mml:msup>
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mn>0</mml:mn>
+              
+    
+              <mml:mo>.</mml:mo>
+              
+    
+              <mml:mo>.</mml:mo>
+              
+    
+              <mml:mo>.</mml:mo>
+              
+    
+              <mml:mi>d</mml:mi>
+              
+  
+            </mml:msup>
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mi>k</mml:mi>
+              
+    
+              <mml:mo>−</mml:mo>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+  
+            </mml:msup>
+            
+
+          </mml:math>
+        </inline-formula>
+        <inline-formula>
+          <tex-math>:=</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>=:</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝑖=0</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>i</mml:mi>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mn>0</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>𝑑_{𝑖}\cdot 2^{𝑖}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>d</mml:mi>
+              
+    
+              <mml:msub>
+                
+      
+                <mml:mi>i</mml:mi>
+                
+      
+                <mml:mn>i</mml:mn>
+                
+    
+              </mml:msub>
+              
+    
+              <mml:mo>⋅</mml:mo>
+              
+    
+              <mml:msup>
+                
+      
+                <mml:mn>2</mml:mn>
+                
+      
+                <mml:mi>i</mml:mi>
+                
+    
+              </mml:msup>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>with 𝑑_{𝑖}\in{1, 2}.</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>d</mml:mi>
+              
+    
+              <mml:mo stretchy="false">(</mml:mo>
+              
+    
+              <mml:mi>i</mml:mi>
+              
+    
+              <mml:mo stretchy="false">)</mml:mo>
+              
+    
+              <mml:mo>∈</mml:mo>
+              
+    
+              <mml:mo>(</mml:mo>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+    
+              <mml:mo>,</mml:mo>
+              
+    
+              <mml:mn>2</mml:mn>
+              
+    
+              <mml:mo>)</mml:mo>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        The digit 1 corresponds to a single black pennant, the digit 2 to a red pennant followed by a black pennant, see the examples above. (Note that the digit 0 is not needed in this context.) The weight of the digit equals the size of the pennant(s). Taking the analogy further, the rewrite rule (
+        <styled-content style="color:#781c7d">1</styled-content>
+        ) can be seen as implementing a carry, mapping 1 · 2
+        <italic>𝑖</italic>
+        + 2 · 2
+        <italic>𝑖</italic>
+        to 3 · 2
+        <italic>𝑖</italic>
+        = 1 · 2
+        <italic>𝑖</italic>
+        + 1 · 21+
+        <italic>𝑖</italic>
+        . The analysis suggests a representation change, switching from the standard representation of red-black trees to the
+        <italic> left-spine view</italic>
+        .
+      </p>
+      <p>
+        data
+        <italic> Digit</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> One</italic>
+        </styled-content>
+         |
+        <styled-content style="color:#008b00">
+          <italic> Two</italic>
+        </styled-content>
+         data
+        <italic> Spine a</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> Nil</italic>
+        </styled-content>
+      </p>
+      <p>
+        |
+        <styled-content style="color:#008b00">
+          <italic> Cons</italic>
+        </styled-content>
+        <italic> Digit a</italic>
+         (
+        <italic>Tree a</italic>
+        ) (
+        <italic>Spine a</italic>
+        )
+      </p>
+      <p>
+        Ironically, colours are no longer needed: the digits encode the colour information of the nodes on the spine; the trees hanging from the spine are black anyway. The resulting structure is also known as a (one-sided)
+        <italic> finger tree</italic>
+         — the spine view can be seen as a finger pointing to the leftmost element. Of course, we have come across the
+        <italic> Spine</italic>
+         datatype before. The left-spine view is a special case of a context: if (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+         ) is the location of the leftmost leaf, then
+        <italic> 𝛾</italic>
+        represents the left spine. In more detail, we have the following correspondences.
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>T</italic>
+        </styled-content>
+         
+        <styled-content style="color:#008b00">
+          <italic> Nil</italic>
+        </styled-content>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>L Black</italic>
+        </styled-content>
+        <italic> 𝛾</italic>
+        <italic>a t</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic> Cons One</italic>
+        </styled-content>
+        <italic> a t s</italic>
+         
+        <inline-formula>
+          <tex-math>⇐=</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>⇐</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <italic>𝛾</italic>
+        <italic> s</italic>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>L Red</italic>
+        </styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>L Black</italic>
+        </styled-content>
+        <italic> 𝛾</italic>
+        <italic>b u</italic>
+        )
+        <italic> a t</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic> Cons Two</italic>
+        </styled-content>
+        <italic> a</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <italic> t b u</italic>
+        )
+        <italic> s</italic>
+         
+        <inline-formula>
+          <tex-math>⇐=</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>⇐</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <italic>𝛾</italic>
+        <italic> s</italic>
+      </p>
+      <p>
+        So, sequences are no longer represented by trees, but morally by zippers! Finger trees are a so-called
+        <italic> numerical representation</italic>
+        . The container type is modelled after the 1-2 binary number system; operations on finger trees are modelled after arithmetic operations on 1-2 binary numbers. The empty sequence corresponds to zero, a singleton tree to one,
+      </p>
+      <p>
+        <italic>nil</italic>
+         ::
+        <italic> Spine a</italic>
+         
+        <inline-formula>
+          <tex-math>nil = Nil</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>nil</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mi>Nil</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <italic>single</italic>
+         ::
+        <italic> a</italic>
+         →
+        <italic>Spine a</italic>
+         
+        <italic>single a</italic>
+         =
+        <styled-content style="color:#008b00">
+          <italic> Cons One</italic>
+        </styled-content>
+        <italic> a</italic>
+        <styled-content style="color:#008b00">
+          <italic> Leaf Nil</italic>
+        </styled-content>
+      </p>
+      <p>
+        and
+        <italic> cons</italic>
+        ing an element to the binary increment. (The worker function
+        <italic> incr</italic>
+         adapts
+        <italic> balance</italic>
+         to the new representation.)
+      </p>
+      <p>
+        <italic>cons</italic>
+         ::
+        <italic> a</italic>
+         →
+        <italic>Spine a</italic>
+         →
+        <italic>Spine a</italic>
+         
+        <italic>cons a s</italic>
+         =
+        <italic> incr a</italic>
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+        <italic> s</italic>
+         
+        <italic>incr</italic>
+         ::
+        <italic> a</italic>
+         →
+        <italic>Tree a</italic>
+         →
+        <italic>Spine a</italic>
+         →
+        <italic>Spine a</italic>
+         
+        <italic>incr a</italic>
+        1
+        <italic> t</italic>
+        1 (
+        <styled-content style="color:#008b00">
+          <italic>Nil</italic>
+        </styled-content>
+        ) 
+        <inline-formula>
+          <tex-math>= Cons One a_{1} t_{1} Nil</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mi>Cons</mml:mi>
+            
+  
+            <mml:mo> </mml:mo>
+            
+  
+            <mml:mi>One</mml:mi>
+            
+  
+            <mml:mo> </mml:mo>
+            
+  
+            <mml:msub>
+              
+    
+              <mml:mi>a</mml:mi>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+  
+            </mml:msub>
+            
+  
+            <mml:mo> </mml:mo>
+            
+  
+            <mml:msub>
+              
+    
+              <mml:mi>t</mml:mi>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+  
+            </mml:msub>
+            
+  
+            <mml:mo> </mml:mo>
+            
+  
+            <mml:mi>Nil</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <italic>incr a</italic>
+        1
+        <italic> t</italic>
+        1 (
+        <styled-content style="color:#008b00">
+          <italic>Cons One</italic>
+        </styled-content>
+        <italic> a</italic>
+        2
+        <italic> t</italic>
+        2
+        <italic> s</italic>
+        ) =
+        <styled-content style="color:#008b00">
+          <italic> Cons Two</italic>
+        </styled-content>
+        <italic> a</italic>
+        1 (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <italic> t</italic>
+        1
+        <italic> a</italic>
+        2
+        <italic> t</italic>
+        2)
+        <italic> s</italic>
+         
+        <italic>incr a</italic>
+        1
+        <italic> t</italic>
+        1 (
+        <styled-content style="color:#008b00">
+          <italic>Cons Two</italic>
+        </styled-content>
+        <italic> a</italic>
+        2
+        <italic> t</italic>
+        2
+        <italic> s</italic>
+        ) =
+        <styled-content style="color:#008b00">
+          <italic> Cons One</italic>
+        </styled-content>
+        <italic> a</italic>
+        1
+        <italic> t</italic>
+        1 (
+        <italic>incr a</italic>
+        2
+        <italic> t</italic>
+        2
+        <italic> s</italic>
+        )
+      </p>
+      <p>
+        Since
+        <italic> cons</italic>
+         is modelled after the binary increment, it runs in amortized constant time.
+      </p>
+      <p>
+        <bold>4.2</bold>
+         
+        <bold>Zippifying the Zipper</bold>
+         It remains to adapt the zipper to the new representation. However, there is a small challenge: the new sequence type involves two different types of trees:
+        <italic> Spine</italic>
+        <italic> a</italic>
+         and
+        <italic> Tree</italic>
+        <italic> a</italic>
+        . So we need to look at the concept of a context in a more principled way. A context can be seen as a term with a hole; plugging the hole with a term yields another term. In a typed setting, the type of contexts therefore needs to record the type of the hole, say
+        <italic> a</italic>
+        , and the type of the resulting term, say
+        <italic> r</italic>
+        . Contexts are not unlike functions, so we use a similar notation:
+        <italic> a</italic>
+         ⇒
+        <italic>r</italic>
+        . The type
+        <italic> Context</italic>
+        <italic> a</italic>
+         from Section
+        <styled-content style="color:#781c7d"> 2.2</styled-content>
+         corresponds to the more informative type
+        <italic> Tree a</italic>
+         ⇒
+        <italic>Tree a</italic>
+        . An
+        <italic> n</italic>
+        -ary constructor gives rise to
+        <italic> n</italic>
+         different contexts, for example,
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>K</italic>
+        </styled-content>
+         ::
+        <italic> A</italic>
+         →
+        <italic>B</italic>
+         →
+        <italic>C</italic>
+         →
+        <italic>D</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic>K</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+         :: ∀
+        <italic>r</italic>
+        <italic> .</italic>
+         (
+        <italic>D</italic>
+         ⇒
+        <italic>r</italic>
+        ) →
+        <italic>B</italic>
+         →
+        <italic>C</italic>
+         →(
+        <italic>A</italic>
+         ⇒
+        <italic>r</italic>
+        ) 
+        <styled-content style="color:#008b00">
+          <italic>K</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+         :: ∀
+        <italic>r</italic>
+        <italic> .</italic>
+        <italic> A</italic>
+         →(
+        <italic>D</italic>
+         ⇒
+        <italic>r</italic>
+        ) →
+        <italic>C</italic>
+         →(
+        <italic>B</italic>
+         ⇒
+        <italic>r</italic>
+        ) 
+        <styled-content style="color:#008b00">
+          <italic>K</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+         :: ∀
+        <italic>r</italic>
+        <italic> .</italic>
+        <italic> A</italic>
+         →
+        <italic>B</italic>
+         →(
+        <italic>D</italic>
+         ⇒
+        <italic>r</italic>
+        ) →(
+        <italic>C</italic>
+         ⇒
+        <italic>r</italic>
+        )
+      </p>
+      <p>
+        As in Section
+        <styled-content style="color:#781c7d"> 2.2</styled-content>
+        , we place the upward pointer of type
+        <italic> D</italic>
+         ⇒
+        <italic>r</italic>
+         in the hole. For the application at hand, we need contexts for
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        s and
+        <styled-content style="color:#008b00">
+          <italic> Cons</italic>
+        </styled-content>
+        es. Since the result types of the constructors differ, they must be introduced using a generalized algebraic datatype.
+      </p>
+      <p>
+        data
+        <italic> a</italic>
+         ⇒
+        <italic>b</italic>
+         where
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>Here</italic>
+        </styled-content>
+        :: ∀
+        <italic>r</italic>
+        <italic> .</italic>
+        <italic> r</italic>
+         ⇒
+        <italic>r</italic>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+         :: ∀
+        <italic>r a</italic>
+        <italic> .</italic>
+         (
+        <italic>Tree a</italic>
+         ⇒
+        <italic>r</italic>
+        ) →
+        <italic>a</italic>
+         →
+        <italic>Tree a</italic>
+         →(
+        <italic>Tree a</italic>
+         ⇒
+        <italic>r</italic>
+        ) 
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+         :: ∀
+        <italic>r a</italic>
+        <italic> .</italic>
+        <italic> Tree a</italic>
+         →(
+        <italic>Tree a</italic>
+         ⇒
+        <italic>r</italic>
+        ) →
+        <italic>Tree a</italic>
+         →(
+        <italic>a</italic>
+         ⇒
+        <italic>r</italic>
+        ) 
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+         :: ∀
+        <italic>r a</italic>
+        <italic> .</italic>
+        <italic> Tree a</italic>
+         →
+        <italic>a</italic>
+         →(
+        <italic>Tree a</italic>
+         ⇒
+        <italic>r</italic>
+        ) →(
+        <italic>Tree a</italic>
+         ⇒
+        <italic>r</italic>
+        ) 
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+         :: ∀
+        <italic>r a</italic>
+        <italic> .</italic>
+        <italic> Digit</italic>
+         →(
+        <italic>Spine a</italic>
+         ⇒
+        <italic>r</italic>
+        ) →
+        <italic>Tree a</italic>
+         →
+        <italic>Spine a</italic>
+         →(
+        <italic>a</italic>
+         ⇒
+        <italic>r</italic>
+        ) 
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+         :: ∀
+        <italic>r a</italic>
+        <italic> .</italic>
+        <italic> Digit</italic>
+         →
+        <italic>a</italic>
+         →(
+        <italic>Spine a</italic>
+         ⇒
+        <italic>r</italic>
+        ) →
+        <italic>Spine a</italic>
+         →(
+        <italic>Tree a</italic>
+         ⇒
+        <italic>r</italic>
+        ) 
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">4</styled-content>
+         :: ∀
+        <italic>r a</italic>
+        <italic> .</italic>
+        <italic> Digit</italic>
+         →
+        <italic>a</italic>
+         →
+        <italic>Tree a</italic>
+         →(
+        <italic>Spine a</italic>
+         ⇒
+        <italic>r</italic>
+        ) →(
+        <italic>Spine a</italic>
+         ⇒
+        <italic>r</italic>
+        )
+      </p>
+      <p>
+        The constructor
+        <styled-content style="color:#008b00">
+          <italic> Here</italic>
+        </styled-content>
+         corresponds to
+        <styled-content style="color:#008b00">
+          <italic> T</italic>
+        </styled-content>
+         of the
+        <italic> Context</italic>
+         datatype,
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+         and
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+         to
+        <styled-content style="color:#008b00">
+          <italic> L</italic>
+        </styled-content>
+         and
+        <styled-content style="color:#008b00">
+          <italic> R</italic>
+        </styled-content>
+        . The constructor
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+         allows us to put the focus on the content of a node, as illustrated on the right below. For comparison, we have replicated the example of Section
+        <styled-content style="color:#781c7d"> 2.2</styled-content>
+         on the left.
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>4</tex-math>
+          <mml:math display="inline">
+            <mml:mn>4</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>4</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>4</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>Here</italic>
+        </styled-content>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>Here</italic>
+        </styled-content>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>8</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math>
+            <mml:mn>8</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>1</tex-math>
+          <mml:math display="block">
+            <mml:mn>1</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>1</tex-math>
+          <mml:math display="block">
+            <mml:mn>1</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>7</tex-math>
+          <mml:math display="inline">
+            <mml:mn>7</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>3</tex-math>
+          <mml:math>
+            <mml:mn>3</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>0</tex-math>
+          <mml:math>
+            <mml:mn>0</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>3</tex-math>
+          <mml:math>
+            <mml:mn>3</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>0</tex-math>
+          <mml:math>
+            <mml:mn>0</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>8</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>6</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>6</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>8</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>6</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>6</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <fig>
+        <graphic xlink:href="image_p10_347_578.jpg"/>
+      </fig>
+      <p>
+        (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>N</italic>
+        </styled-content>
+         (
+        <italic>s</italic>
+         0) 1 (
+        <italic>s</italic>
+         3)) 4
+        <styled-content style="color:#008b00">
+          <italic> Here</italic>
+        </styled-content>
+        ) 8 (
+        <italic>s</italic>
+         10)
+        <italic>,</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+         (
+        <italic>s</italic>
+         6)
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>N</italic>
+        </styled-content>
+         (
+        <italic>s</italic>
+         6) 7 (
+        <italic>s</italic>
+         8)) (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+         (
+        <styled-content style="color:#008b00">
+          <italic>N</italic>
+        </styled-content>
+         (
+        <italic>s</italic>
+         0) 1 (
+        <italic>s</italic>
+         3)) 4
+        <styled-content style="color:#008b00">
+          <italic> Here</italic>
+        </styled-content>
+        ) 8 (
+        <italic>s</italic>
+         10) (
+        <italic>s</italic>
+         8)
+        <italic>,</italic>
+         7)
+      </p>
+      <p>
+        Even though the
+        <styled-content style="color:#008b00">
+          <italic> Cons</italic>
+        </styled-content>
+         constructor has four arguments, it features only three contexts as we never need to manipulate the first argument, the digit. Using these contexts we can move in both directions on the spine, not unlike a Turing tape. Diagrammatically, if we continue to draw the left spine horizontally, the “upward” pointers now point leftwards.
+      </p>
+      <p>
+        <italic>s</italic>
+         
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>γ</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <italic>a</italic>
+         
+        <italic>d</italic>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝛾</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <italic>s</italic>
+         
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝛾</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <italic>a</italic>
+         
+        <italic>d</italic>
+      </p>
+      <p>
+        <italic>d</italic>
+      </p>
+      <fig>
+        <graphic xlink:href="image_p11_358_167.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p11_118_168.jpg"/>
+      </fig>
+      <fig>
+        <graphic xlink:href="image_p11_217_197.jpg"/>
+      </fig>
+      <p>
+        <italic>t</italic>
+      </p>
+      <p>
+        <italic>t</italic>
+      </p>
+      <p>
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+        <italic> d</italic>
+        <italic> 𝛾</italic>
+        <italic>t s</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+        <italic> d a</italic>
+        <italic> 𝛾</italic>
+        <italic>s</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">4</styled-content>
+        <italic> d a t</italic>
+        <italic> 𝛾</italic>
+      </p>
+      <p>
+        On an amusing note, recall that the spine is a special case of a zipper, so we are “zippifying” a zipper. One-hole contexts have been characterized as derivatives of datatypes [
+        <styled-content style="color:#781c7d">8</styled-content>
+        ]. Hence, our new zipper datatype is a second derivative. Zipping a typed context with a typed term corresponds closely to function application — hence the name of the function.
+      </p>
+      <p>
+        <italic>apply</italic>
+         :: (
+        <italic>a</italic>
+         ⇒
+        <italic>b</italic>
+        ) →(
+        <italic>a</italic>
+         →
+        <italic>b</italic>
+        ) 
+        <italic>apply</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Here</italic>
+        </styled-content>
+        ) 
+        <inline-formula>
+          <tex-math>t = t</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:apply>
+              
+    
+              <mml:eq/>
+              
+    
+              <mml:ci>t</mml:ci>
+              
+    
+              <mml:ci>t</mml:ci>
+              
+  
+            </mml:apply>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <italic>apply</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+        <italic> 𝛾</italic>
+        <italic>a u</italic>
+        ) 
+        <italic>t</italic>
+         =
+        <italic> apply</italic>
+        <italic> 𝛾</italic>
+        (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        ) 
+        <italic>apply</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+        <italic> t</italic>
+        <italic> 𝛾</italic>
+        <italic>u</italic>
+        ) 
+        <italic>a</italic>
+         =
+        <italic> apply</italic>
+        <italic> 𝛾</italic>
+        (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        ) 
+        <italic>apply</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+        <italic> t a</italic>
+        <italic> 𝛾</italic>
+        ) 
+        <italic>u</italic>
+         =
+        <italic> apply</italic>
+        <italic> 𝛾</italic>
+        (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <italic> t a u</italic>
+        ) 
+        <italic>apply</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+        <italic> d</italic>
+        <italic> 𝛾</italic>
+        <italic>t s</italic>
+        )
+        <italic> a</italic>
+         =
+        <italic> apply</italic>
+        <italic> 𝛾</italic>
+        (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <italic> d a t s</italic>
+        ) 
+        <italic>apply</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+        <italic> d a</italic>
+        <italic> 𝛾</italic>
+        <italic>s</italic>
+        )
+        <italic> t</italic>
+         =
+        <italic> apply</italic>
+        <italic> 𝛾</italic>
+        (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <italic> d a t s</italic>
+        ) 
+        <italic>apply</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">4</styled-content>
+        <italic> d a t</italic>
+        <italic> 𝛾</italic>
+        )
+        <italic> s</italic>
+         =
+        <italic> apply</italic>
+        <italic> 𝛾</italic>
+        (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <italic> d a t s</italic>
+        )
+      </p>
+      <p>
+        <bold>4.3</bold>
+         
+        <bold>Exponential Search</bold>
+         Searching a finger tree proceeds in two steps: first, we determine the full binary tree, in which the tipping point is located; then we search this tree. Just as binary trees are the manifestation of 
+        <italic>binary search</italic>
+        , (one-sided) finger trees are the incarnation of
+        <italic> exponential search</italic>
+        . (If you are curious, you may want to peek ahead at Figure
+        <styled-content style="color:#781c7d"> 5</styled-content>
+         for an illustration of the correspondence.) Thanks to the typed zipper, we can have the search return the position of
+        <italic> elements</italic>
+        , rather than nodes. A location of an element within a finger tree has type (
+        <italic>a</italic>
+         ⇒
+        <italic>Spine</italic>
+        <italic> a</italic>
+        <italic>,</italic>
+        <italic> a</italic>
+        ). Loosely speaking, the first component allows us to
+        <italic> write</italic>
+         a new value to the location, while the second component allows us to
+        <italic> read</italic>
+         the old value. If we drop one of the components, we obtain
+        <italic> read-only</italic>
+         or
+        <italic> write-</italic>
+        <italic>only</italic>
+         locations. Tailored to our application, exponential search returns the optional left location write-only and the optional right location read-only.
+      </p>
+      <p>
+        <italic>exponential-search</italic>
+         :: ∀
+        <italic>a</italic>
+        <italic> .</italic>
+         (
+        <italic>a</italic>
+         →
+        <italic>Bool</italic>
+        ) →
+        <italic>Spine a</italic>
+         →(
+        <italic>Maybe</italic>
+         (
+        <italic>a</italic>
+         ⇒
+        <italic>Spine a</italic>
+        )
+        <italic>,</italic>
+        <italic> Maybe a</italic>
+        ) 
+        <italic>exponential-search p</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Nil</italic>
+        </styled-content>
+        ) = (
+        <styled-content style="color:#008b00">
+          <italic>Nothing</italic>
+        </styled-content>
+        <italic>,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Nothing</italic>
+        </styled-content>
+        ) 
+        <italic>exponential-search p</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <italic> d a t r</italic>
+        ) |
+        <italic> p a</italic>
+         = (
+        <styled-content style="color:#008b00">
+          <italic>Nothing</italic>
+        </styled-content>
+        <italic>,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Just</italic>
+        </styled-content>
+        <italic> a</italic>
+        ) |
+        <italic> otherwise</italic>
+         =
+        <italic> explore</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">4</styled-content>
+        <italic> d a t</italic>
+        <styled-content style="color:#008b00">
+          <italic> Here</italic>
+        </styled-content>
+        <italic>,</italic>
+        <italic> r</italic>
+        )
+      </p>
+      <p>The wrapper function deals with two simple cases: the finger tree is empty; or the leftmost element already satisfies the predicate. If neither case applies, we start exploring.</p>
+      <p>
+        where
+        <italic> explore</italic>
+         :: (
+        <italic>Spine a</italic>
+         ⇒
+        <italic>r</italic>
+        <italic>,</italic>
+        <italic> Spine a</italic>
+        ) →(
+        <italic>Maybe</italic>
+         (
+        <italic>a</italic>
+         ⇒
+        <italic>r</italic>
+        )
+        <italic>,</italic>
+        <italic> Maybe a</italic>
+        ) 
+        <italic>explore cur</italic>
+        @(
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Nil</italic>
+        </styled-content>
+        ) =
+        <italic> rewind cur</italic>
+        <styled-content style="color:#008b00">
+          <italic> Nothing</italic>
+        </styled-content>
+         
+        <italic>explore cur</italic>
+        @(
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Cons</italic>
+        </styled-content>
+        <italic> e b u s</italic>
+        ) |
+        <italic> p b</italic>
+         =
+        <italic> rewind cur</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+        <italic> b</italic>
+        ) |
+        <italic> otherwise</italic>
+         =
+        <italic> explore</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">4</styled-content>
+        <italic> e b u</italic>
+        <italic> 𝛾,</italic>
+        <italic> s</italic>
+        ) 
+        <italic>rewind</italic>
+         :: (
+        <italic>Spine a</italic>
+         ⇒
+        <italic>r</italic>
+        <italic>,</italic>
+        <italic> Spine a</italic>
+        ) →
+        <italic>Maybe a</italic>
+         →(
+        <italic>Maybe</italic>
+         (
+        <italic>a</italic>
+         ⇒
+        <italic>r</italic>
+        )
+        <italic>,</italic>
+        <italic> Maybe a</italic>
+        ) 
+        <italic>rewind</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">4</styled-content>
+        <italic> d a t</italic>
+        <italic> 𝛾,</italic>
+        <italic> r</italic>
+        )
+        <italic> pos</italic>
+         =
+        <italic> find</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+        <italic> d</italic>
+        <italic> 𝛾</italic>
+        <italic>t r</italic>
+        ) (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+        <italic> d a</italic>
+        <italic> 𝛾</italic>
+        <italic>r</italic>
+        <italic>,</italic>
+        <italic> t</italic>
+        )
+        <italic> pos</italic>
+      </p>
+      <p>
+        The worker function assumes that the previous element on the spine violates the predicate. It walks along the spine until it finds an element that satisfies it, or until it reaches the end. In both cases, a binary search is subsequently performed using
+        <italic> find</italic>
+        , introduced further below. Note that the argument of
+        <italic> explore</italic>
+         is a location on the spine, which enables us to move in both directions. The function
+        <italic> rewind</italic>
+         makes good use of this feature.
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝛾</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <italic>a</italic>
+         
+        <italic>d</italic>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>𝛾</tex-math>
+          <mml:math display="inline">
+            <mml:mi>𝛾</mml:mi>
+          </mml:math>
+        </inline-formula>
+         
+        <italic>a</italic>
+         
+        <italic>d</italic>
+      </p>
+      <p>
+        <italic>r</italic>
+      </p>
+      <p>
+        <italic>r</italic>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>=</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         ⇒
+      </p>
+      <p>
+        <italic>t</italic>
+      </p>
+      <p>
+        <italic>t</italic>
+      </p>
+      <p>
+        (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">4</styled-content>
+        <italic> d a t</italic>
+        <italic> 𝛾,</italic>
+        <italic> r</italic>
+        ) (
+        <styled-content style="color:#008b00">
+          <italic>Cons</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+        <italic> d a</italic>
+        <italic> 𝛾</italic>
+        <italic>r</italic>
+        <italic>,</italic>
+        <italic> t</italic>
+        )
+      </p>
+      <p>
+        It moves one position to the left, changing the focus from the spine
+        <italic> r</italic>
+         to the tree
+        <italic> t</italic>
+         that is hanging from the spine, and then passes control to
+        <italic> find</italic>
+        . Apart from minor adjustments, the implementation of binary search is identical to the code from Section
+        <styled-content style="color:#781c7d"> 2.3</styled-content>
+        .
+      </p>
+      <p>
+        <italic>find</italic>
+         :: (
+        <italic>a</italic>
+         ⇒
+        <italic>r</italic>
+        ) →(
+        <italic>Tree a</italic>
+         ⇒
+        <italic>r</italic>
+        <italic>,</italic>
+        <italic> Tree a</italic>
+        ) →
+        <italic>Maybe a</italic>
+         →(
+        <italic>Maybe</italic>
+         (
+        <italic>a</italic>
+         ⇒
+        <italic>r</italic>
+        )
+        <italic>,</italic>
+        <italic> Maybe a</italic>
+        ) 
+        <italic>find neg</italic>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Leaf</italic>
+        </styled-content>
+         )
+        <italic> pos</italic>
+         = (
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+        <italic> neg</italic>
+        <italic>,</italic>
+        <italic> pos</italic>
+        ) 
+        <italic>find neg</italic>
+         (
+        <italic>𝛾,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Node</italic>
+        </styled-content>
+        <italic> l a r</italic>
+        )
+        <italic> pos</italic>
+         |
+        <italic> p a</italic>
+         
+        <inline-formula>
+          <tex-math>= find neg</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mi>find</mml:mi>
+            
+  
+            <mml:mo>neg</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">1</styled-content>
+        <italic> 𝛾</italic>
+        <italic>a r</italic>
+        <italic>,</italic>
+        <italic> l</italic>
+        ) (
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+        <italic> a</italic>
+        ) |
+        <italic> otherwise</italic>
+         =
+        <italic> find</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">2</styled-content>
+        <italic> l</italic>
+        <italic> 𝛾</italic>
+        <italic>r</italic>
+        ) (
+        <styled-content style="color:#008b00">
+          <italic>Node</italic>
+        </styled-content>
+        <styled-content style="color:#008b00">3</styled-content>
+        <italic> l a</italic>
+        <italic> 𝛾,</italic>
+        <italic> r</italic>
+        )
+        <italic> pos</italic>
+      </p>
+      <p>
+        Figure
+        <styled-content style="color:#781c7d"> 5</styled-content>
+         shows a run of the algorithm aligning it to exponential search on arrays. The running time of
+        <italic> exponential-search</italic>
+         is Θ(log
+        <italic>𝑖</italic>
+        ), where
+        <italic> 𝑖</italic>
+        is the position of the tipping point. This compares favourably to binary search, which is logarithmic in the size of the entire sequence. However, there is also a downside: due to the two-step process, exponential search is slower by a factor of two when the tipping point is closer to the rear.
+      </p>
+    </sec>
+    <sec>
+      <title>4.4 Longest Uptrend — une dernière fois</title>
+      <p>The step function replaces binary search by exponential search.</p>
+      <p>
+        <italic>insert</italic>
+         :: (
+        <italic>Ord a</italic>
+        ) ⇒
+        <italic>a</italic>
+         →
+        <italic>Spine</italic>
+         [
+        <italic>a</italic>
+        ] →
+        <italic>Spine</italic>
+         [
+        <italic>a</italic>
+        ] 
+        <italic>insert a s</italic>
+         = case
+        <italic> exponential-search</italic>
+         (
+        <italic>a</italic>
+        −
+        <italic>&lt;</italic>
+        )
+        <italic> s</italic>
+         of (
+        <styled-content style="color:#008b00">
+          <italic>Nothing</italic>
+        </styled-content>
+        <italic>,</italic>
+        <styled-content style="color:#008b00">
+          <italic> Just</italic>
+        </styled-content>
+        <italic> v</italic>
+        ) →
+        <italic>cons</italic>
+         (
+        <italic>a</italic>
+         :
+        <italic> v</italic>
+        )
+        <italic> s</italic>
+         (
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+        <italic> f</italic>
+        <italic> ,</italic>
+         
+        <styled-content style="color:#008b00">
+          <italic>Just</italic>
+        </styled-content>
+        <italic> v</italic>
+        ) →
+        <italic>apply f</italic>
+         (
+        <italic>a</italic>
+         :
+        <italic> v</italic>
+        )
+      </p>
+      <p>
+        As before, it distinguishes two cases: either a new uptrend is added at the front, or an existing uptrend is updated. Thanks to the improved interface, the code is now short and sweet. Turning to the analysis of the running time, there are two worst-case scenarios: (1) either the to-be-inserted element is
+        <italic> cons</italic>
+        ed to the front, when the spine is a sequence of
+        <styled-content style="color:#008b00">
+          <italic> Two</italic>
+        </styled-content>
+        s; (2) or the element is added close to the rear. In both cases, the running time of
+        <italic> insert</italic>
+         is Θ(log
+        <italic>𝑚</italic>
+        ), where
+        <italic> 𝑚</italic>
+        is
+      </p>
+      <p>
+        To illustrate the correspondence between finger trees and exponential search, consider the sequence [
+        <italic>a</italic>
+        <italic>,</italic>
+        <italic> b</italic>
+        <italic>, . . . ,</italic>
+        <italic> p</italic>
+        <italic>, . . .</italic>
+        ] together with the predicate (
+        <italic>l</italic>
+         ≤). In this case, (
+        <italic>k</italic>
+        <italic>,</italic>
+        <italic> l</italic>
+        ) is the unique tipping point. The diagram below shows an initial segment of the finger tree for [
+        <italic>a</italic>
+        <italic>,</italic>
+        <italic> b</italic>
+        <italic>, . . . ,</italic>
+        <italic> p</italic>
+        <italic>, . . .</italic>
+        ] and the corresponding array.
+      </p>
+      <p>
+        <italic>p</italic>
+      </p>
+      <p>
+        <italic>h</italic>
+      </p>
+      <p>
+        <italic>d</italic>
+      </p>
+      <p>
+        <italic>l</italic>
+      </p>
+      <p>
+        <italic>j</italic>
+      </p>
+      <p>
+        <italic>n</italic>
+      </p>
+      <p>
+        <italic>f</italic>
+      </p>
+      <p>
+        <italic>b</italic>
+      </p>
+      <p>
+        <italic>g</italic>
+      </p>
+      <p>
+        <italic>a</italic>
+      </p>
+      <p>
+        <italic>c</italic>
+      </p>
+      <p>
+        <italic>e</italic>
+      </p>
+      <p>
+        <italic>m</italic>
+      </p>
+      <p>
+        <italic>o</italic>
+      </p>
+      <p>
+        <italic>i</italic>
+      </p>
+      <p>
+        <italic>k</italic>
+      </p>
+      <p>
+        <italic>a</italic>
+         
+        <italic>b</italic>
+         
+        <italic>c</italic>
+         
+        <italic>d</italic>
+         
+        <italic>e</italic>
+         
+        <italic>f</italic>
+         
+        <italic>g</italic>
+         
+        <italic>h</italic>
+         
+        <italic>i</italic>
+         
+        <italic>j</italic>
+         
+        <italic>k</italic>
+         
+        <italic>l</italic>
+         
+        <italic>m</italic>
+         
+        <italic>n</italic>
+         
+        <italic>o</italic>
+         
+        <italic>p</italic>
+      </p>
+      <p>Phase 1 Phase 2</p>
+      <p>
+        The path taken by
+        <italic> exponential-search</italic>
+         is highlighted in orange. In the first phase, the search explores the spine up to the element
+        <italic> p</italic>
+        . In the second phase, a binary search is conducted on the tree between
+        <italic> h</italic>
+         and
+        <italic> p</italic>
+        . The matrix below illustrates exponential search on the corresponding array. Each row represents a step of the algorithm. Again, there are two phases: First, a search range is determined by repeatedly doubling the candidate interval, then a binary search is performed by repeatedly halving the range. (Just in case you wonder, the second phase is
+        <italic> not</italic>
+         a standard (three-way) binary search, as the search always ends at a leaf rather than at a node containing an element.)
+      </p>
+      <p>Fig. 5. Correspondence of finger trees and exponential search.</p>
+      <p>
+        the length of a longest uptrend. So the final implementation of
+        <italic> best-longest-uptrend</italic>
+         is asymptotically optimal, as well. In addition, the algorithm shows a nice
+        <italic> adaptive</italic>
+         behaviour: it finishes in linear time if the sequence is sorted or nearly sorted, for example, for inputs [1
+        <italic>,</italic>
+         2
+        <italic>, . . . ,</italic>
+        <italic> n</italic>
+        ] and [2
+        <italic>,</italic>
+         1
+        <italic>,</italic>
+         4
+        <italic>,</italic>
+         3
+        <italic>,</italic>
+         6
+        <italic>,</italic>
+         5
+        <italic>, . . . ,</italic>
+        <italic> n</italic>
+        <italic>,</italic>
+        <italic> n</italic>
+         −1]. In these cases, exponential search shows its strength — recall that it runs in Θ(log
+        <italic>𝑖</italic>
+        ), where
+        <italic> 𝑖</italic>
+        is the position of the tipping point. This also speeds up the invocation of
+        <italic> apply</italic>
+        , as the zipping function simply walks back along the search path. Moreover,
+        <italic> cons</italic>
+         runs in amortized constant time. It is also worth noting that the algorithm outperforms the imperative implementation for many inputs. For example, the imperative solution requires Θ(
+        <italic>𝑛</italic>
+        · log
+        <italic>𝑛</italic>
+        ) time for the second example above, as a binary search is performed at every second step. Its logic is, in some sense, too simplistic:
+      </p>
+      <p>
+        it only works efficiently when new uptrends are added frequently, that is, when the
+        <bold> then</bold>
+         branch is entered frequently, see Figure
+        <styled-content style="color:#781c7d"> 1</styled-content>
+        . Enough asymptotics, let the numbers speak for themselves: Appendix
+        <styled-content style="color:#781c7d"> A</styled-content>
+         shows the results of some micro-benchmarks. Overall, the benchmarks support the results of the asymptotic analysis. Quite pleasingly, the purely functional solutions are on a par with the imperative implementation; in some cases they even outperform the latter thanks to the improved adaptive behaviour. Hurrah!
+      </p>
+    </sec>
+    <sec>
+      <title>5 Conclusion</title>
+      <p>
+        All in all, this was an enjoyable exercise in algorithm, data structure, and interface design. Our first attempts at purely functional solutions to the “longest uptrend” problem focused on implementing 
+        <italic>searchable</italic>
+        ,
+        <italic> indexable</italic>
+         sequence types, supporting the following interface.
+      </p>
+      <p>
+        <italic>Sequ</italic>
+        ::
+        <italic> Type</italic>
+         →
+        <italic>Type</italic>
+         
+        <italic>nil</italic>
+        ::
+        <italic> Sequ a</italic>
+         
+        <italic>cons</italic>
+        ::
+        <italic> a</italic>
+         →
+        <italic>Sequ a</italic>
+         →
+        <italic>Sequ a</italic>
+         (!)::
+        <italic> Sequ a</italic>
+         →
+        <italic>Int</italic>
+         →
+        <italic>a</italic>
+         
+        <italic>update</italic>
+         ::
+        <italic> Sequ a</italic>
+         →
+        <italic>Int</italic>
+         →
+        <italic>a</italic>
+         →
+        <italic>Sequ a</italic>
+         
+        <italic>search</italic>
+         :: (
+        <italic>a</italic>
+         →
+        <italic>Bool</italic>
+        ) →
+        <italic>Sequ a</italic>
+         →
+        <italic>Int</italic>
+      </p>
+      <p>
+        We tried out several data structures, but the efforts did not pay off. Simply replacing ephemeral arrays with these persistent sequence types worsened the running time by an order of magnitude. Abstracting slightly from the details of our application (renaming
+        <italic> Spine</italic>
+         to
+        <italic> Sequ</italic>
+         and
+        <italic> a</italic>
+         ⇒
+        <italic>Spine</italic>
+        <italic> a</italic>
+         to
+        <italic> Pos a</italic>
+        ), our finger trees can be used to implement a radically different interface.
+      </p>
+      <p>
+        <italic>Sequ</italic>
+        ::
+        <italic> Type</italic>
+         →
+        <italic>Type</italic>
+         
+        <italic>nil</italic>
+        ::
+        <italic> Sequ a</italic>
+         
+        <italic>cons</italic>
+        ::
+        <italic> a</italic>
+         →
+        <italic>Sequ a</italic>
+         →
+        <italic>Sequ a</italic>
+         
+        <italic>search</italic>
+         :: (
+        <italic>a</italic>
+         →
+        <italic>Bool</italic>
+        ) →
+        <italic>Sequ a</italic>
+         →(
+        <italic>Maybe</italic>
+         (
+        <italic>Pos a</italic>
+        <italic>,</italic>
+        <italic> a</italic>
+        )
+        <italic>,</italic>
+        <italic> Maybe</italic>
+         (
+        <italic>Pos a</italic>
+        <italic>,</italic>
+        <italic> a</italic>
+        )) 
+        <italic>Pos</italic>
+        ::
+        <italic> Type</italic>
+         →
+        <italic>Type</italic>
+         
+        <italic>apply</italic>
+         ::
+        <italic> Pos a</italic>
+         →
+        <italic>a</italic>
+         →
+        <italic>Sequ a</italic>
+      </p>
+      <p>
+        The revised interface is much more restrictive, but at the same time also much safer. The indices, the numerical positions, have disappeared from the scene — no “index out of range” errors anymore. Indices are replaced by paths. The function
+        <italic> search</italic>
+         returns two positions; each of these positions can be “applied” to a value to update the original sequence, replacing the general update mechanism based on numerical positions. This interface works beautifully for the “longest uptrend” problem. Whether it has other uses remains to be seen. We have also gained some algorithmic insights. An important part of the lazy functional DNA is the idea of turning control structures into data structures: binary trees are the manifestation of binary search. Maybe this is old news to you, but it was new to us that finger trees are the incarnation of exponential search. In conclusion, it is pleasing to see that we can keep up with or even surpass the imperative program. But, what was the crucial step in achieving this goal? We say the introduction of Huet’s zipper! This enabled us to organize the interplay of search, look-up, and update much more neatly. So, three cheers to Gérard!
+      </p>
+      <p>
+        <bold>Acknowledgments</bold>
+         We thank the anonymous reviewers for their constructive feedback, which has greatly enhanced the clarity and accessibility of the paper, and Jack Liell-Cock for carefully proof-reading an earlier draft of this manuscript.
+      </p>
+      <p>
+        <bold>A</bold>
+         
+        <bold>Appendix: Benchmarks</bold>
+      </p>
+      <p>To evaluate the performance of our zipper-based implementations, we benchmark them against a few alternatives. In total, we compare six different implementations.</p>
+      <p>
+        • ST-Arrays: The imperative solution, see Figure
+        <styled-content style="color:#781c7d"> 1</styled-content>
+        , transliterated into Haskell’s imperative sublanguage, using the
+        <italic> ST</italic>
+        -monad and
+        <italic> ST</italic>
+        -arrays. This implementation serves as the baseline for comparison.
+      </p>
+      <p>• ST-Arrays-Exponential-Search: An adaptation of the imperative solution, that uses expo-nential search instead of binary search to determine the tipping point.</p>
+      <p>• Random-Access-Lists: A functional variant of the imperative solution, using persistent sequences based on node-oriented random-access lists. Look-up, update, and search are supported in logarithmic time, so the implementation is asymptotically optimal.</p>
+      <p>
+        • ADwH: An implementation taken from the textbook
+        <italic> Algorithm Design with Haskell</italic>
+         [
+        <styled-content style="color:#781c7d">1</styled-content>
+        ], which is developed in a series of exercises (11.6–11.8). The solution is based on AVL-trees. Interestingly, it also avoids indices: In the update step, the AVL-tree is split at the tipping point and then merged with the new element replacing the old.
+      </p>
+      <p>
+        • Zipper-Red-black-Trees: See Section
+        <styled-content style="color:#781c7d"> 3</styled-content>
+        . • Zipper-Finger-Trees: See Section
+        <styled-content style="color:#781c7d"> 4</styled-content>
+        . We test the implementations on five different types of inputs to highlight the strengths and weaknesses of the approaches:
+      </p>
+      <p>
+        • [1
+        <italic> . .</italic>
+        <italic> n</italic>
+        ]: The adaptive implementations achieve linear running time for sorted inputs. •
+        <italic> interleave</italic>
+         [2
+        <italic> . .</italic>
+        <italic> n</italic>
+         + 1] [1
+        <italic> . .</italic>
+        <italic> n</italic>
+        ]: The methods that use exponential search finish in linear time, whereas the imperative solution requires linear-logarithmic time.
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>• replicate n n +</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>•</mml:mo>
+            
+  
+            <mml:mi>replicate</mml:mi>
+            
+  
+            <mml:mi>n</mml:mi>
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mi>n</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+         + [1
+        <italic> . .</italic>
+        <italic> n</italic>
+        ]: As exponential search takes twice as long to locate elements at the rear of the candidate sequence, this input represents a worst-case scenario for ST-Arrays-Exponential-Search, Random-Access-Lists, and Zipper-Finger-Trees.
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>• replicate n 1 +</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mo>•</mml:mo>
+              
+    
+              <mml:mi>replicate</mml:mi>
+              
+    
+              <mml:mi>n</mml:mi>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+    
+              <mml:mo>+</mml:mo>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+         + [1
+        <italic> . .</italic>
+        <italic> n</italic>
+        ]: This is a best-case scenario for exponential search as the tipping point is always on the far left.
+      </p>
+      <p>
+        • Random list: To estimate the average performance, we test on a random list of length
+        <italic> 𝑛</italic>
+        with elements in the range (1
+        <italic>,𝑛</italic>
+        ). The results are presented in Figure
+        <styled-content style="color:#781c7d"> 6</styled-content>
+        , where running times (in seconds) are plotted against the lengths of the input lists (scaled by 5
+        <italic>,</italic>
+        000
+        <italic>,</italic>
+        000). The code, which is publicly available [
+        <styled-content style="color:#781c7d">4</styled-content>
+        ], was compiled using GHC 9.10.1 with the -O2 optimization flag turned on. The benchmarks were executed on an AMD Ryzen 9 9950X CPU. The data shows that the zipper-based implementations perform on par with the imperative programs. When adaptivity is advantageous, finger trees outperform the imperative approach. In the case of random inputs, finger trees perform worse than red-black trees due to the additional overhead of the exponential search. Note that node-oriented random-access lists are structurally similar to the finger trees presented in this paper, which is why Random-Access-Lists, Zipper-Finger-Trees, and ST-Arrays-Exponential-Search exhibit the same performance characteristics.
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>replicate n n +</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>replicate</mml:mi>
+              
+    
+              <mml:mo> </mml:mo>
+              
+    
+              <mml:mi>n</mml:mi>
+              
+    
+              <mml:mo> </mml:mo>
+              
+    
+              <mml:mi>n</mml:mi>
+              
+    
+              <mml:mo>+</mml:mo>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>+ [1 . . n]</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mo>[</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>…</mml:mo>
+            
+  
+            <mml:mn>n</mml:mn>
+            
+  
+            <mml:mo>]</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>interleave [2 . . n + 1] [1 . . n]</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>interleave</mml:mo>
+            
+  
+            <mml:mo>[</mml:mo>
+            
+  
+            <mml:mn>2</mml:mn>
+            
+  
+            <mml:mo>…</mml:mo>
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>]</mml:mo>
+            
+  
+            <mml:mo>[</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>…</mml:mo>
+            
+  
+            <mml:mo>]</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>[1 . . n]</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>[</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>…</mml:mo>
+            
+  
+            <mml:mn>n</mml:mn>
+            
+  
+            <mml:mo>]</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>20</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>20</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>20</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>20</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>20</tex-math>
+          <mml:math display="inline">
+            <mml:mn>20</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>15</tex-math>
+          <mml:math display="inline">
+            <mml:mn>15</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>15</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>15</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>15</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>15</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>5</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>5</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>5</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>5</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>5</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>5</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>0</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>0</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>0</tex-math>
+          <mml:math>
+            <mml:mn>0</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>0</tex-math>
+          <mml:math>
+            <mml:mn>0</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>2</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>4</tex-math>
+          <mml:math>
+            <mml:mn>4</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>6</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>6</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>8</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>10</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>2</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>4</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>4</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>6</tex-math>
+          <mml:math>
+            <mml:mn>6</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>8</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>2</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>4</tex-math>
+          <mml:math display="inline">
+            <mml:mn>4</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>6</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>6</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>8</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>random list of length 𝑛with integers in range (1, 𝑛)</p>
+      <p>
+        <inline-formula>
+          <tex-math>replicate n 1 +</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>replicate</mml:mi>
+              
+    
+              <mml:mi>n</mml:mi>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+    
+              <mml:mo>+</mml:mo>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>+ [1 . . n]</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mo>[</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>…</mml:mo>
+            
+  
+            <mml:mn>n</mml:mn>
+            
+  
+            <mml:mo>]</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>20</tex-math>
+          <mml:math>
+            <mml:mn>20</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>20</tex-math>
+          <mml:math>
+            <mml:mn>20</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>15</tex-math>
+          <mml:math>
+            <mml:mn>15</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>15</tex-math>
+          <mml:math>
+            <mml:mn>15</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>ST-Arrays</p>
+      <p>
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>ST-Arrays-Exponential-Search</p>
+      <p>
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>Random-Access-Lists</p>
+      <p>
+        <inline-formula>
+          <tex-math>5</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>5</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>ADwH</p>
+      <p>
+        <inline-formula>
+          <tex-math>5</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>5</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>Zipper-Red-black-Trees</p>
+      <p>
+        <inline-formula>
+          <tex-math>0</tex-math>
+          <mml:math>
+            <mml:mn>0</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>Zipper-Finger-Trees</p>
+      <p>
+        <inline-formula>
+          <tex-math>0</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>0</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>2</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>4</tex-math>
+          <mml:math>
+            <mml:mn>4</mml:mn>
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>6</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>6</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>8</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>2</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>4</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>4</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>6</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>6</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>8</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>8</mml:mn>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>10</tex-math>
+          <mml:math>
+            <mml:mn>10</mml:mn>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>Fig. 6. Performance comparison of different solutions to the longest uptrend problem</p>
+      <p>
+        <bold>References</bold>
+      </p>
+      <p>
+        [1] Richard Bird and Jeremy Gibbons. 2020.
+        <italic> Algorithm Design with Haskell</italic>
+        . Cambridge University Press. [2] Edsger Wybe Dijkstra. 1988.
+        <italic> A method of programming</italic>
+        . Addison-Wesley. [3] Alexander Dinges and Ralf Hinze. 2025. Binary search—think positive.
+        <italic> Journal of Functional Programming</italic>
+         35 (2025).
+      </p>
+      <p>
+        <styled-content style="color:#005596">doi:10.1017/S0956796825000061</styled-content>
+      </p>
+      <p>
+        [4] Alexander Dinges and Ralf Hinze. 2025.
+        <italic> Truly Functional Solutions to the Longest Uptrend Problem (Functional Pearl)</italic>
+         
+        <italic>Artifact</italic>
+        .
+        <styled-content style="color:#005596"> doi:10.5281/zenodo.15721901</styled-content>
+      </p>
+      <p>
+        [5] David Gries. 1981.
+        <italic> The Science of Programming</italic>
+        . Springer-Verlag New York.
+        <styled-content style="color:#005596"> doi:10.1007/978-1-4612-5983-1</styled-content>
+         [6] Ralf Hinze. 1999. Constructing Red-Black Trees. In
+        <italic> Proceedings of the Workshop on Algorithmic Aspects of Advanced</italic>
+         
+        <italic>Programming Languages (WAAAPL’ 99)</italic>
+         (Paris, France, 30 September 1999), Chris Okasaki (Ed.). 89–99. The proceedings appeared as a technical report of Columbia University, CUCS-023-99.
+      </p>
+      <p>
+        [7] Gérard Huet. 1997. Functional Pearl: The Zipper.
+        <italic> Journal of Functional Programming</italic>
+         7, 5 (September 1997), 549–554. [8] Conor McBride. 2001. The Derivative of a Regular Type is its Type of One-Hole Contexts.
+        <styled-content style="color:#005596"> https://api.semanticscholar.</styled-content>
+         
+        <styled-content style="color:#005596">org/CorpusID:15235160</styled-content>
+      </p>
+      <p>
+        [9] Chris Okasaki. 1999. Functional Pearl: Red-black trees in a functional setting.
+        <italic> Journal of Functional Programming</italic>
+         9, 4 (July 1999), 471–477.
+      </p>
+      <p>Received 2025-02-27; accepted 2025-06-27</p>
+    </sec>
+  </body>
+</article>

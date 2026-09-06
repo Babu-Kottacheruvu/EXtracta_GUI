@@ -3,7 +3,7 @@
 Runs the existing Flask app (app.py) in a background thread and displays it
 in a native desktop window via pywebview, instead of opening a browser tab.
 The dashboard UI (templates/static) and the conversion pipeline
-(pdf_to_xml.py / math_extractor.py) are unchanged.
+(pdf_to_xml.py) are unchanged.
 
 WebView2 (the engine pywebview uses on Windows) does not handle browser-style
 downloads (Content-Disposition attachments, <a download> blob links) the way
@@ -20,7 +20,8 @@ import time
 
 import webview
 
-from app import app, FILES, JOBS
+from app import app, FILES, JOBS, OUTPUT_DIR
+from epub_generator import generate_epub
 
 HOST = "127.0.0.1"
 PORT = 8642  # deliberately not 5000: an unrelated project's dev server on this machine uses it
@@ -92,6 +93,32 @@ class Api:
         text = re.sub(r"\s+", " ", text).strip()
         with open(dest_path, "w", encoding="utf-8") as out:
             out.write(text)
+        return {"ok": True, "path": dest_path}
+
+    def save_epub(self, job_id):
+        job = JOBS.get(job_id)
+        if not job or job.get("status") != "done":
+            return {"ok": False, "error": "Result not ready"}
+
+        window = webview.windows[0]
+        dest = window.create_file_dialog(
+            webview.FileDialog.SAVE,
+            directory=os.path.expanduser("~"),
+            save_filename=f"{_base_name(job)}.epub",
+            file_types=("EPUB Files (*.epub)", "All files (*.*)"),
+        )
+        if not dest:
+            return {"ok": False, "cancelled": True}
+        dest_path = dest[0] if isinstance(dest, (list, tuple)) else dest
+
+        epub_path = os.path.join(OUTPUT_DIR, f"{job_id}.epub")
+        if not os.path.exists(epub_path):
+            generate_epub(job["xml_path"], epub_path, title=_base_name(job))
+
+        with open(epub_path, "rb") as src:
+            content = src.read()
+        with open(dest_path, "wb") as out:
+            out.write(content)
         return {"ok": True, "path": dest_path}
 
 

@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" article-type="proceedings">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>e1317728ce464f75b2ff1b6ebc62c015.pdf</article-title>
+      </title-group>
+    </article-meta>
+  </front>
+  <body>
+    <p>Ten Complex Mathematical Formulas</p>
+    <p>
+      1.
+      <bold> Euler’s Identity</bold>
+       
+      <inline-formula>
+        <tex-math>e^{iπ}+ 1 = 0</tex-math>
+        <mml:math display="block">
+          
+  
+          <mml:msup>
+            
+    
+            <mml:mi>e</mml:mi>
+            
+    
+            <mml:mrow>
+              
+      
+              <mml:mi>i</mml:mi>
+              
+      
+              <mml:mi>π</mml:mi>
+              
+    
+            </mml:mrow>
+            
+  
+          </mml:msup>
+          
+  
+          <mml:mo>+</mml:mo>
+          
+  
+          <mml:mn>1</mml:mn>
+          
+  
+          <mml:mo>=</mml:mo>
+          
+  
+          <mml:mn>0</mml:mn>
+          
+
+        </mml:math>
+      </inline-formula>
+    </p>
+    <p>
+      2.
+      <bold> Gaussian Integral</bold>
+       
+      <inline-formula>
+        <tex-math>Z \infty</tex-math>
+        <mml:math display="inline">
+          <mml:mi>Z</mml:mi>
+          <mml:mo>∈</mml:mo>
+          <mml:mi>∞</mml:mi>
+        </mml:math>
+      </inline-formula>
+    </p>
+    <p>
+      <inline-formula>
+        <tex-math>−\infty</tex-math>
+        <mml:math display="inline">
+          
+  
+          <mml:mo>−</mml:mo>
+          
+  
+          <mml:mo>∞</mml:mo>
+          
+
+        </mml:math>
+      </inline-formula>
+       
+      <inline-formula>
+        <tex-math>e^{−x2}dx =^{\sqrt}\pi</tex-math>
+        <mml:math display="block">
+          
+  
+          <mml:mrow>
+            
+    
+            <mml:msup>
+              
+      
+              <mml:mi>e</mml:mi>
+              
+      
+              <mml:mrow>
+                
+        
+                <mml:mo>−</mml:mo>
+                
+        
+                <mml:msup>
+                  
+          
+                  <mml:mi>x</mml:mi>
+                  
+          
+                  <mml:mn>2</mml:mn>
+                  
+        
+                </mml:msup>
+                
+      
+              </mml:mrow>
+              
+    
+            </mml:msup>
+            
+    
+            <mml:mi>d</mml:mi>
+            
+    
+            <mml:mi>x</mml:mi>
+            
+    
+            <mml:mo>=</mml:mo>
+            
+    
+            <mml:msup>
+              
+      
+              <mml:mo>√</mml:mo>
+              
+      
+              <mml:mn>π</mml:mn>
+              
+    
+            </mml:msup>
+            
+  
+          </mml:mrow>
+          
+
+        </mml:math>
+      </inline-formula>
+    </p>
+    <sec>
+      <title>3.  Basel Problem (Riemann Zeta at 2)</title>
+      <p>
+        <inline-formula>
+          <tex-math>\infty</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>∞</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>X</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>X</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>n^{2 = \pi2}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mi>n</mml:mi>
+              
+    
+              <mml:mrow>
+                
+      
+                <mml:mo>=</mml:mo>
+                
+      
+                <mml:mi>π</mml:mi>
+                
+      
+                <mml:mn>2</mml:mn>
+                
+    
+              </mml:mrow>
+              
+  
+            </mml:msup>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>1</p>
+      <p>6</p>
+      <p>
+        <inline-formula>
+          <tex-math>n=1</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>n</mml:mi>
+              
+    
+              <mml:mo>=</mml:mo>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        4.
+        <bold> Stirling’s Approximation</bold>
+         
+        <inline-formula>
+          <tex-math>n! \approx</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>n</mml:mo>
+            
+  
+            <mml:mo>!</mml:mo>
+            
+  
+            <mml:mo>≈</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>\sqrt</tex-math>
+          <mml:math display="block">
+            <mml:msqrt>
+              <mml:mrow/>
+            </mml:msqrt>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2πn</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mn>2</mml:mn>
+              
+    
+              <mml:mo>π</mml:mo>
+              
+  
+            </mml:msup>
+            
+  
+            <mml:mi>n</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>n</tex-math>
+          <mml:math display="inline">
+            <mml:mi>n</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>_{n}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:msub>
+              
+    
+              <mml:mi>n</mml:mi>
+              
+    
+              <mml:mn>1</mml:mn>
+              
+  
+            </mml:msub>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>e</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>e</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        5.
+        <bold> Fourier Transform</bold>
+         ˆ 
+        <inline-formula>
+          <tex-math>f(ξ) =</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>f</mml:mi>
+              
+    
+              <mml:mo>(</mml:mo>
+              
+    
+              <mml:mi>ξ</mml:mi>
+              
+    
+              <mml:mo>)</mml:mo>
+              
+    
+              <mml:mo>=</mml:mo>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>Z \infty</tex-math>
+          <mml:math display="inline">
+            <mml:mi>Z</mml:mi>
+            <mml:mo>∈</mml:mo>
+            <mml:mi>∞</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>−\infty</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>−</mml:mo>
+            
+  
+            <mml:mo>∞</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>f(x) e^{−2πixξ}dx</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:msub>
+              
+    
+              <mml:mi>f</mml:mi>
+              
+    
+              <mml:mi>x</mml:mi>
+              
+  
+            </mml:msub>
+            
+  
+            <mml:mo>e</mml:mo>
+            
+  
+            <mml:mo>^</mml:mo>
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mo>(</mml:mo>
+              
+    
+              <mml:mo>−</mml:mo>
+              
+    
+              <mml:mn>2</mml:mn>
+              
+    
+              <mml:mi>π</mml:mi>
+              
+    
+              <mml:mi>i</mml:mi>
+              
+    
+              <mml:mi>ξ</mml:mi>
+              
+    
+              <mml:mo>)</mml:mo>
+              
+  
+            </mml:mrow>
+            
+  
+            <mml:mi>d</mml:mi>
+            
+  
+            <mml:mi>x</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+    <sec>
+      <title>6.  Cauchy Integral Formula</title>
+      <p>
+        <inline-formula>
+          <tex-math>I</tex-math>
+          <mml:math display="inline">
+            <mml:mi>I</mml:mi>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>f(a) =</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>f</mml:mi>
+              
+    
+              <mml:mo>(</mml:mo>
+              
+    
+              <mml:mi>a</mml:mi>
+              
+    
+              <mml:mo>)</mml:mo>
+              
+    
+              <mml:mo>=</mml:mo>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+         1
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>f(z)</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>f</mml:mi>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mi>z</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>z −a ^{dz}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>z</mml:mi>
+              
+    
+              <mml:mo>−</mml:mo>
+              
+    
+              <mml:mi>a</mml:mi>
+              
+    
+              <mml:msup>
+                
+      
+                <mml:mi>d</mml:mi>
+                
+      
+                <mml:mi>z</mml:mi>
+                
+    
+              </mml:msup>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2πi</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>2</mml:mn>
+            
+  
+            <mml:mo>π</mml:mo>
+            
+  
+            <mml:mi>i</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>\gamma</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>γ</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+    <sec>
+      <title>7.  Schr¨ odinger Equation (time-dependent)</title>
+      <p>
+        <inline-formula>
+          <tex-math>\partial t^{Ψ(r, t) =}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>∂</mml:mo>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+  
+            <mml:mo>^</mml:mo>
+            
+  
+            <mml:mi>Ψ</mml:mi>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mi>r</mml:mi>
+            
+  
+            <mml:mo>,</mml:mo>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+  
+            <mml:mo>=</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+          
+        <inline-formula>
+          <tex-math>−^{ℏ2}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>−</mml:mo>
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mi>ℏ</mml:mi>
+              
+    
+              <mml:mn>2</mml:mn>
+              
+  
+            </mml:msup>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>2m^{\nabla2 + V (r, t)}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mn>2</mml:mn>
+            
+  
+            <mml:mi>m</mml:mi>
+            
+  
+            <mml:mo>^</mml:mo>
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mo>∇</mml:mo>
+              
+    
+              <mml:mn>2</mml:mn>
+              
+    
+              <mml:mo>+</mml:mo>
+              
+    
+              <mml:mrow>
+                
+      
+                <mml:mi>V</mml:mi>
+                
+      
+                <mml:mo>(</mml:mo>
+                
+      
+                <mml:mi>r</mml:mi>
+                
+      
+                <mml:mo>,</mml:mo>
+                
+      
+                <mml:mi>t</mml:mi>
+                
+      
+                <mml:mo>)</mml:mo>
+                
+    
+              </mml:mrow>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+          
+        <inline-formula>
+          <tex-math>Ψ(r, t)</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>Ψ</mml:mi>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mi>r</mml:mi>
+            
+  
+            <mml:mo>,</mml:mo>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>iℏ^{\partial}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mi>i</mml:mi>
+              
+    
+              <mml:mrow>
+                
+      
+                <mml:mi>ℏ</mml:mi>
+                
+      
+                <mml:mo>∂</mml:mo>
+                
+    
+              </mml:mrow>
+              
+  
+            </mml:msup>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+    <sec>
+      <title>8.  Riemann Zeta Function (functional equation)</title>
+      <p>
+        <inline-formula>
+          <tex-math>ζ(s) = 2^{s}\pi^{s−1}sin</tex-math>
+          <mml:math>
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:mi>ζ</mml:mi>
+              
+    
+              <mml:mo>(</mml:mo>
+              
+    
+              <mml:mi>s</mml:mi>
+              
+    
+              <mml:mo>)</mml:mo>
+              
+    
+              <mml:mo>=</mml:mo>
+              
+    
+              <mml:msup>
+                
+      
+                <mml:mn>2</mml:mn>
+                
+      
+                <mml:mi>s</mml:mi>
+                
+    
+              </mml:msup>
+              
+    
+              <mml:mo>⋅</mml:mo>
+              
+    
+              <mml:msup>
+                
+      
+                <mml:mi>π</mml:mi>
+                
+      
+                <mml:mo>(</mml:mo>
+                
+      
+                <mml:mi>s</mml:mi>
+                
+      
+                <mml:mo>−</mml:mo>
+                
+      
+                <mml:mn>1</mml:mn>
+                
+      
+                <mml:mo>)</mml:mo>
+                
+    
+              </mml:msup>
+              
+    
+              <mml:mo>⋅</mml:mo>
+              
+    
+              <mml:mi>sin</mml:mi>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>πs</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>π</mml:mi>
+            
+  
+            <mml:mi>s</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+         
+        <inline-formula>
+          <tex-math>Γ(1 −s) ζ(1 −s)</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>Γ</mml:mi>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>−</mml:mo>
+            
+  
+            <mml:mi>s</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+  
+            <mml:mo> </mml:mo>
+            
+  
+            <mml:mi>ζ</mml:mi>
+            
+  
+            <mml:mo>(</mml:mo>
+            
+  
+            <mml:mn>1</mml:mn>
+            
+  
+            <mml:mo>−</mml:mo>
+            
+  
+            <mml:mi>s</mml:mi>
+            
+  
+            <mml:mo>)</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>2</p>
+    </sec>
+    <sec>
+      <title>9.  Navier–Stokes Equation (incompressible flow)</title>
+      <p>
+        <inline-formula>
+          <tex-math>ρ</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mi>ρ</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+         
+        <inline-formula>
+          <tex-math>\partial u</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>∂</mml:mo>
+            
+  
+            <mml:mi>u</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>\partial t^{+ u \cdot \nabla u}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:mo>∂</mml:mo>
+            
+  
+            <mml:mi>t</mml:mi>
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mo>u</mml:mo>
+            
+  
+            <mml:mo>⋅</mml:mo>
+            
+  
+            <mml:mo>∇</mml:mo>
+            
+  
+            <mml:mo>u</mml:mo>
+            
+
+          </mml:math>
+        </inline-formula>
+          
+        <inline-formula>
+          <tex-math>= −\nabla p + µ\nabla^{2}u + f</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mo>=</mml:mo>
+            
+  
+            <mml:mo>-</mml:mo>
+            
+  
+            <mml:mo>∇</mml:mo>
+            
+  
+            <mml:mi>p</mml:mi>
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mi>µ</mml:mi>
+            
+  
+            <mml:mo>∇</mml:mo>
+            
+  
+            <mml:mo>⁢</mml:mo>
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mo>∇</mml:mo>
+              
+    
+              <mml:mn>2</mml:mn>
+              
+  
+            </mml:msup>
+            
+  
+            <mml:mi>u</mml:mi>
+            
+  
+            <mml:mo>+</mml:mo>
+            
+  
+            <mml:mi>f</mml:mi>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+    <sec>
+      <title>10.  Einstein Field Equations</title>
+      <p>
+        <inline-formula>
+          <tex-math>G_{µν} + Λg_{µν} = ^{8πG}</tex-math>
+          <mml:math display="block">
+            
+  
+            <mml:mrow>
+              
+    
+              <mml:msub>
+                
+      
+                <mml:mi>G</mml:mi>
+                
+      
+                <mml:mi>µ</mml:mi>
+                
+      
+                <mml:mi>ν</mml:mi>
+                
+    
+              </mml:msub>
+              
+    
+              <mml:mo>+</mml:mo>
+              
+    
+              <mml:msub>
+                
+      
+                <mml:mi>Λ</mml:mi>
+                
+      
+                <mml:msub>
+                  
+        
+                  <mml:mi>g</mml:mi>
+                  
+        
+                  <mml:mi>µ</mml:mi>
+                  
+        
+                  <mml:mi>ν</mml:mi>
+                  
+      
+                </mml:msub>
+                
+    
+              </mml:msub>
+              
+    
+              <mml:mo>=</mml:mo>
+              
+    
+              <mml:msup>
+                
+      
+                <mml:mn>8</mml:mn>
+                
+      
+                <mml:mi>π</mml:mi>
+                
+      
+                <mml:mi>G</mml:mi>
+                
+    
+              </mml:msup>
+              
+  
+            </mml:mrow>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>c^{4 Tµν}</tex-math>
+          <mml:math display="inline">
+            
+  
+            <mml:msup>
+              
+    
+              <mml:mi>c</mml:mi>
+              
+    
+              <mml:mrow>
+                
+      
+                <mml:mn>4</mml:mn>
+                
+      
+                <mml:mo>×</mml:mo>
+                
+      
+                <mml:mi>T</mml:mi>
+                
+      
+                <mml:mo>µ</mml:mo>
+                
+      
+                <mml:mo>ν</mml:mo>
+                
+    
+              </mml:mrow>
+              
+  
+            </mml:msup>
+            
+
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+  </body>
+</article>

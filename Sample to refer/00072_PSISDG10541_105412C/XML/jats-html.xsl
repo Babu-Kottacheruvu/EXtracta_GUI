@@ -116,20 +116,21 @@ or pipeline) parameterized.
   exclude-result-prefixes="xlink mml"
    xmlns:epub="http://www.idpf.org/2007/ops">
 
-  <!--<xsl:output method="xml" indent="no" encoding="UTF-8"
-    doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
-    doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>-->
-
-
-  <!--<xsl:output doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
-    doctype-system="http://www.w3.org/TR/html4/loose.dtd"
-    encoding="UTF-8"/>-->
-
-  <!--<xsl:output method="xhtml"
-  encoding="UTF-8"
-  omit-xml-declaration="yes"
-  indent="no"
-  include-content-type="no"/>-->
+  <!-- No xsl:output was active here before (all three variants below were
+       commented out), so XSLT 1.0 processors that see this fall back to
+       method="html" simply because the result tree's root element is
+       literally "html", but with no encoding declared, an engine that
+       isn't Unicode-native throughout (unlike .NET's own, which defaults
+       to UTF-8 regardless) can silently fall back to the system's ANSI
+       codepage for the output byte stream: exactly the kind of gap
+       that turns "∫"/"∞"/"π" into "?" without ever touching the XSLT
+       logic itself. encoding="UTF-8" here is that declaration, made
+       explicit rather than left to the processor's default. The HTML4
+       doctype is dropped for a real HTML5 one; see the root template's
+       "DOCTYPE html" text node below, since xsl:output's
+       doctype-public/doctype-system can only express a DOCTYPE that
+       names public/system identifiers, and HTML5's has neither. -->
+  <xsl:output method="html" version="5.0" encoding="UTF-8" indent="no"/>
 
   <xsl:strip-space elements="*"/>
 
@@ -195,7 +196,13 @@ or pipeline) parameterized.
   <!-- ============================================================= -->
 
    <xsl:template match="/">
-    <!--<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>-->
+    <!-- xsl:output's doctype-public/doctype-system (see above) can only
+         emit a DOCTYPE that names public/system identifiers; HTML5's
+         "DOCTYPE html" has neither, so it has to be written out as a
+         literal text node instead. disable-output-escaping is what stops
+         the serializer from turning its "<"/">" into "&lt;"/"&gt;" the
+         way it would for ordinary text content. -->
+    <xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
      <html>
       <!-- HTML header -->
       <xsl:call-template name="make-html-header"/>
@@ -207,6 +214,15 @@ or pipeline) parameterized.
 
    <xsl:template name="make-html-header">
     <head>
+      <!-- Belt-and-suspenders alongside xsl:output's own encoding="UTF-8"
+           (above): this is what tells a BROWSER how to decode the bytes
+           it received, which matters independently of how the XSLT
+           engine wrote them. xsl:output's encoding is the processor's
+           declaration of what it wrote; this meta tag is the page's own
+           declaration of what it is, and a mismatch between the two (or
+           a missing one) is a second, completely separate way "?"
+           corruption can appear even once the writer itself is correct. -->
+      <meta charset="UTF-8"/>
       <style type="text/css">
         td, th {
         padding:4px
@@ -2701,12 +2717,12 @@ select="$misc-contrib-data"/>
 
 
 
-  <xsl:template name="subsection-title"
+  <xsl:template name="subsection-title-h4"
     match="abstract/*/*/title | body/*/*/*/title |
 		       back[title]/*/*/title | back[not(title)]/*/*/*/title">
     <xsl:param name="contents">
       <xsl:apply-templates/>
-    </xsl:param>   
+    </xsl:param>
     <xsl:if test="normalize-space(string($contents))">
       <!-- coding defensively since empty titles make glitchy HTML -->
       <h4 class="subsection-title">
@@ -3287,12 +3303,22 @@ select="$misc-contrib-data"/>
 
   
   <xsl:template match="mml:*">
-    <!-- this stylesheet simply copies MathML through. If your browser
-         supports it, you will get it -->
-    <xsl:copy>
+    <!-- xsl:copy preserves the source element's "mml:" prefix verbatim,
+         which is valid XML but invisible to an HTML5 parser: the
+         foreign-content algorithm that switches into MathML parsing mode
+         triggers only on a literal, UNPREFIXED "math" start tag in the
+         MathML namespace. A tag serialized as "mml:math" is instead
+         treated as an ordinary (unknown) HTML element named "mml:math",
+         colon and all, so the whole subtree renders as plain,
+         un-styled inline text instead of typeset math. xsl:element with
+         an explicit namespace and no prefix produces exactly the
+         unprefixed math/mrow/mi/mo/etc. elements, inheriting that same
+         default namespace, that both HTML5's foreign-content parsing and
+         real XHTML/XML parsing recognize as MathML. -->
+    <xsl:element name="{local-name()}" namespace="http://www.w3.org/1998/Math/MathML">
       <xsl:copy-of select="@*"/>
       <xsl:apply-templates/>
-    </xsl:copy>
+    </xsl:element>
   </xsl:template>
   
   

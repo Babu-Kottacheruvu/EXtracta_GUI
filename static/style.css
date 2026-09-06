@@ -250,6 +250,15 @@ button{font-family:inherit}
 .more-options{margin-top:10px;display:flex;flex-direction:column;gap:8px}
 .checkbox-row{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--gray-700)}
 
+.api-key-row{margin-top:4px;padding-top:10px;border-top:1px solid var(--gray-200)}
+.api-key-row .field-label{margin-top:0}
+.api-key-input-wrap{display:flex;gap:6px}
+.api-key-input-wrap .select{flex:1}
+.api-key-input-wrap .btn{flex:none}
+.api-key-status{font-size:11.5px;color:var(--gray-500);margin-top:6px}
+.api-key-status.ok{color:var(--green-500)}
+.api-key-status.error{color:var(--red-500)}
+
 .convert-hint{text-align:center;font-size:11.5px;color:var(--gray-500);margin-top:10px}
 
 /* ---------- right column / tabs ---------- */
@@ -292,6 +301,7 @@ button{font-family:inherit}
 .viewer[data-mode="preview"] .pane-preview{display:flex;flex:1.15}
 .viewer[data-mode="preview"] .pane-xml{display:flex;flex:1}
 .viewer[data-mode="xml"] .pane-xml{display:flex;flex:1;border-right:none}
+.viewer[data-mode="rendered"] .pane-rendered{display:flex;flex:1}
 .viewer[data-mode="validation"] .pane-validation{display:flex;flex:1}
 .viewer[data-mode="logs"] .pane-logs{display:flex;flex:1}
 
@@ -350,6 +360,41 @@ button{font-family:inherit}
 .attr-value{color:#86efac}
 .text-node{color:#e2e8f0}
 .comment{color:#64748b;font-style:italic}
+
+/* ---------- rendered preview ---------- */
+.rendered-content{
+  flex:1;padding:28px 32px;overflow:auto;min-width:0;min-height:0;
+  background:var(--white);color:var(--gray-900);
+  font-family:Georgia,"Times New Roman",serif;font-size:14.5px;line-height:1.6;
+}
+.rendered-content .empty-state{margin-top:60px}
+.rendered-content h2,.rendered-content h3{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--gray-900);margin-top:1.4em;margin-bottom:0.5em;
+}
+.rendered-content p{margin:0.8em 0}
+.rendered-content table{border-collapse:collapse;margin:1em 0;width:100%}
+.rendered-content table td,.rendered-content table th{border:1px solid var(--gray-200)}
+.rendered-content .rendered-fig{
+  border:1px dashed var(--gray-300);border-radius:8px;padding:24px;margin:1em 0;
+  text-align:center;color:var(--gray-500);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:12.5px;
+}
+.rendered-content .parse-error{color:var(--danger-text)}
+.rendered-content mjx-container{color:inherit}
+.rendered-content .formula-wrap{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap;vertical-align:middle}
+.rendered-content .formula-code{
+  font-family:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;
+  font-size:11px;color:var(--gray-500);background:var(--gray-100);
+  padding:1px 6px;border-radius:4px;white-space:pre-wrap;word-break:break-all;
+}
+.rendered-content .formula-copy-btn{
+  border:1px solid transparent;background:none;cursor:pointer;color:var(--gray-500);
+  width:20px;height:20px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;
+  flex:none;padding:0;
+}
+.rendered-content .formula-copy-btn .icon{width:12px;height:12px}
+.rendered-content .formula-copy-btn:hover{background:var(--gray-100);color:var(--gray-700)}
 
 /* ---------- validation ---------- */
 .validation-panel{flex:1;padding:20px;overflow:auto;min-width:0;min-height:0}

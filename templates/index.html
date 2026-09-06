@@ -143,8 +143,8 @@
               <option>JATS XML</option>
             </select>
 
-            <label class="field-label with-info">OCR Engine
-              <svg class="icon info-icon" title="Controls whether detected equations are sent through math OCR (pix2tex)."><use href="#i-info"/></svg>
+            <label class="field-label with-info">Math Formulas
+              <svg class="icon info-icon" title="Detects math lines and builds LaTeX directly from the PDF's own text -- no OCR, so it stays fast and fully offline."><use href="#i-info"/></svg>
             </label>
             <select class="select" id="ocrEngine">
               <option value="auto" selected>Auto Detect (Recommended)</option>
@@ -171,6 +171,18 @@
                 <input type="checkbox" id="optHeaders" checked>
                 Strip repeating headers &amp; footers
               </label>
+              <label class="checkbox-row">
+                <input type="checkbox" id="optMathml">
+                AI repair for low-confidence formulas (OpenRouter)
+              </label>
+              <div class="api-key-row" id="apiKeyRow" hidden>
+                <label class="field-label">OpenRouter API Key</label>
+                <div class="api-key-input-wrap">
+                  <input type="password" class="select" id="openrouterApiKeyInput" placeholder="Paste your OpenRouter API key">
+                  <button class="btn btn-outline" id="saveApiKeyBtn" disabled>Save</button>
+                </div>
+                <div class="api-key-status" id="apiKeyStatus"></div>
+              </div>
             </div>
           </div>
 
@@ -191,6 +203,7 @@
             <div class="tabs">
               <button class="tab active" data-tab="preview">Preview</button>
               <button class="tab" data-tab="xml">XML Output</button>
+              <button class="tab" data-tab="rendered">Rendered</button>
               <button class="tab" data-tab="validation">Validation</button>
               <button class="tab" data-tab="logs">Logs</button>
             </div>
@@ -204,6 +217,7 @@
                 </button>
                 <div class="export-menu" id="exportMenu" hidden>
                   <button data-export="xml">Download XML (.xml)</button>
+                  <button data-export="epub">Download as EPUB (.epub)</button>
                   <button data-export="txt">Download as plain text (.txt)</button>
                 </div>
               </div>
@@ -256,6 +270,15 @@
                 </div>
               </div>
               <pre class="code-view" id="codeView"><code id="codeContent">// XML output will appear here after conversion</code></pre>
+            </div>
+
+            <div class="pane pane-rendered" id="paneRendered" hidden>
+              <div class="rendered-content" id="renderedContent">
+                <div class="empty-state">
+                  <svg class="icon empty-icon"><use href="#i-sigma"/></svg>
+                  <div>Run a conversion to see the document with formulas rendered as real math notation</div>
+                </div>
+              </div>
             </div>
 
             <div class="pane pane-validation" id="paneValidation" hidden>
@@ -317,6 +340,25 @@
   </div>
 </div>
 
+<script>
+  // Config must be set before the MathJax script below executes. tex-mml-svg
+  // handles both our two math representations: \(...\) delimited LaTeX (the
+  // <tex-math> we always produce) and literal <math> MathML tags (the
+  // <mml:math> the deterministic pipeline always produces) -- the "Rendered"
+  // tab injects whichever is available per formula, then calls
+  // MathJax.typesetPromise() on just that new content itself. SVG output
+  // (rather than CHTML) is self-contained -- glyph paths are embedded in
+  // this one file, no separate webfont files fetched at runtime -- so the
+  // whole thing is bundled locally instead of pulled from a CDN, which
+  // keeps this working even where the desktop shell's network stack can't
+  // reach one (and keeps the "Rendered" tab usable fully offline, like the
+  // rest of the app).
+  window.MathJax = {
+    tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["$$", "$$"]] },
+    startup: { typeset: false }
+  };
+</script>
+<script src="{{ url_for('static', filename='vendor/mathjax-tex-mml-svg.js') }}" id="mathjax-script" defer></script>
 <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>

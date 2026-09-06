@@ -9,6 +9,8 @@ from flask import Flask, request, jsonify, send_file, Response, render_template
 from lxml import etree
 
 from pdf_to_xml import extract_pdf_to_xml
+from config import get_openrouter_api_key, set_openrouter_api_key
+from epub_generator import generate_epub
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_DIR = os.path.join(BASE_DIR, "uploads")
@@ -137,6 +139,7 @@ def convert():
         "ocr_math": bool(data.get("ocr_math", True)),
         "detect_tables": bool(data.get("detect_tables", True)),
         "strip_header_footer": bool(data.get("strip_header_footer", True)),
+        "latex_to_mathml": bool(data.get("latex_to_mathml", False)),
     }
 
     job_id = uuid.uuid4().hex
@@ -187,6 +190,7 @@ def job_validation(job_id):
             "paragraphs": len(root.findall(".//p")),
             "tables": len(root.findall(".//table-wrap")),
             "formulas": len(root.findall(".//inline-formula")),
+            "mathml_formulas": len(root.findall(".//{http://www.w3.org/1998/Math/MathML}math")),
             "bold_runs": len(root.findall(".//bold")),
             "figures": len(root.findall(".//fig")),
         }
@@ -204,6 +208,48 @@ def job_download(job_id):
     info = FILES.get(job["file_id"])
     base_name = os.path.splitext(info["filename"])[0] if info else job_id
     return send_file(job["xml_path"], as_attachment=True, download_name=f"{base_name}.xml", mimetype="application/xml")
+
+
+@app.route("/api/jobs/<job_id>/epub")
+def job_epub(job_id):
+    job = JOBS.get(job_id)
+    if not job or job["status"] != "done":
+        return jsonify({"error": "Result not ready"}), 404
+    info = FILES.get(job["file_id"])
+    base_name = os.path.splitext(info["filename"])[0] if info else job_id
+
+    epub_path = os.path.join(OUTPUT_DIR, f"{job_id}.epub")
+    if not os.path.exists(epub_path):
+        generate_epub(job["xml_path"], epub_path, title=base_name)
+
+    return send_file(epub_path, as_attachment=True, download_name=f"{base_name}.epub", mimetype="application/epub+zip")
+
+
+@app.route("/api/settings/openrouter-api-key", methods=["GET", "POST", "DELETE"])
+def openrouter_api_key_setting():
+    # The raw key is never sent back to the browser once saved -- only
+    # whether one is configured, plus a masked hint so the user can tell
+    # which key is active without it being readable from the page/devtools.
+    if request.method == "GET":
+        key = get_openrouter_api_key()
+        return jsonify({"configured": bool(key), "masked": _mask_key(key)})
+
+    if request.method == "DELETE":
+        set_openrouter_api_key(None)
+        return jsonify({"configured": False, "masked": None})
+
+    data = request.get_json(force=True, silent=True) or {}
+    key = (data.get("api_key") or "").strip()
+    if not key:
+        return jsonify({"error": "No API key provided"}), 400
+    set_openrouter_api_key(key)
+    return jsonify({"configured": True, "masked": _mask_key(key)})
+
+
+def _mask_key(key):
+    if not key:
+        return None
+    return f"{'*' * max(len(key) - 4, 0)}{key[-4:]}"
 
 
 if __name__ == "__main__":

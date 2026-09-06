@@ -152,6 +152,8 @@
     $("#logsPanel").innerHTML = '<div class="log-line muted">Logs will appear here during conversion...</div>';
     $("#validationPanel").innerHTML =
       '<div class="empty-state"><svg class="icon empty-icon"><use href="#i-check-circle"/></svg><div>Run a conversion to see validation results</div></div>';
+    $("#renderedContent").innerHTML =
+      '<div class="empty-state"><svg class="icon empty-icon"><use href="#i-sigma"/></svg><div>Run a conversion to see the document with formulas rendered as real math notation</div></div>';
     $("#convertBtnLabel").textContent = "Convert to XML";
     $("#convertHint").textContent = "Estimated time: ~30 seconds";
   }
@@ -245,6 +247,76 @@
     moreOptionsToggle.classList.toggle("open", open);
   });
 
+  // ---------------- OpenRouter API key (LaTeX -> MathML via LLM) ----------------
+  const optMathml = $("#optMathml");
+  const apiKeyRow = $("#apiKeyRow");
+  const openrouterApiKeyInput = $("#openrouterApiKeyInput");
+  const saveApiKeyBtn = $("#saveApiKeyBtn");
+  const apiKeyStatus = $("#apiKeyStatus");
+  let apiKeyConfigured = false;
+
+  function setApiKeyStatus(text, kind) {
+    apiKeyStatus.textContent = text;
+    apiKeyStatus.className = "api-key-status" + (kind ? " " + kind : "");
+  }
+
+  async function refreshApiKeyStatus() {
+    try {
+      const res = await fetch("/api/settings/openrouter-api-key");
+      const data = await res.json();
+      apiKeyConfigured = !!data.configured;
+      if (apiKeyConfigured) {
+        openrouterApiKeyInput.placeholder = `Saved (${data.masked})`;
+        setApiKeyStatus("Key saved -- used automatically on every conversion. Paste a new one here only to replace it.", "ok");
+      } else {
+        setApiKeyStatus("No API key saved yet. Paste one below and click Save -- you won't need to re-enter it after that.");
+      }
+    } catch (e) {
+      setApiKeyStatus("Could not check API key status.", "error");
+    } finally {
+      // The "Saved (****)" placeholder is just a hint, not a live value --
+      // an empty field means "keep the existing key," so Save should be
+      // disabled until the user actually types a new one (otherwise a stray
+      // click reads as an alarming "Enter a key first" error).
+      saveApiKeyBtn.disabled = !openrouterApiKeyInput.value.trim();
+    }
+  }
+
+  openrouterApiKeyInput.addEventListener("input", () => {
+    saveApiKeyBtn.disabled = !openrouterApiKeyInput.value.trim();
+  });
+
+  optMathml.addEventListener("change", () => {
+    apiKeyRow.hidden = !optMathml.checked;
+  });
+
+  saveApiKeyBtn.addEventListener("click", async () => {
+    const key = openrouterApiKeyInput.value.trim();
+    if (!key) return;
+    saveApiKeyBtn.disabled = true;
+    try {
+      const res = await fetch("/api/settings/openrouter-api-key", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ api_key: key }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to save key");
+      apiKeyConfigured = true;
+      openrouterApiKeyInput.value = "";
+      openrouterApiKeyInput.placeholder = `Saved (${data.masked})`;
+      setApiKeyStatus("API key saved.", "ok");
+      showToast("API key saved successfully", "success");
+    } catch (err) {
+      setApiKeyStatus("Error: " + err.message, "error");
+      showToast("Failed to save API key", "error");
+    } finally {
+      saveApiKeyBtn.disabled = !openrouterApiKeyInput.value.trim();
+    }
+  });
+
+  refreshApiKeyStatus();
+
   // ---------------- Tabs ----------------
   const viewer = $("#viewer");
   $$(".tab").forEach((tab) => {
@@ -258,6 +330,17 @@
   // ---------------- XML syntax highlighting ----------------
   function escapeHtml(s) {
     return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  // escapeHtml alone isn't safe inside a double-quoted HTML attribute (it
+  // doesn't touch '"'), which highlightXml's own attribute-coloring regex
+  // relies on -- adding quote-escaping there would silently stop XML
+  // attribute values (all quoted) from getting their color spans. Formula
+  // source text is MathML/LaTeX, which quotes its own attributes
+  // (display="inline") and must not break out of data-copy="..." below, so
+  // it gets this stricter escaping instead, kept separate from escapeHtml.
+  function escapeAttr(s) {
+    return escapeHtml(s).replace(/"/g, "&quot;");
   }
 
   function highlightXml(xml) {
@@ -385,6 +468,24 @@
         return;
       }
 
+      if (b.dataset.export === "epub") {
+        if (inDesktopShell()) {
+          window.pywebview.api.save_epub(state.jobId).then((res) => {
+            if (res && res.ok) {
+              showHint(`Saved to ${res.path}`, 4000);
+              showToast("File downloaded successfully", "success");
+            } else if (res && !res.cancelled) {
+              showHint("Save failed: " + (res.error || "unknown error"), 4000);
+              showToast("Download failed: " + (res.error || "unknown error"), "error");
+            }
+          });
+          return;
+        }
+        window.location.href = `/api/jobs/${state.jobId}/epub`;
+        showToast("File downloaded successfully", "success");
+        return;
+      }
+
       if (inDesktopShell()) {
         window.pywebview.api.save_text(state.jobId).then((res) => {
           if (res && res.ok) {
@@ -419,11 +520,20 @@
       ocr_math: $("#ocrEngine").value === "auto",
       detect_tables: $("#optTables").checked,
       strip_header_footer: $("#optHeaders").checked,
+      latex_to_mathml: optMathml.checked,
     };
   }
 
   async function startConversion() {
     if (!state.fileId) return;
+    if (optMathml.checked && !apiKeyConfigured) {
+      showToast("Save an OpenRouter API key first, or uncheck AI repair", "error");
+      moreOptions.hidden = false;
+      moreOptionsToggle.classList.add("open");
+      apiKeyRow.hidden = false;
+      openrouterApiKeyInput.focus();
+      return;
+    }
     resetConversionOutputs();
     convertBtn.disabled = true;
     $("#convertBtnLabel").textContent = "Converting...";
@@ -510,8 +620,184 @@
     const xmlData = await xmlRes.json();
     const valData = await valRes.json();
 
-    if (xmlData.xml) renderXml(xmlData.xml);
+    if (xmlData.xml) {
+      renderXml(xmlData.xml);
+      renderJatsPreview(xmlData.xml);
+    }
     renderValidation(valData);
+  }
+
+  // ---------------- Rendered math preview ----------------
+  // Turns the JATS XML into HTML so MathJax can typeset the formulas for a
+  // real visual check, instead of the flat <tex-math>/<math> text a raw XML
+  // view or a generic JATS-HTML viewer shows. tex-math is wrapped in \( \)
+  // so MathJax's TeX input processes it; each formula's self-namespaced
+  // <math xmlns="..."> is passed through as literal markup for MathJax's
+  // native MathML input.
+  function jatsNodeToHtml(node) {
+    let out = "";
+    for (const child of node.childNodes) {
+      if (child.nodeType === Node.TEXT_NODE) {
+        out += escapeHtml(child.nodeValue);
+        continue;
+      }
+      if (child.nodeType !== Node.ELEMENT_NODE) continue;
+
+      const tag = child.tagName.toLowerCase();
+      switch (tag) {
+        case "title":
+          continue; // handled by the parent sec/table-wrap below
+        case "sec": {
+          const titleEl = child.querySelector(":scope > title");
+          const depth = Math.min(6, (Number(child.getAttribute("sec-level")) || 2) + 1);
+          const level = Math.max(2, depth);
+          if (titleEl) out += `<h${level}>${escapeHtml(titleEl.textContent)}</h${level}>`;
+          out += jatsNodeToHtml(child);
+          break;
+        }
+        case "p":
+          out += `<p>${jatsNodeToHtml(child)}</p>`;
+          break;
+        case "bold":
+          out += `<b>${jatsNodeToHtml(child)}</b>`;
+          break;
+        case "italic":
+          out += `<i>${jatsNodeToHtml(child)}</i>`;
+          break;
+        case "styled-content":
+          out += `<span>${jatsNodeToHtml(child)}</span>`;
+          break;
+        case "inline-formula": {
+          // Namespace-qualified lookup, not querySelector("math") -- each
+          // formula's <math> carries a real xmlns (or, for an older
+          // conversion, inherits one via an ancestor's xmlns:mml), so it's
+          // genuinely in the MathML namespace once parsed, and relying on
+          // querySelector's namespace-agnostic local-name matching for
+          // that isn't guaranteed the same way across engines.
+          const mmlMatches = child.getElementsByTagNameNS("http://www.w3.org/1998/Math/MathML", "math");
+          const mml = mmlMatches.length ? mmlMatches[0] : null;
+          const tex = child.querySelector("tex-math");
+          let rendered = "";
+          let sourceCode = "";
+          let sourceLabel = "";
+          if (mml) {
+            // Each formula's <math> now carries its own xmlns directly, so
+            // this is normally already a self-contained, valid snippet as
+            // -is. Still guarded for an older conversion whose <math> was
+            // only ever namespaced via an ancestor's xmlns:mml: stripping
+            // that "mml:" prefix would otherwise leave a bare, unnamespaced
+            // <math> that a strict XML/XSLT consumer (or a JATS/EPUB
+            // round-trip) won't recognize as MathML at all, so re-add
+            // xmlns here -- but only when the tag doesn't already have one,
+            // to avoid emitting a duplicate attribute.
+            let mmlMarkup = mml.outerHTML.replace(/<(\/?)mml:/gi, "<$1");
+            const openTagEnd = mmlMarkup.indexOf(">") + 1;
+            if (!/\bxmlns\s*=/.test(mmlMarkup.slice(0, openTagEnd))) {
+              mmlMarkup = mmlMarkup.replace(/^<math(?=[\s>])/, '<math xmlns="http://www.w3.org/1998/Math/MathML"');
+            }
+            rendered = mmlMarkup;
+            // mml.outerHTML reproduces the source XML's pretty-printing
+            // verbatim -- every indent and line break between elements is a
+            // real whitespace text node -- so the "source" pill would
+            // otherwise sprawl across many lines instead of reading as one
+            // compact, copiable snippet.
+            sourceCode = mmlMarkup.replace(/\s+/g, " ").trim();
+            sourceLabel = "MathML";
+          } else if (tex) {
+            rendered = `\\(${tex.textContent}\\)`;
+            sourceCode = tex.textContent.replace(/\s+/g, " ").trim();
+            sourceLabel = "LaTeX";
+          }
+          if (rendered) {
+            out += `<span class="formula-wrap">${rendered}`;
+            if (sourceCode) {
+              out += `<code class="formula-code" title="${sourceLabel} source">${escapeHtml(sourceCode)}</code>`;
+              out += `<button type="button" class="formula-copy-btn" data-copy="${escapeAttr(sourceCode)}" title="Copy ${sourceLabel} source"><svg class="icon"><use href="#i-copy"/></svg></button>`;
+            }
+            out += `</span>`;
+          }
+          break;
+        }
+        case "table-wrap": {
+          const titleEl = child.querySelector(":scope > title");
+          if (titleEl) out += `<div class="table-caption"><b>${escapeHtml(titleEl.textContent)}</b></div>`;
+          out += jatsNodeToHtml(child);
+          break;
+        }
+        case "table":
+        case "thead":
+        case "tbody":
+        case "tr":
+          out += `<${tag}>${jatsNodeToHtml(child)}</${tag}>`;
+          break;
+        case "th":
+        case "td": {
+          const attrs = [];
+          if (child.hasAttribute("colspan")) attrs.push(`colspan="${child.getAttribute("colspan")}"`);
+          if (child.hasAttribute("rowspan")) attrs.push(`rowspan="${child.getAttribute("rowspan")}"`);
+          out += `<${tag} ${attrs.join(" ")}>${jatsNodeToHtml(child)}</${tag}>`;
+          break;
+        }
+        case "fig": {
+          const graphic = child.querySelector("graphic");
+          const href = graphic ? graphic.getAttributeNS("http://www.w3.org/1999/xlink", "href") || graphic.getAttribute("xlink:href") : "";
+          out += `<div class="rendered-fig">Image placeholder${href ? `: ${escapeHtml(href)}` : ""}</div>`;
+          break;
+        }
+        default:
+          out += jatsNodeToHtml(child);
+      }
+    }
+    return out;
+  }
+
+  function renderJatsPreview(xmlText) {
+    const container = $("#renderedContent");
+    let doc;
+    try {
+      doc = new DOMParser().parseFromString(xmlText, "application/xml");
+      const parseError = doc.querySelector("parsererror");
+      if (parseError) throw new Error(parseError.textContent);
+    } catch (err) {
+      container.innerHTML = `<div class="parse-error">Could not render preview: ${escapeHtml(err.message)}</div>`;
+      return;
+    }
+
+    const body = doc.querySelector("body") || doc.documentElement;
+    container.innerHTML = jatsNodeToHtml(body) || "<p>(No content)</p>";
+    typesetMath(container);
+  }
+
+  // One delegated listener for every formula's copy button, rather than
+  // one per button -- the buttons are rebuilt from scratch on every
+  // renderJatsPreview() call, so anything bound directly to them would need
+  // rebinding right after (easy to forget, and it's the container that's
+  // stable across re-renders, not its contents).
+  $("#renderedContent").addEventListener("click", async (e) => {
+    const btn = e.target.closest(".formula-copy-btn");
+    if (!btn) return;
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copy || "");
+      flashIconBtn(btn);
+    } catch (err) {
+      /* clipboard permissions denied; nothing to fall back to reliably */
+    }
+  });
+
+  // The MathJax script tag is deferred, and even once it executes it still
+  // has async startup work (building the output jax, etc.) before
+  // typesetPromise exists -- calling renderJatsPreview() right after a fast
+  // conversion can easily race that, silently skipping typesetting and
+  // leaving raw "\(...\)" text on screen. Wait on MathJax.startup.promise
+  // when typesetPromise isn't there yet instead of just giving up.
+  function typesetMath(container) {
+    if (!window.MathJax) return;
+    const run = () => window.MathJax.typesetPromise([container]).catch(() => {});
+    if (window.MathJax.typesetPromise) {
+      run();
+    } else if (window.MathJax.startup && window.MathJax.startup.promise) {
+      window.MathJax.startup.promise.then(run).catch(() => {});
+    }
   }
 
   function renderValidation(data) {

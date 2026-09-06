@@ -1,6 +1,4 @@
 PyMuPDF
-paddleocr
-truststore
 lxml
 Flask
 pywebview

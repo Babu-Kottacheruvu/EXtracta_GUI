@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables v1.0 20120330//EN" "JATS-journalpublishing-oasis-article1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" article-type="proceedings">
+  <front>
+    <article-meta>
+      <title-group>
+        <article-title>a61b44ac6745471e9715a93f36bc19b2.pdf</article-title>
+      </title-group>
+    </article-meta>
+  </front>
+  <body>
+    <p>Ten Complex Mathematical Formulas</p>
+    <p>
+      1.
+      <bold> Euler’s Identity</bold>
+       
+      <inline-formula>
+        <tex-math>e^{iπ}+ 1 = 0</tex-math>
+        <mml:math display="inline">
+          <mml:mrow>
+            <mml:msup>
+              <mml:mi>e</mml:mi>
+              <mml:mrow>
+                <mml:mi>i</mml:mi>
+                <mml:mi>π</mml:mi>
+              </mml:mrow>
+            </mml:msup>
+            <mml:mo>+</mml:mo>
+            <mml:mn>1</mml:mn>
+            <mml:mo>=</mml:mo>
+            <mml:mn>0</mml:mn>
+          </mml:mrow>
+        </mml:math>
+      </inline-formula>
+    </p>
+    <p>
+      2.
+      <bold> Gaussian Integral</bold>
+       
+      <inline-formula>
+        <tex-math>\int\infty −\infty e^{−x2}dx =^{\sqrt}\pi</tex-math>
+        <mml:math display="inline">
+          <mml:mrow>
+            <mml:mo>∫</mml:mo>
+            <mml:mo>∞</mml:mo>
+            <mml:mo>−</mml:mo>
+            <mml:mo>∞</mml:mo>
+            <mml:msup>
+              <mml:mi>e</mml:mi>
+              <mml:mrow>
+                <mml:mo>−</mml:mo>
+                <mml:mi>x</mml:mi>
+                <mml:mn>2</mml:mn>
+              </mml:mrow>
+            </mml:msup>
+            <mml:mi>dx</mml:mi>
+            <mml:msup>
+              <mml:mo>=</mml:mo>
+              <mml:mrow>
+                <mml:msqrt>
+                  <mml:mrow/>
+                </mml:msqrt>
+                <mml:mi>π</mml:mi>
+              </mml:mrow>
+            </mml:msup>
+          </mml:mrow>
+        </mml:math>
+      </inline-formula>
+    </p>
+    <sec>
+      <title>3.  Basel Problem (Riemann Zeta at 2)</title>
+      <p>
+        <inline-formula>
+          <tex-math>\infty\sum n^{2 = \pi2}</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mo>∞</mml:mo>
+              <mml:mo>∑</mml:mo>
+              <mml:msup>
+                <mml:mi>n</mml:mi>
+                <mml:mrow>
+                  <mml:mn>2</mml:mn>
+                  <mml:mo>=</mml:mo>
+                  <mml:mi>π</mml:mi>
+                  <mml:mn>2</mml:mn>
+                </mml:mrow>
+              </mml:msup>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>1</p>
+      <p>6</p>
+      <p>
+        <inline-formula>
+          <tex-math>n=1</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>n</mml:mi>
+              <mml:mo>=</mml:mo>
+              <mml:mn>1</mml:mn>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        4.
+        <bold> Stirling’s Approximation</bold>
+         
+        <inline-formula>
+          <tex-math>n! \approx\sqrt 2πn n_{n} e</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>n</mml:mi>
+              <mml:mo>!</mml:mo>
+              <mml:mo>≈</mml:mo>
+              <mml:msqrt>
+                <mml:mn>2</mml:mn>
+              </mml:msqrt>
+              <mml:mi>π</mml:mi>
+              <mml:mi>n</mml:mi>
+              <mml:msub>
+                <mml:mi>n</mml:mi>
+                <mml:mi>n</mml:mi>
+              </mml:msub>
+              <mml:mi>e</mml:mi>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        5.
+        <bold> Fourier Transform</bold>
+         ˆ 
+        <inline-formula>
+          <tex-math>f(ξ) = \int\infty −\infty f(x) e^{−2πixξ}dx</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>f</mml:mi>
+              <mml:mo>(</mml:mo>
+              <mml:mi>ξ</mml:mi>
+              <mml:mo>)</mml:mo>
+              <mml:mo>=</mml:mo>
+              <mml:mo>∫</mml:mo>
+              <mml:mo>∞</mml:mo>
+              <mml:mo>−</mml:mo>
+              <mml:mo>∞</mml:mo>
+              <mml:mi>f</mml:mi>
+              <mml:mo>(</mml:mo>
+              <mml:mi>x</mml:mi>
+              <mml:mo>)</mml:mo>
+              <mml:msup>
+                <mml:mi>e</mml:mi>
+                <mml:mrow>
+                  <mml:mo>−</mml:mo>
+                  <mml:mn>2</mml:mn>
+                  <mml:mi>π</mml:mi>
+                  <mml:mi>ix</mml:mi>
+                  <mml:mi>ξ</mml:mi>
+                </mml:mrow>
+              </mml:msup>
+              <mml:mi>dx</mml:mi>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+    <sec>
+      <title>6.  Cauchy Integral Formula</title>
+      <p>
+        <inline-formula>
+          <tex-math>\oint f(a) =</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mo>∮</mml:mo>
+              <mml:mi>f</mml:mi>
+              <mml:mo>(</mml:mo>
+              <mml:mi>a</mml:mi>
+              <mml:mo>)</mml:mo>
+              <mml:mo>=</mml:mo>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+         1
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>f(z) z −a^{dz} 2πi \gamma</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>f</mml:mi>
+              <mml:mo>(</mml:mo>
+              <mml:mi>z</mml:mi>
+              <mml:mo>)</mml:mo>
+              <mml:mi>z</mml:mi>
+              <mml:mo>−</mml:mo>
+              <mml:msup>
+                <mml:mi>a</mml:mi>
+                <mml:mi>dz</mml:mi>
+              </mml:msup>
+              <mml:mn>2</mml:mn>
+              <mml:mi>π</mml:mi>
+              <mml:mi>i</mml:mi>
+              <mml:mi>γ</mml:mi>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+    <sec>
+      <title>7.  Schr¨ odinger Equation (time-dependent)</title>
+      <p>
+        <inline-formula>
+          <tex-math>\partial t^{Ψ(r, t) =}</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mo>∂</mml:mo>
+              <mml:msup>
+                <mml:mi>t</mml:mi>
+                <mml:mrow>
+                  <mml:mi>Ψ</mml:mi>
+                  <mml:mo>(</mml:mo>
+                  <mml:mi>r</mml:mi>
+                  <mml:mo>,</mml:mo>
+                  <mml:mi>t</mml:mi>
+                  <mml:mo>)</mml:mo>
+                  <mml:mo>=</mml:mo>
+                </mml:mrow>
+              </mml:msup>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+          
+        <inline-formula>
+          <tex-math>−^{ℏ2} 2m^{\nabla2 + V (r, t)}</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:msup>
+                <mml:mo>−</mml:mo>
+                <mml:mrow>
+                  <mml:mi>ℏ</mml:mi>
+                  <mml:mn>2</mml:mn>
+                </mml:mrow>
+              </mml:msup>
+              <mml:mn>2</mml:mn>
+              <mml:msup>
+                <mml:mi>m</mml:mi>
+                <mml:mrow>
+                  <mml:mo>∇</mml:mo>
+                  <mml:mn>2</mml:mn>
+                  <mml:mo>+</mml:mo>
+                  <mml:mi>V</mml:mi>
+                  <mml:mo>(</mml:mo>
+                  <mml:mi>r</mml:mi>
+                  <mml:mo>,</mml:mo>
+                  <mml:mi>t</mml:mi>
+                  <mml:mo>)</mml:mo>
+                </mml:mrow>
+              </mml:msup>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+          
+        <inline-formula>
+          <tex-math>Ψ(r, t)</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>Ψ</mml:mi>
+              <mml:mo>(</mml:mo>
+              <mml:mi>r</mml:mi>
+              <mml:mo>,</mml:mo>
+              <mml:mi>t</mml:mi>
+              <mml:mo>)</mml:mo>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+        <inline-formula>
+          <tex-math>iℏ^{\partial}</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>i</mml:mi>
+              <mml:msup>
+                <mml:mi>ℏ</mml:mi>
+                <mml:mo>∂</mml:mo>
+              </mml:msup>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+    <sec>
+      <title>8.  Riemann Zeta Function (functional equation)</title>
+      <p>
+        <inline-formula>
+          <tex-math>ζ(s) = 2^{s}\pi^{s−1}sin πs</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>ζ</mml:mi>
+              <mml:mo>(</mml:mo>
+              <mml:mi>s</mml:mi>
+              <mml:mo>)</mml:mo>
+              <mml:mo>=</mml:mo>
+              <mml:msup>
+                <mml:mn>2</mml:mn>
+                <mml:mi>s</mml:mi>
+              </mml:msup>
+              <mml:msup>
+                <mml:mi>π</mml:mi>
+                <mml:mrow>
+                  <mml:mi>s</mml:mi>
+                  <mml:mo>−</mml:mo>
+                  <mml:mn>1</mml:mn>
+                </mml:mrow>
+              </mml:msup>
+              <mml:mi mathvariant="normal">sin</mml:mi>
+              <mml:mi>π</mml:mi>
+              <mml:mi>s</mml:mi>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>
+         
+        <inline-formula>
+          <tex-math>Γ(1 −s) ζ(1 −s)</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>Γ</mml:mi>
+              <mml:mo>(</mml:mo>
+              <mml:mn>1</mml:mn>
+              <mml:mo>−</mml:mo>
+              <mml:mi>s</mml:mi>
+              <mml:mo>)</mml:mo>
+              <mml:mi>ζ</mml:mi>
+              <mml:mo>(</mml:mo>
+              <mml:mn>1</mml:mn>
+              <mml:mo>−</mml:mo>
+              <mml:mi>s</mml:mi>
+              <mml:mo>)</mml:mo>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+      <p>2</p>
+    </sec>
+    <sec>
+      <title>9.  Navier–Stokes Equation (incompressible flow)</title>
+      <p>
+        <inline-formula>
+          <tex-math>ρ \partial u \partial t^{+ u \cdot\nabla u}</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mi>ρ</mml:mi>
+              <mml:mo>∂</mml:mo>
+              <mml:mi>u</mml:mi>
+              <mml:mo>∂</mml:mo>
+              <mml:msup>
+                <mml:mi>t</mml:mi>
+                <mml:mrow>
+                  <mml:mo>+</mml:mo>
+                  <mml:mi>u</mml:mi>
+                  <mml:mo>·</mml:mo>
+                  <mml:mo>∇</mml:mo>
+                  <mml:mi>u</mml:mi>
+                </mml:mrow>
+              </mml:msup>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+          
+        <inline-formula>
+          <tex-math>= −\nabla p + µ\nabla^{2}u + f</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:mo>=</mml:mo>
+              <mml:mo>−</mml:mo>
+              <mml:mo>∇</mml:mo>
+              <mml:mi>p</mml:mi>
+              <mml:mo>+</mml:mo>
+              <mml:mi>µ</mml:mi>
+              <mml:msup>
+                <mml:mo>∇</mml:mo>
+                <mml:mn>2</mml:mn>
+              </mml:msup>
+              <mml:mi>u</mml:mi>
+              <mml:mo>+</mml:mo>
+              <mml:mi>f</mml:mi>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+    <sec>
+      <title>10.  Einstein Field Equations</title>
+      <p>
+        <inline-formula>
+          <tex-math>G_{µν} + Λg_{µν} =^{8πG} c^{4 Tµν}</tex-math>
+          <mml:math display="inline">
+            <mml:mrow>
+              <mml:msub>
+                <mml:mi>G</mml:mi>
+                <mml:mrow>
+                  <mml:mi>µ</mml:mi>
+                  <mml:mi>ν</mml:mi>
+                </mml:mrow>
+              </mml:msub>
+              <mml:mo>+</mml:mo>
+              <mml:mi>Λ</mml:mi>
+              <mml:msub>
+                <mml:mi>g</mml:mi>
+                <mml:mrow>
+                  <mml:mi>µ</mml:mi>
+                  <mml:mi>ν</mml:mi>
+                </mml:mrow>
+              </mml:msub>
+              <mml:msup>
+                <mml:mo>=</mml:mo>
+                <mml:mrow>
+                  <mml:mn>8</mml:mn>
+                  <mml:mi>π</mml:mi>
+                  <mml:mi>G</mml:mi>
+                </mml:mrow>
+              </mml:msup>
+              <mml:msup>
+                <mml:mi>c</mml:mi>
+                <mml:mrow>
+                  <mml:mn>4</mml:mn>
+                  <mml:mi>T</mml:mi>
+                  <mml:mi>µ</mml:mi>
+                  <mml:mi>ν</mml:mi>
+                </mml:mrow>
+              </mml:msup>
+            </mml:mrow>
+          </mml:math>
+        </inline-formula>
+      </p>
+    </sec>
+  </body>
+</article>
