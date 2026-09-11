@@ -1,0 +1,7 @@
+# Dependencies for the desktop client (main_gui.py) only.
+# This is what gets bundled into the .exe -- it deliberately does NOT
+# include PyMuPDF/lxml/Flask/gunicorn, since the client no longer runs the
+# conversion pipeline itself; it just talks to the hosted server over HTTPS.
+pywebview
+pythonnet
+requests

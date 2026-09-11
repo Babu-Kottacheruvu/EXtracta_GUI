@@ -1,0 +1,19 @@
+# Render "Blueprint" -- lets you deploy by pointing Render at this repo
+# (New -> Blueprint) instead of clicking through the web service form by hand.
+# IMPORTANT: workers must stay at 1 -- FILES/JOBS state lives in this
+# process's memory, not a database, so a second worker/instance would not
+# see files or jobs created by the first one.
+services:
+  - type: web
+    name: extracta
+    runtime: python
+    plan: starter          # "free" spins down when idle and will kill any
+                            # conversion job running at the time; use a paid,
+                            # always-on plan for real use.
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers=1 --threads=8 --timeout=300 --bind=0.0.0.0:$PORT
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false          # set the real value in the Render dashboard
+      - key: PYTHON_VERSION
+        value: 3.11.9

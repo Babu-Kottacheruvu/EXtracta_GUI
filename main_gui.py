@@ -1,161 +1,171 @@
-"""Desktop launcher for the PDF to XML Converter.
+"""Desktop client for the PDF to XML Converter.
 
-Runs the existing Flask app (app.py) in a background thread and displays it
-in a native desktop window via pywebview, instead of opening a browser tab.
-The dashboard UI (templates/static) and the conversion pipeline
-(pdf_to_xml.py) are unchanged.
+This process does NOT run the Flask app or the conversion pipeline itself --
+it is a thin wrapper that opens the hosted server (see SERVER_URL below) in a
+native window via pywebview, and handles native Save-As dialogs for
+downloads (WebView2 doesn't support browser-style downloads the way a real
+browser does, so those go through the Api class below instead).
 
-WebView2 (the engine pywebview uses on Windows) does not handle browser-style
-downloads (Content-Disposition attachments, <a download> blob links) the way
-a real browser does, so "Download XML" needs a native Save As dialog instead.
-The Api class below is exposed to the page as window.pywebview.api and does
-that directly against the in-memory job/file state from app.py.
+Because the UI, the PDF/OCR pipeline, and the OpenRouter calls all live on
+the server, this app REQUIRES an internet connection to do anything useful --
+that's intentional: it's what keeps the installed .exe small and lets the
+pipeline be fixed/upgraded on the server without anyone reinstalling the app.
 """
 
 import os
 import re
-import socket
-import threading
+import sys
 import time
+import tkinter as tk
+from tkinter import messagebox
 
+import requests
 import webview
 
-from app import app, FILES, JOBS, OUTPUT_DIR
-from epub_generator import generate_epub
+# Where the hosted backend lives. Overridable without rebuilding the .exe:
+#   1. the EXTRACTA_SERVER_URL environment variable, or
+#   2. a "server_url.txt" file dropped next to the .exe (or this script),
+#      containing just the URL.
+# Falls back to the deployed Render URL below -- replace this with your own
+# once you've deployed (see render.yaml / Procfile).
+DEFAULT_SERVER_URL = "https://extracta.onrender.com"
 
-HOST = "127.0.0.1"
+
+def _app_dir():
+    # sys.executable is the .exe itself once frozen by PyInstaller; the
+    # source .py file's own path otherwise.
+    if getattr(sys, "frozen", False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(os.path.abspath(__file__))
 
 
-def _free_port(host):
-    """Reserve an OS-assigned free port for THIS process's own server.
+def _server_url():
+    env_url = os.environ.get("EXTRACTA_SERVER_URL")
+    if env_url:
+        return env_url.strip().rstrip("/")
+    config_path = os.path.join(_app_dir(), "server_url.txt")
+    if os.path.exists(config_path):
+        with open(config_path, "r", encoding="utf-8") as f:
+            url = f.read().strip()
+            if url:
+                return url.rstrip("/")
+    return DEFAULT_SERVER_URL.rstrip("/")
 
-    A previous version used a fixed port (8642) and just polled whether it
-    was open before creating the window. That's broken if a stale
-    main_gui.py process from an earlier run is still holding that port: the
-    poll sees the port open (because the OLD process is answering on it),
-    so this process's window ends up pointing at someone else's Flask
-    server -- conversions run there and populate ITS JOBS dict, but the
-    save_xml/save_text/save_epub calls below run inside THIS process and
-    check THIS process's own, unrelated (empty) JOBS import, so every
-    download fails with "Result not ready" even though the conversion
-    genuinely finished. Binding our own OS-assigned port sidesteps the
-    whole class of bug: this process only ever talks to a server it itself
-    started.
+
+SERVER_URL = _server_url()
+
+
+def _check_connection():
+    """Confirm the server is reachable before opening the window.
+
+    Render's free plan spins a sleeping instance back up on the first
+    request, which can take 30-50s -- so this tries a quick probe first and,
+    only if that fails, a second, more patient one before giving up (rather
+    than misreporting a cold start as "no internet").
     """
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((host, 0))
-        return s.getsockname()[1]
+    for timeout in (8, 45):
+        try:
+            resp = requests.get(SERVER_URL, timeout=timeout)
+            if resp.status_code < 500:
+                return True
+        except requests.RequestException:
+            time.sleep(1)
+    return False
 
 
-def run_server(port):
-    app.run(host=HOST, port=port, debug=False, use_reloader=False, threaded=True)
+def _fail_with_message(message):
+    root = tk.Tk()
+    root.withdraw()
+    messagebox.showerror("PDF to XML Converter", message)
+    root.destroy()
 
 
-def _base_name(job):
-    info = FILES.get(job["file_id"])
-    if info:
-        return os.path.splitext(info["filename"])[0]
-    return job.get("xml_path") and os.path.splitext(os.path.basename(job["xml_path"]))[0] or "output"
+def _filename_from_response(resp, fallback):
+    cd = resp.headers.get("Content-Disposition", "")
+    m = re.search(r'filename="?([^";]+)"?', cd)
+    return m.group(1) if m else fallback
 
 
 class Api:
-    def save_xml(self, job_id):
-        job = JOBS.get(job_id)
-        if not job or job.get("status") != "done":
-            return {"ok": False, "error": "Result not ready"}
+    """Exposed to the page as window.pywebview.api.
 
+    Each save_* method re-fetches the finished result from the server (the
+    client holds no job/file state of its own) and writes it to a path the
+    user picks via a native Save As dialog.
+    """
+
+    def _save_via(self, url_path, force_ext, file_types, transform=None, binary=False):
         window = webview.windows[0]
+        try:
+            resp = requests.get(f"{SERVER_URL}{url_path}", timeout=120)
+        except requests.RequestException as e:
+            return {"ok": False, "error": f"Could not reach server: {e}"}
+        if resp.status_code != 200:
+            return {"ok": False, "error": f"Server error ({resp.status_code})"}
+
+        suggested = _filename_from_response(resp, f"output.{force_ext}")
+        base, _ = os.path.splitext(suggested)
+        suggested = f"{base}.{force_ext}"
+
         dest = window.create_file_dialog(
             webview.FileDialog.SAVE,
             directory=os.path.expanduser("~"),
-            save_filename=f"{_base_name(job)}.xml",
-            file_types=("XML Files (*.xml)", "All files (*.*)"),
+            save_filename=suggested,
+            file_types=file_types,
         )
         if not dest:
             return {"ok": False, "cancelled": True}
         dest_path = dest[0] if isinstance(dest, (list, tuple)) else dest
 
-        with open(job["xml_path"], "r", encoding="utf-8") as src:
-            content = src.read()
-        with open(dest_path, "w", encoding="utf-8") as out:
-            out.write(content)
+        if binary:
+            with open(dest_path, "wb") as out:
+                out.write(resp.content)
+        else:
+            content = resp.text
+            if transform:
+                content = transform(content)
+            with open(dest_path, "w", encoding="utf-8") as out:
+                out.write(content)
         return {"ok": True, "path": dest_path}
+
+    def save_xml(self, job_id):
+        return self._save_via(
+            f"/api/jobs/{job_id}/download", "xml",
+            ("XML Files (*.xml)", "All files (*.*)"),
+        )
 
     def save_text(self, job_id):
-        job = JOBS.get(job_id)
-        if not job or job.get("status") != "done":
-            return {"ok": False, "error": "Result not ready"}
+        def strip_tags(xml_text):
+            text = re.sub(r"<[^>]+>", " ", xml_text)
+            return re.sub(r"\s+", " ", text).strip()
 
-        window = webview.windows[0]
-        dest = window.create_file_dialog(
-            webview.FileDialog.SAVE,
-            directory=os.path.expanduser("~"),
-            save_filename=f"{_base_name(job)}.txt",
-            file_types=("Text Files (*.txt)", "All files (*.*)"),
+        return self._save_via(
+            f"/api/jobs/{job_id}/download", "txt",
+            ("Text Files (*.txt)", "All files (*.*)"),
+            transform=strip_tags,
         )
-        if not dest:
-            return {"ok": False, "cancelled": True}
-        dest_path = dest[0] if isinstance(dest, (list, tuple)) else dest
-
-        with open(job["xml_path"], "r", encoding="utf-8") as src:
-            xml_text = src.read()
-        text = re.sub(r"<[^>]+>", " ", xml_text)
-        text = re.sub(r"\s+", " ", text).strip()
-        with open(dest_path, "w", encoding="utf-8") as out:
-            out.write(text)
-        return {"ok": True, "path": dest_path}
 
     def save_epub(self, job_id):
-        job = JOBS.get(job_id)
-        if not job or job.get("status") != "done":
-            return {"ok": False, "error": "Result not ready"}
-
-        window = webview.windows[0]
-        dest = window.create_file_dialog(
-            webview.FileDialog.SAVE,
-            directory=os.path.expanduser("~"),
-            save_filename=f"{_base_name(job)}.epub",
-            file_types=("EPUB Files (*.epub)", "All files (*.*)"),
+        return self._save_via(
+            f"/api/jobs/{job_id}/epub", "epub",
+            ("EPUB Files (*.epub)", "All files (*.*)"),
+            binary=True,
         )
-        if not dest:
-            return {"ok": False, "cancelled": True}
-        dest_path = dest[0] if isinstance(dest, (list, tuple)) else dest
-
-        epub_path = os.path.join(OUTPUT_DIR, f"{job_id}.epub")
-        if not os.path.exists(epub_path):
-            generate_epub(job["xml_path"], epub_path, title=_base_name(job))
-
-        with open(epub_path, "rb") as src:
-            content = src.read()
-        with open(dest_path, "wb") as out:
-            out.write(content)
-        return {"ok": True, "path": dest_path}
-
-
-def _port_open(host, port, timeout=0.3):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.settimeout(timeout)
-        try:
-            s.connect((host, port))
-            return True
-        except OSError:
-            return False
 
 
 def main():
-    port = _free_port(HOST)
-    server_thread = threading.Thread(target=run_server, args=(port,), daemon=True)
-    server_thread.start()
-
-    for _ in range(100):
-        if _port_open(HOST, port):
-            break
-        time.sleep(0.1)
+    if not _check_connection():
+        _fail_with_message(
+            "PDF to XML Converter needs an internet connection to reach:\n\n"
+            f"{SERVER_URL}\n\n"
+            "Please check your connection and try again."
+        )
+        sys.exit(1)
 
     webview.settings["ALLOW_DOWNLOADS"] = True
     webview.create_window(
         "PDF to XML Converter",
-        f"http://{HOST}:{port}",
+        SERVER_URL,
         width=1440,
         height=900,
         min_size=(1100, 700),

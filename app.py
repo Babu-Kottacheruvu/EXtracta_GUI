@@ -320,5 +320,10 @@ def _mask_key(key):
 
 
 if __name__ == "__main__":
-    # Note: port 8642 avoids colliding with an unrelated project's dev server on port 5000.
-    app.run(debug=True, threaded=True, port=8642)
+    # Render (and most PaaS) inject PORT and expect a bind on 0.0.0.0; local
+    # dev falls back to 127.0.0.1:8642 (chosen to avoid colliding with an
+    # unrelated project's dev server on port 5000). debug/reloader stay off
+    # whenever PORT is set, since that only happens in a hosted environment.
+    port = int(os.environ.get("PORT", 8642))
+    is_hosted = "PORT" in os.environ
+    app.run(host="0.0.0.0" if is_hosted else "127.0.0.1", port=port, debug=not is_hosted, threaded=True)

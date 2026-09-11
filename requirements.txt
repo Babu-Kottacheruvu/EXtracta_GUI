@@ -1,5 +1,4 @@
 PyMuPDF
 lxml
 Flask
-pywebview
-pythonnet
+gunicorn

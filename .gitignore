@@ -1,1 +1,10 @@
 config.json
+__pycache__/
+*.pyc
+uploads/
+outputs/
+*.spec
+build/
+dist/
+.venv/
+venv/

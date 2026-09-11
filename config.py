@@ -1,5 +1,12 @@
-"""Local app configuration (API keys, etc.), persisted to a JSON file next to
-this script. Kept out of git via .gitignore since it can hold a secret.
+"""App configuration (API keys, etc.).
+
+Locally this persists to a JSON file next to this script (kept out of git via
+.gitignore since it can hold a secret). When deployed (e.g. on Render), the
+filesystem is ephemeral and there's no dashboard for a hosted user to type a
+key into, so OPENROUTER_API_KEY is read from the environment first -- set it
+as a secret env var in the Render dashboard. The env var always wins over
+whatever is in config.json, so a deployed instance can't be reconfigured by
+whatever ends up in the (ephemeral) settings UI.
 """
 
 import json
@@ -24,6 +31,9 @@ def _save(data):
 
 
 def get_openrouter_api_key():
+    env_key = os.environ.get("OPENROUTER_API_KEY")
+    if env_key:
+        return env_key
     return _load().get("openrouter_api_key") or None
 
 
