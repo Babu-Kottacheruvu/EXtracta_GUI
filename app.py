@@ -26,6 +26,73 @@ JOBS = {}  # job_id -> {status, logs, file_id, xml_path, error, options}
 JOBS_LOCK = threading.Lock()
 
 
+def _rehydrate_files_from_disk():
+    """Restore a FILES entry for every PDF already sitting in UPLOAD_DIR from
+    a previous run of this process, for the same reason
+    _rehydrate_jobs_from_disk restores JOBS: a page left open across a
+    server restart can still ask to convert a file_id it uploaded earlier,
+    and without this that 404s with "Unknown file_id" even though the PDF
+    itself is untouched on disk. The original filename the user uploaded it
+    under isn't recoverable (uploads are stored as "<file_id>.pdf", not
+    under their original name), so a rehydrated entry falls back to that.
+    """
+    if not os.path.isdir(UPLOAD_DIR):
+        return
+    for name in os.listdir(UPLOAD_DIR):
+        if not name.endswith(".pdf"):
+            continue
+        file_id = name[: -len(".pdf")]
+        path = os.path.join(UPLOAD_DIR, name)
+        try:
+            doc = fitz.open(path)
+            page_count = len(doc)
+            doc.close()
+        except Exception:
+            continue
+        FILES[file_id] = {
+            "path": path,
+            "filename": name,
+            "size": os.path.getsize(path),
+            "page_count": page_count,
+        }
+
+
+def _rehydrate_jobs_from_disk():
+    """Restore a "done" JOBS entry for every XML file already sitting in
+    OUTPUT_DIR from a previous run of this process.
+
+    JOBS is purely in-memory, but extract_pdf_to_xml's output files persist
+    on disk under their job_id -- so a server restart (e.g. after a backend
+    code change) doesn't lose any actual conversion result, only the
+    in-memory record pointing to it. Without this, a page left open across
+    that restart still holds a job_id from before, and every job-status
+    check (download, XML view, EPUB export, ...) 404s with "Result not
+    ready" even though the finished XML is right there on disk. The
+    original upload's filename can't be recovered this way (that lived only
+    in FILES, keyed by a different id with no on-disk trace), so a
+    rehydrated job's download falls back to naming the file after its job_id
+    -- functional, just less friendly than the original PDF's name.
+    """
+    if not os.path.isdir(OUTPUT_DIR):
+        return
+    for name in os.listdir(OUTPUT_DIR):
+        if not name.endswith(".xml"):
+            continue
+        job_id = name[: -len(".xml")]
+        JOBS[job_id] = {
+            "status": "done",
+            "logs": [],
+            "file_id": None,
+            "xml_path": os.path.join(OUTPUT_DIR, name),
+            "error": None,
+            "options": {},
+        }
+
+
+_rehydrate_files_from_disk()
+_rehydrate_jobs_from_disk()
+
+
 @app.route("/")
 def index():
     return render_template("index.html")

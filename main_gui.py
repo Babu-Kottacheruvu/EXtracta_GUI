@@ -24,21 +24,31 @@ from app import app, FILES, JOBS, OUTPUT_DIR
 from epub_generator import generate_epub
 
 HOST = "127.0.0.1"
-PORT = 8642  # deliberately not 5000: an unrelated project's dev server on this machine uses it
 
 
-def _port_open(host, port, timeout=0.3):
+def _free_port(host):
+    """Reserve an OS-assigned free port for THIS process's own server.
+
+    A previous version used a fixed port (8642) and just polled whether it
+    was open before creating the window. That's broken if a stale
+    main_gui.py process from an earlier run is still holding that port: the
+    poll sees the port open (because the OLD process is answering on it),
+    so this process's window ends up pointing at someone else's Flask
+    server -- conversions run there and populate ITS JOBS dict, but the
+    save_xml/save_text/save_epub calls below run inside THIS process and
+    check THIS process's own, unrelated (empty) JOBS import, so every
+    download fails with "Result not ready" even though the conversion
+    genuinely finished. Binding our own OS-assigned port sidesteps the
+    whole class of bug: this process only ever talks to a server it itself
+    started.
+    """
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.settimeout(timeout)
-        try:
-            s.connect((host, port))
-            return True
-        except OSError:
-            return False
+        s.bind((host, 0))
+        return s.getsockname()[1]
 
 
-def run_server():
-    app.run(host=HOST, port=PORT, debug=False, use_reloader=False, threaded=True)
+def run_server(port):
+    app.run(host=HOST, port=port, debug=False, use_reloader=False, threaded=True)
 
 
 def _base_name(job):
@@ -122,19 +132,30 @@ class Api:
         return {"ok": True, "path": dest_path}
 
 
+def _port_open(host, port, timeout=0.3):
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.settimeout(timeout)
+        try:
+            s.connect((host, port))
+            return True
+        except OSError:
+            return False
+
+
 def main():
-    server_thread = threading.Thread(target=run_server, daemon=True)
+    port = _free_port(HOST)
+    server_thread = threading.Thread(target=run_server, args=(port,), daemon=True)
     server_thread.start()
 
     for _ in range(100):
-        if _port_open(HOST, PORT):
+        if _port_open(HOST, port):
             break
         time.sleep(0.1)
 
     webview.settings["ALLOW_DOWNLOADS"] = True
     webview.create_window(
         "PDF to XML Converter",
-        f"http://{HOST}:{PORT}",
+        f"http://{HOST}:{port}",
         width=1440,
         height=900,
         min_size=(1100, 700),

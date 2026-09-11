@@ -399,6 +399,113 @@ def _bboxes_close(b1, b2, margin):
     )
 
 
+def _ends_mid_sentence(text):
+    """Whether `text` stops mid-sentence rather than at a genuine
+    sentence/clause boundary -- the text half of the cross-block paragraph-
+    continuation check (see _looks_like_paragraph_continuation). Trailing
+    closing quotes/brackets are stripped first so a sentence that properly
+    ends "...done.”" isn't misread as unfinished just because the very
+    last character is a quote mark rather than the period itself."""
+    text = text.rstrip().rstrip("\"'’”)]")
+    return bool(text) and text[-1] not in ".!?:;"
+
+
+def _starts_mid_sentence(text):
+    """Whether `text` picks a sentence back up mid-flow, rather than
+    opening a new one -- the other half of the paragraph-continuation
+    check. A lowercase first letter is the strongest cheap signal (a real
+    new sentence/list item/heading almost always starts capitalized or with
+    a marker); numbered/bulleted list openers are excluded explicitly since
+    those legitimately start a new item even when, coincidentally, whatever
+    follows the marker happens to be lowercase."""
+    text = text.lstrip()
+    if re.match(r'^\d+[\.\)]\s', text) or re.match(r'^[•●■▪]\s', text):
+        return False
+    m = re.search(r'[A-Za-z]', text)
+    return bool(m) and text[m.start()].islower()
+
+
+def _looks_like_paragraph_continuation(prev_text, next_text):
+    """Combined text signal for merging two consecutive PyMuPDF blocks into
+    one JATS <p> instead of two. PyMuPDF's own block segmentation is meant
+    to track visual paragraphs, but a stray layout quirk (seen in the wild:
+    a curly-apostrophe glyph, an odd kerning gap) can split one real
+    paragraph -- sometimes even one single wrapped sentence -- into two or
+    more separate blocks with no blank-paragraph gap between them at all.
+    Requiring BOTH halves (the previous block trails off unfinished, and
+    the next one picks up lowercase) keeps this from firing on two
+    genuinely separate, back-to-back sentences that merely lack ending
+    punctuation by document quirk on one side only.
+    """
+    return _ends_mid_sentence(prev_text) and _starts_mid_sentence(next_text)
+
+
+def _looks_like_adjacent_block(prev_bbox, next_bbox, max_gap=8.0, max_x_shift=6.0):
+    """Geometry half of the same-page paragraph-continuation check: is
+    `next_bbox` positioned exactly where the very next line of `prev_bbox`'s
+    paragraph would sit -- a small vertical gap (ordinary same-paragraph
+    line spacing, not the larger gap a real new paragraph leaves) and
+    (near) the same left edge (not a different, indented column)? A
+    negative-ish gap is tolerated since PyMuPDF's per-block bbox is a tight
+    fit around its glyphs and adjacent blocks can overlap by a hair without
+    actually being the same line.
+    """
+    gap = next_bbox[1] - prev_bbox[3]
+    if gap < -2.0 or gap > max_gap:
+        return False
+    return abs(next_bbox[0] - prev_bbox[0]) <= max_x_shift
+
+
+def _looks_like_page_break_split(prev_bbox, prev_page_rect, next_bbox, next_page_rect):
+    """Cross-page counterpart of _looks_like_adjacent_block. Bbox
+    coordinates reset to (0, 0) at the top of every page, so a raw
+    vertical-gap comparison across a page boundary is meaningless -- the
+    signal here instead is position relative to each page's own margins:
+    the previous block sits right at the bottom of its page, and the next
+    one right at the top of the following page, exactly where a paragraph
+    cut off by a page break would land on each side.
+    """
+    prev_near_bottom = prev_bbox[3] >= prev_page_rect.height * 0.80
+    next_near_top = next_bbox[1] <= next_page_rect.height * 0.20
+    return prev_near_bottom and next_near_top
+
+
+def _continues_formula_piece(prev_bbox, next_bbox, margin, tight_margin=2.0):
+    """Whether next_bbox is genuinely the NEXT piece of the formula
+    prev_bbox belongs to, as opposed to an unrelated neighboring formula
+    that merely happens to sit within `margin` points of it in every
+    direction (see _bboxes_close, which this narrows).
+
+    A dense quick-reference layout can stack two DIFFERENT formulas' small
+    single-glyph fragments almost directly on top of each other -- e.g. two
+    different rows' own lone "d" numerator (from each row's own "d/dx"),
+    each with nothing else around it, separated by barely more vertical gap
+    than genuine same-formula pieces have between them horizontally. Such a
+    pair even overlaps in x purely by coincidence (both rows' numerators
+    sit at the same left-column indent), so a plain distance-in-every-
+    direction test can't tell that apart from a real continuation.
+
+    What actually distinguishes them: every genuine continuation seen in
+    this pipeline (a bracket piece following a fraction, an integral's
+    bounds following its glyph, ...) reads FORWARD along the same visual
+    row -- prev_bbox and next_bbox's y-ranges overlap, and the next piece
+    sits within `margin` points of it in x. Two pieces with no y-overlap at
+    all are NOT a safe bet in this kind of layout even when close: a
+    formula's own lone numerator glyph (e.g. the "d" of "d/dx") sitting
+    just above the very next ROW's unrelated opening bracket has been seen
+    only ~3pt away -- tighter than a comfortable margin, yet still a
+    different formula. `tight_margin` is deliberately small (near-zero
+    slack for float/rendering noise) rather than a real "wrapped line"
+    allowance: no genuine multi-line wrap in this pipeline's fraction/
+    sqrt/big-operator reconstruction relies on a no-overlap gap at all --
+    those are all resolved geometrically before this carry logic ever
+    runs -- so there is nothing real for a larger fallback to protect.
+    """
+    y_overlaps = prev_bbox[1] < next_bbox[3] and next_bbox[1] < prev_bbox[3]
+    eff_margin = margin if y_overlaps else tight_margin
+    return _bboxes_close(prev_bbox, next_bbox, eff_margin)
+
+
 _MATH_FONT_HINTS = ("math", "symbol", "cmmi", "cmsy", "cmex", "mt extra")
 
 
@@ -589,7 +696,58 @@ def _flatten_text_spans(blocks):
     return spans
 
 
-def _find_fraction_clusters(page, all_spans, min_overlap=0.6, vreach=18.0):
+def _nearest_line_cluster(candidates, bar_y, above, tolerance=6.0):
+    """Of the candidate spans on one side of a fraction bar, keep only the
+    ones forming the single line closest to the bar -- not everything
+    within the outer vreach window.
+
+    A dense, multi-formula-per-row layout (a quick-reference sheet, say)
+    can pack an unrelated line's tail within just a couple of points of a
+    fraction bar that belongs to the NEXT line -- closer than the true
+    numerator/denominator often sits in a more loosely-set document, so no
+    single fixed vreach is both large enough for the real case and small
+    enough to exclude the wrong one. Distance alone doesn't separate them,
+    but which LINE they're on does: cluster candidates by how far their
+    near edge sits from the bar, keep only the closest cluster (within a
+    small tolerance for the numerator/denominator's own line-height), and
+    drop everything past that gap -- a second, more distant line is
+    dropped even if it would have fit inside a generous flat window.
+    """
+    side = [s for s in candidates if (_bbox_center_y(s["bbox"]) < bar_y) == above]
+    if not side:
+        return []
+
+    def gap(s):
+        y0, y1 = s["bbox"][1], s["bbox"][3]
+        return (bar_y - y1) if above else (y0 - bar_y)
+
+    closest = min(gap(s) for s in side)
+    return [s for s in side if gap(s) <= closest + tolerance]
+
+
+def _looks_like_math_fraction(numerator, denominator):
+    """Guard against treating an ordinary page rule -- a box border, table
+    divider, or underline -- as a fraction's vinculum (see
+    _find_horizontal_bars, which has no way to tell those apart from a real
+    division bar by geometry alone). A genuine \\frac{}{}'s numerator and
+    denominator are short mathematical expressions: single variables,
+    digits, short operator words ("sin", "cos"). Plain prose that merely
+    happens to sit above/below a decorative rule -- a boxed notice, a
+    two-line job-title/name pair, a heading -- reads as ordinary sentences
+    full of real multi-letter words instead. That's exactly the same signal
+    is_math_block leans on for its own "at most one word longer than 3
+    letters" ambiguous-line check, applied here before a bogus fraction
+    ever gets built rather than after.
+    """
+    text = "".join(s["text"] for s in numerator + denominator)
+    if len(text) > 80:
+        return False
+    words = re.findall(r"[A-Za-z]+", text)
+    long_words = [w for w in words if len(w) > 3]
+    return len(long_words) <= 1
+
+
+def _find_fraction_clusters(page, all_spans, min_overlap=0.6, vreach=30.0):
     """Reconstruct \\frac{num}{den} from a fraction bar's geometry.
 
     PyMuPDF's text layer gives no structural link between a fraction's
@@ -597,26 +755,33 @@ def _find_fraction_clusters(page, all_spans, min_overlap=0.6, vreach=18.0):
     to sit above and below empty space, often even split into separate
     "blocks" if they don't otherwise touch anything. The bar itself (see
     _find_horizontal_bars) is the only signal tying them together: gather
-    whatever text overlaps it horizontally, split by which side of it each
-    piece sits on, and require a healthy overlap ratio (not just any
-    overlap) so an adjacent "=" or enclosing "(" that merely brushes the
-    bar's edge isn't swept in as part of the fraction.
+    whatever text overlaps it horizontally within a generous outer window,
+    require a healthy overlap ratio (not just any overlap) so an adjacent
+    "=" or enclosing "(" that merely brushes the bar's edge isn't swept in,
+    then narrow each side down to just its nearest line (see
+    _nearest_line_cluster) so a second, more distant line -- an unrelated
+    row's tail text, in a tightly packed layout -- doesn't get folded in
+    just because it also fit inside the outer window.
     """
     clusters = []
     for bar_x0, bar_x1, bar_y in _find_horizontal_bars(page):
         if _is_sqrt_vinculum(bar_x0, bar_y, all_spans):
             continue
 
-        numerator, denominator = [], []
+        candidates = []
         for s in all_spans:
             sx0, sy0, sx1, sy1 = s["bbox"]
             if _x_overlap_ratio(sx0, sx1, bar_x0 - 1, bar_x1 + 1) < min_overlap:
                 continue
             if sy1 < bar_y - vreach or sy0 > bar_y + vreach:
                 continue
-            (numerator if _bbox_center_y(s["bbox"]) < bar_y else denominator).append(s)
+            candidates.append(s)
 
+        numerator = _nearest_line_cluster(candidates, bar_y, above=True)
+        denominator = _nearest_line_cluster(candidates, bar_y, above=False)
         if not numerator or not denominator:
+            continue
+        if not _looks_like_math_fraction(numerator, denominator):
             continue
 
         numerator.sort(key=lambda s: s["bbox"][0])
@@ -990,12 +1155,28 @@ def find_repeating_header_footer_keys(doc):
     merely happens to sit in that margin (e.g. a title on a page with a
     small top margin) is left alone. A single fixed percentage-band cutoff
     can't tell these apart on its own, since it only looks at position.
+
+    A book-wide count threshold alone only catches running headers/footers
+    that repeat across the *whole* document (page numbers, an ISBN line,
+    a copyright footer). An anthology-style book -- several stories or
+    chapters, each with its OWN running head naming just that piece
+    ("Who Did Patrick's Homework? 7", "...9", "...11", ... -- the trailing
+    page number already collapses via digit normalization) -- has headers
+    that only repeat across that one chapter's handful of pages, nowhere
+    near a book-wide third. Missing those is worse than a merely cosmetic
+    loss: every one of that header's page occurrences then falls through to
+    the ALL-CAPS heading heuristic and gets promoted into its own new
+    <sec><title>, shattering one continuous story into a fresh, mostly-
+    empty "section" on every single page. A key that clusters tightly
+    across at least a few nearby pages -- even if it never repeats
+    book-wide -- is exactly the same kind of running page-furniture text,
+    so it's accepted too.
     """
     if len(doc) < 2:
         return set()
 
-    key_page_counts = {}
-    for page in doc:
+    key_pages = {}
+    for page_num, page in enumerate(doc):
         page_rect = page.rect
         for block in page.get_text("dict")["blocks"]:
             if block.get("type") != 0:
@@ -1005,10 +1186,22 @@ def find_repeating_header_footer_keys(doc):
             )
             key = _header_footer_key(text, block["bbox"], page_rect)
             if key:
-                key_page_counts[key] = key_page_counts.get(key, 0) + 1
+                key_pages.setdefault(key, []).append(page_num)
 
     min_repeats = max(2, len(doc) // 3)
-    return {k for k, count in key_page_counts.items() if count >= min_repeats}
+    # A local cluster: repeats on several pages that stay within a modest
+    # page-index span -- a chapter/story's own running head, not a phrase
+    # that happens to recur once or twice, coincidentally, far apart.
+    local_min_repeats = 3
+    local_span = 30
+
+    keys = set()
+    for key, pages in key_pages.items():
+        if len(pages) >= min_repeats:
+            keys.add(key)
+        elif len(pages) >= local_min_repeats and (max(pages) - min(pages)) <= local_span:
+            keys.add(key)
+    return keys
 
 
 def _cell_texts(table):
@@ -1209,7 +1402,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
     def _continues_carry(next_bbox):
         if carry_bbox is None:
             return False
-        return _bboxes_close(carry_bbox, next_bbox, _FORMULA_PROXIMITY)
+        return _continues_formula_piece(carry_bbox, next_bbox, _FORMULA_PROXIMITY)
 
     def flush_carry():
         nonlocal carry_p, carry_el, carry_parts, carry_bbox
@@ -1217,6 +1410,24 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
             finalize_formula(carry_el, carry_parts)
         carry_p = carry_el = carry_bbox = None
         carry_parts = []
+
+    # Cross-block paragraph continuation state (see
+    # _looks_like_paragraph_continuation / _looks_like_adjacent_block /
+    # _looks_like_page_break_split). PyMuPDF's block segmentation is
+    # supposed to track visual paragraphs, but a layout quirk can split one
+    # real paragraph -- even one single wrapped sentence, with no blank-
+    # paragraph gap at all -- into two or more separate blocks. Without
+    # this, every such split silently became two (or more) separate <p>
+    # elements. Tracked at the whole-document level, not reset per page, so
+    # a paragraph genuinely cut off by a page break can still be rejoined
+    # (see _looks_like_page_break_split) -- but IS reset (see the heading /
+    # table / image branches below) at every point that legitimately ends
+    # a paragraph run, so it can never bridge across one.
+    last_prose_p = None
+    last_prose_bbox = None
+    last_prose_text = ""
+    last_prose_parent = None
+    last_prose_page_rect = None
 
     for page_num in range(len(doc)):
         if log_callback:
@@ -1420,6 +1631,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
         for _, kind, item in items:
             if kind == "table":
                 flush_carry()
+                last_prose_p = None
                 table = item
                 parent = current_sec if current_sec is not None else body
                 table_wrap = ET.SubElement(parent, "table-wrap")
@@ -1563,8 +1775,14 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                 # uppercase letters so a formula built from lone uppercase variables (e.g.
                 # "P(A | B) = P(B | A)P(A) / P(B)") -- which is trivially "all uppercase"
                 # since every cased character in it happens to be a capital letter --
-                # doesn't get mistaken for a heading.
-                is_heading = len(block_text) < 100 and (
+                # doesn't get mistaken for a heading. That guard alone still isn't enough
+                # for matrix algebra, where two adjacent uppercase matrix names (e.g. the
+                # "AB" in "(AB)^T = B^T A^T") form a genuine 2+ run without being a
+                # heading at all -- excluding any block that is itself substantially set
+                # in a math font (_looks_mathy, the same signal used to build formula
+                # islands) closes that gap without touching real headings, which are set
+                # in a bold text font, not a math one.
+                is_heading = len(block_text) < 100 and not _looks_mathy(block) and (
                     (block_text.isupper() and re.search(r'[A-Z]{2,}', block_text))
                     or (bold_ratio > 0.8 and re.match(r'^\d+(\.\d+)*[\.\s]', block_text))
                 )
@@ -1574,6 +1792,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                     current_sec = ET.SubElement(body, "sec")
                     title = ET.SubElement(current_sec, "title")
                     title.text = sanitize_xml_text(block_text)
+                    last_prose_p = None
                     continue
 
                 # Walk the block line by line instead of dumping every line into
@@ -1609,25 +1828,51 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                     else:
                         p.text = (p.text or "") + " "
 
+                def start_formula(latex_piece, line_bbox):
+                    # Factored out so both the brand-new-formula case and the
+                    # gap-broken-restart case below (see is_math_line's proximity
+                    # check) go through identical setup.
+                    nonlocal active_formula, active_parts, active_bbox
+                    if prev_line_text:
+                        ensure_space(current_p, prev_line_text, line_text)
+                    active_formula = ET.SubElement(current_p, "inline-formula")
+                    ET.SubElement(active_formula, "tex-math")
+                    active_parts = [latex_piece]
+                    active_bbox = line_bbox
+
                 for line in dedupe_overlapping_lines(block.get("lines", [])):
                     line_spans = substitute_math_spans(dedupe_overlapping_spans(line.get("spans", [])))
                     line_text = "".join(s["text"] for s in line_spans).strip()
                     if not line_text:
                         continue
 
+                    # This line's OWN bbox, not the whole block's -- a block's
+                    # bbox is the union of every line PyMuPDF happened to file
+                    # under it, which for a dense multi-formula layout (a
+                    # two-column quick-reference sheet, say) can span most of
+                    # the page width even though the block's real content sits
+                    # in one narrow column; PyMuPDF sometimes even leaks a
+                    # stray glyph from a neighboring column's formula into an
+                    # unrelated block's own line list. Using the block's bbox
+                    # for proximity here would make two genuinely separate,
+                    # side-by-side formulas look "close" purely because the
+                    # block containing one of them happens to reach toward the
+                    # other -- the line's own tight bbox doesn't have that
+                    # problem.
+                    line_bbox = line["bbox"]
                     is_math_line = opts["ocr_math"] and is_math_block(line_text, line_spans)
                     latex = sanitize_xml_text(build_latex_from_spans(line_spans)) if is_math_line else None
 
                     if current_p is None:
-                        if latex and carry_el is not None and _continues_carry(bbox):
-                            # This block opens with math, sits right under a
+                        if latex and carry_el is not None and _continues_carry(line_bbox):
+                            # This line opens with math, sits right under a
                             # still-open formula left dangling by the
                             # previous block, and overlaps it horizontally
                             # -- e.g. an integral sign in one block, its
                             # bounds and integrand in the next. Continue it
                             # seamlessly instead of starting a new one.
                             current_p, active_formula, active_parts = carry_p, carry_el, carry_parts
-                            # The carry's OWN bbox, not just this new block's,
+                            # The carry's OWN bbox, not just this new line's,
                             # since a formula's full extent-so-far is what the
                             # *next* continuation should be checked against --
                             # matching only against the most recently attached
@@ -1636,9 +1881,36 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                             # one piece specifically (e.g. a big integral sign
                             # near the formula's start, but just outside reach
                             # of a fraction attached after it).
-                            active_bbox = _union_bbox(carry_bbox, bbox)
+                            active_bbox = _union_bbox(carry_bbox, line_bbox)
                             carry_p = carry_el = carry_bbox = None
                             carry_parts = []
+                        elif (
+                            last_prose_p is not None
+                            and parent is last_prose_parent
+                            and _looks_like_paragraph_continuation(last_prose_text, line_text)
+                            and (
+                                (last_prose_page_rect is page_rect
+                                 and _looks_like_adjacent_block(last_prose_bbox, line_bbox))
+                                or (last_prose_page_rect is not page_rect
+                                    and _looks_like_page_break_split(
+                                        last_prose_bbox, last_prose_page_rect, line_bbox, page_rect))
+                            )
+                        ):
+                            # This block's very first line reads as a
+                            # straight continuation of the previous
+                            # paragraph -- same unfinished sentence,
+                            # positioned exactly where its next line (or,
+                            # across a page break, the top of the next
+                            # page) belongs -- rather than the start of a
+                            # new one. PyMuPDF's own block segmentation is
+                            # meant to track real paragraph boundaries but
+                            # a layout quirk can split one paragraph into
+                            # several blocks with no actual gap between
+                            # them; reuse the still-open <p> instead of
+                            # wrongly starting a fresh, truncated one.
+                            flush_carry()
+                            current_p = last_prose_p
+                            prev_line_text = last_prose_text
                         else:
                             flush_carry()
                             current_p = ET.SubElement(parent, "p")
@@ -1654,16 +1926,32 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                         # <tex-math> element; MathML generation from it is a
                         # separate, later step (see finalize_formula). A run
                         # of consecutive math lines joins into one
-                        # inline-formula rather than fragmenting into several.
+                        # inline-formula rather than fragmenting into several
+                        # -- but only once line_bbox is confirmed close to the
+                        # formula built so far (_bboxes_close), the same test
+                        # used for cross-block continuation above. Without it,
+                        # every math-classified line in a block would be
+                        # glued together regardless of position, which is
+                        # exactly wrong for a block that (per PyMuPDF's own,
+                        # not-column-aware block segmentation) holds pieces of
+                        # two unrelated, side-by-side formulas: a two-column
+                        # formula sheet's left- and right-hand entries have
+                        # been seen sharing one block this way, and blindly
+                        # joining them concatenates two different formulas
+                        # into one meaningless mash. A line that fails the
+                        # check instead closes out whatever formula was in
+                        # progress and starts a fresh one of its own -- which,
+                        # if it's the last thing in the block, is still free
+                        # to carry forward into a genuinely close continuation
+                        # in the next block (see carry_p et al. above).
                         if active_formula is None:
-                            if prev_line_text:
-                                ensure_space(current_p, prev_line_text, line_text)
-                            active_formula = ET.SubElement(current_p, "inline-formula")
-                            ET.SubElement(active_formula, "tex-math")
-                            active_parts = [latex]
-                            active_bbox = bbox
-                        else:
+                            start_formula(latex, line_bbox)
+                        elif _continues_formula_piece(active_bbox, line_bbox, _FORMULA_PROXIMITY):
                             active_parts.append(latex)
+                            active_bbox = _union_bbox(active_bbox, line_bbox)
+                        else:
+                            finalize_formula(active_formula, active_parts)
+                            start_formula(latex, line_bbox)
                         if log_callback:
                             log_callback("Detected math line, built LaTeX directly from PDF text.")
                     else:
@@ -1682,6 +1970,18 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
 
                     prev_line_text = line_text
 
+                if current_p is not None:
+                    # Remember this paragraph, its last line's own text and
+                    # position, so an immediately following block can be
+                    # checked for (and, if it matches, merged into) a
+                    # continuation of it -- see the paragraph-continuation
+                    # branch above.
+                    last_prose_p = current_p
+                    last_prose_bbox = line_bbox
+                    last_prose_text = line_text
+                    last_prose_parent = parent
+                    last_prose_page_rect = page_rect
+
                 if active_formula is not None:
                     # This formula is the last thing the block added -- hold
                     # off finalizing so an immediately following, nearby
@@ -1693,6 +1993,25 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                     carry_p, carry_el, carry_parts, carry_bbox = current_p, active_formula, active_parts, active_bbox
 
             elif block["type"] == 1:  # Image block
+                # A scanned/rasterized page can place hundreds or thousands
+                # of near-invisible raster slivers -- hairline rule strips,
+                # underline shading, antialiasing artifacts -- as their own
+                # tiny image XObjects (seen in the wild: ~5000 on a single
+                # page, most under 1pt tall). PyMuPDF reports each one as
+                # its own type-1 block with no way to tell it apart from a
+                # real photo/diagram except geometry: every genuine figure
+                # on a sampled page in this pipeline's test documents is at
+                # least ~65pt in both dimensions, while every sliver
+                # artifact is under 1pt tall. Require a comfortably-clear
+                # minimum in both directions so real (even fairly small)
+                # illustrations are kept, but this flood of meaningless
+                # slivers -- each rendered as a broken/empty placeholder
+                # link, since this tool doesn't extract image bytes -- never
+                # reaches the output.
+                img_w, img_h = bbox[2] - bbox[0], bbox[3] - bbox[1]
+                if img_w < 20 or img_h < 20:
+                    continue
+
                 # A genuinely embedded equation image (no text layer at all)
                 # has no LaTeX to offer without OCR, which this tool
                 # deliberately doesn't use (slow, and not reliable enough to
@@ -1701,6 +2020,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                 # formulas). Represent it the same as any other image: a
                 # <fig> placeholder the user can match up with the PDF.
                 flush_carry()
+                last_prose_p = None
                 parent = current_sec if current_sec is not None else body
                 fig = ET.SubElement(parent, "fig")
                 graphic = ET.SubElement(fig, "graphic")
