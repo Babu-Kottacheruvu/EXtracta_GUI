@@ -1,8 +1,14 @@
 # Render "Blueprint" -- lets you deploy by pointing Render at this repo
 # (New -> Blueprint) instead of clicking through the web service form by hand.
-# This file must stay at the REPO ROOT (Render looks for it there); rootDir
-# below tells Render that the actual app to build/run lives in server/, so
-# the desktop-client-only files elsewhere in the repo are never touched.
+# This file must stay at the REPO ROOT (Render looks for it there).
+#
+# The backend code lives in server/, but Render's "Root Directory" setting
+# has proven unreliable in practice (kept building from the repo root and
+# ignoring it), so buildCommand/startCommand reference server/ explicitly
+# instead of relying on that setting -- this way it works identically
+# whether the service was created via this Blueprint or by hand in the
+# dashboard (see the manual Build/Start Command fields there).
+#
 # IMPORTANT: workers must stay at 1 -- FILES/JOBS state lives in this
 # process's memory, not a database, so a second worker/instance would not
 # see files or jobs created by the first one.
@@ -10,12 +16,11 @@ services:
   - type: web
     name: extracta
     runtime: python
-    rootDir: server
     plan: starter          # "free" spins down when idle and will kill any
                             # conversion job running at the time; use a paid,
                             # always-on plan for real use.
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --workers=1 --threads=8 --timeout=300 --bind=0.0.0.0:$PORT
+    buildCommand: pip install -r server/requirements.txt
+    startCommand: gunicorn --chdir server app:app --workers=1 --threads=8 --timeout=300 --bind=0.0.0.0:$PORT
     envVars:
       - key: OPENROUTER_API_KEY
         sync: false          # set the real value in the Render dashboard
