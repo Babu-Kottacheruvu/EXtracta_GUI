@@ -1,5 +1,8 @@
 # Render "Blueprint" -- lets you deploy by pointing Render at this repo
 # (New -> Blueprint) instead of clicking through the web service form by hand.
+# This file must stay at the REPO ROOT (Render looks for it there); rootDir
+# below tells Render that the actual app to build/run lives in server/, so
+# the desktop-client-only files elsewhere in the repo are never touched.
 # IMPORTANT: workers must stay at 1 -- FILES/JOBS state lives in this
 # process's memory, not a database, so a second worker/instance would not
 # see files or jobs created by the first one.
@@ -7,6 +10,7 @@ services:
   - type: web
     name: extracta
     runtime: python
+    rootDir: server
     plan: starter          # "free" spins down when idle and will kill any
                             # conversion job running at the time; use a paid,
                             # always-on plan for real use.
