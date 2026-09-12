@@ -1,0 +1,6 @@
+# Render's default Build Command for a Web Service is always
+# `pip install -r requirements.txt` run from the repo root, regardless of
+# what's typed (or not typed) into the dashboard's Build Command field. The
+# actual backend deps live in server/requirements.txt; pip's -r syntax lets
+# this file just point there instead of duplicating the list.
+-r server/requirements.txt
