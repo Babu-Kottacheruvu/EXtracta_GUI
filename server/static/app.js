@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  // Same-origin by default (Flask serving this page itself, e.g. on Render).
+  // When this file is loaded from a separately-hosted frontend (e.g. the
+  // Vercel copy of index.html), that page sets window.EXTRACTA_API_BASE to
+  // the backend's absolute URL before this script runs, so every API call
+  // below still reaches the right place.
+  const API_BASE = window.EXTRACTA_API_BASE || "";
+
   const state = {
     fileId: null,
     filename: "",
@@ -117,7 +124,7 @@
 
     dropzone.querySelector(".dz-text").textContent = "Uploading...";
     try {
-      const res = await fetch("/api/upload", { method: "POST", body: form });
+      const res = await fetch(`${API_BASE}/api/upload`, { method: "POST", body: form });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Upload failed");
 
@@ -172,7 +179,7 @@
     page = Math.max(1, Math.min(page, state.pageCount));
     state.currentPage = page;
     pageInput.value = page;
-    const url = `/api/preview/${state.fileId}/${page}?zoom=${actualZoom()}`;
+    const url = `${API_BASE}/api/preview/${state.fileId}/${page}?zoom=${actualZoom()}`;
     pdfPageWrap.innerHTML = `<img src="${url}" alt="Page ${page}">`;
     highlightActiveThumb();
   }
@@ -214,7 +221,7 @@
       const div = document.createElement("div");
       div.className = "thumb" + (p === state.currentPage ? " active" : "");
       div.dataset.page = p;
-      div.innerHTML = `<img loading="lazy" src="/api/thumbnail/${state.fileId}/${p}" alt="Page ${p} thumbnail"><span class="thumb-num">${p}</span>`;
+      div.innerHTML = `<img loading="lazy" src="${API_BASE}/api/thumbnail/${state.fileId}/${p}" alt="Page ${p} thumbnail"><span class="thumb-num">${p}</span>`;
       div.addEventListener("click", () => loadPreview(p));
       thumbStrip.appendChild(div);
     }
@@ -262,7 +269,7 @@
 
   async function refreshApiKeyStatus() {
     try {
-      const res = await fetch("/api/settings/openrouter-api-key");
+      const res = await fetch(`${API_BASE}/api/settings/openrouter-api-key`);
       const data = await res.json();
       apiKeyConfigured = !!data.configured;
       if (apiKeyConfigured) {
@@ -295,7 +302,7 @@
     if (!key) return;
     saveApiKeyBtn.disabled = true;
     try {
-      const res = await fetch("/api/settings/openrouter-api-key", {
+      const res = await fetch(`${API_BASE}/api/settings/openrouter-api-key`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ api_key: key }),
@@ -446,7 +453,7 @@
       });
       return;
     }
-    window.location.href = `/api/jobs/${state.jobId}/download`;
+    window.location.href = `${API_BASE}/api/jobs/${state.jobId}/download`;
     showToast("File downloaded successfully", "success");
   }
 
@@ -481,7 +488,7 @@
           });
           return;
         }
-        window.location.href = `/api/jobs/${state.jobId}/epub`;
+        window.location.href = `${API_BASE}/api/jobs/${state.jobId}/epub`;
         showToast("File downloaded successfully", "success");
         return;
       }
@@ -540,7 +547,7 @@
     $("#convertHint").textContent = "Starting conversion...";
 
     try {
-      const res = await fetch("/api/convert", {
+      const res = await fetch(`${API_BASE}/api/convert`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(currentOptions()),
@@ -579,7 +586,7 @@
   async function pollJob() {
     if (!state.jobId) return;
     try {
-      const res = await fetch(`/api/jobs/${state.jobId}`);
+      const res = await fetch(`${API_BASE}/api/jobs/${state.jobId}`);
       const data = await res.json();
       appendLogs(data.logs || []);
 
@@ -614,8 +621,8 @@
     showToast("File converted successfully", "success");
 
     const [xmlRes, valRes] = await Promise.all([
-      fetch(`/api/jobs/${state.jobId}/xml`),
-      fetch(`/api/jobs/${state.jobId}/validation`),
+      fetch(`${API_BASE}/api/jobs/${state.jobId}/xml`),
+      fetch(`${API_BASE}/api/jobs/${state.jobId}/validation`),
     ]);
     const xmlData = await xmlRes.json();
     const valData = await valRes.json();

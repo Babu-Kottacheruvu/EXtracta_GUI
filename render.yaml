@@ -16,9 +16,11 @@ services:
   - type: web
     name: extracta
     runtime: python
-    plan: starter          # "free" spins down when idle and will kill any
-                            # conversion job running at the time; use a paid,
-                            # always-on plan for real use.
+    plan: free              # sleeps after 15 min idle; the next visitor eats
+                            # a ~30-50s cold start (the desktop client
+                            # already retries through this -- see
+                            # _check_connection in main_gui.py). Bump to
+                            # "starter" later if that wait becomes a problem.
     buildCommand: pip install -r server/requirements.txt
     startCommand: gunicorn --chdir server app:app --workers=1 --threads=8 --timeout=300 --bind=0.0.0.0:$PORT
     envVars:

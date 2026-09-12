@@ -6,6 +6,7 @@ import traceback
 
 import fitz
 from flask import Flask, request, jsonify, send_file, Response, render_template
+from flask_cors import CORS
 from lxml import etree
 
 from pdf_to_xml import extract_pdf_to_xml
@@ -20,6 +21,15 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 150 * 1024 * 1024  # 150MB
+
+# The UI can now be served separately from this API (e.g. a static copy on
+# Vercel calling this Render-hosted backend), which makes those /api/*
+# requests cross-origin. ALLOWED_ORIGINS lets you lock that down to your real
+# frontend URL(s) in production (comma-separated); left unset, it defaults to
+# "*" since there's no cookie/session auth here for a wildcard to put at risk
+# -- job_id/file_id already act as the only access control either way.
+_allowed_origins = [o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "").split(",") if o.strip()]
+CORS(app, resources={r"/api/*": {"origins": _allowed_origins or "*"}})
 
 FILES = {}  # file_id -> {path, filename, size, page_count}
 JOBS = {}  # job_id -> {status, logs, file_id, xml_path, error, options}

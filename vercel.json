@@ -1,0 +1,4 @@
+{
+  "buildCommand": "node web/build.js",
+  "outputDirectory": "web/public"
+}
