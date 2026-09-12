@@ -1,0 +1,11 @@
+# These exist for Render's benefit (server/ is the Flask backend deployed
+# there). Vercel only needs web/build.js and server/templates/index.html --
+# excluding the Python markers stops Vercel's auto-detection from wastefully
+# installing PyMuPDF/lxml/Flask on every frontend build.
+requirements.txt
+runtime.txt
+server/requirements.txt
+server/uploads/
+server/outputs/
+server/__pycache__/
+server/config.json
