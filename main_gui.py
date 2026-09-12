@@ -28,7 +28,7 @@ import webview
 #      containing just the URL.
 # Falls back to the deployed Render URL below -- replace this with your own
 # once you've deployed (see render.yaml / Procfile).
-DEFAULT_SERVER_URL = "https://extracta.onrender.com"
+DEFAULT_SERVER_URL = "https://extracta-gui.onrender.com"
 
 
 def _app_dir():
