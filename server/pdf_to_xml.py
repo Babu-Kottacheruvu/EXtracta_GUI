@@ -85,6 +85,38 @@ def dedupe_overlapping_lines(lines):
             kept.append(line)
     return kept
 
+
+def reading_order_lines(lines):
+    """Like dedupe_overlapping_lines, but also reorders the result into
+    left-to-right reading order via _row_reading_order.
+
+    PyMuPDF's own line order within a block tracks paint/content-stream
+    order, not left-to-right reading order -- fine for ordinary prose
+    (each line is naturally emitted in text order), but not for a formula
+    whose sub/superscripts sit on different baselines: PyMuPDF can only
+    cluster spans into one "line" when they share a baseline, so a base
+    character, its subscript, and its superscript each become their OWN
+    one-glyph "line", and the order those come back in is whatever order
+    the PDF happened to draw them -- e.g. a subscript painted before the
+    base character it belongs to. Left uncorrected, that reads back as
+    e.g. "1(1)=+-nuund" instead of "u_n = u_1 + (n-1)d".
+
+    Deliberately NOT folded into dedupe_overlapping_lines itself and used
+    only for table cells (the extreme, table-of-single-glyph-fragments
+    case this was written for): a display formula spread across several
+    same-visual-row PyMuPDF blocks already gets its OWN cross-block
+    reordering (see _group_by_proximity / _row_reading_order's other
+    caller), built from each cluster's real anchor position; re-sorting
+    lines *within* one of those blocks on top of that, using only that one
+    line's own narrow bbox with no knowledge of which lines belong to the
+    same fraction/big-operator cluster, has been seen to instead scramble
+    an already-correctly-ordered formula (moving a fraction built from a
+    small numerator-line anchor to the wrong side of a neighbouring "="
+    or "dz"). A table cell's contents are never part of such a
+    cross-block cluster, so it doesn't have that failure mode.
+    """
+    return _row_reading_order(dedupe_overlapping_lines(lines))
+
 _MATH_TOKEN_RE = re.compile(r'\d+\.?\d*|[A-Za-zΑ-Ωα-ω]+|\s+|[^\sA-Za-z0-9]')
 
 # Invisible formatting characters (variation selectors, zero-width space/
@@ -616,6 +648,12 @@ def _row_reading_order(blocks):
     y-overlap at all, so they still land in separate rows and keep their
     natural top-to-bottom order -- only content sharing one visual row
     gets reordered by x instead.
+
+    Also reused by reading_order_lines for the same problem one level
+    down -- individual LINES within a single block, rather than whole
+    blocks -- since PyMuPDF's own line order there tracks paint order, not
+    reading order, and a base character/subscript/superscript split across
+    several one-glyph "lines" has exactly the same stacked-row shape.
     """
     ordered = sorted(blocks, key=lambda b: _bbox_center_y(b["bbox"]))
     rows = []
@@ -1667,7 +1705,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                         cell_dict = page.get_text("dict", clip=cell_bbox)
                         for b in cell_dict.get("blocks", []):
                             if b.get("type") == 0:
-                                for l in dedupe_overlapping_lines(b.get("lines", [])):
+                                for l in reading_order_lines(b.get("lines", [])):
                                     process_spans(th, l.get("spans", []))
 
                 tbody = ET.SubElement(table_el, "tbody")
@@ -1679,7 +1717,7 @@ def extract_pdf_to_xml(pdf_path, output_xml_path, log_callback=None, options=Non
                             cell_dict = page.get_text("dict", clip=cell_bbox)
                             for b in cell_dict.get("blocks", []):
                                 if b.get("type") == 0:
-                                    for l in dedupe_overlapping_lines(b.get("lines", [])):
+                                    for l in reading_order_lines(b.get("lines", [])):
                                         process_spans(td, l.get("spans", []))
                 continue
 
